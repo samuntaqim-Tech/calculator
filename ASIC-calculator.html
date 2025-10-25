@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIC Miner Profitability Calculator</title>
+    <meta name="description" content="Calculate ASIC miner profitability for Bitcoin, Litecoin, and other cryptocurrencies. Compare mining hardware and maximize your profits.">
+    <meta name="keywords" content="ASIC miner, cryptocurrency mining, profitability calculator, bitcoin mining, crypto mining">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --gray: #95a5a6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background-color: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav ul li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        select, input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .profit-positive {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .profit-negative {
+            color: var(--danger);
+            font-weight: 600;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .stats-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+            }
+            
+            nav.desktop {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-title {
+                margin-bottom: 1rem;
+            }
+            
+            .filters {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stats-card {
+                padding: 1rem;
+            }
+            
+            .stats-value {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Additional mobile optimizations */
+        input, select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted #ccc;
+            cursor: help;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ASIC<span>Profit</span></div>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Calculators</a></li>
+                        <li><a href="#">Hardware</a></li>
+                        <li><a href="#">Profitability</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">☰</div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Calculators</a></li>
+                <li><a href="#">Hardware</a></li>
+                <li><a href="#">Profitability</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ASIC Miner Profitability Calculator</h1>
+            <p>Calculate the profitability of your cryptocurrency mining hardware in real-time. Compare different ASIC miners and maximize your mining profits.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Ad Container 1 -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <!-- Replace with your AdSense ad unit ID -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="ad-label">Advertisement</div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Mining Profitability Calculator</h2>
+                <button class="btn">Compare Miners</button>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="miner-select">Select Miner</label>
+                    <select id="miner-select">
+                        <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
+                        <option value="antminer-s19">Bitmain Antminer S19</option>
+                        <option value="whatsminer-m30s">MicroBT Whatsminer M30S</option>
+                        <option value="antminer-l7">Bitmain Antminer L7</option>
+                        <option value="antminer-z15">Bitmain Antminer Z15</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                    <input type="number" id="electricity-cost" value="0.10" step="0.01" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="pool-fee">Pool Fee (%)</label>
+                    <input type="number" id="pool-fee" value="1" step="0.1" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="hashrate">Hashrate (TH/s)</label>
+                    <input type="number" id="hashrate" value="110" step="1" min="0">
+                </div>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="power-consumption">Power Consumption (W)</label>
+                    <input type="number" id="power-consumption" value="3250" step="10" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="miner-cost">Miner Cost ($)</label>
+                    <input type="number" id="miner-cost" value="8000" step="100" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="bitcoin-price">Bitcoin Price ($)</label>
+                    <input type="number" id="bitcoin-price" value="45000" step="100" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="network-difficulty">Network Difficulty</label>
+                    <input type="number" id="network-difficulty" value="25000000" step="100000" min="0">
+                </div>
+            </div>
+            
+            <button class="btn btn-block" id="calculate-btn">Calculate Profitability</button>
+            
+            <div class="grid">
+                <div class="stats-card">
+                    <h3 class="stats-label">Daily Revenue</h3>
+                    <div class="stats-value profit-positive">$35.42</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Daily Profit</h3>
+                    <div class="stats-value profit-positive">$28.15</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Monthly Profit</h3>
+                    <div class="stats-value profit-positive">$844.50</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">ROI Period</h3>
+                    <div class="stats-value">284 days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Container 2 -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <!-- Replace with your AdSense ad unit ID -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="ad-label">Advertisement</div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Top ASIC Miners by Profitability</h2>
+                <button class="btn">View All Miners</button>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Miner</th>
+                            <th>Algorithm</th>
+                            <th>Hashrate</th>
+                            <th>Power</th>
+                            <th>Daily Revenue</th>
+                            <th>Daily Profit</th>
+                            <th>ROI (Days)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bitmain Antminer S19 Pro</td>
+                            <td>SHA-256</td>
+                            <td>110 TH/s</td>
+                            <td>3250W</td>
+                            <td class="profit-positive">$35.42</td>
+                            <td class="profit-positive">$28.15</td>
+                            <td>284</td>
+                        </tr>
+                        <tr>
+                            <td>MicroBT Whatsminer M30S++</td>
+                            <td>SHA-256</td>
+                            <td>112 TH/s</td>
+                            <td>3472W</td>
+                            <td class="profit-positive">$36.10</td>
+                            <td class="profit-positive">$27.85</td>
+                            <td>295</td>
+                        </tr>
+                        <tr>
+                            <td>Bitmain Antminer S19</td>
+                            <td>SHA-256</td>
+                            <td>95 TH/s</td>
+                            <td>3250W</td>
+                            <td class="profit-positive">$30.58</td>
+                            <td class="profit-positive">$23.31</td>
+                            <td>320</td>
+                        </tr>
+                        <tr>
+                            <td>Bitmain Antminer L7</td>
+                            <td>Scrypt</td>
+                            <td>9.5 GH/s</td>
+                            <td>3425W</td>
+                            <td class="profit-positive">$42.15</td>
+                            <td class="profit-positive">$34.88</td>
+                            <td>215</td>
+                        </tr>
+                        <tr>
+                            <td>Bitmain Antminer Z15</td>
+                            <td>Equihash</td>
+                            <td>420 kSol/s</td>
+                            <td>1510W</td>
+                            <td class="profit-positive">$12.45</td>
+                            <td class="profit-positive">$9.80</td>
+                            <td>410</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Ad Container 3 -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <!-- Replace with your AdSense ad unit ID -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="ad-label">Advertisement</div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ASICProfit</h3>
+                    <p>The most accurate ASIC miner profitability calculator. Compare mining hardware and maximize your profits.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Mining Calculators</a></li>
+                        <li><a href="#">Mining Hardware</a></li>
+                        <li><a href="#">Profitability</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Mining Guides</a></li>
+                        <li><a href="#">Mining Pools</a></li>
+                        <li><a href="#">Hardware Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 ASICProfit.com - All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (!mobileNav.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Basic functionality for the calculator
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const btn = this;
+            const originalText = btn.textContent;
+            
+            // Show loading state
+            btn.innerHTML = '<span class="loading"></span> Calculating...';
+            btn.disabled = true;
+            
+            // Simulate calculation delay
+            setTimeout(function() {
+                // Get input values
+                const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+                const hashrate = parseFloat(document.getElementById('hashrate').value);
+                const powerConsumption = parseFloat(document.getElementById('power-consumption').value);
+                const bitcoinPrice = parseFloat(document.getElementById('bitcoin-price').value);
+                const minerCost = parseFloat(document.getElementById('miner-cost').value);
+                const poolFee = parseFloat(document.getElementById('pool-fee').value);
+                
+                // Simple calculation (this would be more complex in a real implementation)
+                const dailyRevenue = (hashrate * 0.00000032 * bitcoinPrice * (1 - poolFee/100)).toFixed(2);
+                const dailyCost = ((powerConsumption / 1000) * 24 * electricityCost).toFixed(2);
+                const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
+                const monthlyProfit = (dailyProfit * 30).toFixed(2);
+                const roiDays = Math.ceil(minerCost / dailyProfit);
+                
+                // Update the display
+                document.querySelectorAll('.stats-value')[0].textContent = '$' + dailyRevenue;
+                document.querySelectorAll('.stats-value')[1].textContent = '$' + dailyProfit;
+                document.querySelectorAll('.stats-value')[2].textContent = '$' + monthlyProfit;
+                document.querySelectorAll('.stats-value')[3].textContent = roiDays + ' days';
+                
+                // Update profit colors
+                const profitElements = document.querySelectorAll('.stats-value');
+                profitElements[0].className = dailyRevenue >= 0 ? 'stats-value profit-positive' : 'stats-value profit-negative';
+                profitElements[1].className = dailyProfit >= 0 ? 'stats-value profit-positive' : 'stats-value profit-negative';
+                profitElements[2].className = monthlyProfit >= 0 ? 'stats-value profit-positive' : 'stats-value profit-negative';
+                
+                // Restore button
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1000);
+        });
+        
+        // Update calculator when miner selection changes
+        document.getElementById('miner-select').addEventListener('change', function() {
+            const miner = this.value;
+            
+            // Update form values based on selected miner
+            switch(miner) {
+                case 'antminer-s19-pro':
+                    document.getElementById('hashrate').value = 110;
+                    document.getElementById('power-consumption').value = 3250;
+                    document.getElementById('miner-cost').value = 8000;
+                    break;
+                case 'antminer-s19':
+                    document.getElementById('hashrate').value = 95;
+                    document.getElementById('power-consumption').value = 3250;
+                    document.getElementById('miner-cost').value = 6500;
+                    break;
+                case 'whatsminer-m30s':
+                    document.getElementById('hashrate').value = 88;
+                    document.getElementById('power-consumption').value = 3344;
+                    document.getElementById('miner-cost').value = 5500;
+                    break;
+                case 'antminer-l7':
+                    document.getElementById('hashrate').value = 9.5;
+                    document.getElementById('power-consumption').value = 3425;
+                    document.getElementById('miner-cost').value = 12000;
+                    break;
+                case 'antminer-z15':
+                    document.getElementById('hashrate').value = 420;
+                    document.getElementById('power-consumption').value = 1510;
+                    document.getElementById('miner-cost').value = 4000;
+                    break;
+            }
+        });
+        
+        // Auto-calculate when inputs change (with debounce)
+        let calculateTimeout;
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                clearTimeout(calculateTimeout);
+                calculateTimeout = setTimeout(function() {
+                    document.getElementById('calculate-btn').click();
+                }, 800);
+            });
+        });
+        
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('calculate-btn').click();
+        });
+    </script>
+</body>
+</html>
