@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIC Miner Profitability Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f5f7fa; color: #2c3e50; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { background: #2c3e50; color: white; padding: 25px; border-radius: 10px; margin-bottom: 25px; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .input-group { margin: 20px 0; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #2c3e50; font-size: 16px; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; transition: border 0.3s; }
+        input:focus, select:focus { border-color: #3498db; outline: none; }
+        button { width: 100%; padding: 16px; background: #3498db; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: background 0.3s; }
+        button:hover { background: #2980b9; }
+        .results { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .result-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .value { font-size: 28px; font-weight: bold; margin: 10px 0; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { color: #2c3e50; margin-bottom: 20px; font-size: 1.8rem; }
+        @media (max-width: 600px) { 
+            .results { grid-template-columns: 1fr; } 
+            .container { padding: 10px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ ASIC Miner Calculator</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Calculate Your Cryptocurrency Mining Profits</p>
+        </header>
+        
+        <div class="card">
+            <h2>💰 Profitability Calculator</h2>
+            
+            <div class="input-group">
+                <label for="miner">🖥️ Miner Model</label>
+                <select id="miner">
+                    <option value="s19pro">Antminer S19 Pro (110 TH/s)</option>
+                    <option value="s19">Antminer S19 (95 TH/s)</option>
+                    <option value="m30s">Whatsminer M30S (88 TH/s)</option>
+                    <option value="l7">Antminer L7 (9.5 GH/s)</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="electricity">⚡ Electricity Cost ($/kWh)</label>
+                <input type="number" id="electricity" value="0.10" step="0.01" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="hashrate">📊 Hashrate (TH/s)</label>
+                <input type="number" id="hashrate" value="110" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="power">🔋 Power Consumption (W)</label>
+                <input type="number" id="power" value="3250" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="bitcoin">₿ Bitcoin Price ($)</label>
+                <input type="number" id="bitcoin" value="45000" min="0">
+            </div>
+            
+            <button onclick="calculateProfit()">🚀 Calculate Profitability</button>
+            
+            <div class="results">
+                <div class="result-card">
+                    <div>Daily Revenue</div>
+                    <div class="value" id="revenue">$35.42</div>
+                    <small>Per Day</small>
+                </div>
+                <div class="result-card">
+                    <div>Daily Profit</div>
+                    <div class="value" id="profit">$28.15</div>
+                    <small>After Costs</small>
+                </div>
+                <div class="result-card">
+                    <div>Monthly Profit</div>
+                    <div class="value" id="monthly">$844.50</div>
+                    <small>30 Days</small>
+                </div>
+                <div class="result-card">
+                    <div>ROI Period</div>
+                    <div class="value" id="roi">284</div>
+                    <small>Days</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="text-align: center; background: #2c3e50; color: white;">
+            <h3>📈 Start Mining Today!</h3>
+            <p>Maximize your cryptocurrency mining profits with our advanced calculator</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateProfit() {
+            // Get input values
+            const electricity = parseFloat(document.getElementById('electricity').value) || 0.10;
+            const hashrate = parseFloat(document.getElementById('hashrate').value) || 110;
+            const power = parseFloat(document.getElementById('power').value) || 3250;
+            const bitcoinPrice = parseFloat(document.getElementById('bitcoin').value) || 45000;
+            const minerCost = 8000; // Fixed cost for demo
+            
+            // Mining calculations
+            const dailyRevenue = (hashrate * 0.00000032 * bitcoinPrice).toFixed(2);
+            const dailyCost = ((power / 1000) * 24 * electricity).toFixed(2);
+            const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
+            const monthlyProfit = (dailyProfit * 30).toFixed(2);
+            const roiDays = Math.ceil(minerCost / dailyProfit);
+            
+            // Update display
+            document.getElementById('revenue').textContent = '$' + dailyRevenue;
+            document.getElementById('profit').textContent = '$' + dailyProfit;
+            document.getElementById('monthly').textContent = '$' + monthlyProfit;
+            document.getElementById('roi').textContent = roiDays;
+            
+            // Update miner details when selection changes
+            updateMinerDetails();
+        }
+        
+        function updateMinerDetails() {
+            const miner = document.getElementById('miner').value;
+            let hashrate, power;
+            
+            switch(miner) {
+                case 's19pro':
+                    hashrate = 110;
+                    power = 3250;
+                    break;
+                case 's19':
+                    hashrate = 95;
+                    power = 3250;
+                    break;
+                case 'm30s':
+                    hashrate = 88;
+                    power = 3344;
+                    break;
+                case 'l7':
+                    hashrate = 9.5;
+                    power = 3425;
+                    break;
+                default:
+                    hashrate = 110;
+                    power = 3250;
+            }
+            
+            document.getElementById('hashrate').value = hashrate;
+            document.getElementById('power').value = power;
+        }
+        
+        // Auto-update when miner selection changes
+        document.getElementById('miner').addEventListener('change', function() {
+            updateMinerDetails();
+            calculateProfit();
+        });
+        
+        // Auto-calculate when any input changes
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculateProfit);
+        });
+        
+        // Calculate on page load
+        calculateProfit();
+    </script>
+</body>
+</html>
