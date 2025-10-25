@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Profitability Calculator - Best Miners Profit</title>
+    <meta name="description" content="Advanced ASIC miner profitability calculator with detailed cost analysis, electricity calculations, and ROI projections for Bitcoin, Litecoin, and cryptocurrency mining.">
+    <meta name="keywords" content="mining profitability calculator, Bitcoin profit calculator, crypto mining calculator, ASIC ROI calculator, mining cost analysis, electricity cost calculator, mining profit forecast">
+    <style>
+        /* Include all the same CSS styles from index.html */
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #e53e3e;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --gray: #718096;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav.desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav.desktop ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav.desktop ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav.desktop ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark) !important;
+            padding: 0.75rem 1rem;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background: var(--light);
+            color: var(--secondary) !important;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav ul li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        select, input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .profit-positive {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .profit-negative {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .stats-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--secondary);
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .advanced-options {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav.desktop {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filters {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                </div>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="profitability.html" style="color: #ffd700;">Calculators</a>
+                            <div class="dropdown-content">
+                                <a href="profitability.html">Profitability Calculator</a>
+                                <a href="comparison.html">Miner Comparison</a>
+                                <a href="roi-calculator.html">ROI Calculator</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="asic-miners.html">Miners</a>
+                            <div class="dropdown-content">
+                                <a href="asic-miners.html">ASIC Miners</a>
+                                <a href="gpu-miners.html">GPU Miners</a>
+                                <a href="most-profitable.html">Most Profitable</a>
+                            </div>
+                        </li>
+                        <li><a href="mining-pools.html">Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">☰</div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profitability.html" style="color: #ffd700;">Calculators</a></li>
+                <li><a href="asic-miners.html">Miners</a></li>
+                <li><a href="mining-pools.html">Pools</a></li>
+                <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Advanced Profitability Calculator</h1>
+            <p>Detailed mining profitability analysis with advanced cost calculations and ROI projections</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567892"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Advanced Mining Calculator</h2>
+                <div>
+                    <a href="index.html" class="btn">Basic Calculator</a>
+                    <a href="comparison.html" class="btn" style="margin-left: 10px;">Compare Miners</a>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('quick-calc')">Quick Calculator</div>
+                <div class="tab" onclick="switchTab('advanced-calc')">Advanced Settings</div>
+                <div class="tab" onclick="switchTab('cost-analysis')">Cost Analysis</div>
+            </div>
+
+            <div class="tab-content active" id="quick-calc">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="miner-select">Miner Model</label>
+                        <select id="miner-select">
+                            <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
+                            <option value="antminer-s19">Bitmain Antminer S19</option>
+                            <option value="whatsminer-m30s">MicroBT Whatsminer M30S++</option>
+                            <option value="antminer-l7">Bitmain Antminer L7</option>
+                            <option value="antminer-z15">Bitmain Antminer Z15</option>
+                            <option value="antminer-k7">Bitmain Antminer K7</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                        <input type="number" id="electricity-cost" value="0.10" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="pool-fee">Pool Fee (%)</label>
+                        <input type="number" id="pool-fee" value="1" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="hashrate">Hashrate</label>
+                        <input type="number" id="hashrate" value="110" step="1" min="0">
+                    </div>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="power-consumption">Power Consumption (W)</label>
+                        <input type="number" id="power-consumption" value="3250" step="10" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="miner-cost">Miner Cost ($)</label>
+                        <input type="number" id="miner-cost" value="8000" step="100" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="bitcoin-price">Bitcoin Price ($)</label>
+                        <input type="number" id="bitcoin-price" value="45000" step="100" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="network-difficulty">Network Difficulty</label>
+                        <input type="number" id="network-difficulty" value="25000000" step="100000" min="0">
+                    </div>
+                </div>
+
+                <button class="btn btn-block" id="calculate-btn">Calculate Profitability</button>
+            </div>
+
+            <div class="tab-content" id="advanced-calc">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="mining-algorithm">Mining Algorithm</label>
+                        <select id="mining-algorithm">
+                            <option value="sha256">SHA-256 (Bitcoin)</option>
+                            <option value="scrypt">Scrypt (Litecoin)</option>
+                            <option value="ethash">Ethash (Ethereum)</option>
+                            <option value="equihash">Equihash (Zcash)</option>
+                            <option value="randomx">RandomX (Monero)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="block-reward">Block Reward</label>
+                        <input type="number" id="block-reward" value="6.25" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="block-time">Block Time (minutes)</label>
+                        <input type="number" id="block-time" value="10" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="mining-duration">Mining Duration (months)</label>
+                        <input type="number" id="mining-duration" value="12" step="1" min="1">
+                    </div>
+                </div>
+
+                <div class="advanced-options">
+                    <h4>Additional Costs</h4>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="cooling-cost">Cooling Cost ($/month)</label>
+                            <input type="number" id="cooling-cost" value="20" step="5" min="0">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="maintenance-cost">Maintenance ($/month)</label>
+                            <input type="number" id="maintenance-cost" value="15" step="5" min="0">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="internet-cost">Internet Cost ($/month)</label>
+                            <input type="number" id="internet-cost" value="10" step="5" min="0">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="other-costs">Other Costs ($/month)</label>
+                            <input type="number" id="other-costs" value="5" step="5" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-block" id="calculate-advanced-btn">Calculate Advanced</button>
+            </div>
+
+            <div class="tab-content" id="cost-analysis">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="hardware-depreciation">Hardware Depreciation (%)</label>
+                        <input type="number" id="hardware-depreciation" value="20" step="1" min="0" max="100">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="tax-rate">Tax Rate (%)</label>
+                        <input type="number" id="tax-rate" value="15" step="1" min="0" max="100">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="inflation-rate">Inflation Rate (%)</label>
+                        <input type="number" id="inflation-rate" value="3" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="difficulty-increase">Difficulty Increase (%/month)</label>
+                        <input type="number" id="difficulty-increase" value="5" step="0.1" min="0">
+                    </div>
+                </div>
+
+                <button class="btn btn-block" id="calculate-cost-btn">Run Cost Analysis</button>
+            </div>
+
+            <div class="grid">
+                <div class="stats-card">
+                    <h3 class="stats-label">Daily Revenue</h3>
+                    <div class="stats-value profit-positive" id="daily-revenue">$35.42</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Daily Profit</h3>
+                    <div class="stats-value profit-positive" id="daily-profit">$28.15</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Monthly Profit</h3>
+                    <div class="stats-value profit-positive" id="monthly-profit">$844.50</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">ROI Period</h3>
+                    <div class="stats-value" id="roi-days">284 days</div>
+                </div>
+            </div>
+
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="stats-card">
+                    <h3 class="stats-label">Electricity Cost/Day</h3>
+                    <div class="stats-value" id="electricity-cost-day">$7.80</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Monthly Revenue</h3>
+                    <div class="stats-value profit-positive" id="monthly-revenue">$1,062.60</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Annual Profit</h3>
+                    <div class="stats-value profit-positive" id="annual-profit">$10,273.75</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Break-even Point</h3>
+                    <div class="stats-value" id="break-even">9.5 months</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567893"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Profitability Projection (12 Months)</h2>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Revenue</th>
+                            <th>Electricity Cost</th>
+                            <th>Other Costs</th>
+                            <th>Net Profit</th>
+                            <th>Cumulative Profit</th>
+                            <th>ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projection-table">
+                        <!-- Projection data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Best Miners Profit</h3>
+                    <p>Advanced mining profitability calculator with detailed cost analysis and projections.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Calculator Tools</h3>
+                    <ul>
+                        <li><a href="index.html">Basic Calculator</a></li>
+                        <li><a href="profitability.html">Advanced Calculator</a></li>
+                        <li><a href="comparison.html">Miner Comparison</a></li>
+                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">Mining News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Best Miners Profit. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Calculator functionality
+        function calculateProfitability() {
+            const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+            const hashrate = parseFloat(document.getElementById('hashrate').value);
+            const powerConsumption = parseFloat(document.getElementById('power-consumption').value);
+            const bitcoinPrice = parseFloat(document.getElementById('bitcoin-price').value);
+            const minerCost = parseFloat(document.getElementById('miner-cost').value);
+            const poolFee = parseFloat(document.getElementById('pool-fee').value) / 100;
+            
+            // Basic calculations
+            const dailyRevenue = (hashrate * 0.00000032 * bitcoinPrice * (1 - poolFee)).toFixed(2);
+            const dailyCost = ((powerConsumption / 1000) * 24 * electricityCost).toFixed(2);
+            const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
+            const monthlyProfit = (dailyProfit * 30).toFixed(2);
+            const monthlyRevenue = (dailyRevenue * 30).toFixed(2);
+            const annualProfit = (dailyProfit * 365).toFixed(2);
+            const roiDays = Math.ceil(minerCost / dailyProfit);
+            const breakEvenMonths = (minerCost / monthlyProfit).toFixed(1);
+            
+            // Update basic stats
+            document.getElementById('daily-revenue').textContent = '$' + dailyRevenue;
+            document.getElementById('daily-profit').textContent = '$' + dailyProfit;
+            document.getElementById('monthly-profit').textContent = '$' + monthlyProfit;
+            document.getElementById('roi-days').textContent = roiDays + ' days';
+            document.getElementById('electricity-cost-day').textContent = '$' + dailyCost;
+            document.getElementById('monthly-revenue').textContent = '$' + monthlyRevenue;
+            document.getElementById('annual-profit').textContent = '$' + annualProfit;
+            document.getElementById('break-even').textContent = breakEvenMonths + ' months';
+            
+            // Generate projection table
+            generateProjectionTable(dailyRevenue, dailyCost, monthlyProfit, minerCost);
+        }
+
+        function generateProjectionTable(dailyRevenue, dailyCost, monthlyProfit, minerCost) {
+            const table = document.getElementById('projection-table');
+            table.innerHTML = '';
+            
+            let cumulativeProfit = 0;
+            
+            for (let month = 1; month <= 12; month++) {
+                const monthlyRev = (dailyRevenue * 30 * (1 - (month * 0.02))).toFixed(2); // 2% decrease monthly due to difficulty
+                const monthlyCost = (dailyCost * 30).toFixed(2);
+                const otherCosts = (15).toFixed(2);
+                const netProfit = (monthlyRev - monthlyCost - otherCosts).toFixed(2);
+                cumulativeProfit += parseFloat(netProfit);
+                const roi = ((cumulativeProfit / minerCost) * 100).toFixed(1);
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${month}</td>
+                    <td>$${monthlyRev}</td>
+                    <td>$${monthlyCost}</td>
+                    <td>$${otherCosts}</td>
+                    <td class="profit-positive">$${netProfit}</td>
+                    <td class="profit-positive">$${cumulativeProfit.toFixed(2)}</td>
+                    <td>${roi}%</td>
+                `;
+                table.appendChild(row);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('calculate-btn').addEventListener('click', calculateProfitability);
+        document.getElementById('calculate-advanced-btn').addEventListener('click', calculateProfitability);
+        document.getElementById('calculate-cost-btn').addEventListener('click', calculateProfitability);
+
+        // Auto-calculate on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateProfitability();
+        });
+
+        // Update miner details when selection changes
+        document.getElementById('miner-select').addEventListener('change', function() {
+            const miner = this.value;
+            let hashrate, power;
+            
+            switch(miner) {
+                case 'antminer-s19-pro':
+                    hashrate = 110;
+                    power = 3250;
+                    break;
+                case 'antminer-s19':
+                    hashrate = 95;
+                    power = 3250;
+                    break;
+                case 'whatsminer-m30s':
+                    hashrate = 112;
+                    power = 3472;
+                    break;
+                case 'antminer-l7':
+                    hashrate = 9.5;
+                    power = 3425;
+                    break;
+                case 'antminer-z15':
+                    hashrate = 420;
+                    power = 1510;
+                    break;
+                case 'antminer-k7':
+                    hashrate = 63;
+                    power = 3300;
+                    break;
+                default:
+                    hashrate = 110;
+                    power = 3250;
+            }
+            
+            document.getElementById('hashrate').value = hashrate;
+            document.getElementById('power-consumption').value = power;
+            calculateProfitability();
+        });
+    </script>
+</body>
+</html>
