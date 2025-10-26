@@ -1,7 +1,7 @@
 // ==================== ADSENSE INTEGRATION ====================
 
 // Your AdSense ID
-const ADSENSE_ID = 'ca-pub-4103650365925612';
+const ADSENSE_ID = 'ca-app-pub-4103650365925612~8216006757';
 
 // Initialize AdSense
 function initializeAdSense() {
