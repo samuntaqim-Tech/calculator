@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Best Miners Profit | Get Help with Mining Calculators & Tools</title>
+    <meta name="description" content="Contact Best Miners Profit for help with mining calculators, profitability tools, and cryptocurrency mining questions. Get support and send feedback.">
+    <meta name="keywords" content="contact mining calculator, mining support, cryptocurrency mining help, mining tools contact, feedback mining calculator">
+    <style>
+        /* Include all the same CSS styles from index.html */
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #e53e3e;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --gray: #718096;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav.desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav.desktop ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav.desktop ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav.desktop ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark) !important;
+            padding: 0.75rem 1rem;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background: var(--light);
+            color: var(--secondary) !important;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav ul li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            background-color: #2f855a;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .stats-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details p {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .success-message {
+            background: var(--success);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .error-message {
+            background: var(--accent);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .faq-section {
+            margin-top: 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            nav.desktop {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                </div>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="profitability.html">Calculators</a>
+                            <div class="dropdown-content">
+                                <a href="profitability.html">Profitability Calculator</a>
+                                <a href="comparison.html">Miner Comparison</a>
+                                <a href="roi-calculator.html">ROI Calculator</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="asic-miners.html">Miners</a>
+                            <div class="dropdown-content">
+                                <a href="asic-miners.html">ASIC Miners</a>
+                                <a href="gpu-miners.html">GPU Miners</a>
+                                <a href="most-profitable.html">Most Profitable</a>
+                            </div>
+                        </li>
+                        <li><a href="mining-pools.html">Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html" style="color: #ffd700;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">☰</div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profitability.html">Calculators</a></li>
+                <li><a href="asic-miners.html">Miners</a></li>
+                <li><a href="mining-pools.html">Pools</a></li>
+                <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html" style="color: #ffd700;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get help with mining calculators, report issues, or share feedback. We're here to assist you!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567904"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Get In Touch</h2>
+                <div>
+                    <a href="help.html" class="btn">Help Center</a>
+                    <a href="faq.html" class="btn" style="margin-left: 10px;">FAQ</a>
+                </div>
+            </div>
+
+            <div id="success-message" class="success-message">
+                ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+            </div>
+
+            <div id="error-message" class="error-message">
+                ❌ There was an error sending your message. Please try again or contact us directly.
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="calculator-help">Calculator Help</option>
+                                <option value="data-correction">Data Correction</option>
+                                <option value="feature-request">Feature Request</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="advertising">Advertising</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="bug-report">Bug Report</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Describe your issue or inquiry in detail..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block btn-success">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color: #ffd700; margin-bottom: 1.5rem;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p>support@bestminersprofit.com</p>
+                            <p>We typically respond within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h4>Response Time</h4>
+                            <p>24-48 hours for general inquiries</p>
+                            <p>Faster response for urgent calculator issues</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Follow Us</h4>
+                            <p>Stay updated with mining news and tool updates</p>
+                            <p>Twitter: @BestMinersProfit</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💡</div>
+                        <div class="contact-details">
+                            <h4>Before Contacting</h4>
+                            <p>Check our FAQ section for quick answers</p>
+                            <p>Ensure you've tried refreshing the calculator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567905"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Why Contact Us?</h2>
+            </div>
+            
+            <div class="grid">
+                <div class="stats-card">
+                    <div class="stats-value">🔧</div>
+                    <h3 class="stats-label">Calculator Issues</h3>
+                    <p>Report bugs or incorrect calculations in our mining tools</p>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-value">📊</div>
+                    <h3 class="stats-label">Data Updates</h3>
+                    <p>Suggest updates for miner prices, specifications, or pool data</p>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-value">💡</div>
+                    <h3 class="stats-label">Feature Requests</h3>
+                    <p>Request new features or improvements to our tools</p>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-value">🤝</div>
+                    <h3 class="stats-label">Partnerships</h3>
+                    <p>Discuss collaboration opportunities or advertising</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-section">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How accurate are your profitability calculations?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our calculations are based on current network data, electricity costs, and hardware specifications. While we strive for accuracy, actual profits may vary due to:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>Network difficulty changes</li>
+                            <li>Cryptocurrency price volatility</li>
+                            <li>Pool fees and performance</li>
+                            <li>Hardware efficiency variations</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">We update our data regularly to provide the most accurate estimates possible.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How often is your miner data updated?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We update our miner database:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li><strong>Prices:</strong> Weekly or when significant changes occur</li>
+                            <li><strong>Specifications:</strong> When new information is available</li>
+                            <li><strong>Profitability:</strong> Real-time based on current market data</li>
+                            <li><strong>User-reported data:</strong> Within 24 hours of verification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I suggest a new miner to add to your database?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We welcome suggestions for new miners to add to our database. Please include:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>Miner model name and manufacturer</li>
+                            <li>Official specifications if available</li>
+                            <li>Current market price</li>
+                            <li>Any reliable source links</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">We'll verify the information and add it to our database within 1-2 business days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you provide investment advice?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>No, we do not provide investment advice.</strong> Our tools are designed to provide:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>Technical calculations and data analysis</li>
+                            <li>Comparative information about mining hardware</li>
+                            <li>Educational resources about cryptocurrency mining</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">All mining and investment decisions should be made based on your own research and risk assessment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I report incorrect data?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If you find incorrect data, please:</p>
+                        <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>Use the contact form above</li>
+                            <li>Select "Data Correction" as the subject</li>
+                            <li>Provide the specific data that needs correction</li>
+                            <li>Include reliable sources for the correct information</li>
+                        </ol>
+                        <p style="margin-top: 0.5rem;">We'll verify and update the data within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Best Miners Profit</h3>
+                    <p>Your trusted partner for cryptocurrency mining calculations and tools since 2023.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="profitability.html">Profitability Calculator</a></li>
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Best Miners Profit. All rights reserved. | Cryptocurrency Mining Calculators & Tools
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const toggle = this.querySelector('.faq-toggle');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer) {
+                        otherAnswer.classList.remove('active');
+                        otherAnswer.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate form submission (in real implementation, this would send to a server)
+            simulateFormSubmission(name, email, subject, message);
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function simulateFormSubmission(name, email, subject, message) {
+            // Show loading state
+            const submitButton = document.querySelector('#contact-form button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // In a real implementation, you would send this data to your server
+                console.log('Form submission:', { name, email, subject, message });
+                
+                // Show success message
+                showSuccess();
+                
+                // Reset form
+                document.getElementById('contact-form').reset();
+                
+                // Restore button
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        }
+
+        function showSuccess() {
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        function showError(message) {
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            successMessage.style.display = 'none';
+            errorMessage.textContent = `❌ ${message}`;
+            errorMessage.style.display = 'block';
+            
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Auto-hide messages when user starts typing
+        document.querySelectorAll('#contact-form input, #contact-form select, #contact-form textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
