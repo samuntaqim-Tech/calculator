@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining News - Best Miners Profit | Cryptocurrency Mining News & Updates</title>
+    <meta name="description" content="Latest cryptocurrency mining news, Bitcoin mining updates, ASIC miner releases, mining regulations, and industry trends. Stay informed about mining profitability.">
+    <meta name="keywords" content="mining news, Bitcoin mining news, cryptocurrency news, mining updates, ASIC miner news, mining regulations, mining profitability news, blockchain news">
+    <style>
+        /* Include all the same CSS styles from index.html */
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #e53e3e;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --gray: #718096;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav.desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav.desktop ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav.desktop ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav.desktop ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark) !important;
+            padding: 0.75rem 1rem;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background: var(--light);
+            color: var(--secondary) !important;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav ul li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        select, input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .stats-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+        
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .news-date {
+            display: flex;
+            align-items: center;
+        }
+        
+        .trending-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-box input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .pagination button {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            min-width: 40px;
+        }
+        
+        .pagination button.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .pagination button:hover:not(.active) {
+            background: #f1f1f1;
+        }
+        
+        .newsletter-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .newsletter-input {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav.desktop {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-input {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                </div>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="profitability.html">Calculators</a>
+                            <div class="dropdown-content">
+                                <a href="profitability.html">Profitability Calculator</a>
+                                <a href="comparison.html">Miner Comparison</a>
+                                <a href="roi-calculator.html">ROI Calculator</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="asic-miners.html">Miners</a>
+                            <div class="dropdown-content">
+                                <a href="asic-miners.html">ASIC Miners</a>
+                                <a href="gpu-miners.html">GPU Miners</a>
+                                <a href="most-profitable.html">Most Profitable</a>
+                            </div>
+                        </li>
+                        <li><a href="mining-pools.html">Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html" style="color: #ffd700;">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">☰</div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profitability.html">Calculators</a></li>
+                <li><a href="asic-miners.html">Miners</a></li>
+                <li><a href="mining-pools.html">Pools</a></li>
+                <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                <li><a href="news.html" style="color: #ffd700;">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Mining News & Updates</h1>
+            <p>Stay informed with the latest cryptocurrency mining news, ASIC releases, and industry trends</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567902"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Latest Mining News</h2>
+                <div>
+                    <a href="news-archive.html" class="btn btn-outline">Archive</a>
+                    <a href="news-rss.html" class="btn" style="margin-left: 10px;">RSS Feed</a>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search news articles..." onkeyup="searchNews()">
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="category-filter">Category</label>
+                    <select id="category-filter" onchange="filterNews()">
+                        <option value="all">All Categories</option>
+                        <option value="hardware">Hardware News</option>
+                        <option value="profitability">Profitability</option>
+                        <option value="regulations">Regulations</option>
+                        <option value="industry">Industry News</option>
+                        <option value="guides">Guides & Tutorials</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="time-filter">Time Period</label>
+                    <select id="time-filter" onchange="filterNews()">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-by">Sort By</label>
+                    <select id="sort-by" onchange="sortNews()">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <button class="btn btn-block" onclick="loadMoreNews()" style="margin-top: 1.7rem;">Load More News</button>
+                </div>
+            </div>
+
+            <div class="news-grid" id="news-grid">
+                <!-- News articles will be populated by JavaScript -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567903"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="newsletter-box">
+            <h2>📧 Stay Updated</h2>
+            <p>Get the latest mining news and profitability updates delivered to your inbox</p>
+            <div class="newsletter-input">
+                <input type="email" placeholder="Enter your email address">
+                <button class="btn" style="background: #ffd700; color: #1a365d;">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Trending Topics</h2>
+            </div>
+            
+            <div class="grid">
+                <div class="stats-card">
+                    <h3 class="stats-label">Bitcoin Halving</h3>
+                    <div class="stats-value">2024</div>
+                    <div class="stats-label">Next Halving Event</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Network Difficulty</h3>
+                    <div class="stats-value">+5.2%</div>
+                    <div class="stats-label">Last Adjustment</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Bitcoin Price</h3>
+                    <div class="stats-value">$45,200</div>
+                    <div class="stats-label">Current Price</div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3 class="stats-label">Mining Revenue</h3>
+                    <div class="stats-value">$35.8M</div>
+                    <div class="stats-label">Daily (All Miners)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Popular Mining Guides</h2>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">📊</div>
+                    <div class="news-content">
+                        <span class="news-category">GUIDE</span>
+                        <h3 class="news-title">How to Calculate Mining Profitability in 2024</h3>
+                        <p class="news-excerpt">Complete guide to understanding mining profitability factors including electricity costs, difficulty, and hardware efficiency.</p>
+                        <div class="news-meta">
+                            <span class="news-date">📅 3 days ago</span>
+                            <span>15 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">⚡</div>
+                    <div class="news-content">
+                        <span class="news-category">GUIDE</span>
+                        <h3 class="news-title">Best ASIC Miners for Home Mining Setup</h3>
+                        <p class="news-excerpt">Learn which ASIC miners are suitable for home mining considering noise, power consumption, and profitability.</p>
+                        <div class="news-meta">
+                            <span class="news-date">📅 1 week ago</span>
+                            <span>12 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">🔧</div>
+                    <div class="news-content">
+                        <span class="news-category">GUIDE</span>
+                        <h3 class="news-title">Mining Pool Selection: PPS vs PPLNS Explained</h3>
+                        <p class="news-excerpt">Understand different payout methods and choose the best mining pool for your mining operation.</p>
+                        <div class="news-meta">
+                            <span class="news-date">📅 2 weeks ago</span>
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Best Miners Profit</h3>
+                    <p>Your trusted source for cryptocurrency mining news, updates, and educational content.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>News Categories</h3>
+                    <ul>
+                        <li><a href="news.html">All News</a></li>
+                        <li><a href="hardware-news.html">Hardware News</a></li>
+                        <li><a href="profitability-news.html">Profitability Updates</a></li>
+                        <li><a href="regulation-news.html">Regulation News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="guides.html">Mining Guides</a></li>
+                        <li><a href="calculators.html">All Calculators</a></li>
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Best Miners Profit. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample news data
+        const newsData = [
+            {
+                id: 1,
+                title: "Bitmain Announces New Antminer S21 Pro with 200 TH/s Hashrate",
+                excerpt: "Bitmain reveals their latest ASIC miner featuring improved efficiency and unprecedented hashing power for Bitcoin mining.",
+                category: "hardware",
+                date: "2 hours ago",
+                readTime: "5 min read",
+                trending: true,
+                icon: "⚡"
+            },
+            {
+                id: 2,
+                title: "Bitcoin Mining Difficulty Reaches All-Time High",
+                excerpt: "Network difficulty increases by 6.3% as more miners join the network, impacting profitability for existing operations.",
+                category: "profitability",
+                date: "5 hours ago",
+                readTime: "3 min read",
+                trending: true,
+                icon: "📈"
+            },
+            {
+                id: 3,
+                title: "Texas Approves New Mining-Friendly Energy Regulations",
+                excerpt: "Texas introduces incentives for cryptocurrency mining operations to help stabilize the state's power grid.",
+                category: "regulations",
+                date: "1 day ago",
+                readTime: "4 min read",
+                trending: false,
+                icon: "🇺🇸"
+            },
+            {
+                id: 4,
+                title: "MicroBT Unveils Whatsminer M60 Series with 4nm Chips",
+                excerpt: "New generation of Bitcoin miners promises 40% better efficiency compared to previous models.",
+                category: "hardware",
+                date: "1 day ago",
+                readTime: "6 min read",
+                trending: true,
+                icon: "🔧"
+            },
+            {
+                id: 5,
+                title: "Ethereum Mining Phase-Out Complete: What's Next for GPU Miners?",
+                excerpt: "With Ethereum's move to Proof-of-Stake, GPU miners explore alternative cryptocurrencies and new revenue streams.",
+                category: "industry",
+                date: "2 days ago",
+                readTime: "8 min read",
+                trending: false,
+                icon: "🔄"
+            },
+            {
+                id: 6,
+                title: "Renewable Energy Powers 58% of Bitcoin Mining Globally",
+                excerpt: "Latest research shows significant growth in sustainable energy usage for cryptocurrency mining operations.",
+                category: "industry",
+                date: "3 days ago",
+                readTime: "7 min read",
+                trending: false,
+                icon: "🌱"
+            },
+            {
+                id: 7,
+                title: "New ASIC-Resistant Algorithm Proposed to Decentralize Mining",
+                excerpt: "Cryptocurrency developers work on new mining algorithms to prevent ASIC dominance and promote GPU mining.",
+                category: "industry",
+                date: "4 days ago",
+                readTime: "5 min read",
+                trending: false,
+                icon: "🛡️"
+            },
+            {
+                id: 8,
+                title: "Mining Profitability Calculator Updated with Latest Data",
+                excerpt: "Our profitability calculator now includes real-time electricity costs and updated network difficulty metrics.",
+                category: "profitability",
+                date: "5 days ago",
+                readTime: "2 min read",
+                trending: false,
+                icon: "📊"
+            },
+            {
+                id: 9,
+                title: "China's Mining Ban: One Year Later - Industry Impact Analysis",
+                excerpt: "Comprehensive analysis of how China's mining ban reshaped the global cryptocurrency mining landscape.",
+                category: "regulations",
+                date: "1 week ago",
+                readTime: "10 min read",
+                trending: false,
+                icon: "🇨🇳"
+            },
+            {
+                id: 10,
+                title: "How to Optimize Your Mining Operation for Maximum Profit",
+                excerpt: "Expert tips on reducing operational costs and increasing mining efficiency in competitive markets.",
+                category: "guides",
+                date: "1 week ago",
+                readTime: "12 min read",
+                trending: false,
+                icon: "💡"
+            }
+        ];
+
+        let currentPage = 1;
+        const itemsPerPage = 6;
+        let filteredNews = [...newsData];
+        let displayedNewsCount = itemsPerPage;
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+
+        // Initialize news grid
+        function initializeNewsGrid() {
+            displayNews();
+            setupPagination();
+        }
+
+        // Display news articles
+        function displayNews() {
+            const grid = document.getElementById('news-grid');
+            grid.innerHTML = '';
+
+            const newsToShow = filteredNews.slice(0, displayedNewsCount);
+
+            newsToShow.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                
+                card.innerHTML = `
+                    <div class="news-image">
+                        ${article.icon}
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">${article.category.toUpperCase()}</span>
+                        <h3 class="news-title">
+                            ${article.title}
+                            ${article.trending ? '<span class="trending-badge">TRENDING</span>' : ''}
+                        </h3>
+                        <p class="news-excerpt">${article.excerpt}</p>
+                        <div class="news-meta">
+                            <span class="news-date">📅 ${article.date}</span>
+                            <span>${article.readTime}</span>
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event to navigate to article page
+                card.addEventListener('click', function() {
+                    window.location.href = `article.html?id=${article.id}`;
+                });
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Setup pagination
+        function setupPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+
+            // Previous button
+            if (currentPage > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.textContent = '←';
+                prevButton.onclick = () => {
+                    currentPage--;
+                    displayedNewsCount = currentPage * itemsPerPage;
+                    displayNews();
+                    setupPagination();
+                };
+                pagination.appendChild(prevButton);
+            }
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.className = i === currentPage ? 'active' : '';
+                pageButton.onclick = () => {
+                    currentPage = i;
+                    displayedNewsCount = currentPage * itemsPerPage;
+                    displayNews();
+                    setupPagination();
+                };
+                pagination.appendChild(pageButton);
+            }
+
+            // Next button
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.textContent = '→';
+                nextButton.onclick = () => {
+                    currentPage++;
+                    displayedNewsCount = currentPage * itemsPerPage;
+                    displayNews();
+                    setupPagination();
+                };
+                pagination.appendChild(nextButton);
+            }
+        }
+
+        // Load more news
+        function loadMoreNews() {
+            displayedNewsCount += itemsPerPage;
+            if (displayedNewsCount > filteredNews.length) {
+                displayedNewsCount = filteredNews.length;
+            }
+            displayNews();
+            setupPagination();
+        }
+
+        // Search functionality
+        function searchNews() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            filteredNews = newsData.filter(article => 
+                article.title.toLowerCase().includes(searchTerm) ||
+                article.excerpt.toLowerCase().includes(searchTerm) ||
+                article.category.toLowerCase().includes(searchTerm)
+            );
+            currentPage = 1;
+            displayedNewsCount = itemsPerPage;
+            displayNews();
+            setupPagination();
+        }
+
+        // Filter functionality
+        function filterNews() {
+            const category = document.getElementById('category-filter').value;
+            const timePeriod = document.getElementById('time-filter').value;
+
+            filteredNews = newsData.filter(article => {
+                const categoryMatch = category === 'all' || article.category === category;
+                
+                // Simple time filtering (in real implementation, you'd use actual dates)
+                let timeMatch = true;
+                if (timePeriod === 'today') {
+                    timeMatch = article.date.includes('hour') || article.date.includes('hours');
+                } else if (timePeriod === 'week') {
+                    timeMatch = !article.date.includes('week ago') || article.date.includes('1 week ago');
+                } else if (timePeriod === 'month') {
+                    timeMatch = true; // All articles in sample are within a month
+                }
+
+                return categoryMatch && timeMatch;
+            });
+
+            currentPage = 1;
+            displayedNewsCount = itemsPerPage;
+            displayNews();
+            setupPagination();
+        }
+
+        // Sort functionality
+        function sortNews() {
+            const sortBy = document.getElementById('sort-by').value;
+            
+            filteredNews.sort((a, b) => {
+                switch(sortBy) {
+                    case 'newest':
+                        // For demo, assuming lower ID means newer
+                        return a.id - b.id;
+                    case 'oldest':
+                        return b.id - a.id;
+                    case 'popular':
+                        // Trending articles first
+                        if (a.trending && !b.trending) return -1;
+                        if (!a.trending && b.trending) return 1;
+                        return 0;
+                    default:
+                        return 0;
+                }
+            });
+
+            displayNews();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNewsGrid();
+        });
+    </script>
+</body>
+</html>
