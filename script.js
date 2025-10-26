@@ -1,82 +1,76 @@
-// Get the display element
-const display = document.getElementById('result');
+// ==================== ADSENSE INTEGRATION ====================
 
-// Append value to display
-function appendToDisplay(value) {
-    if (!validateInput(value)) {
-        return;
-    }
-    display.value += value;
+// Your AdSense ID
+const ADSENSE_ID = 'ca-pub-4103650365925612';
+
+// Initialize AdSense
+function initializeAdSense() {
+    // Load AdSense script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`;
+    script.crossOrigin = 'anonymous';
+    document.head.appendChild(script);
+
+    // Initialize auto ads
+    window.adsbygoogle = window.adsbygoogle || [];
+    adsbygoogle.push({
+        google_ad_client: ADSENSE_ID,
+        enable_page_level_ads: true
+    });
+
+    console.log('AdSense initialized for Best Miners Profit');
 }
 
-// Clear the display
-function clearDisplay() {
-    display.value = '';
+// Create ad containers dynamically
+function createAdContainer(type, slotId) {
+    const adDiv = document.createElement('div');
+    adDiv.className = `adsense-${type}`;
+    adDiv.innerHTML = `
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="${ADSENSE_ID}"
+             data-ad-slot="${slotId}"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    `;
+    return adDiv;
 }
 
-// Delete last character
-function deleteLast() {
-    display.value = display.value.slice(0, -1);
+// Inject ads into page
+function injectAds() {
+    // Top banner ad
+    const topAd = createAdContainer('banner', 'top_banner');
+    document.body.insertBefore(topAd, document.body.firstChild);
+
+    // Sidebar ads
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        const sidebarAd1 = createAdContainer('sidebar', 'sidebar_1');
+        const sidebarAd2 = createAdContainer('sidebar', 'sidebar_2');
+        sidebar.insertBefore(sidebarAd1, sidebar.firstChild);
+        sidebar.appendChild(sidebarAd2);
+    }
+
+    // Content ads
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent) {
+        const contentAd = createAdContainer('inline', 'content_1');
+        mainContent.insertBefore(contentAd, mainContent.firstChild);
+    }
+
+    // Push ads after injection
+    (adsbygoogle = window.adsbygoogle || []).push({});
 }
 
-// Calculate the result
-function calculateResult() {
-    try {
-        // Replace × with * for calculation
-        let expression = display.value.replace(/×/g, '*');
-        
-        // Safe calculation using Function (better than eval)
-        const result = new Function('return ' + expression)();
-        
-        // Check if result is valid
-        if (isNaN(result) || !isFinite(result)) {
-            display.value = 'Error';
-        } else {
-            display.value = result;
-        }
-    } catch (error) {
-        display.value = 'Error';
-    }
+// AdSense revenue tracking
+function trackAdRevenue(adType) {
+    // This would integrate with Google Analytics
+    console.log(`Ad impression: ${adType}`);
 }
 
-// Input validation
-function validateInput(value) {
-    const currentDisplay = display.value;
-    const lastChar = currentDisplay.slice(-1);
-    const operators = ['+', '-', '*', '/', '.'];
-    
-    // Prevent multiple operators in sequence
-    if (operators.includes(lastChar) && operators.includes(value)) {
-        return false;
-    }
-    
-    // Prevent multiple decimal points in same number
-    if (value === '.') {
-        const parts = currentDisplay.split(/[\+\-\*\/]/);
-        const currentNumber = parts[parts.length - 1];
-        if (currentNumber.includes('.')) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-// Keyboard support
-document.addEventListener('keydown', function(event) {
-    const key = event.key;
-    
-    if (key >= '0' && key <= '9') {
-        appendToDisplay(key);
-    } else if (['+', '-', '*', '/'].includes(key)) {
-        appendToDisplay(key);
-    } else if (key === '.') {
-        appendToDisplay('.');
-    } else if (key === 'Enter' || key === '=') {
-        calculateResult();
-    } else if (key === 'Escape' || key === 'c' || key === 'C') {
-        clearDisplay();
-    } else if (key === 'Backspace') {
-        deleteLast();
-    }
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAdSense();
+    setTimeout(injectAds, 1000); // Inject ads after 1 second
 });
