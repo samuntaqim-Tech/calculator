@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Mining Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn {
+            background: #667eea;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .result h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .profit-positive {
+            color: #27ae60;
+        }
+
+        .profit-negative {
+            color: #e74c3c;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            button {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GPU Mining Calculator</h1>
+        
+        <div class="input-group">
+            <label for="gpuCount">Number of GPUs</label>
+            <input type="number" id="gpuCount" placeholder="Enter number of GPUs" min="1" value="1">
+        </div>
+        
+        <div class="input-group">
+            <label for="gpuType">GPU Model</label>
+            <select id="gpuType">
+                <option value="100">RTX 4090 (100 MH/s)</option>
+                <option value="80">RTX 4080 (80 MH/s)</option>
+                <option value="60">RTX 4070 (60 MH/s)</option>
+                <option value="120">RX 7900 XTX (120 MH/s)</option>
+                <option value="90">RX 7900 XT (90 MH/s)</option>
+                <option value="50">RTX 4060 (50 MH/s)</option>
+                <option value="custom">Custom Hashrate</option>
+            </select>
+        </div>
+        
+        <div class="input-group" id="customHashrateGroup" style="display: none;">
+            <label for="customHashrate">Custom Hashrate (MH/s)</label>
+            <input type="number" id="customHashrate" placeholder="Enter custom hashrate" min="1">
+        </div>
+        
+        <div class="input-group">
+            <label for="powerConsumption">Power Consumption per GPU (W)</label>
+            <input type="number" id="powerConsumption" placeholder="Enter power consumption" min="1" value="200">
+        </div>
+        
+        <div class="input-group">
+            <label for="electricityCost">Electricity Cost ($/kWh)</label>
+            <input type="number" id="electricityCost" placeholder="Enter electricity cost" min="0" step="0.01" value="0.12">
+        </div>
+        
+        <div class="input-group">
+            <label for="cryptoPrice">Cryptocurrency Price ($)</label>
+            <input type="number" id="cryptoPrice" placeholder="Enter crypto price" min="0" value="40000">
+        </div>
+        
+        <div class="input-group">
+            <label for="timePeriod">Time Period (days)</label>
+            <input type="number" id="timePeriod" placeholder="Enter time period" min="1" value="30">
+        </div>
+        
+        <div class="button-group">
+            <button class="calculate-btn" onclick="calculateGPUMining()">Calculate Profitability</button>
+            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+        </div>
+        
+        <div id="result" class="result">
+            <h3>GPU Mining Results</h3>
+            <div class="result-item">
+                <span class="result-label">Total Hashrate:</span>
+                <span id="totalHashrate" class="result-value">0 MH/s</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Daily Revenue:</span>
+                <span id="dailyRevenue" class="result-value">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Daily Power Cost:</span>
+                <span id="dailyPowerCost" class="result-value">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Daily Profit:</span>
+                <span id="dailyProfit" class="result-value">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Monthly Profit:</span>
+                <span id="monthlyProfit" class="result-value">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Yearly Profit:</span>
+                <span id="yearlyProfit" class="result-value">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide custom hashrate input
+        document.getElementById('gpuType').addEventListener('change', function() {
+            const customGroup = document.getElementById('customHashrateGroup');
+            if (this.value === 'custom') {
+                customGroup.style.display = 'block';
+            } else {
+                customGroup.style.display = 'none';
+            }
+        });
+
+        function calculateGPUMining() {
+            // Get input values
+            const gpuCount = parseInt(document.getElementById('gpuCount').value);
+            const gpuType = document.getElementById('gpuType').value;
+            const customHashrate = parseFloat(document.getElementById('customHashrate').value);
+            const powerConsumption = parseFloat(document.getElementById('powerConsumption').value);
+            const electricityCost = parseFloat(document.getElementById('electricityCost').value);
+            const cryptoPrice = parseFloat(document.getElementById('cryptoPrice').value);
+            const timePeriod = parseInt(document.getElementById('timePeriod').value);
+            
+            // Validate inputs
+            if (isNaN(gpuCount) || isNaN(powerConsumption) || isNaN(electricityCost) || 
+                isNaN(cryptoPrice) || isNaN(timePeriod)) {
+                alert('Please enter valid numbers in all fields');
+                return;
+            }
+            
+            if (gpuCount <= 0 || powerConsumption <= 0 || timePeriod <= 0) {
+                alert('GPU count, power consumption, and time period must be greater than 0');
+                return;
+            }
+            
+            // Calculate hashrate
+            let hashratePerGPU;
+            if (gpuType === 'custom') {
+                if (isNaN(customHashrate) || customHashrate <= 0) {
+                    alert('Please enter a valid custom hashrate');
+                    return;
+                }
+                hashratePerGPU = customHashrate;
+            } else {
+                hashratePerGPU = parseFloat(gpuType);
+            }
+            
+            const totalHashrate = hashratePerGPU * gpuCount;
+            
+            // Simplified mining calculation
+            const dailyRevenue = (totalHashrate * 0.0001) * cryptoPrice; // Simplified estimation
+            const dailyPowerCost = (powerConsumption * gpuCount * 24 / 1000) * electricityCost;
+            const dailyProfit = dailyRevenue - dailyPowerCost;
+            const monthlyProfit = dailyProfit * 30;
+            const yearlyProfit = dailyProfit * 365;
+            
+            // Display results
+            document.getElementById('totalHashrate').textContent = `${totalHashrate.toFixed(2)} MH/s`;
+            document.getElementById('dailyRevenue').textContent = `$${dailyRevenue.toFixed(2)}`;
+            document.getElementById('dailyPowerCost').textContent = `$${dailyPowerCost.toFixed(2)}`;
+            document.getElementById('dailyProfit').textContent = `$${dailyProfit.toFixed(2)}`;
+            document.getElementById('monthlyProfit').textContent = `$${monthlyProfit.toFixed(2)}`;
+            document.getElementById('yearlyProfit').textContent = `$${yearlyProfit.toFixed(2)}`;
+            
+            // Color code for positive/negative profit
+            const profitElements = document.querySelectorAll('#dailyProfit, #monthlyProfit, #yearlyProfit');
+            profitElements.forEach(element => {
+                const value = parseFloat(element.textContent.replace('$', ''));
+                if (value >= 0) {
+                    element.className = 'result-value profit-positive';
+                } else {
+                    element.className = 'result-value profit-negative';
+                }
+            });
+            
+            // Show result section
+            document.getElementById('result').classList.add('show');
+        }
+        
+        function resetCalculator() {
+            // Clear all inputs
+            document.getElementById('gpuCount').value = '1';
+            document.getElementById('gpuType').value = '100';
+            document.getElementById('customHashrate').value = '';
+            document.getElementById('powerConsumption').value = '200';
+            document.getElementById('electricityCost').value = '0.12';
+            document.getElementById('cryptoPrice').value = '40000';
+            document.getElementById('timePeriod').value = '30';
+            
+            // Hide custom hashrate
+            document.getElementById('customHashrateGroup').style.display = 'none';
+            
+            // Hide results
+            document.getElementById('result').classList.remove('show');
+        }
+        
+        // Add keyboard support
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                calculateGPUMining();
+            }
+        });
+        
+        // Input validation for numbers only
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value < 0) {
+                    this.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
