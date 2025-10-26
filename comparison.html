@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miner Comparison Tool - Best Miners Profit | Compare ASIC Miners Side by Side</title>
+    <meta name="description" content="Compare ASIC miners side by side. Analyze profitability, power consumption, hash rates, and ROI for Bitcoin, Litecoin, and cryptocurrency mining hardware.">
+    <meta name="keywords" content="ASIC miner comparison, compare mining hardware, miner comparison tool, Bitcoin miner comparison, mining equipment comparison, profitability comparison">
+    <style>
+        /* Include all the same CSS styles from index.html */
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #e53e3e;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --gray: #718096;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav.desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav.desktop ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav.desktop ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav.desktop ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark) !important;
+            padding: 0.75rem 1rem;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background: var(--light);
+            color: var(--secondary) !important;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav ul li {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        select, input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn-danger {
+            background-color: var(--accent);
+        }
+        
+        .btn-danger:hover {
+            background-color: #c53030;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .profit-positive {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .profit-negative {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .stats-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .comparison-card:hover {
+            border-color: var(--secondary);
+        }
+        
+        .comparison-card.best {
+            border-color: var(--success);
+            background: linear-gradient(135deg, #f0fff4 0%, white 100%);
+        }
+        
+        .miner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .miner-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .miner-manufacturer {
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .miner-specs {
+            margin-bottom: 1rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        .spec-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+        }
+        
+        .best-badge {
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .comparison-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            nav.desktop {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filters {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                </div>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="profitability.html">Calculators</a>
+                            <div class="dropdown-content">
+                                <a href="profitability.html">Profitability Calculator</a>
+                                <a href="comparison.html" style="color: #ffd700;">Miner Comparison</a>
+                                <a href="roi-calculator.html">ROI Calculator</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="asic-miners.html">Miners</a>
+                            <div class="dropdown-content">
+                                <a href="asic-miners.html">ASIC Miners</a>
+                                <a href="gpu-miners.html">GPU Miners</a>
+                                <a href="most-profitable.html">Most Profitable</a>
+                            </div>
+                        </li>
+                        <li><a href="mining-pools.html">Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">☰</div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profitability.html">Calculators</a></li>
+                <li><a href="asic-miners.html">Miners</a></li>
+                <li><a href="mining-pools.html">Pools</a></li>
+                <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Miner Comparison Tool</h1>
+            <p>Compare ASIC miners side by side to find the most profitable mining hardware for your needs</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567896"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Compare Mining Hardware</h2>
+                <div>
+                    <a href="asic-miners.html" class="btn">View All Miners</a>
+                    <a href="profitability.html" class="btn" style="margin-left: 10px;">Profitability Calculator</a>
+                </div>
+            </div>
+
+            <div class="comparison-controls">
+                <div class="filter-group" style="flex: 1;">
+                    <label for="miner1-select">Select Miner 1</label>
+                    <select id="miner1-select">
+                        <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
+                        <option value="whatsminer-m30s">MicroBT Whatsminer M30S++</option>
+                        <option value="antminer-l7">Bitmain Antminer L7</option>
+                        <option value="antminer-z15">Bitmain Antminer Z15</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group" style="flex: 1;">
+                    <label for="miner2-select">Select Miner 2</label>
+                    <select id="miner2-select">
+                        <option value="whatsminer-m30s">MicroBT Whatsminer M30S++</option>
+                        <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
+                        <option value="antminer-s19">Bitmain Antminer S19</option>
+                        <option value="avalon-1246">Canaan Avalon 1246</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group" style="flex: 1;">
+                    <label for="miner3-select">Select Miner 3</label>
+                    <select id="miner3-select">
+                        <option value="antminer-l7">Bitmain Antminer L7</option>
+                        <option value="antminer-k7">Bitmain Antminer K7</option>
+                        <option value="antminer-z15">Bitmain Antminer Z15</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                    <input type="number" id="electricity-cost" value="0.10" step="0.01" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="bitcoin-price">Bitcoin Price ($)</label>
+                    <input type="number" id="bitcoin-price" value="45000" step="100" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="pool-fee">Pool Fee (%)</label>
+                    <input type="number" id="pool-fee" value="1" step="0.1" min="0">
+                </div>
+                
+                <div class="filter-group">
+                    <button class="btn btn-block" onclick="compareMiners()" style="margin-top: 1.7rem;">Compare Miners</button>
+                </div>
+            </div>
+
+            <div class="comparison-grid" id="comparison-results">
+                <!-- Comparison results will be populated here -->
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="1234567897"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Comparison Summary</h2>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table id="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th id="miner1-header">Miner 1</th>
+                            <th id="miner2-header">Miner 2</th>
+                            <th id="miner3-header">Miner 3</th>
+                            <th>Best Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparison-tbody">
+                        <!-- Comparison data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Best Miners Profit</h3>
+                    <p>Compare ASIC miners side by side to make informed mining investment decisions.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="comparison.html">Miner Comparison</a></li>
+                        <li><a href="profitability.html">Profitability Calculator</a></li>
+                        <li><a href="asic-miners.html">ASIC Miners Directory</a></li>
+                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">Mining News</a></li>
+                        <li><a href="guides.html">Mining Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Best Miners Profit. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample miners data
+        const minersComparisonData = {
+            'antminer-s19-pro': {
+                name: 'Antminer S19 Pro',
+                manufacturer: 'Bitmain',
+                algorithm: 'SHA-256',
+                hashrate: '110 TH/s',
+                power: '3250W',
+                noise: '75dB',
+                price: '$4,500',
+                dailyRevenue: '$35.42',
+                dailyProfit: '$28.15',
+                roi: '160 days',
+                efficiency: '29.5 J/TH'
+            },
+            'whatsminer-m30s': {
+                name: 'Whatsminer M30S++',
+                manufacturer: 'MicroBT',
+                algorithm: 'SHA-256',
+                hashrate: '112 TH/s',
+                power: '3472W',
+                noise: '75dB',
+                price: '$4,200',
+                dailyRevenue: '$36.10',
+                dailyProfit: '$27.85',
+                roi: '151 days',
+                efficiency: '31.0 J/TH'
+            },
+            'antminer-s19': {
+                name: 'Antminer S19',
+                manufacturer: 'Bitmain',
+                algorithm: 'SHA-256',
+                hashrate: '95 TH/s',
+                power: '3250W',
+                noise: '75dB',
+                price: '$3,800',
+                dailyRevenue: '$30.58',
+                dailyProfit: '$23.31',
+                roi: '163 days',
+                efficiency: '34.2 J/TH'
+            },
+            'antminer-l7': {
+                name: 'Antminer L7',
+                manufacturer: 'Bitmain',
+                algorithm: 'Scrypt',
+                hashrate: '9.5 GH/s',
+                power: '3425W',
+                noise: '75dB',
+                price: '$12,500',
+                dailyRevenue: '$42.15',
+                dailyProfit: '$34.88',
+                roi: '358 days',
+                efficiency: '360 J/MH'
+            },
+            'antminer-z15': {
+                name: 'Antminer Z15',
+                manufacturer: 'Bitmain',
+                algorithm: 'Equihash',
+                hashrate: '420 kSol/s',
+                power: '1510W',
+                noise: '70dB',
+                price: '$2,800',
+                dailyRevenue: '$12.45',
+                dailyProfit: '$9.80',
+                roi: '286 days',
+                efficiency: '3.6 J/kSol'
+            },
+            'antminer-k7': {
+                name: 'Antminer K7',
+                manufacturer: 'Bitmain',
+                algorithm: 'RandomX',
+                hashrate: '63 GH/s',
+                power: '3300W',
+                noise: '75dB',
+                price: '$14,000',
+                dailyRevenue: '$52.30',
+                dailyProfit: '$42.15',
+                roi: '332 days',
+                efficiency: '52.4 J/MH'
+            },
+            'avalon-1246': {
+                name: 'Avalon 1246',
+                manufacturer: 'Canaan',
+                algorithm: 'SHA-256',
+                hashrate: '90 TH/s',
+                power: '3420W',
+                noise: '75dB',
+                price: '$3,500',
+                dailyRevenue: '$28.95',
+                dailyProfit: '$21.45',
+                roi: '163 days',
+                efficiency: '38.0 J/TH'
+            }
+        };
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+
+        // Compare miners function
+        function compareMiners() {
+            const miner1Id = document.getElementById('miner1-select').value;
+            const miner2Id = document.getElementById('miner2-select').value;
+            const miner3Id = document.getElementById('miner3-select').value;
+            const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+            const bitcoinPrice = parseFloat(document.getElementById('bitcoin-price').value);
+
+            const selectedMiners = [];
+            if (miner1Id !== 'none') selectedMiners.push(miner1Id);
+            if (miner2Id !== 'none') selectedMiners.push(miner2Id);
+            if (miner3Id !== 'none' && miner3Id !== 'none') selectedMiners.push(miner3Id);
+
+            displayComparisonCards(selectedMiners);
+            displayComparisonTable(selectedMiners);
+        }
+
+        // Display comparison cards
+        function displayComparisonCards(minerIds) {
+            const resultsContainer = document.getElementById('comparison-results');
+            resultsContainer.innerHTML = '';
+
+            // Find the miner with highest daily profit
+            let maxProfit = 0;
+            let bestMinerId = '';
+            minerIds.forEach(id => {
+                const profit = parseFloat(minersComparisonData[id].dailyProfit.replace('$', ''));
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                    bestMinerId = id;
+                }
+            });
+
+            minerIds.forEach(id => {
+                const miner = minersComparisonData[id];
+                const isBest = id === bestMinerId;
+                
+                const card = document.createElement('div');
+                card.className = `comparison-card ${isBest ? 'best' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="miner-header">
+                        <div class="miner-name">${miner.name} ${isBest ? '<span class="best-badge">BEST</span>' : ''}</div>
+                        <div class="miner-manufacturer">${miner.manufacturer}</div>
+                    </div>
+                    <div class="miner-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Algorithm</span>
+                            <span class="spec-value">${miner.algorithm}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Hashrate</span>
+                            <span class="spec-value">${miner.hashrate}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Power Consumption</span>
+                            <span class="spec-value">${miner.power}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Efficiency</span>
+                            <span class="spec-value">${miner.efficiency}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Noise Level</span>
+                            <span class="spec-value">${miner.noise}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Price</span>
+                            <span class="spec-value">${miner.price}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Daily Revenue</span>
+                            <span class="spec-value profit-positive">${miner.dailyRevenue}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Daily Profit</span>
+                            <span class="spec-value profit-positive">${miner.dailyProfit}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">ROI Period</span>
+                            <span class="spec-value">${miner.roi}</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="miner-details.html" class="btn btn-block btn-small">View Details</a>
+                    </div>
+                `;
+                
+                resultsContainer.appendChild(card);
+            });
+        }
+
+        // Display comparison table
+        function displayComparisonTable(minerIds) {
+            const tbody = document.getElementById('comparison-tbody');
+            const headers = document.querySelectorAll('#miner1-header, #miner2-header, #miner3-header');
+            
+            tbody.innerHTML = '';
+
+            // Update headers
+            headers.forEach((header, index) => {
+                if (index < minerIds.length) {
+                    header.textContent = minersComparisonData[minerIds[index]].name;
+                } else {
+                    header.textContent = 'N/A';
+                }
+            });
+
+            // Specification rows
+            const specs = [
+                { label: 'Manufacturer', key: 'manufacturer', format: (v) => v },
+                { label: 'Algorithm', key: 'algorithm', format: (v) => v },
+                { label: 'Hashrate', key: 'hashrate', format: (v) => v },
+                { label: 'Power Consumption', key: 'power', format: (v) => v },
+                { label: 'Efficiency', key: 'efficiency', format: (v) => v },
+                { label: 'Noise Level', key: 'noise', format: (v) => v },
+                { label: 'Price', key: 'price', format: (v) => v },
+                { label: 'Daily Revenue', key: 'dailyRevenue', format: (v) => `<span class="profit-positive">${v}</span>` },
+                { label: 'Daily Profit', key: 'dailyProfit', format: (v) => `<span class="profit-positive">${v}</span>` },
+                { label: 'ROI Period', key: 'roi', format: (v) => v }
+            ];
+
+            specs.forEach(spec => {
+                const row = document.createElement('tr');
+                let rowContent = `<td><strong>${spec.label}</strong></td>`;
+                
+                minerIds.forEach(id => {
+                    const miner = minersComparisonData[id];
+                    rowContent += `<td>${spec.format(miner[spec.key])}</td>`;
+                });
+                
+                // Fill empty columns if less than 3 miners
+                for (let i = minerIds.length; i < 3; i++) {
+                    rowContent += '<td>-</td>';
+                }
+                
+                // Best value column
+                if (['hashrate', 'dailyRevenue', 'dailyProfit'].includes(spec.key)) {
+                    // Find best value for this spec
+                    let bestValue = 0;
+                    let bestMinerIndex = -1;
+                    
+                    minerIds.forEach((id, index) => {
+                        const value = parseFloat(minersComparisonData[id][spec.key].replace(/[^\d.]/g, ''));
+                        if (value > bestValue) {
+                            bestValue = value;
+                            bestMinerIndex = index;
+                        }
+                    });
+                    
+                    if (bestMinerIndex !== -1) {
+                        rowContent += `<td><strong>${minersComparisonData[minerIds[bestMinerIndex]].name}</strong></td>`;
+                    } else {
+                        rowContent += '<td>-</td>';
+                    }
+                } else if (['power', 'efficiency', 'roi'].includes(spec.key)) {
+                    // Find best value (lowest is better)
+                    let bestValue = Infinity;
+                    let bestMinerIndex = -1;
+                    
+                    minerIds.forEach((id, index) => {
+                        const value = parseFloat(minersComparisonData[id][spec.key].replace(/[^\d.]/g, ''));
+                        if (value < bestValue) {
+                            bestValue = value;
+                            bestMinerIndex = index;
+                        }
+                    });
+                    
+                    if (bestMinerIndex !== -1) {
+                        rowContent += `<td><strong>${minersComparisonData[minerIds[bestMinerIndex]].name}</strong></td>`;
+                    } else {
+                        rowContent += '<td>-</td>';
+                    }
+                } else {
+                    rowContent += '<td>-</td>';
+                }
+                
+                row.innerHTML = rowContent;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Initialize comparison on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            compareMiners();
+        });
+    </script>
+</body>
+</html>
