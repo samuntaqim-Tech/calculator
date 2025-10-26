@@ -3,103 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC Miner Calculator</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #f5f7fa; color: #2c3e50; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        header { background: #2c3e50; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .input-group { margin: 15px 0; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
-        button { background: #3498db; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
-        button:hover { background: #2980b9; }
-        .results { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .result-card { background: #ecf0f1; padding: 15px; border-radius: 6px; text-align: center; }
-        .value { font-size: 24px; font-weight: bold; margin: 10px 0; }
-        .profit { color: #27ae60; }
-        @media (max-width: 600px) { .results { grid-template-columns: 1fr; } }
-    </style>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>ASIC Miner Profitability Calculator</h1>
-            <p>Calculate your mining profits</p>
-        </header>
-        
-        <div class="card">
-            <h2>Calculator</h2>
-            <div class="input-group">
-                <label for="miner">Miner Model</label>
-                <select id="miner">
-                    <option value="s19pro">Antminer S19 Pro (110 TH/s)</option>
-                    <option value="s19">Antminer S19 (95 TH/s)</option>
-                    <option value="m30s">Whatsminer M30S (88 TH/s)</option>
-                </select>
-            </div>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="btn-clear">C</button>
+            <button onclick="deleteLast()" class="btn-clear">⌫</button>
+            <button onclick="appendToDisplay('/')" class="btn-operator">/</button>
+            <button onclick="appendToDisplay('*')" class="btn-operator">×</button>
             
-            <div class="input-group">
-                <label for="electricity">Electricity Cost ($/kWh)</label>
-                <input type="number" id="electricity" value="0.10" step="0.01">
-            </div>
+            <button onclick="appendToDisplay('7')" class="btn-number">7</button>
+            <button onclick="appendToDisplay('8')" class="btn-number">8</button>
+            <button onclick="appendToDisplay('9')" class="btn-number">9</button>
+            <button onclick="appendToDisplay('-')" class="btn-operator">-</button>
             
-            <div class="input-group">
-                <label for="hashrate">Hashrate (TH/s)</label>
-                <input type="number" id="hashrate" value="110">
-            </div>
+            <button onclick="appendToDisplay('4')" class="btn-number">4</button>
+            <button onclick="appendToDisplay('5')" class="btn-number">5</button>
+            <button onclick="appendToDisplay('6')" class="btn-number">6</button>
+            <button onclick="appendToDisplay('+')" class="btn-operator">+</button>
             
-            <div class="input-group">
-                <label for="power">Power Consumption (W)</label>
-                <input type="number" id="power" value="3250">
-            </div>
+            <button onclick="appendToDisplay('1')" class="btn-number">1</button>
+            <button onclick="appendToDisplay('2')" class="btn-number">2</button>
+            <button onclick="appendToDisplay('3')" class="btn-number">3</button>
+            <button onclick="calculateResult()" class="btn-equals" rowspan="2">=</button>
             
-            <button onclick="calculateProfit()">Calculate Profitability</button>
-            
-            <div class="results">
-                <div class="result-card">
-                    <div>Daily Revenue</div>
-                    <div class="value profit" id="revenue">$35.42</div>
-                </div>
-                <div class="result-card">
-                    <div>Daily Profit</div>
-                    <div class="value profit" id="profit">$28.15</div>
-                </div>
-                <div class="result-card">
-                    <div>Monthly Profit</div>
-                    <div class="value profit" id="monthly">$844.50</div>
-                </div>
-                <div class="result-card">
-                    <div>ROI Period</div>
-                    <div class="value" id="roi">284 days</div>
-                </div>
-            </div>
+            <button onclick="appendToDisplay('0')" class="btn-number" style="grid-column: span 2;">0</button>
+            <button onclick="appendToDisplay('.')" class="btn-number">.</button>
         </div>
     </div>
 
-    <script>
-        function calculateProfit() {
-            const electricity = parseFloat(document.getElementById('electricity').value);
-            const hashrate = parseFloat(document.getElementById('hashrate').value);
-            const power = parseFloat(document.getElementById('power').value);
-            
-            // Simple calculation
-            const dailyRevenue = (hashrate * 0.00000032 * 45000).toFixed(2);
-            const dailyCost = ((power / 1000) * 24 * electricity).toFixed(2);
-            const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
-            const monthlyProfit = (dailyProfit * 30).toFixed(2);
-            const roiDays = Math.ceil(8000 / dailyProfit);
-            
-            // Update display
-            document.getElementById('revenue').textContent = '$' + dailyRevenue;
-            document.getElementById('profit').textContent = '$' + dailyProfit;
-            document.getElementById('monthly').textContent = '$' + monthlyProfit;
-            document.getElementById('roi').textContent = roiDays + ' days';
-        }
-        
-        // Calculate on page load
-        calculateProfit();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
