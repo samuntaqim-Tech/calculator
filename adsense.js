@@ -2,7 +2,7 @@
 
 class AdSenseManager {
     constructor() {
-        this.adsenseId = 'ca-pub-4103650365925612';
+        this.adsenseId = 'ca-app-pub-4103650365925612~8216006757';
         this.adsLoaded = false;
         this.adSlots = [];
     }
