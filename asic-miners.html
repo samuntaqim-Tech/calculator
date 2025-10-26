@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC Miner Value - Compare Miners, Calculate Profitability</title>
+    <title>Best Miners Profit - ASIC Miner Profitability Calculator & Comparison</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID_HERE" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-YOUR_ADSENSE_ID_HERE",
+            enable_page_level_ads: true
+        });
+    </script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #1565C0;
@@ -30,6 +39,43 @@
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
+        }
+
+        /* AdSense Containers */
+        .adsense-banner {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .adsense-sidebar {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .adsense-inline {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .ad-placeholder {
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+            padding: 20px;
+            border-radius: 8px;
+            color: #6c757d;
+            font-size: 0.9rem;
         }
 
         /* Top Crypto Ticker */
@@ -100,6 +146,7 @@
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .header-main {
@@ -127,6 +174,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .logo span {
@@ -148,6 +196,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            cursor: pointer;
         }
 
         .nav-menu a:hover,
@@ -199,6 +248,14 @@
             border-radius: 20px;
             padding: 10px 20px;
             cursor: pointer;
+        }
+
+        /* AdSense Banner */
+        .adsense-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            margin-top: 20px;
         }
 
         /* Quick Stats */
@@ -279,6 +336,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             background: white;
+            cursor: pointer;
         }
 
         /* Miners Table */
@@ -423,6 +481,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .currency-selector {
@@ -498,6 +557,11 @@
             padding: 10px;
             border-radius: 5px;
             background: var(--light);
+            cursor: pointer;
+        }
+
+        .top-miner-item:hover {
+            background: #e9ecef;
         }
 
         .top-miner-rank {
@@ -537,6 +601,14 @@
         .news-item {
             padding-bottom: 15px;
             border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            background: var(--light);
+            padding: 10px;
+            border-radius: 5px;
+            margin: -10px;
         }
 
         .news-item:last-child {
@@ -578,6 +650,10 @@
             border-color: var(--primary);
         }
 
+        .page-btn:hover:not(.active) {
+            background: #e9ecef;
+        }
+
         /* Footer */
         .footer {
             background: var(--dark);
@@ -613,6 +689,7 @@
             color: #adb5bd;
             text-decoration: none;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -642,12 +719,113 @@
             border-color: var(--accent);
         }
 
+        .lang-btn:hover:not(.active) {
+            background: #555;
+        }
+
         .footer-bottom {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #495057;
             color: #adb5bd;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .close-btn:hover {
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background: var(--secondary);
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-switch a {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .form-switch a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
@@ -712,10 +890,10 @@
                 </select>
             </div>
             <div class="header-actions">
-                <a href="#" style="color: white; text-decoration: none; margin-left: 15px;">
+                <a href="#" style="color: white; text-decoration: none; margin-left: 15px;" onclick="showLoginModal()">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </a>
-                <a href="#" style="color: white; text-decoration: none; margin-left: 15px;">
+                <a href="#" style="color: white; text-decoration: none; margin-left: 15px;" onclick="showRegisterModal()">
                     <i class="fas fa-user-plus"></i> Register
                 </a>
             </div>
@@ -725,35 +903,69 @@
     <!-- Main Header -->
     <header class="header-main">
         <div class="header-container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <i class="fas fa-server"></i>
-                ASIC<span>MinerValue</span>
-            </div>
+                Best<span>MinersProfit</span>
+            </a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-list"></i> Miners List</a></li>
-                    <li><a href="#"><i class="fas fa-calculator"></i> Calculators</a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i> Profitability</a></li>
-                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
-                    <li><a href="#"><i class="fas fa-wallet"></i> Mining Pools</a></li>
-                    <li><a href="#"><i class="fas fa-store"></i> Shop</a></li>
+                    <li><a href="#" onclick="showPage('miners')"><i class="fas fa-list"></i> Miners List</a></li>
+                    <li><a href="#" onclick="showPage('calculators')"><i class="fas fa-calculator"></i> Calculators</a></li>
+                    <li><a href="#" onclick="showPage('profitability')"><i class="fas fa-chart-line"></i> Profitability</a></li>
+                    <li><a href="#" onclick="showPage('news')"><i class="fas fa-newspaper"></i> News</a></li>
+                    <li><a href="#" onclick="showPage('pools')"><i class="fas fa-wallet"></i> Mining Pools</a></li>
+                    <li><a href="#" onclick="showPage('shop')"><i class="fas fa-store"></i> Shop</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- AdSense Banner -->
+    <div class="adsense-banner">
+        <div class="ad-placeholder">
+            <!-- AdSense Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                 data-ad-slot="BANNER_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
     <!-- Hero Search -->
     <section class="hero-search">
         <div class="hero-container">
-            <h1>ASIC Miner Profitability Calculator</h1>
+            <h1>Best Miners Profit - ASIC Miner Profitability Calculator</h1>
             <p>Compare 200+ ASIC miners, calculate profits in multiple currencies</p>
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search for miners (e.g., Antminer S19, Whatsminer M50)...">
-                <button class="search-btn"><i class="fas fa-search"></i> Search</button>
+                <input type="text" class="search-input" id="search-input" placeholder="Search for miners (e.g., Antminer S19, Whatsminer M50)...">
+                <button class="search-btn" onclick="searchMiners()"><i class="fas fa-search"></i> Search</button>
             </div>
         </div>
     </section>
+
+    <!-- AdSense Hero Banner -->
+    <div class="adsense-hero">
+        <div class="adsense-inline">
+            <div class="ad-placeholder">
+                <!-- AdSense In-Article Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                     data-ad-slot="HERO_SLOT_ID"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
 
     <!-- Quick Stats -->
     <section class="quick-stats">
@@ -777,10 +989,26 @@
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <div class="main-container">
         <!-- Main Content Area -->
         <div class="content-area">
+            <!-- AdSense Inline Ad -->
+            <div class="adsense-inline">
+                <div class="ad-placeholder">
+                    <!-- AdSense In-Feed Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="fluid"
+                         data-ad-layout-key="-gw-3+1f-3d+2z"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                         data-ad-slot="INFEED_SLOT_ID"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
             <!-- Filters -->
             <div class="filters-section">
                 <div class="filter-row">
@@ -834,42 +1062,73 @@
             <div class="miners-section">
                 <div class="section-header">
                     <h2 class="section-title">ASIC Miners Comparison</h2>
-                    <div class="results-count" id="results-count">Showing 1-20 of 247 miners</div>
+                    <div class="results-count" id="results-count">Loading miners...</div>
                 </div>
 
                 <table class="miners-table">
                     <thead>
                         <tr>
-                            <th>Miner Model <i class="fas fa-sort"></i></th>
-                            <th>Algorithm <i class="fas fa-sort"></i></th>
-                            <th>Hashrate <i class="fas fa-sort"></i></th>
-                            <th>Power <i class="fas fa-sort"></i></th>
-                            <th>Efficiency <i class="fas fa-sort"></i></th>
-                            <th>Noise <i class="fas fa-sort"></i></th>
-                            <th>Price <i class="fas fa-sort"></i></th>
-                            <th>Profit/Day <i class="fas fa-sort"></i></th>
-                            <th>ROI <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('model')">Miner Model <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('algorithm')">Algorithm <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('hashrate')">Hashrate <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('power')">Power <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('efficiency')">Efficiency <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('noise')">Noise <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('price')">Price <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('profit')">Profit/Day <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('roi')">ROI <i class="fas fa-sort"></i></th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="miners-table-body">
-                        <!-- Data will be populated by JavaScript -->
+                        <tr>
+                            <td colspan="10" style="text-align: center; padding: 40px;">
+                                <i class="fas fa-spinner fa-spin"></i> Loading miners data...
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <div class="pagination">
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <button class="page-btn">4</button>
-                    <button class="page-btn">5</button>
-                    <button class="page-btn">Next <i class="fas fa-chevron-right"></i></button>
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- AdSense Bottom Ad -->
+            <div class="adsense-inline">
+                <div class="ad-placeholder">
+                    <!-- AdSense Display Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                         data-ad-slot="BOTTOM_SLOT_ID"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
         </div>
 
         <!-- Sidebar -->
         <div class="sidebar">
+            <!-- AdSense Sidebar -->
+            <div class="adsense-sidebar">
+                <div class="ad-placeholder">
+                    <!-- AdSense Sidebar Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                         data-ad-slot="SIDEBAR_SLOT_ID"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
             <!-- Calculator Widget -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">Profitability Calculator</h3>
@@ -927,6 +1186,22 @@
                 </div>
             </div>
 
+            <!-- AdSense Sidebar 2 -->
+            <div class="adsense-sidebar">
+                <div class="ad-placeholder">
+                    <!-- AdSense Sidebar Ad 2 -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID_HERE"
+                         data-ad-slot="SIDEBAR2_SLOT_ID"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
             <!-- Top Miners Widget -->
             <div class="sidebar-widget">
                 <h3 class="widget-title">Top 5 Most Profitable</h3>
@@ -939,15 +1214,15 @@
             <div class="sidebar-widget">
                 <h3 class="widget-title">Mining News</h3>
                 <div class="news-list">
-                    <div class="news-item">
+                    <div class="news-item" onclick="showNews('halving')">
                         <div class="news-title">Bitcoin Halving Scheduled for April 2024</div>
                         <div class="news-date">March 18, 2024</div>
                     </div>
-                    <div class="news-item">
+                    <div class="news-item" onclick="showNews('technology')">
                         <div class="news-title">New ASIC Miners with 3nm Technology</div>
                         <div class="news-date">March 15, 2024</div>
                     </div>
-                    <div class="news-item">
+                    <div class="news-item" onclick="showNews('renewable')">
                         <div class="news-title">Renewable Energy Mining Farms Expand</div>
                         <div class="news-date">March 12, 2024</div>
                     </div>
@@ -960,7 +1235,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3>ASIC Miner Value</h3>
+                <h3>Best Miners Profit</h3>
                 <p>World's largest database of ASIC miners with real-time profitability calculations in multiple currencies and languages.</p>
                 <div class="language-selector">
                     <button class="lang-btn active">English</button>
@@ -975,10 +1250,10 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">ASIC Miners</a></li>
-                    <li><a href="#">Profitability Calculator</a></li>
-                    <li><a href="#">Mining Pools</a></li>
-                    <li><a href="#">News & Guides</a></li>
+                    <li><a href="#" onclick="showPage('miners')">ASIC Miners</a></li>
+                    <li><a href="#" onclick="showPage('calculators')">Profitability Calculator</a></li>
+                    <li><a href="#" onclick="showPage('pools')">Mining Pools</a></li>
+                    <li><a href="#" onclick="showPage('news')">News & Guides</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1003,96 +1278,96 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ASIC Miner Value. All rights reserved. Data updates every 5 minutes.</p>
+            <p>&copy; 2024 Best Miners Profit. All rights reserved. Data updates every 5 minutes.</p>
         </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Login</h3>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+            <button class="form-submit" onclick="login()">Login</button>
+            <div class="form-switch">
+                Don't have an account? <a onclick="switchToRegister()">Register here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Register</h3>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="register-name">Full Name</label>
+                <input type="text" id="register-name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" placeholder="Create a password">
+            </div>
+            <div class="form-group">
+                <label for="register-confirm">Confirm Password</label>
+                <input type="password" id="register-confirm" placeholder="Confirm your password">
+            </div>
+            <button class="form-submit" onclick="register()">Register</button>
+            <div class="form-switch">
+                Already have an account? <a onclick="switchToLogin()">Login here</a>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Comprehensive cryptocurrency data
-        const cryptocurrencies = [
-            { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
-            { symbol: 'ETH', name: 'Ethereum', price: 2456.78, change: 1.23 },
-            { symbol: 'LTC', name: 'Litecoin', price: 68.90, change: -0.45 },
-            { symbol: 'BCH', name: 'Bitcoin Cash', price: 234.56, change: 0.89 },
-            { symbol: 'DASH', name: 'Dash', price: 27.34, change: -1.22 },
-            { symbol: 'ZEC', name: 'Zcash', price: 45.67, change: 3.45 },
-            { symbol: 'XMR', name: 'Monero', price: 123.45, change: 0.67 },
-            { symbol: 'ETC', name: 'Ethereum Classic', price: 23.45, change: -2.34 },
-            { symbol: 'KDA', name: 'Kadena', price: 1.23, change: 5.67 },
-            { symbol: 'SC', name: 'Siacoin', price: 0.0045, change: 1.23 }
-        ];
+        // ==================== COMPLETE FUNCTIONALITY ====================
 
-        // Exchange rates
-        const exchangeRates = {
-            USD: 1,
-            EUR: 0.92,
-            GBP: 0.79,
-            JPY: 150.23,
-            CNY: 7.23,
-            RUB: 92.45,
-            BTC: 0.000022,
-            ETH: 0.00041
-        };
-
-        // Comprehensive miner database (200+ miners like asicminervalue.com)
-        const minersDatabase = [
-            // Bitcoin SHA-256 Miners (50+)
-            { id: 1, model: "Bitmain Antminer S19 XP Hyd", algorithm: "SHA-256", hashrate: "255 TH/s", power: "5304W", efficiency: "20.8 J/TH", noise: "75 dB", price: 8499, dailyProfit: 25.43, roiDays: 334, algorithmType: "sha256", manufacturer: "bitmain", popularity: 95, release: "2022" },
-            { id: 2, model: "Bitmain Antminer S19j Pro+", algorithm: "SHA-256", hashrate: "122 TH/s", power: "3355W", efficiency: "27.5 J/TH", noise: "75 dB", price: 2899, dailyProfit: 9.87, roiDays: 294, algorithmType: "sha256", manufacturer: "bitmain", popularity: 88, release: "2022" },
-            { id: 3, model: "Bitmain Antminer S19 Pro", algorithm: "SHA-256", hashrate: "110 TH/s", power: "3250W", efficiency: "29.5 J/TH", noise: "75 dB", price: 2499, dailyProfit: 8.45, roiDays: 296, algorithmType: "sha256", manufacturer: "bitmain", popularity: 85, release: "2020" },
-            { id: 4, model: "MicroBT Whatsminer M50S", algorithm: "SHA-256", hashrate: "126 TH/s", power: "3276W", efficiency: "26 J/TH", noise: "75 dB", price: 3199, dailyProfit: 10.12, roiDays: 316, algorithmType: "sha256", manufacturer: "microbt", popularity: 82, release: "2022" },
-            { id: 5, model: "MicroBT Whatsminer M30S++", algorithm: "SHA-256", hashrate: "112 TH/s", power: "3472W", efficiency: "31 J/TH", noise: "75 dB", price: 2699, dailyProfit: 8.23, roiDays: 328, algorithmType: "sha256", manufacturer: "microbt", popularity: 80, release: "2021" },
-            { id: 6, model: "Canaan Avalon A1266", algorithm: "SHA-256", hashrate: "130 TH/s", power: "3250W", efficiency: "25 J/TH", noise: "75 dB", price: 3499, dailyProfit: 10.45, roiDays: 335, algorithmType: "sha256", manufacturer: "canaan", popularity: 78, release: "2022" },
-            { id: 7, model: "Canaan Avalon A1246", algorithm: "SHA-256", hashrate: "90 TH/s", power: "3420W", efficiency: "38 J/TH", noise: "75 dB", price: 1899, dailyProfit: 5.67, roiDays: 335, algorithmType: "sha256", manufacturer: "canaan", popularity: 75, release: "2021" },
-            { id: 8, model: "Bitmain Antminer S19", algorithm: "SHA-256", hashrate: "95 TH/s", power: "3250W", efficiency: "34 J/TH", noise: "75 dB", price: 1999, dailyProfit: 6.12, roiDays: 327, algorithmType: "sha256", manufacturer: "bitmain", popularity: 82, release: "2020" },
-            
-            // Litecoin Scrypt Miners (30+)
-            { id: 50, model: "Bitmain Antminer L7", algorithm: "Scrypt", hashrate: "9.5 GH/s", power: "3425W", efficiency: "360 J/MH", noise: "75 dB", price: 7499, dailyProfit: 18.76, roiDays: 400, algorithmType: "scrypt", manufacturer: "bitmain", popularity: 88, release: "2021" },
-            { id: 51, model: "Bitmain Antminer L3++", algorithm: "Scrypt", hashrate: "596 MH/s", power: "1050W", efficiency: "1.76 J/MH", noise: "75 dB", price: 299, dailyProfit: 0.89, roiDays: 336, algorithmType: "scrypt", manufacturer: "bitmain", popularity: 65, release: "2017" },
-            { id: 52, model: "Goldshell LT6", algorithm: "Scrypt", hashrate: "2.05 GH/s", power: "1200W", efficiency: "585 J/MH", noise: "55 dB", price: 1899, dailyProfit: 4.12, roiDays: 461, algorithmType: "scrypt", manufacturer: "goldshell", popularity: 72, release: "2022" },
-            { id: 53, model: "Goldshell LT5", algorithm: "Scrypt", hashrate: "2.5 GH/s", power: "1350W", efficiency: "540 J/MH", noise: "55 dB", price: 2199, dailyProfit: 5.23, roiDays: 421, algorithmType: "scrypt", manufacturer: "goldshell", popularity: 70, release: "2021" },
-            
-            // Ethereum Classic Ethash Miners (20+)
-            { id: 100, model: "Bitmain Antminer E9", algorithm: "Ethash", hashrate: "3 GH/s", power: "2556W", efficiency: "0.85 J/MH", noise: "75 dB", price: 12499, dailyProfit: 15.67, roiDays: 798, algorithmType: "ethash", manufacturer: "bitmain", popularity: 68, release: "2021" },
-            { id: 101, model: "Innosilicon A11 Pro", algorithm: "Ethash", hashrate: "2 GH/s", power: "2500W", efficiency: "1.25 J/MH", noise: "75 dB", price: 8999, dailyProfit: 10.45, roiDays: 861, algorithmType: "ethash", manufacturer: "innosilicon", popularity: 62, release: "2021" },
-            
-            // Kadena Miners (15+)
-            { id: 150, model: "iBeLink BM-K1", algorithm: "Kadena", hashrate: "6.6 TH/s", power: "2400W", efficiency: "364 J/TH", noise: "75 dB", price: 6499, dailyProfit: 12.34, roiDays: 527, algorithmType: "kadena", manufacturer: "ibelink", popularity: 71, release: "2021" },
-            { id: 151, model: "Goldshell KD6", algorithm: "Kadena", hashrate: "29.2 TH/s", power: "2350W", efficiency: "80 J/TH", noise: "55 dB", price: 24999, dailyProfit: 45.67, roiDays: 547, algorithmType: "kadena", manufacturer: "goldshell", popularity: 79, release: "2022" },
-            
-            // Other Algorithms (85+)
-            { id: 200, model: "Goldshell HS-Box", algorithm: "Blake2B", hashrate: "840 GH/s", power: "65W", efficiency: "0.077 J/MH", noise: "35 dB", price: 899, dailyProfit: 1.23, roiDays: 731, algorithmType: "blake2b", manufacturer: "goldshell", popularity: 58, release: "2021" },
-            { id: 201, model: "iBeLink DSM7T", algorithm: "X11", hashrate: "7.8 TH/s", power: "3200W", efficiency: "410 J/TH", noise: "75 dB", price: 4599, dailyProfit: 8.90, roiDays: 517, algorithmType: "x11", manufacturer: "ibelink", popularity: 55, release: "2021" },
-            { id: 202, model: "Innosilicon A9 ZMaster", algorithm: "Zhash", hashrate: "50 KSol/s", power: "620W", efficiency: "12.4 J/KSol", noise: "75 dB", price: 1299, dailyProfit: 2.34, roiDays: 555, algorithmType: "equihash", manufacturer: "innosilicon", popularity: 52, release: "2019" }
-        ];
-
-        // Add more miners to reach 200+
-        for (let i = 300; i <= 500; i++) {
-            const baseMiner = minersDatabase[i % minersDatabase.length];
-            minersDatabase.push({
-                ...baseMiner,
-                id: i,
-                model: `${baseMiner.model} V${Math.floor(i/100)}`,
-                price: baseMiner.price * (0.8 + Math.random() * 0.4),
-                dailyProfit: baseMiner.dailyProfit * (0.8 + Math.random() * 0.4),
-                roiDays: Math.floor(baseMiner.roiDays * (0.8 + Math.random() * 0.4))
-            });
-        }
-
+        // Global variables
         let currentCurrency = 'USD';
         let currentLanguage = 'en';
+        let currentSort = { column: 'profit', direction: 'desc' };
+        let currentPage = 1;
+        const itemsPerPage = 20;
+        let allMiners = [];
+        let filteredMiners = [];
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            populateCryptoTicker();
-            populateMinersTable();
-            populateMinerSelect();
-            populateTopMiners();
-            startLiveUpdates();
-            setupEventListeners();
+            initializeApp();
+            initializeAdSense();
         });
 
-        // Setup event listeners
+        // Initialize AdSense
+        function initializeAdSense() {
+            // AdSense is already initialized in the head section
+            // This function can be used for additional AdSense configurations
+            console.log('AdSense initialized for Best Miners Profit');
+        }
+
+        // Initialize all functionality
+        function initializeApp() {
+            populateCryptoTicker();
+            initializeMinersData();
+            setupEventListeners();
+            startLiveUpdates();
+        }
+
+        // Setup all event listeners
         function setupEventListeners() {
             // Currency selection
             document.querySelectorAll('.currency-btn').forEach(btn => {
@@ -1108,8 +1383,7 @@
             // Language selection
             document.getElementById('language-select').addEventListener('change', function() {
                 currentLanguage = this.value;
-                // In real implementation, this would load translations
-                alert(`Language changed to ${this.options[this.selectedIndex].text}`);
+                showNotification(`Language changed to ${this.options[this.selectedIndex].text}`);
             });
 
             // Currency selection in top bar
@@ -1124,36 +1398,115 @@
             document.getElementById('manufacturer-filter').addEventListener('change', filterMiners);
             document.getElementById('power-filter').addEventListener('change', filterMiners);
             document.getElementById('sort-filter').addEventListener('change', filterMiners);
-        }
 
-        // Populate crypto ticker
-        function populateCryptoTicker() {
-            const ticker = document.getElementById('crypto-ticker');
-            ticker.innerHTML = '';
-            
-            cryptocurrencies.forEach(crypto => {
-                const item = document.createElement('div');
-                item.className = 'ticker-item';
-                item.innerHTML = `
-                    <span class="ticker-symbol">${crypto.symbol}</span>
-                    <span class="ticker-price">$${crypto.price.toLocaleString()}</span>
-                    <span class="${crypto.change >= 0 ? 'price-up' : 'price-down'}">
-                        ${crypto.change >= 0 ? '+' : ''}${crypto.change}%
-                    </span>
-                `;
-                ticker.appendChild(item);
+            // Search functionality
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchMiners();
+                }
+            });
+
+            // Auto-calculate when miner is selected
+            document.getElementById('calc-miner').addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                if (selectedOption.value) {
+                    const basePrice = parseFloat(selectedOption.getAttribute('data-price'));
+                    const exchangeRate = getExchangeRate();
+                    const price = currentCurrency === 'USD' ? basePrice : basePrice * exchangeRate;
+                    
+                    const hardwareInput = document.getElementById('calc-hardware');
+                    hardwareInput.value = price.toFixed(2);
+                    calculateProfitability();
+                }
+            });
+
+            // Footer language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    showNotification(`Language changed to ${this.textContent}`);
+                });
+            });
+
+            // Navigation links
+            document.querySelectorAll('.nav-menu a, .footer-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
             });
         }
 
+        // ==================== MINERS DATA & TABLE ====================
+
+        // Initialize miners data
+        function initializeMinersData() {
+            // Comprehensive miner database (200+ miners)
+            allMiners = [
+                // Bitcoin SHA-256 Miners
+                { id: 1, model: "Bitmain Antminer S19 XP Hyd", algorithm: "SHA-256", hashrate: "255 TH/s", power: "5304W", efficiency: "20.8 J/TH", noise: "75 dB", price: 8499, dailyProfit: 25.43, roiDays: 334, algorithmType: "sha256", manufacturer: "bitmain", popularity: 95, release: "2022" },
+                { id: 2, model: "Bitmain Antminer S19j Pro+", algorithm: "SHA-256", hashrate: "122 TH/s", power: "3355W", efficiency: "27.5 J/TH", noise: "75 dB", price: 2899, dailyProfit: 9.87, roiDays: 294, algorithmType: "sha256", manufacturer: "bitmain", popularity: 88, release: "2022" },
+                { id: 3, model: "Bitmain Antminer S19 Pro", algorithm: "SHA-256", hashrate: "110 TH/s", power: "3250W", efficiency: "29.5 J/TH", noise: "75 dB", price: 2499, dailyProfit: 8.45, roiDays: 296, algorithmType: "sha256", manufacturer: "bitmain", popularity: 85, release: "2020" },
+                { id: 4, model: "MicroBT Whatsminer M50S", algorithm: "SHA-256", hashrate: "126 TH/s", power: "3276W", efficiency: "26 J/TH", noise: "75 dB", price: 3199, dailyProfit: 10.12, roiDays: 316, algorithmType: "sha256", manufacturer: "microbt", popularity: 82, release: "2022" },
+                { id: 5, model: "Canaan Avalon A1266", algorithm: "SHA-256", hashrate: "130 TH/s", power: "3250W", efficiency: "25 J/TH", noise: "75 dB", price: 3499, dailyProfit: 10.45, roiDays: 335, algorithmType: "sha256", manufacturer: "canaan", popularity: 78, release: "2022" },
+                
+                // Litecoin Scrypt Miners
+                { id: 50, model: "Bitmain Antminer L7", algorithm: "Scrypt", hashrate: "9.5 GH/s", power: "3425W", efficiency: "360 J/MH", noise: "75 dB", price: 7499, dailyProfit: 18.76, roiDays: 400, algorithmType: "scrypt", manufacturer: "bitmain", popularity: 88, release: "2021" },
+                { id: 51, model: "Goldshell LT6", algorithm: "Scrypt", hashrate: "2.05 GH/s", power: "1200W", efficiency: "585 J/MH", noise: "55 dB", price: 1899, dailyProfit: 4.12, roiDays: 461, algorithmType: "scrypt", manufacturer: "goldshell", popularity: 72, release: "2022" },
+                
+                // Ethereum Classic Ethash Miners
+                { id: 100, model: "Bitmain Antminer E9", algorithm: "Ethash", hashrate: "3 GH/s", power: "2556W", efficiency: "0.85 J/MH", noise: "75 dB", price: 12499, dailyProfit: 15.67, roiDays: 798, algorithmType: "ethash", manufacturer: "bitmain", popularity: 68, release: "2021" },
+                
+                // Add more miners to reach 200+
+                { id: 150, model: "iBeLink BM-K1", algorithm: "Kadena", hashrate: "6.6 TH/s", power: "2400W", efficiency: "364 J/TH", noise: "75 dB", price: 6499, dailyProfit: 12.34, roiDays: 527, algorithmType: "kadena", manufacturer: "ibelink", popularity: 71, release: "2021" },
+                { id: 151, model: "Goldshell KD6", algorithm: "Kadena", hashrate: "29.2 TH/s", power: "2350W", efficiency: "80 J/TH", noise: "55 dB", price: 24999, dailyProfit: 45.67, roiDays: 547, algorithmType: "kadena", manufacturer: "goldshell", popularity: 79, release: "2022" }
+            ];
+
+            // Generate more miners
+            for (let i = 200; i <= 400; i++) {
+                const baseMiner = allMiners[i % allMiners.length];
+                allMiners.push({
+                    ...baseMiner,
+                    id: i,
+                    model: `${baseMiner.model} V${Math.floor(i/100)}`,
+                    price: baseMiner.price * (0.8 + Math.random() * 0.4),
+                    dailyProfit: baseMiner.dailyProfit * (0.8 + Math.random() * 0.4),
+                    roiDays: Math.floor(baseMiner.roiDays * (0.8 + Math.random() * 0.4))
+                });
+            }
+
+            filteredMiners = [...allMiners];
+            populateMinersTable();
+            populateMinerSelect();
+            populateTopMiners();
+        }
+
         // Populate miners table
-        function populateMinersTable(miners = minersDatabase) {
+        function populateMinersTable() {
             const tableBody = document.getElementById('miners-table-body');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentMiners = filteredMiners.slice(startIndex, endIndex);
+
+            if (currentMiners.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="10" style="text-align: center; padding: 40px;">
+                            <i class="fas fa-search"></i> No miners found matching your criteria.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
             tableBody.innerHTML = '';
             
-            const exchangeRate = exchangeRates[currentCurrency];
-            const currencySymbol = currentCurrency === 'BTC' ? '₿' : (currentCurrency === 'EUR' ? '€' : (currentCurrency === 'GBP' ? '£' : (currentCurrency === 'JPY' ? '¥' : (currentCurrency === 'CNY' ? '¥' : '$'))));
+            const exchangeRate = getExchangeRate();
+            const currencySymbol = getCurrencySymbol();
             
-            miners.slice(0, 20).forEach(miner => {
+            currentMiners.forEach(miner => {
                 const price = currentCurrency === 'USD' ? miner.price : miner.price * exchangeRate;
                 const dailyProfit = currentCurrency === 'USD' ? miner.dailyProfit : miner.dailyProfit * exchangeRate;
                 
@@ -1173,45 +1526,75 @@
                 tableBody.appendChild(row);
             });
             
-            document.getElementById('results-count').textContent = `Showing 1-20 of ${miners.length} miners`;
+            document.getElementById('results-count').textContent = `Showing ${startIndex + 1}-${Math.min(endIndex, filteredMiners.length)} of ${filteredMiners.length} miners`;
+            updatePagination();
         }
 
-        // Populate calculator miner select
-        function populateMinerSelect() {
-            const select = document.getElementById('calc-miner');
-            select.innerHTML = '<option value="">Choose a miner...</option>';
-            
-            minersDatabase.forEach(miner => {
-                const option = document.createElement('option');
-                option.value = miner.id;
-                option.textContent = `${miner.model} (${miner.hashrate})`;
-                option.setAttribute('data-price', miner.price);
-                select.appendChild(option);
+        // Sort table
+        function sortTable(column) {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'desc';
+            }
+
+            filteredMiners.sort((a, b) => {
+                let aValue, bValue;
+
+                switch (column) {
+                    case 'model':
+                        aValue = a.model.toLowerCase();
+                        bValue = b.model.toLowerCase();
+                        break;
+                    case 'algorithm':
+                        aValue = a.algorithm.toLowerCase();
+                        bValue = b.algorithm.toLowerCase();
+                        break;
+                    case 'hashrate':
+                        aValue = parseFloat(a.hashrate);
+                        bValue = parseFloat(b.hashrate);
+                        break;
+                    case 'power':
+                        aValue = parseFloat(a.power);
+                        bValue = parseFloat(b.power);
+                        break;
+                    case 'efficiency':
+                        aValue = parseFloat(a.efficiency);
+                        bValue = parseFloat(b.efficiency);
+                        break;
+                    case 'noise':
+                        aValue = parseFloat(a.noise);
+                        bValue = parseFloat(b.noise);
+                        break;
+                    case 'price':
+                        aValue = a.price;
+                        bValue = b.price;
+                        break;
+                    case 'profit':
+                        aValue = a.dailyProfit;
+                        bValue = b.dailyProfit;
+                        break;
+                    case 'roi':
+                        aValue = a.roiDays;
+                        bValue = b.roiDays;
+                        break;
+                    default:
+                        aValue = a.dailyProfit;
+                        bValue = b.dailyProfit;
+                }
+
+                if (currentSort.direction === 'asc') {
+                    return aValue > bValue ? 1 : -1;
+                } else {
+                    return aValue < bValue ? 1 : -1;
+                }
             });
+
+            populateMinersTable();
         }
 
-        // Populate top miners widget
-        function populateTopMiners() {
-            const topMinersList = document.getElementById('top-miners-list');
-            topMinersList.innerHTML = '';
-            
-            const topMiners = [...minersDatabase]
-                .sort((a, b) => b.popularity - a.popularity)
-                .slice(0, 5);
-            
-            topMiners.forEach((miner, index) => {
-                const item = document.createElement('div');
-                item.className = 'top-miner-item';
-                item.innerHTML = `
-                    <div class="top-miner-rank">${index + 1}</div>
-                    <div class="top-miner-info">
-                        <div class="top-miner-name">${miner.model}</div>
-                        <div class="top-miner-profit">$${miner.dailyProfit}/day</div>
-                    </div>
-                `;
-                topMinersList.appendChild(item);
-            });
-        }
+        // ==================== FILTERING & SEARCH ====================
 
         // Filter miners
         function filterMiners() {
@@ -1220,28 +1603,28 @@
             const power = document.getElementById('power-filter').value;
             const sort = document.getElementById('sort-filter').value;
             
-            let filteredMiners = minersDatabase;
-            
-            if (algorithm !== 'all') {
-                filteredMiners = filteredMiners.filter(miner => miner.algorithmType === algorithm);
-            }
-            
-            if (manufacturer !== 'all') {
-                filteredMiners = filteredMiners.filter(miner => miner.manufacturer === manufacturer);
-            }
-            
-            if (power !== 'all') {
-                const powerConsumption = parseFloat(filteredMiners[0]?.power) || 0;
-                if (power === 'low') {
-                    filteredMiners = filteredMiners.filter(miner => parseFloat(miner.power) < 2000);
-                } else if (power === 'medium') {
-                    filteredMiners = filteredMiners.filter(miner => parseFloat(miner.power) >= 2000 && parseFloat(miner.power) <= 3500);
-                } else if (power === 'high') {
-                    filteredMiners = filteredMiners.filter(miner => parseFloat(miner.power) > 3500);
+            filteredMiners = allMiners.filter(miner => {
+                let match = true;
+                
+                if (algorithm !== 'all' && miner.algorithmType !== algorithm) {
+                    match = false;
                 }
-            }
-            
-            // Sort miners
+                
+                if (manufacturer !== 'all' && miner.manufacturer !== manufacturer) {
+                    match = false;
+                }
+                
+                if (power !== 'all') {
+                    const powerValue = parseFloat(miner.power);
+                    if (power === 'low' && powerValue >= 2000) match = false;
+                    if (power === 'medium' && (powerValue < 2000 || powerValue > 3500)) match = false;
+                    if (power === 'high' && powerValue <= 3500) match = false;
+                }
+                
+                return match;
+            });
+
+            // Apply sorting
             if (sort === 'profit') {
                 filteredMiners.sort((a, b) => b.dailyProfit - a.dailyProfit);
             } else if (sort === 'efficiency') {
@@ -1259,35 +1642,62 @@
                     return bHash - aHash;
                 });
             }
+
+            currentPage = 1;
+            populateMinersTable();
+        }
+
+        // Search miners
+        function searchMiners() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
             
-            populateMinersTable(filteredMiners);
+            if (searchTerm === '') {
+                filteredMiners = [...allMiners];
+            } else {
+                filteredMiners = allMiners.filter(miner => 
+                    miner.model.toLowerCase().includes(searchTerm) ||
+                    miner.algorithm.toLowerCase().includes(searchTerm) ||
+                    miner.manufacturer.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            currentPage = 1;
+            populateMinersTable();
+            
+            if (filteredMiners.length === 0) {
+                showNotification('No miners found matching your search criteria.');
+            }
+        }
+
+        // ==================== CALCULATOR FUNCTIONALITY ====================
+
+        // Populate calculator miner select
+        function populateMinerSelect() {
+            const select = document.getElementById('calc-miner');
+            select.innerHTML = '<option value="">Choose a miner...</option>';
+            
+            allMiners.forEach(miner => {
+                const option = document.createElement('option');
+                option.value = miner.id;
+                option.textContent = `${miner.model} (${miner.hashrate})`;
+                option.setAttribute('data-price', miner.price);
+                select.appendChild(option);
+            });
         }
 
         // Select miner for calculator
         function selectMiner(minerId) {
-            const miner = minersDatabase.find(m => m.id === minerId);
+            const miner = allMiners.find(m => m.id === minerId);
             const select = document.getElementById('calc-miner');
             select.value = minerId;
             
             // Auto-fill hardware cost
             const hardwareInput = document.getElementById('calc-hardware');
-            const exchangeRate = exchangeRates[currentCurrency];
+            const exchangeRate = getExchangeRate();
             const price = currentCurrency === 'USD' ? miner.price : miner.price * exchangeRate;
             hardwareInput.value = price.toFixed(2);
             
             calculateProfitability();
-        }
-
-        // Update currency display
-        function updateCurrencyDisplay() {
-            const unitElement = document.getElementById('electricity-unit');
-            if (currentCurrency === 'BTC') {
-                unitElement.textContent = 'BTC/kWh';
-            } else if (currentCurrency === 'EUR') {
-                unitElement.textContent = '€/kWh';
-            } else {
-                unitElement.textContent = '$/kWh';
-            }
         }
 
         // Calculate profitability
@@ -1297,14 +1707,19 @@
             const hardwareCost = parseFloat(document.getElementById('calc-hardware').value) || 0;
             
             if (!minerId) {
-                alert('Please select a miner first');
+                showNotification('Please select a miner first');
                 return;
             }
             
-            const miner = minersDatabase.find(m => m.id == minerId);
+            if (isNaN(electricityCost) || electricityCost < 0) {
+                showNotification('Please enter a valid electricity cost');
+                return;
+            }
+            
+            const miner = allMiners.find(m => m.id == minerId);
             const powerConsumption = parseFloat(miner.power.replace('W', ''));
-            const exchangeRate = exchangeRates[currentCurrency];
-            const currencySymbol = currentCurrency === 'BTC' ? '₿' : (currentCurrency === 'EUR' ? '€' : (currentCurrency === 'GBP' ? '£' : (currentCurrency === 'JPY' ? '¥' : (currentCurrency === 'CNY' ? '¥' : '$'))));
+            const exchangeRate = getExchangeRate();
+            const currencySymbol = getCurrencySymbol();
             
             // Calculate in selected currency
             const dailyRevenue = currentCurrency === 'USD' ? miner.dailyProfit : miner.dailyProfit * exchangeRate;
@@ -1325,14 +1740,289 @@
             
             // Color code profit
             const profitElement = document.getElementById('result-profit');
-            if (dailyProfit >= 0) {
-                profitElement.className = 'profit-positive';
+            profitElement.className = dailyProfit >= 0 ? 'profit-positive' : 'profit-negative';
+        }
+
+        // ==================== TOP MINERS WIDGET ====================
+
+        // Populate top miners widget
+        function populateTopMiners() {
+            const topMinersList = document.getElementById('top-miners-list');
+            topMinersList.innerHTML = '';
+            
+            const topMiners = [...allMiners]
+                .sort((a, b) => b.popularity - a.popularity)
+                .slice(0, 5);
+            
+            topMiners.forEach((miner, index) => {
+                const item = document.createElement('div');
+                item.className = 'top-miner-item';
+                item.onclick = () => selectMiner(miner.id);
+                item.innerHTML = `
+                    <div class="top-miner-rank">${index + 1}</div>
+                    <div class="top-miner-info">
+                        <div class="top-miner-name">${miner.model}</div>
+                        <div class="top-miner-profit">$${miner.dailyProfit}/day</div>
+                    </div>
+                `;
+                topMinersList.appendChild(item);
+            });
+        }
+
+        // ==================== PAGINATION ====================
+
+        // Update pagination
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(filteredMiners.length / itemsPerPage);
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '';
+            
+            // Previous button
+            if (currentPage > 1) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})"><i class="fas fa-chevron-left"></i> Previous</button>`;
+            }
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                    paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+                } else if (i === currentPage - 3 || i === currentPage + 3) {
+                    paginationHTML += `<button class="page-btn" disabled>...</button>`;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})">Next <i class="fas fa-chevron-right"></i></button>`;
+            }
+            
+            pagination.innerHTML = paginationHTML;
+        }
+
+        // Change page
+        function changePage(page) {
+            currentPage = page;
+            populateMinersTable();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==================== MODAL FUNCTIONALITY ====================
+
+        // Show login modal
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        // Show register modal
+        function showRegisterModal() {
+            document.getElementById('registerModal').style.display = 'block';
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Switch to register
+        function switchToRegister() {
+            closeModal('loginModal');
+            showRegisterModal();
+        }
+
+        // Switch to login
+        function switchToLogin() {
+            closeModal('registerModal');
+            showLoginModal();
+        }
+
+        // Login function
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email || !password) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate login
+            showNotification('Login successful!');
+            closeModal('loginModal');
+        }
+
+        // Register function
+        function register() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            
+            if (!name || !email || !password || !confirm) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showNotification('Passwords do not match');
+                return;
+            }
+            
+            // Simulate registration
+            showNotification('Registration successful!');
+            closeModal('registerModal');
+        }
+
+        // ==================== PAGE NAVIGATION ====================
+
+        // Show page
+        function showPage(page) {
+            const pages = ['miners', 'calculators', 'profitability', 'news', 'pools', 'shop'];
+            showNotification(`Navigating to ${page} page...`);
+            // In a real application, this would load different content
+        }
+
+        // Show news
+        function showNews(newsId) {
+            const newsTitles = {
+                halving: 'Bitcoin Halving Scheduled for April 2024',
+                technology: 'New ASIC Miners with 3nm Technology',
+                renewable: 'Renewable Energy Mining Farms Expand'
+            };
+            showNotification(`Opening news: ${newsTitles[newsId]}`);
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+
+        // Get exchange rate
+        function getExchangeRate() {
+            const rates = {
+                USD: 1,
+                EUR: 0.92,
+                GBP: 0.79,
+                JPY: 150.23,
+                CNY: 7.23,
+                RUB: 92.45,
+                BTC: 0.000022,
+                ETH: 0.00041
+            };
+            return rates[currentCurrency] || 1;
+        }
+
+        // Get currency symbol
+        function getCurrencySymbol() {
+            const symbols = {
+                USD: '$',
+                EUR: '€',
+                GBP: '£',
+                JPY: '¥',
+                CNY: '¥',
+                RUB: '₽',
+                BTC: '₿',
+                ETH: 'Ξ'
+            };
+            return symbols[currentCurrency] || '$';
+        }
+
+        // Update currency display
+        function updateCurrencyDisplay() {
+            const unitElement = document.getElementById('electricity-unit');
+            if (currentCurrency === 'BTC') {
+                unitElement.textContent = 'BTC/kWh';
+            } else if (currentCurrency === 'EUR') {
+                unitElement.textContent = '€/kWh';
             } else {
-                profitElement.className = 'profit-negative';
+                unitElement.textContent = '$/kWh';
             }
         }
 
-        // Live updates simulation
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1002;
+                font-weight: 500;
+                animation: slideIn 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ==================== LIVE UPDATES ====================
+
+        // Cryptocurrency data
+        const cryptocurrencies = [
+            { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
+            { symbol: 'ETH', name: 'Ethereum', price: 2456.78, change: 1.23 },
+            { symbol: 'LTC', name: 'Litecoin', price: 68.90, change: -0.45 },
+            { symbol: 'BCH', name: 'Bitcoin Cash', price: 234.56, change: 0.89 },
+            { symbol: 'DASH', name: 'Dash', price: 27.34, change: -1.22 },
+            { symbol: 'ZEC', name: 'Zcash', price: 45.67, change: 3.45 },
+            { symbol: 'XMR', name: 'Monero', price: 123.45, change: 0.67 },
+            { symbol: 'ETC', name: 'Ethereum Classic', price: 23.45, change: -2.34 },
+            { symbol: 'KDA', name: 'Kadena', price: 1.23, change: 5.67 },
+            { symbol: 'SC', name: 'Siacoin', price: 0.0045, change: 1.23 }
+        ];
+
+        // Populate crypto ticker
+        function populateCryptoTicker() {
+            const ticker = document.getElementById('crypto-ticker');
+            ticker.innerHTML = '';
+            
+            cryptocurrencies.forEach(crypto => {
+                const item = document.createElement('div');
+                item.className = 'ticker-item';
+                item.innerHTML = `
+                    <span class="ticker-symbol">${crypto.symbol}</span>
+                    <span class="ticker-price">$${crypto.price.toLocaleString()}</span>
+                    <span class="${crypto.change >= 0 ? 'price-up' : 'price-down'}">
+                        ${crypto.change >= 0 ? '+' : ''}${crypto.change}%
+                    </span>
+                `;
+                ticker.appendChild(item);
+            });
+        }
+
+        // Start live updates
         function startLiveUpdates() {
             setInterval(() => {
                 // Update crypto prices
@@ -1347,32 +2037,19 @@
                 
                 // Update miner profits based on Bitcoin price changes
                 const btcChange = (cryptocurrencies[0].price - 45231.45) / 45231.45;
-                minersDatabase.forEach(miner => {
+                allMiners.forEach(miner => {
                     if (miner.algorithmType === 'sha256') {
                         miner.dailyProfit = miner.dailyProfit * (1 + btcChange);
                         miner.roiDays = Math.ceil(miner.price / miner.dailyProfit);
                     }
                 });
                 
-                // Refresh table
+                // Refresh table and widgets
                 filterMiners();
+                populateTopMiners();
                 
             }, 30000); // Update every 30 seconds
         }
-
-        // Auto-calculate when miner is selected
-        document.getElementById('calc-miner').addEventListener('change', function() {
-            const selectedOption = this.options[this.selectedIndex];
-            if (selectedOption.value) {
-                const basePrice = parseFloat(selectedOption.getAttribute('data-price'));
-                const exchangeRate = exchangeRates[currentCurrency];
-                const price = currentCurrency === 'USD' ? basePrice : basePrice * exchangeRate;
-                
-                const hardwareInput = document.getElementById('calc-hardware');
-                hardwareInput.value = price.toFixed(2);
-                calculateProfitability();
-            }
-        });
     </script>
 </body>
 </html>
