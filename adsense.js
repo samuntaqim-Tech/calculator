@@ -1,13 +1,12 @@
-// adsense.js - Complete AdSense Integration for Best Miners Profit
-
+// adsense.js - Complete AdSense Integration for Best Miner Profit
 class AdSenseManager {
     constructor() {
-        this.adsenseId = 'ca-app-pub-4103650365925612~8216006757';
+        this.adsenseId = 'ca-pub-4103650365925612';
+        this.adsenseAppId = 'ca-app-pub-4103650365925612~8216006757';
         this.adsLoaded = false;
         this.adSlots = [];
     }
 
-    // Initialize AdSense
     init() {
         this.loadAdSenseScript();
         this.setupAutoAds();
@@ -15,7 +14,6 @@ class AdSenseManager {
         this.injectAds();
     }
 
-    // Load AdSense script
     loadAdSenseScript() {
         if (this.adsLoaded) return;
 
@@ -25,137 +23,94 @@ class AdSenseManager {
         script.crossOrigin = 'anonymous';
         script.onload = () => {
             this.adsLoaded = true;
-            console.log('AdSense script loaded successfully');
+            console.log('AdSense loaded for Best Miner Profit');
             this.pushAds();
         };
         document.head.appendChild(script);
     }
 
-    // Setup auto ads
     setupAutoAds() {
         window.adsbygoogle = window.adsbygoogle || [];
         adsbygoogle.push({
             google_ad_client: this.adsenseId,
-            enable_page_level_ads: true
+            enable_page_level_ads: true,
+            overlays: { bottom: true }
         });
     }
 
-    // Create ad containers
     createAdContainers() {
-        const adPositions = [
-            { type: 'banner', position: 'top', slot: 'top_banner' },
-            { type: 'sidebar', position: 'sidebar_top', slot: 'sidebar_1' },
-            { type: 'sidebar', position: 'sidebar_bottom', slot: 'sidebar_2' },
-            { type: 'inline', position: 'content_top', slot: 'content_1' },
-            { type: 'inline', position: 'content_middle', slot: 'content_2' },
-            { type: 'banner', position: 'bottom', slot: 'bottom_banner' }
+        const positions = [
+            { id: 'header-ad', type: 'banner', location: 'header' },
+            { id: 'sidebar-ad-1', type: 'rectangle', location: 'sidebar' },
+            { id: 'sidebar-ad-2', type: 'rectangle', location: 'sidebar' },
+            { id: 'content-ad-1', type: 'banner', location: 'content' },
+            { id: 'footer-ad', type: 'banner', location: 'footer' }
         ];
 
-        adPositions.forEach(pos => {
-            this.createAdSlot(pos);
+        positions.forEach(pos => {
+            this.createAdElement(pos);
         });
     }
 
-    // Create individual ad slot
-    createAdSlot(config) {
+    createAdElement(config) {
         const adDiv = document.createElement('div');
-        adDiv.className = `adsense-${config.type} adsense-ad`;
-        adDiv.id = `ad-${config.position}`;
+        adDiv.className = `ad-container ad-${config.type}`;
+        adDiv.id = config.id;
         
         adDiv.innerHTML = `
             <div class="ad-label">Advertisement</div>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="${this.adsenseId}"
-                 data-ad-slot="${config.slot}"
-                 data-ad-format="auto"
+                 data-ad-slot="${config.id}"
+                 data-ad-format="${config.type === 'banner' ? 'auto' : 'rectangle'}"
                  data-full-width-responsive="true"></ins>
         `;
 
-        this.adSlots.push({
-            element: adDiv,
-            config: config
-        });
+        this.adSlots.push(adDiv);
     }
 
-    // Inject ads into page
     injectAds() {
-        this.adSlots.forEach(adSlot => {
-            this.placeAdInPage(adSlot);
+        this.adSlots.forEach(ad => {
+            this.placeAd(ad);
         });
     }
 
-    // Place ad in specific page position
-    placeAdInPage(adSlot) {
-        const { element, config } = adSlot;
-        
-        switch(config.position) {
-            case 'top':
-                document.body.insertBefore(element, document.body.firstChild);
+    placeAd(adElement) {
+        const id = adElement.id;
+        switch(id) {
+            case 'header-ad':
+                const header = document.querySelector('header');
+                if (header) header.parentNode.insertBefore(adElement, header);
                 break;
-            case 'sidebar_top':
+            case 'sidebar-ad-1':
                 const sidebar = document.querySelector('.sidebar');
-                if (sidebar) sidebar.insertBefore(element, sidebar.firstChild);
+                if (sidebar) sidebar.prepend(adElement);
                 break;
-            case 'sidebar_bottom':
+            case 'sidebar-ad-2':
                 const sidebarBottom = document.querySelector('.sidebar');
-                if (sidebarBottom) sidebarBottom.appendChild(element);
+                if (sidebarBottom) sidebarBottom.appendChild(adElement);
                 break;
-            case 'content_top':
-                const mainContent = document.querySelector('.main-content');
-                if (mainContent) mainContent.insertBefore(element, mainContent.firstChild);
+            case 'content-ad-1':
+                const content = document.querySelector('.main-content');
+                if (content) content.parentNode.insertBefore(adElement, content);
                 break;
-            case 'content_middle':
-                const contentMiddle = document.querySelector('.miners-table');
-                if (contentMiddle) contentMiddle.parentNode.insertBefore(element, contentMiddle);
-                break;
-            case 'bottom':
+            case 'footer-ad':
                 const footer = document.querySelector('footer');
-                if (footer) document.body.insertBefore(element, footer);
+                if (footer) footer.parentNode.insertBefore(adElement, footer);
                 break;
         }
     }
 
-    // Push ads to AdSense
     pushAds() {
         if (window.adsbygoogle) {
             (adsbygoogle = window.adsbygoogle || []).push({});
         }
     }
-
-    // Refresh specific ad
-    refreshAd(adId) {
-        const adElement = document.getElementById(adId);
-        if (adElement && window.adsbygoogle) {
-            adsbygoogle.push({});
-        }
-    }
-
-    // Track ad performance
-    trackAdEvent(eventType, adSlot) {
-        // Integrate with Google Analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', eventType, {
-                'event_category': 'AdSense',
-                'event_label': adSlot,
-                'value': 1
-            });
-        }
-    }
 }
 
-// Initialize AdSense when DOM is ready
+// Initialize AdSense
 document.addEventListener('DOMContentLoaded', function() {
     const adManager = new AdSenseManager();
     adManager.init();
-    
-    // Refresh ads every 30 minutes
-    setInterval(() => {
-        adManager.pushAds();
-    }, 30 * 60 * 1000);
 });
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = AdSenseManager;
-}
