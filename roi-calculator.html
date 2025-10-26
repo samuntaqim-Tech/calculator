@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC ROI Calculator</title>
+    <title>ROI Calculator - Best Miners Profit</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4103650365925612",
+            enable_page_level_ads: true
+        });
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #1565C0;
+            --secondary: #0D47A1;
+            --accent: #FF6D00;
+            --success: #4CAF50;
+            --danger: #f44336;
+            --warning: #FF9800;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,13 +35,34 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* AdSense Styles */
+        .adsense-container {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .ad-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .container {
@@ -26,8 +70,9 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
+            margin: 20px;
         }
 
         h1 {
@@ -59,7 +104,7 @@
 
         input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary);
         }
 
         .button-group {
@@ -80,17 +125,17 @@
         }
 
         .calculate-btn {
-            background: #667eea;
+            background: var(--primary);
             color: white;
         }
 
         .calculate-btn:hover {
-            background: #5a6fd8;
+            background: var(--secondary);
             transform: translateY(-2px);
         }
 
         .reset-btn {
-            background: #e74c3c;
+            background: var(--danger);
             color: white;
         }
 
@@ -102,9 +147,9 @@
         .result {
             margin-top: 30px;
             padding: 20px;
-            background: #f8f9fa;
+            background: var(--light);
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--primary);
             display: none;
         }
 
@@ -139,15 +184,15 @@
 
         .result-value {
             font-weight: bold;
-            color: #667eea;
+            color: var(--primary);
         }
 
         .roi-positive {
-            color: #27ae60;
+            color: var(--success);
         }
 
         .roi-negative {
-            color: #e74c3c;
+            color: var(--danger);
         }
 
         @keyframes fadeIn {
@@ -169,124 +214,156 @@
                 font-size: 14px;
             }
         }
+
+        /* Navigation */
+        .nav-back {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-back a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-back a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <!-- AdSense Top Banner -->
+    <div class="adsense-container">
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4103650365925612"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <div class="container">
-        <h1>ASIC Miner ROI Calculator</h1>
+        <h1><i class="fas fa-calculator"></i> ROI Calculator</h1>
         
         <div class="input-group">
-            <label for="asicCost">ASIC Miner Cost ($)</label>
-            <input type="number" id="asicCost" placeholder="Enter ASIC miner cost" min="0">
+            <label for="initialInvestment">Initial Investment ($)</label>
+            <input type="number" id="initialInvestment" placeholder="Enter initial investment" min="0">
         </div>
         
         <div class="input-group">
-            <label for="hashrate">Hashrate (TH/s)</label>
-            <input type="number" id="hashrate" placeholder="Enter hashrate in TH/s" min="0">
+            <label for="finalValue">Final Value ($)</label>
+            <input type="number" id="finalValue" placeholder="Enter final value" min="0">
         </div>
         
         <div class="input-group">
-            <label for="powerConsumption">Power Consumption (W)</label>
-            <input type="number" id="powerConsumption" placeholder="Enter power consumption" min="0">
-        </div>
-        
-        <div class="input-group">
-            <label for="electricityCost">Electricity Cost ($/kWh)</label>
-            <input type="number" id="electricityCost" placeholder="Enter electricity cost" min="0" step="0.01">
-        </div>
-        
-        <div class="input-group">
-            <label for="bitcoinPrice">Bitcoin Price ($)</label>
-            <input type="number" id="bitcoinPrice" placeholder="Enter current Bitcoin price" min="0">
-        </div>
-        
-        <div class="input-group">
-            <label for="timePeriod">Time Period (months)</label>
-            <input type="number" id="timePeriod" placeholder="Enter time period in months" min="1">
+            <label for="timePeriod">Time Period (years)</label>
+            <input type="number" id="timePeriod" placeholder="Enter time period" min="0" step="0.1">
         </div>
         
         <div class="button-group">
-            <button class="calculate-btn" onclick="calculateASICROI()">Calculate ROI</button>
-            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+            <button class="calculate-btn" onclick="calculateROI()">
+                <i class="fas fa-calculator"></i> Calculate ROI
+            </button>
+            <button class="reset-btn" onclick="resetCalculator()">
+                <i class="fas fa-redo"></i> Reset
+            </button>
         </div>
         
         <div id="result" class="result">
-            <h3>ASIC Mining ROI Results</h3>
+            <h3>ROI Results</h3>
             <div class="result-item">
-                <span class="result-label">Monthly Revenue:</span>
-                <span id="monthlyRevenue" class="result-value">$0.00</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Monthly Power Cost:</span>
-                <span id="monthlyPowerCost" class="result-value">$0.00</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Monthly Profit:</span>
-                <span id="monthlyProfit" class="result-value">$0.00</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Total Profit:</span>
-                <span id="totalProfit" class="result-value">$0.00</span>
+                <span class="result-label">Total Return:</span>
+                <span id="totalReturn" class="result-value">$0.00</span>
             </div>
             <div class="result-item">
                 <span class="result-label">ROI Percentage:</span>
                 <span id="roiPercentage" class="result-value">0%</span>
             </div>
             <div class="result-item">
-                <span class="result-label">Break-even Time:</span>
-                <span id="breakEven" class="result-value">0 months</span>
+                <span class="result-label">Annual ROI:</span>
+                <span id="annualROI" class="result-value">0%</span>
             </div>
+            <div class="result-item">
+                <span class="result-label">Profit/Loss:</span>
+                <span id="profitLoss" class="result-value">$0.00</span>
+            </div>
+        </div>
+
+        <!-- AdSense Bottom Banner -->
+        <div class="adsense-container">
+            <div class="ad-label">Advertisement</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="nav-back">
+            <a href="asic-miners.html">
+                <i class="fas fa-arrow-left"></i> Back to ASIC Miners
+            </a>
         </div>
     </div>
 
     <script>
-        function calculateASICROI() {
-            // Get input values
-            const asicCost = parseFloat(document.getElementById('asicCost').value);
-            const hashrate = parseFloat(document.getElementById('hashrate').value);
-            const powerConsumption = parseFloat(document.getElementById('powerConsumption').value);
-            const electricityCost = parseFloat(document.getElementById('electricityCost').value);
-            const bitcoinPrice = parseFloat(document.getElementById('bitcoinPrice').value);
+        // Your AdSense ID
+        const ADSENSE_ID = 'ca-pub-4103650365925612';
+
+        // Initialize AdSense
+        function initializeAdSense() {
+            console.log('AdSense initialized for ROI Calculator');
+            
+            // Refresh ads after calculation
+            setTimeout(() => {
+                if (window.adsbygoogle) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+            }, 2000);
+        }
+
+        function calculateROI() {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+            const finalValue = parseFloat(document.getElementById('finalValue').value);
             const timePeriod = parseFloat(document.getElementById('timePeriod').value);
             
             // Validate inputs
-            if (isNaN(asicCost) || isNaN(hashrate) || isNaN(powerConsumption) || 
-                isNaN(electricityCost) || isNaN(bitcoinPrice) || isNaN(timePeriod)) {
+            if (isNaN(initialInvestment) || isNaN(finalValue) || isNaN(timePeriod)) {
                 alert('Please enter valid numbers in all fields');
                 return;
             }
             
-            if (asicCost <= 0 || hashrate <= 0 || timePeriod <= 0) {
-                alert('ASIC cost, hashrate, and time period must be greater than 0');
+            if (initialInvestment <= 0 || timePeriod <= 0) {
+                alert('Initial investment and time period must be greater than 0');
                 return;
             }
             
-            // Simplified mining calculation (in real world, this would use actual mining APIs)
-            const dailyBitcoinMined = (hashrate * 0.00000002); // Simplified estimation
-            const monthlyBitcoinMined = dailyBitcoinMined * 30;
-            const monthlyRevenue = monthlyBitcoinMined * bitcoinPrice;
-            
-            // Power cost calculation
-            const monthlyPowerCost = (powerConsumption * 24 * 30 / 1000) * electricityCost;
-            const monthlyProfit = monthlyRevenue - monthlyPowerCost;
-            const totalProfit = monthlyProfit * timePeriod;
-            
-            // ROI calculation
-            const roiPercentage = ((totalProfit / asicCost) * 100);
-            const breakEvenMonths = monthlyProfit > 0 ? (asicCost / monthlyProfit) : 'Never';
+            // Calculate ROI
+            const profit = finalValue - initialInvestment;
+            const roiPercentage = ((profit / initialInvestment) * 100);
+            const annualROI = timePeriod > 0 ? (roiPercentage / timePeriod) : 0;
             
             // Display results
-            document.getElementById('monthlyRevenue').textContent = `$${monthlyRevenue.toFixed(2)}`;
-            document.getElementById('monthlyPowerCost').textContent = `$${monthlyPowerCost.toFixed(2)}`;
-            document.getElementById('monthlyProfit').textContent = `$${monthlyProfit.toFixed(2)}`;
-            document.getElementById('totalProfit').textContent = `$${totalProfit.toFixed(2)}`;
+            document.getElementById('totalReturn').textContent = `$${finalValue.toFixed(2)}`;
+            document.getElementById('profitLoss').textContent = `$${profit.toFixed(2)}`;
             document.getElementById('roiPercentage').textContent = `${roiPercentage.toFixed(2)}%`;
-            document.getElementById('breakEven').textContent = typeof breakEvenMonths === 'number' ? 
-                `${breakEvenMonths.toFixed(1)} months` : breakEvenMonths;
+            document.getElementById('annualROI').textContent = `${annualROI.toFixed(2)}%`;
             
             // Color code for positive/negative ROI
             const roiElement = document.getElementById('roiPercentage');
-            const profitElement = document.getElementById('totalProfit');
+            const profitElement = document.getElementById('profitLoss');
             
             if (roiPercentage >= 0) {
                 roiElement.className = 'result-value roi-positive';
@@ -298,15 +375,15 @@
             
             // Show result section
             document.getElementById('result').classList.add('show');
+
+            // Track ad engagement after calculation
+            trackAdEngagement();
         }
         
         function resetCalculator() {
             // Clear all inputs
-            document.getElementById('asicCost').value = '';
-            document.getElementById('hashrate').value = '';
-            document.getElementById('powerConsumption').value = '';
-            document.getElementById('electricityCost').value = '';
-            document.getElementById('bitcoinPrice').value = '';
+            document.getElementById('initialInvestment').value = '';
+            document.getElementById('finalValue').value = '';
             document.getElementById('timePeriod').value = '';
             
             // Hide results
@@ -316,7 +393,7 @@
         // Add keyboard support
         document.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                calculateASICROI();
+                calculateROI();
             }
         });
         
@@ -327,6 +404,39 @@
                     this.value = '';
                 }
             });
+        });
+
+        // Track ad engagement
+        function trackAdEngagement() {
+            // Simulate ad view tracking
+            console.log('ROI calculated - potential ad engagement');
+            
+            // Refresh ads after user interaction
+            setTimeout(() => {
+                if (window.adsbygoogle) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+            }, 1000);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAdSense();
+            
+            // Auto-refresh ads every 2 minutes
+            setInterval(() => {
+                if (window.adsbygoogle) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+            }, 120000);
+        });
+
+        // Error handling for AdSense
+        window.addEventListener('error', function(e) {
+            if (e.message.includes('adsbygoogle')) {
+                console.log('AdSense loading issue detected');
+                // You can implement fallback ads here
+            }
         });
     </script>
 </body>
