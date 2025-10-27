@@ -34,3 +34,22 @@
         height: auto;
     }
 }
+/* Add mobile-first responsive design */
+@media (max-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .miner-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .ad-container {
+        display: none; /* Hide ads on mobile or use mobile ad units */
+    }
+    
+    .navigation {
+        flex-direction: column;
+    }
+}
