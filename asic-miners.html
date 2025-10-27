@@ -1341,5 +1341,23 @@
 <div class="ad-container">
     <div id="header-ad"></div>
 </div>
+    <script>
+    // Make miner cards clickable
+    function setupMinerCards() {
+        const minerCards = document.querySelectorAll('.miner-card');
+        minerCards.forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                const minerId = this.getAttribute('data-miner-id');
+                if (minerId) {
+                    window.location.href = `miner-details.html?id=${minerId}`;
+                }
+            });
+        });
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', setupMinerCards);
+</script>
 </body>
 </html>
