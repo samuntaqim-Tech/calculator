@@ -3,519 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Miner Profit - ASIC Miner Profitability Calculator & Live Prices</title>
-    <meta name="description" content="Compare 200+ ASIC miners, calculate mining profitability in 20+ currencies including PKR and AED. Live crypto prices, real-time mining calculators, and hardware comparisons.">
-    <meta name="keywords" content="ASIC miners, mining profitability, Bitcoin mining, cryptocurrency mining, mining calculator, ROI calculator, Best Miner Profit">
-    <meta name="author" content="Best Miner Profit">
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-4103650365925612",
-            enable_page_level_ads: true
-        });
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Best Miner Profit",
-        "url": "https://samuntaqim-tech.github.io/calculator/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://samuntaqim-tech.github.io/calculator/asic-miners.html?search={search_term_string}",
-            "query-input": "required name=search_term_string"
+    <title>Crypto Mining Calculator</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-    }
-    </script>
+        
+        body {
+            background-color: #0f1419;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #4fc3f7;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: #4fc3f7;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(15, 20, 25, 0.8), rgba(15, 20, 25, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a237e"/><path d="M0 0L100 100M100 0L0 100" stroke="%23283593" stroke-width="1"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #b0b0b0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(41, 182, 246, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(41, 182, 246, 0.6);
+        }
+        
+        /* Features section */
+        .features {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: #1a1f2e;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #2a2f3e;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4fc3f7;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .feature-card p {
+            color: #a0a0a0;
+        }
+        
+        /* Calculator preview */
+        .calculator-preview {
+            padding: 4rem 0;
+            background-color: #151a25;
+        }
+        
+        .calculator-container {
+            background-color: #1a1f2e;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calc-input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        
+        .calc-input-group input, .calc-input-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #2a2f3e;
+            background-color: #0f1419;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+        
+        .calc-button {
+            width: 100%;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .calc-button:hover {
+            background: linear-gradient(135deg, #29b6f6 0%, #039be5 100%);
+        }
+        
+        .calc-result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #0f1419;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .calc-result.active {
+            display: block;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4fc3f7;
+            margin: 1rem 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0e14;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0a0a0;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4fc3f7;
+        }
+        
+        .copyright {
+            color: #707070;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Crypto Market Ticker -->
-    <div class="crypto-ticker">
-        <div class="ticker-container">
-            <div class="ticker-content" id="crypto-ticker">
-                <!-- Crypto prices loaded by JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Top Bar with Language & Currency -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="language-currency">
-                    <div class="dropdown">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-globe"></i> English <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#" data-lang="en">English</a>
-                            <a href="#" data-lang="es">Español</a>
-                            <a href="#" data-lang="fr">Français</a>
-                            <a href="#" data-lang="de">Deutsch</a>
-                            <a href="#" data-lang="zh">中文</a>
-                            <a href="#" data-lang="ru">Русский</a>
-                            <a href="#" data-lang="ar">العربية</a>
-                            <a href="#" data-lang="ja">日本語</a>
-                            <a href="#" data-lang="ko">한국어</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-dollar-sign"></i> USD <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#" data-currency="USD">USD - US Dollar</a>
-                            <a href="#" data-currency="EUR">EUR - Euro</a>
-                            <a href="#" data-currency="GBP">GBP - British Pound</a>
-                            <a href="#" data-currency="PKR">PKR - Pakistani Rupee</a>
-                            <a href="#" data-currency="AED">AED - UAE Dirham</a>
-                            <a href="#" data-currency="CAD">CAD - Canadian Dollar</a>
-                            <a href="#" data-currency="AUD">AUD - Australian Dollar</a>
-                            <a href="#" data-currency="JPY">JPY - Japanese Yen</a>
-                            <a href="#" data-currency="CNY">CNY - Chinese Yuan</a>
-                            <a href="#" data-currency="INR">INR - Indian Rupee</a>
-                            <a href="#" data-currency="RUB">RUB - Russian Ruble</a>
-                            <a href="#" data-currency="BRL">BRL - Brazilian Real</a>
-                            <a href="#" data-currency="TRY">TRY - Turkish Lira</a>
-                            <a href="#" data-currency="SAR">SAR - Saudi Riyal</a>
-                            <a href="#" data-currency="BTC">BTC - Bitcoin</a>
-                            <a href="#" data-currency="ETH">ETH - Ethereum</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="top-links">
-                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Header -->
-    <header class="header">
+    <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-calculator"></i>
-                    <span class="logo-text">Best Miner Profit</span>
-                </div>
-                <nav class="nav">
-                    <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
-                    <a href="asic-miners.html" class="nav-link"><i class="fas fa-server"></i> ASIC Miners</a>
-                    <a href="profitability.html" class="nav-link"><i class="fas fa-calculator"></i> Calculators</a>
-                    <a href="comparison.html" class="nav-link"><i class="fas fa-balance-scale"></i> Comparison</a>
-                    <a href="gpu-miners.html" class="nav-link"><i class="fas fa-microchip"></i> GPU Miners</a>
-                    <a href="mining-pools.html" class="nav-link"><i class="fas fa-wallet"></i> Mining Pools</a>
-                    <a href="cloud-mining.html" class="nav-link"><i class="fas fa-cloud"></i> Cloud Mining</a>
-                </nav>
-            </div>
+            <nav>
+                <div class="logo">Crypto<span>Calculator</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                    <li><a href="asic-miners.html">ASIC Miners</a></li>
+                    <li><a href="gpu-miners.html">GPU Miners</a></li>
+                    <li><a href="profitability.html">Profitability</a></li>
+                    <li><a href="comparison.html">Comparison</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
+                    <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-
-    <!-- AdSense Banner -->
-    <div class="ad-container ad-banner">
-        <div class="ad-label">Advertisement</div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4103650365925612"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">ASIC Miner Profitability Calculator</h1>
-                <p class="hero-subtitle">Compare 200+ ASIC miners, calculate profits in 20+ currencies including PKR and AED</p>
-                <div class="search-box">
-                    <input type="text" id="main-search" placeholder="Search miners (Antminer S19, Whatsminer M50, etc.)..." class="search-input">
-                    <button class="search-btn" onclick="performSearch()">
-                        <i class="fas fa-search"></i> Search
-                    </button>
+            <h1>Cryptocurrency Mining Calculator</h1>
+            <p>Calculate your mining profitability, ROI, and compare different mining hardware to maximize your crypto earnings.</p>
+            <a href="roi-calculator.html" class="cta-button">Start Calculating</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Mining Tools</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>ROI Calculator</h3>
+                    <p>Calculate your return on investment for various mining hardware and electricity costs.</p>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-value" id="btc-price">$45,231</div>
-                        <div class="stat-label">Bitcoin Price</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value" id="network-hashrate">528 EH/s</div>
-                        <div class="stat-label">Network Hashrate</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value" id="network-difficulty">81.73 T</div>
-                        <div class="stat-label">Network Difficulty</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">$0.12/kWh</div>
-                        <div class="stat-label">Avg Electricity Cost</div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Hardware Comparison</h3>
+                    <p>Compare ASIC and GPU miners to find the best option for your mining operation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Profitability Analysis</h3>
+                    <p>Analyze mining profitability based on current cryptocurrency prices and difficulty.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="main">
+    <!-- Calculator Preview -->
+    <section class="calculator-preview">
         <div class="container">
-            <div class="main-grid">
-                <!-- Left Content -->
-                <div class="content-left">
-                    <!-- Top Miners Section -->
-                    <section class="section">
-                        <h2 class="section-title">Most Profitable ASIC Miners</h2>
-                        <div class="miners-table" id="top-miners-table">
-                            <!-- Top miners loaded by JavaScript -->
-                        </div>
-                        <div class="section-footer">
-                            <a href="asic-miners.html" class="view-all-btn">View All 200+ Miners <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </section>
-
-                    <!-- AdSense In-Article -->
-                    <div class="ad-container ad-inarticle">
-                        <div class="ad-label">Advertisement</div>
-                        <ins class="adsbygoogle"
-                             style="display:block; text-align:center;"
-                             data-ad-layout="in-article"
-                             data-ad-format="fluid"
-                             data-ad-client="ca-pub-4103650365925612"
-                             data-ad-slot="1234567891"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-
-                    <!-- Calculators Section -->
-                    <section class="section">
-                        <h2 class="section-title">Mining Calculators</h2>
-                        <div class="calculators-grid">
-                            <div class="calc-card" onclick="location.href='profitability.html'">
-                                <div class="calc-icon">
-                                    <i class="fas fa-calculator"></i>
-                                </div>
-                                <h3>Profitability Calculator</h3>
-                                <p>Calculate daily, monthly, and yearly mining profits</p>
-                                <div class="calc-features">
-                                    <span>20+ Currencies</span>
-                                    <span>Real-time Data</span>
-                                </div>
-                            </div>
-                            <div class="calc-card" onclick="location.href='roi-calculator.html'">
-                                <div class="calc-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3>ROI Calculator</h3>
-                                <p>Calculate return on investment and break-even point</p>
-                                <div class="calc-features">
-                                    <span>ROI Analysis</span>
-                                    <span>Break-even Calc</span>
-                                </div>
-                            </div>
-                            <div class="calc-card" onclick="location.href='comparison.html'">
-                                <div class="calc-icon">
-                                    <i class="fas fa-balance-scale"></i>
-                                </div>
-                                <h3>Miner Comparison</h3>
-                                <p>Compare multiple miners side by side</p>
-                                <div class="calc-features">
-                                    <span>Multi Comparison</span>
-                                    <span>Detailed Stats</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+            <h2 class="section-title">Quick Profitability Estimate</h2>
+            <div class="calculator-container">
+                <div class="calc-input-group">
+                    <label for="hashrate">Hashrate (TH/s)</label>
+                    <input type="number" id="hashrate" placeholder="e.g., 100" value="100">
                 </div>
-
-                <!-- Right Sidebar -->
-                <div class="sidebar">
-                    <!-- AdSense Sidebar -->
-                    <div class="ad-container ad-sidebar">
-                        <div class="ad-label">Advertisement</div>
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-4103650365925612"
-                             data-ad-slot="1234567892"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-
-                    <!-- Quick Calculator -->
-                    <div class="widget">
-                        <h3 class="widget-title">Quick Calculator</h3>
-                        <div class="quick-calc">
-                            <div class="calc-input">
-                                <label>Hashrate (TH/s)</label>
-                                <input type="number" id="quick-hashrate" placeholder="e.g., 100" value="100">
-                            </div>
-                            <div class="calc-input">
-                                <label>Power Consumption (W)</label>
-                                <input type="number" id="quick-power" placeholder="e.g., 3250" value="3250">
-                            </div>
-                            <div class="calc-input">
-                                <label>Electricity Cost</label>
-                                <input type="number" id="quick-electricity" placeholder="e.g., 0.12" value="0.12" step="0.01">
-                                <small id="electricity-unit">$/kWh</small>
-                            </div>
-                            <button class="calc-btn" onclick="quickCalculate()">
-                                <i class="fas fa-bolt"></i> Calculate
-                            </button>
-                            <div class="calc-result" id="quick-result">
-                                <!-- Results shown here -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AdSense Sidebar 2 -->
-                    <div class="ad-container ad-sidebar">
-                        <div class="ad-label">Advertisement</div>
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-4103650365925612"
-                             data-ad-slot="1234567893"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-
-                    <!-- Mining News -->
-                    <div class="widget">
-                        <h3 class="widget-title">Latest Mining News</h3>
-                        <div class="news-widget">
-                            <div class="news-item" onclick="location.href='news.html#halving'">
-                                <div class="news-title">Bitcoin Halving Coming in April 2024</div>
-                                <div class="news-date">March 18, 2024</div>
-                            </div>
-                            <div class="news-item" onclick="location.href='news.html#asic-news'">
-                                <div class="news-title">New ASIC Miners with 3nm Technology</div>
-                                <div class="news-date">March 15, 2024</div>
-                            </div>
-                            <div class="news-item" onclick="location.href='news.html#renewable'">
-                                <div class="news-title">Renewable Energy Mining Farms Expand</div>
-                                <div class="news-date">March 12, 2024</div>
-                            </div>
-                        </div>
-                        <a href="news.html" class="view-more">View All News <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="calc-input-group">
+                    <label for="power">Power Consumption (W)</label>
+                    <input type="number" id="power" placeholder="e.g., 3250" value="3250">
+                </div>
+                <div class="calc-input-group">
+                    <label for="electricity">Electricity Cost ($/kWh)</label>
+                    <input type="number" id="electricity" placeholder="e.g., 0.12" step="0.01" value="0.12">
+                </div>
+                <button class="calc-button" id="calculate-btn">Calculate Daily Profit</button>
+                <div class="calc-result" id="calc-result">
+                    <h3>Estimated Daily Profit</h3>
+                    <div class="result-value" id="profit-result">$0.00</div>
+                    <p>Based on current Bitcoin price and network difficulty</p>
                 </div>
             </div>
         </div>
-    </main>
-
-    <!-- AdSense Footer Banner -->
-    <div class="ad-container ad-banner">
-        <div class="ad-label">Advertisement</div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4103650365925612"
-             data-ad-slot="1234567894"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-calculator"></i>
-                        Best Miner Profit
-                    </div>
-                    <p class="footer-description">
-                        Your comprehensive platform for cryptocurrency mining profitability analysis, 
-                        featuring real-time calculators, miner comparisons, and market data.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="asic-miners.html">ASIC Miners</a></li>
-                        <li><a href="profitability.html">Profitability Calculator</a></li>
-                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
-                        <li><a href="comparison.html">Miner Comparison</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="gpu-miners.html">GPU Miners</a></li>
-                        <li><a href="mining-pools.html">Mining Pools</a></li>
-                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
-                        <li><a href="news.html">Mining News</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Tools</h3>
-                    <ul class="footer-links">
-                        <li><a href="profitability.html">Profitability Calc</a></li>
-                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
-                        <li><a href="comparison.html">Miner Comparison</a></li>
-                        <li><a href="asic-miners.html">ASIC Database</a></li>
-                    </ul>
-                </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="roi-calculator.html">ROI Calculator</a>
+                <a href="asic-miners.html">ASIC Miners</a>
+                <a href="gpu-miners.html">GPU Miners</a>
+                <a href="profitability.html">Profitability</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="mining-pools.html">Mining Pools</a>
+                <a href="cloud-mining.html">Cloud Mining</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Best Miner Profit. All rights reserved. | 
-                   <a href="privacy.html">Privacy Policy</a> | 
-                   <a href="terms.html">Terms of Service</a>
-                </p>
-            </div>
+            <p class="copyright">&copy; 2025 Crypto Mining Calculator. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="adsense.js"></script>
     <script>
-        // Homepage specific functionality
-        function performSearch() {
-            const query = document.getElementById('main-search').value.trim();
-            if (query) {
-                window.location.href = `asic-miners.html?search=${encodeURIComponent(query)}`;
-            }
-        }
-
-        function quickCalculate() {
-            const hashrate = parseFloat(document.getElementById('quick-hashrate').value) || 0;
-            const power = parseFloat(document.getElementById('quick-power').value) || 0;
-            const electricityCost = parseFloat(document.getElementById('quick-electricity').value) || 0;
+        // Simple calculator functionality
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const hashrate = parseFloat(document.getElementById('hashrate').value) || 0;
+            const power = parseFloat(document.getElementById('power').value) || 0;
+            const electricity = parseFloat(document.getElementById('electricity').value) || 0;
             
-            if (hashrate > 0 && power > 0) {
-                // Simplified calculation
-                const dailyProfit = (hashrate * 0.0001) * 45000; // Based on BTC price
-                const dailyCost = (power * 24 * electricityCost) / 1000;
-                const netProfit = dailyProfit - dailyCost;
-                
-                const resultDiv = document.getElementById('quick-result');
-                resultDiv.innerHTML = `
-                    <div class="result-item">
-                        <span>Daily Profit:</span>
-                        <span class="profit-positive">$${netProfit.toFixed(2)}</span>
-                    </div>
-                    <div class="result-item">
-                        <span>Monthly:</span>
-                        <span>$${(netProfit * 30).toFixed(2)}</span>
-                    </div>
-                `;
-                resultDiv.style.display = 'block';
-            }
-        }
-
-        // Initialize homepage
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load top miners
-            loadTopMiners();
-            // Initialize crypto ticker
-            initializeCryptoTicker();
-            // Setup dropdowns
-            setupDropdowns();
+            // Simplified calculation (in a real app, this would use actual mining data)
+            const dailyRevenue = hashrate * 0.0004; // Simplified revenue estimation
+            const dailyPowerCost = (power / 1000) * electricity * 24;
+            const dailyProfit = dailyRevenue - dailyPowerCost;
+            
+            document.getElementById('profit-result').textContent = '$' + dailyProfit.toFixed(2);
+            document.getElementById('calc-result').classList.add('active');
         });
-
-        function loadTopMiners() {
-            const topMiners = [
-                { model: "Bitmain Antminer S19 XP Hyd", profit: "$25.43/day", algorithm: "SHA-256" },
-                { model: "Bitmain Antminer S19j Pro+", profit: "$9.87/day", algorithm: "SHA-256" },
-                { model: "MicroBT Whatsminer M50S", profit: "$10.12/day", algorithm: "SHA-256" },
-                { model: "Bitmain Antminer L7", profit: "$18.76/day", algorithm: "Scrypt" },
-                { model: "Goldshell KD6", profit: "$45.67/day", algorithm: "Kadena" }
-            ];
-
-            const table = document.getElementById('top-miners-table');
-            table.innerHTML = topMiners.map(miner => `
-                <div class="miner-row" onclick="location.href='asic-miners.html#${miner.model.replace(/\s+/g, '-').toLowerCase()}'">
-                    <div class="miner-name">${miner.model}</div>
-                    <div class="miner-profit profit-positive">${miner.profit}</div>
-                    <div class="miner-algorithm">${miner.algorithm}</div>
-                </div>
-            `).join('');
-        }
-
-        function initializeCryptoTicker() {
-            const cryptocurrencies = [
-                { symbol: 'BTC', price: 45231.45, change: 2.34 },
-                { symbol: 'ETH', price: 2456.78, change: 1.23 },
-                { symbol: 'LTC', price: 68.90, change: -0.45 },
-                { symbol: 'BCH', price: 234.56, change: 0.89 },
-                { symbol: 'XRP', price: 0.5678, change: 1.45 },
-                { symbol: 'ADA', price: 0.4567, change: -1.23 }
-            ];
-
-            const ticker = document.getElementById('crypto-ticker');
-            ticker.innerHTML = cryptocurrencies.map(crypto => `
-                <div class="ticker-item">
-                    <span class="ticker-symbol">${crypto.symbol}</span>
-                    <span class="ticker-price">$${crypto.price.toLocaleString()}</span>
-                    <span class="ticker-change ${crypto.change >= 0 ? 'positive' : 'negative'}">
-                        ${crypto.change >= 0 ? '+' : ''}${crypto.change}%
-                    </span>
-                </div>
-            `).join('');
-        }
-
-        function setupDropdowns() {
-            // Language dropdown
-            document.querySelectorAll('[data-lang]').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const lang = this.getAttribute('data-lang');
-                    document.querySelector('.dropdown-btn i.fa-globe').parentNode.innerHTML = 
-                        `<i class="fas fa-globe"></i> ${this.textContent} <i class="fas fa-chevron-down"></i>`;
-                    console.log('Language changed to:', lang);
-                });
-            });
-
-            // Currency dropdown
-            document.querySelectorAll('[data-currency]').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const currency = this.getAttribute('data-currency');
-                    document.querySelector('.dropdown-btn i.fa-dollar-sign').parentNode.innerHTML = 
-                        `<i class="fas fa-dollar-sign"></i> ${currency} <i class="fas fa-chevron-down"></i>`;
-                    
-                    // Update electricity unit
-                    const unitElement = document.getElementById('electricity-unit');
-                    if (currency === 'PKR') unitElement.textContent = 'PKR/kWh';
-                    else if (currency === 'AED') unitElement.textContent = 'AED/kWh';
-                    else if (currency === 'EUR') unitElement.textContent = '€/kWh';
-                    else unitElement.textContent = '$/kWh';
-                    
-                    console.log('Currency changed to:', currency);
-                });
-            });
-        }
-
-        // Enter key support for search
-        document.getElementById('main-search').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+        
+        // Initialize with a sample calculation
+        window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('calculate-btn').click();
         });
     </script>
 </body>
