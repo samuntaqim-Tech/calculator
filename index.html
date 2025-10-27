@@ -916,6 +916,48 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
+            <!-- Add this code to your index.html file -->
+<!-- Look for a good spot after navigation but before calculator -->
+
+<section class="live-prices-section" style="
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+">
+    <h2 style="margin-bottom: 15px; font-size: 1.5rem;">
+        <i class="fas fa-chart-line"></i> Live Crypto Prices
+    </h2>
+    
+    <div class="price-ticker" style="
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    ">
+        <div class="crypto-price" style="font-size: 1.2rem;">
+            <strong>Bitcoin:</strong> 
+            <span id="btc-price" style="color: #f2a900; font-weight: bold;">Loading...</span>
+        </div>
+        
+        <div class="crypto-price" style="font-size: 1.2rem;">
+            <strong>Ethereum:</strong> 
+            <span id="eth-price" style="color: #8c8c8c; font-weight: bold;">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="last-update" style="
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 10px;
+    ">
+        Updating...
+    </div>
+</section>
 
             <!-- Profitability Calculators -->
             <section class="calculators-section">
