@@ -84,3 +84,7 @@ function getMinerById(id) {
 function getMinersByAlgorithm(algorithm) {
     return MINER_DATABASE.filter(miner => miner.algorithm === algorithm);
 }
+// Add this function to get miner by ID (if not already there)
+function getMinerById(id) {
+    return MINER_DATABASE.find(miner => miner.id === id);
+}
