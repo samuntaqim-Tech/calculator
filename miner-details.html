@@ -1,22 +1,319 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miner Details - Best Miner Profit</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .miner-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .miner-header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .miner-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .miner-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .profit-calculator {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .back-button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .profit-badge {
+            background: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .miner-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="miner-detail-container">
-        <h1>Antminer S19 XP Detailed Analysis</h1>
-        <div class="specs-grid">
-            <div class="spec-item"><strong>Hashrate:</strong> 140 TH/s</div>
-            <div class="spec-item"><strong>Power Consumption:</strong> 3010W</div>
-            <div class="spec-item"><strong>Algorithm:</strong> SHA-256</div>
-            <div class="spec-item"><strong>Noise Level:</strong> 75db</div>
+        <!-- Back Button -->
+        <a href="asic-miners.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Miners
+        </a>
+
+        <!-- Miner Header -->
+        <div class="miner-header">
+            <h1 id="miner-name">Loading Miner Details...</h1>
+            <p id="miner-manufacturer"></p>
+            <div id="miner-profit" class="profit-badge">Loading...</div>
+        </div>
+
+        <!-- Ad Placement -->
+        <div class="ad-container" style="text-align: center; margin: 20px 0;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+            <!-- Miner Details Header Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1234567890123456"
+                 data-ad-slot="1122334455"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Miner Content -->
+        <div class="miner-content">
+            <!-- Miner Image -->
+            <div>
+                <img id="miner-image" src="" alt="Miner Image" class="miner-image">
+                
+                <!-- Quick Stats -->
+                <div class="spec-item" style="margin-top: 20px;">
+                    <h3><i class="fas fa-bolt"></i> Quick Stats</h3>
+                    <div id="quick-stats">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miner Details -->
+            <div>
+                <!-- Specifications -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <h4><i class="fas fa-microchip"></i> Algorithm</h4>
+                        <p id="miner-algorithm">-</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4><i class="fas fa-tachometer-alt"></i> Hashrate</h4>
+                        <p id="miner-hashrate">-</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4><i class="fas fa-plug"></i> Power Consumption</h4>
+                        <p id="miner-power">-</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4><i class="fas fa-volume-up"></i> Noise Level</h4>
+                        <p id="miner-noise">-</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4><i class="fas fa-money-bill-wave"></i> Price</h4>
+                        <p id="miner-price">-</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4><i class="fas fa-calendar"></i> Release Date</h4>
+                        <p id="miner-release">-</p>
+                    </div>
+                </div>
+
+                <!-- Profitability Calculator -->
+                <div class="profit-calculator">
+                    <h3><i class="fas fa-calculator"></i> Profitability Calculator</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div>
+                            <label>Electricity Cost ($/kWh):</label>
+                            <input type="number" id="elec-cost" value="0.12" step="0.01" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <div>
+                            <label>Pool Fees (%):</label>
+                            <input type="number" id="pool-fees" value="1" step="0.1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                    </div>
+                    <button onclick="calculateCustomProfit()" style="
+                        background: #3498db;
+                        color: white;
+                        border: none;
+                        padding: 12px 25px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 16px;
+                    ">
+                        <i class="fas fa-calculator"></i> Calculate Custom Profit
+                    </button>
+                    <div id="custom-results" style="margin-top: 15px; padding: 15px; background: white; border-radius: 5px; display: none;">
+                        <h4>Custom Calculation Results:</h4>
+                        <div id="custom-profit">-</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap;">
+                    <button onclick="addToComparison()" style="
+                        background: #9b59b6;
+                        color: white;
+                        border: none;
+                        padding: 12px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    ">
+                        <i class="fas fa-balance-scale"></i> Add to Comparison
+                    </button>
+                    <a href="most-profitable.html" style="
+                        background: #2ecc71;
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    ">
+                        <i class="fas fa-trophy"></i> View All Profitable Miners
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placement -->
+        <div class="ad-container" style="text-align: center; margin: 30px 0;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+            <!-- Miner Details Footer Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1234567890123456"
+                 data-ad-slot="5566778899"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </div>
-    <!-- Add to index.html, calculator pages, etc. -->
-<div class="ad-container">
-    <div id="header-ad"></div>
-</div>
+
+    <script src="miner-database.js"></script>
+    <script>
+        // Get miner ID from URL
+        function getMinerIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id')) || 1;
+        }
+
+        // Load miner details
+        function loadMinerDetails() {
+            const minerId = getMinerIdFromUrl();
+            const miner = getMinerById(minerId);
+            
+            if (miner) {
+                displayMinerDetails(miner);
+            } else {
+                document.getElementById('miner-name').textContent = 'Miner Not Found';
+            }
+        }
+
+        // Display miner details
+        function displayMinerDetails(miner) {
+            // Update page title
+            document.title = `${miner.name} - Best Miner Profit`;
+            
+            // Update header
+            document.getElementById('miner-name').textContent = miner.name;
+            document.getElementById('miner-manufacturer').textContent = miner.manufacturer;
+            document.getElementById('miner-profit').textContent = `$${miner.profit}/day Profit`;
+            
+            // Update image
+            document.getElementById('miner-image').src = miner.image;
+            document.getElementById('miner-image').alt = miner.name;
+            
+            // Update specifications
+            document.getElementById('miner-algorithm').textContent = miner.algorithm;
+            document.getElementById('miner-hashrate').textContent = miner.hashrate;
+            document.getElementById('miner-power').textContent = miner.power;
+            document.getElementById('miner-noise').textContent = miner.noise;
+            document.getElementById('miner-price').textContent = `$${miner.price}`;
+            document.getElementById('miner-release').textContent = miner.release;
+            
+            // Update quick stats
+            document.getElementById('quick-stats').innerHTML = `
+                <p><strong>Daily Profit:</strong> $${miner.profit}</p>
+                <p><strong>ROI Period:</strong> ${miner.roi} days</p>
+                <p><strong>Power Efficiency:</strong> ${(parseInt(miner.power) / parseInt(miner.hashrate)).toFixed(2)} W/TH</p>
+            `;
+        }
+
+        // Custom profit calculation
+        function calculateCustomProfit() {
+            const minerId = getMinerIdFromUrl();
+            const miner = getMinerById(minerId);
+            const elecCost = parseFloat(document.getElementById('elec-cost').value) || 0.12;
+            const poolFees = parseFloat(document.getElementById('pool-fees').value) || 1;
+            
+            if (miner) {
+                // Simple calculation based on electricity cost
+                const dailyElecCost = (parseInt(miner.power) * 24 * elecCost) / 1000;
+                const dailyProfitAfterFees = miner.profit - (miner.profit * poolFees / 100);
+                const customDailyProfit = dailyProfitAfterFees - dailyElecCost;
+                
+                document.getElementById('custom-profit').innerHTML = `
+                    <p><strong>Daily Profit:</strong> $${customDailyProfit.toFixed(2)}</p>
+                    <p><strong>Electricity Cost:</strong> $${dailyElecCost.toFixed(2)}/day</p>
+                    <p><strong>Monthly Profit:</strong> $${(customDailyProfit * 30).toFixed(2)}</p>
+                `;
+                document.getElementById('custom-results').style.display = 'block';
+            }
+        }
+
+        // Add to comparison (will implement fully in next task)
+        function addToComparison() {
+            const minerId = getMinerIdFromUrl();
+            const miner = getMinerById(minerId);
+            if (miner) {
+                // Store in localStorage for comparison page
+                let comparison = JSON.parse(localStorage.getItem('minerComparison') || '[]');
+                if (!comparison.find(m => m.id === miner.id)) {
+                    comparison.push(miner);
+                    localStorage.setItem('minerComparison', JSON.stringify(comparison));
+                    alert(`${miner.name} added to comparison!`);
+                } else {
+                    alert(`${miner.name} is already in comparison.`);
+                }
+            }
+        }
+
+        // Load details when page opens
+        document.addEventListener('DOMContentLoaded', loadMinerDetails);
+    </script>
 </body>
 </html>
