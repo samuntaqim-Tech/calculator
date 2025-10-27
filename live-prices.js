@@ -25,7 +25,6 @@ class LivePrices {
     }
 
     async fetchPrices() {
-        // Using CoinGecko API (free, no API key needed)
         const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
         const data = await response.json();
         
@@ -61,7 +60,6 @@ class LivePrices {
     }
 
     useFallbackData() {
-        // Fallback prices if API fails
         const fallbackPrices = {
             btc: 45000,
             eth: 2800
