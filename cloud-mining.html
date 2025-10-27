@@ -3,1198 +3,1758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Mining - Best Miners Profit | Bitcoin Cloud Mining Services & Contracts</title>
-    <meta name="description" content="Compare the best cloud mining services for Bitcoin and cryptocurrency. Get cloud mining contracts, profitability calculations, and avoid cloud mining scams.">
-    <meta name="keywords" content="cloud mining, Bitcoin cloud mining, cloud mining contracts, mining without hardware, cloud mining profitability, Genesis Mining, Hashflare, NiceHash, cloud mining scams, mining contracts">
+    <title>Cloud Mining Services | Bitcoin Cloud Mining | Best Miner Profit</title>
+    <meta name="description" content="Compare the best cloud mining services for Bitcoin and cryptocurrency. No hardware required - start mining today with trusted cloud mining providers.">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+    
     <style>
-        /* Include all the same CSS styles from index.html */
         :root {
-            --primary: #1a365d;
-            --secondary: #2b6cb0;
-            --accent: #e53e3e;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --gray: #718096;
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #f8f9fa;
+            --dark: #202124;
+            --darker: #171717;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+            --success: #34a853;
+            --warning: #f9ab00;
+            --danger: #ea4335;
+            --border: #dadce0;
+            --bg-light: #f5f7fa;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: var(--secondary);
             color: var(--dark);
             line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .header-content {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
         
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
             font-weight: 700;
+            color: var(--primary);
         }
         
         .logo span {
-            color: #ffd700;
+            color: var(--dark);
         }
         
-        nav.desktop ul {
+        .logo-slogan {
+            font-size: 12px;
+            color: var(--gray);
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        
+        .header-controls {
             display: flex;
-            list-style: none;
+            align-items: center;
+            gap: 15px;
         }
         
-        nav.desktop ul li {
-            margin-left: 1.5rem;
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .auth-btn {
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--gray);
+        }
+        
+        .login-btn:hover {
+            background: #f5f5f5;
+        }
+        
+        .register-btn {
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            color: white;
+        }
+        
+        .register-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .currency-selector, .language-selector {
             position: relative;
         }
         
-        nav.desktop ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-        
-        nav.desktop ul li a:hover {
-            color: #ffd700;
+        .selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
         }
         
         .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .dropdown.active {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        nav {
+            padding: 12px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--gray);
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Crypto Prices Ticker */
+        .crypto-ticker {
+            background: var(--darker);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
             position: relative;
         }
         
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: white;
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
+        .ticker-container {
+            display: flex;
+            animation: ticker 120s linear infinite;
         }
         
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            white-space: nowrap;
         }
         
-        .dropdown-content a {
-            color: var(--dark) !important;
-            padding: 0.75rem 1rem;
-            display: block;
-            border-bottom: 1px solid #eee;
+        .crypto-symbol {
+            font-weight: bold;
+            margin-right: 5px;
+            font-size: 13px;
         }
         
-        .dropdown-content a:hover {
-            background: var(--light);
-            color: var(--secondary) !important;
+        .crypto-price {
+            margin-right: 8px;
+            font-size: 13px;
         }
         
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        .price-up {
+            color: var(--success);
+        }
+        
+        .price-down {
+            color: var(--danger);
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
-        }
-        
-        .mobile-nav {
-            display: none;
-            background: var(--primary);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            box-shadow: var(--shadow);
-        }
-        
-        .mobile-nav.active {
-            display: block;
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            padding: 1rem 0;
-        }
-        
-        .mobile-nav ul li {
-            padding: 0.75rem 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .mobile-nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
-            color: white;
-            padding: 2rem 0;
+            padding: 30px 0;
             text-align: center;
-            margin-bottom: 2rem;
         }
         
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
         
-        .card {
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
             background: white;
             border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
         
-        .card-header {
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 5px 0;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* Cloud Mining Providers */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .provider-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .provider-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .provider-logo {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .provider-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .provider-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .stars {
+            color: var(--warning);
+        }
+        
+        .provider-body {
+            padding: 20px;
+        }
+        
+        .provider-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .provider-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-            flex-wrap: wrap;
         }
         
-        .card-title {
-            font-size: 1.5rem;
+        .provider-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-name {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .feature-value {
             font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .filter-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        select, input {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            width: 100%;
-        }
-        
-        .btn {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background-color: #2c5282;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .btn-success {
-            background-color: var(--success);
-        }
-        
-        .btn-success:hover {
-            background-color: #2f855a;
-        }
-        
-        .btn-warning {
-            background-color: var(--warning);
-        }
-        
-        .btn-warning:hover {
-            background-color: #b7791f;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-        }
-        
-        th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
-        }
-        
-        th:hover {
-            background-color: #e2e8f0;
-        }
-        
-        tr:hover {
-            background-color: #f8f9fa;
+            color: var(--dark);
         }
         
         .profit-positive {
             color: var(--success);
-            font-weight: 600;
         }
         
         .profit-negative {
-            color: var(--accent);
-            font-weight: 600;
+            color: var(--danger);
         }
         
-        .ad-container {
-            margin: 2rem 0;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            min-height: 90px;
+        .provider-actions {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #ccc;
+            gap: 10px;
         }
         
-        .ad-label {
-            font-size: 0.8rem;
-            color: var(--gray);
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
             text-align: center;
-            margin-top: 0.5rem;
         }
         
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .action-btn.primary {
+            background: var(--primary);
+            color: white;
         }
         
-        .stats-card {
-            text-align: center;
-            padding: 1.5rem;
+        .action-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .action-btn.secondary {
+            background: var(--bg-light);
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+        
+        .action-btn.secondary:hover {
+            background: #e8e8e8;
+        }
+        
+        /* Cloud Mining Calculator */
+        .cloud-calculator {
             background: white;
             border-radius: 8px;
-            box-shadow: var(--shadow);
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
         
-        .stats-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0.5rem 0;
+        .calculator-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
         }
         
-        .stats-label {
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
             color: var(--gray);
-            font-size: 0.9rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
         }
         
-        footer {
-            background-color: var(--primary);
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 13px;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
             color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .calculate-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Results Section */
+        .results-section {
+            display: none;
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .results-section.active {
+            display: block;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .result-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 5px 0;
+            color: var(--primary);
+        }
+        
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* Cloud Mining Table */
+        .cloud-table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-light);
+        }
+        
+        .table-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 8px 12px 8px 35px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            width: 250px;
+            font-size: 13px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 13px;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        .cloud-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .cloud-table th {
+            background-color: #f8f9fa;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .cloud-table th:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .cloud-table th::after {
+            content: '↕';
+            position: absolute;
+            right: 8px;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+        
+        .cloud-table th.sort-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+        
+        .cloud-table th.sort-desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+        
+        .cloud-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        
+        .cloud-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .provider-name-cell {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .rating-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e3f2fd;
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .trust-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #e8f5e8;
+            color: var(--success);
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            color: white;
+            padding: 40px 0 15px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 25px;
+            margin-bottom: 30px;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            color: #ffd700;
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: white;
         }
         
-        .footer-section ul {
+        .footer-links {
             list-style: none;
         }
         
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
+        .footer-links li {
+            margin-bottom: 8px;
         }
         
-        .footer-section ul li a {
-            color: #ddd;
-            text-decoration: none;
+        .footer-links a {
+            color: #b0b0b0;
             transition: color 0.3s;
+            font-size: 13px;
         }
         
-        .footer-section ul li a:hover {
-            color: #ffd700;
+        .footer-links a:hover {
+            color: white;
         }
         
-        .copyright {
+        .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            font-size: 0.8rem;
         }
         
-        .provider-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
+        /* Ad Container */
+        .ad-container {
+            margin: 25px 0;
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
-        .trusted { background: #38a169; color: white; }
-        .popular { background: #3182ce; color: white; }
-        .new { background: #d69e2e; color: white; }
-        .risky { background: #e53e3e; color: white; }
+        .ad-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         
+        .ad-horizontal {
+            width: 100%;
+            min-height: 90px;
+        }
+        
+        .ad-vertical {
+            width: 300px;
+            min-height: 250px;
+        }
+        
+        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 5px;
         }
         
-        .pagination button {
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
-            border: 1px solid #ddd;
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
             background: white;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 4px;
-            min-width: 40px;
+            font-size: 13px;
         }
         
-        .pagination button.active {
-            background: var(--secondary);
+        .page-btn.active {
+            background: var(--primary);
             color: white;
-            border-color: var(--secondary);
+            border-color: var(--primary);
         }
         
-        .pagination button:hover:not(.active) {
-            background: #f1f1f1;
+        .page-btn:hover:not(.active) {
+            background: #f5f5f5;
         }
         
-        .search-box {
-            margin-bottom: 1.5rem;
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 10px;
+            }
         }
         
-        .search-box input {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            width: 100%;
-        }
-        
-        .warning-box {
-            background: #fed7d7;
-            border-left: 4px solid var(--accent);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-        }
-        
-        .info-box {
-            background: #e6fffa;
-            border-left: 4px solid var(--success);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-        }
-        
-        .contract-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .feature-tag {
-            background: #edf2f7;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: var(--dark);
-        }
-        
-        .calculator-box {
-            background: #f0fff4;
-            border: 2px solid var(--success);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            nav.desktop {
-                display: none;
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
             }
             
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .filters {
+            .providers-grid {
                 grid-template-columns: 1fr;
             }
             
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            th, td {
-                padding: 0.5rem;
-                font-size: 0.8rem;
-            }
-            
-            .contract-features {
+            .table-header {
                 flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-links {
+                overflow-x: auto;
+                padding-bottom: 8px;
+                gap: 12px;
+            }
+            
+            .page-header {
+                padding: 20px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .provider-actions {
+                flex-direction: column;
+            }
+            
+            .ad-vertical {
+                width: 100%;
+                min-height: 200px;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                flex: 1;
+                min-width: 120px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
+            <div class="header-top">
                 <div class="logo">
-                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                    Best<span>MinerProfit</span>
+                    <div class="logo-slogan">Cloud Mining Services</div>
                 </div>
-                <nav class="desktop">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="profitability.html">Calculators</a>
-                            <div class="dropdown-content">
-                                <a href="profitability.html">Profitability Calculator</a>
-                                <a href="comparison.html">Miner Comparison</a>
-                                <a href="roi-calculator.html">ROI Calculator</a>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="asic-miners.html">Miners</a>
-                            <div class="dropdown-content">
-                                <a href="asic-miners.html">ASIC Miners</a>
-                                <a href="gpu-miners.html">GPU Miners</a>
-                                <a href="most-profitable.html">Most Profitable</a>
-                            </div>
-                        </li>
-                        <li><a href="mining-pools.html">Pools</a></li>
-                        <li><a href="cloud-mining.html" style="color: #ffd700;">Cloud Mining</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="mobile-menu" id="mobile-menu">☰</div>
+                <div class="header-controls">
+                    <div class="auth-buttons">
+                        <button class="auth-btn login-btn">Login</button>
+                        <button class="auth-btn register-btn">Register</button>
+                    </div>
+                    <div class="currency-selector">
+                        <button class="selector-btn" id="currency-btn">
+                            USD ($) <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="currency-dropdown">
+                            <div class="dropdown-item" data-currency="USD">USD ($)</div>
+                            <div class="dropdown-item" data-currency="EUR">EUR (€)</div>
+                            <div class="dropdown-item" data-currency="GBP">GBP (£)</div>
+                            <div class="dropdown-item" data-currency="PKR">PKR (₨)</div>
+                            <div class="dropdown-item" data-currency="AED">AED (د.إ)</div>
+                            <div class="dropdown-item" data-currency="CNY">CNY (¥)</div>
+                            <div class="dropdown-item" data-currency="JPY">JPY (¥)</div>
+                            <div class="dropdown-item" data-currency="RUB">RUB (₽)</div>
+                            <div class="dropdown-item" data-currency="INR">INR (₹)</div>
+                        </div>
+                    </div>
+                    <div class="language-selector">
+                        <button class="selector-btn" id="language-btn">
+                            English <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="language-dropdown">
+                            <div class="dropdown-item" data-lang="en">English</div>
+                            <div class="dropdown-item" data-lang="es">Español</div>
+                            <div class="dropdown-item" data-lang="fr">Français</div>
+                            <div class="dropdown-item" data-lang="de">Deutsch</div>
+                            <div class="dropdown-item" data-lang="zh">中文 (Chinese)</div>
+                            <div class="dropdown-item" data-lang="ru">Русский (Russian)</div>
+                            <div class="dropdown-item" data-lang="tr">Türkçe</div>
+                            <div class="dropdown-item" data-lang="ar">العربية</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profitability.html">Calculators</a></li>
-                <li><a href="asic-miners.html">Miners</a></li>
-                <li><a href="mining-pools.html">Pools</a></li>
-                <li><a href="cloud-mining.html" style="color: #ffd700;">Cloud Mining</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="asic-miners.html">ASIC Miners</a></li>
+                    <li><a href="gpu-miners.html">GPU Miners</a></li>
+                    <li><a href="profitability.html">Profitability</a></li>
+                    <li><a href="comparison.html">Comparison</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
+                    <li><a href="cloud-mining.html" class="active">Cloud Mining</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Cloud Mining Services</h1>
-            <p>Mine cryptocurrency without hardware - Compare cloud mining contracts and profitability</p>
+    <!-- Crypto Prices Ticker -->
+    <section class="crypto-ticker">
+        <div class="ticker-container" id="crypto-ticker">
+            <!-- Crypto prices will be loaded by JavaScript -->
         </div>
     </section>
 
-    <div class="container">
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567900"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Cloud Mining Services</h1>
+            <p>Mine cryptocurrency without hardware - compare the best cloud mining providers and start earning today</p>
         </div>
+    </section>
 
-        <div class="warning-box">
-            <h3>⚠️ Cloud Mining Warning</h3>
-            <p><strong>Many cloud mining services are scams or have questionable profitability.</strong> Always research thoroughly, start with small investments, and beware of promises that seem too good to be true.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>💡 What is Cloud Mining?</h3>
-            <p>Cloud mining allows you to rent mining hardware from data centers and receive a share of the mined cryptocurrency. You don't need to buy, maintain, or run any hardware yourself.</p>
-        </div>
-
-        <div class="calculator-box">
-            <h3>💰 Cloud Mining Profitability Calculator</h3>
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="hashrate-amount">Hashrate (TH/s)</label>
-                    <input type="number" id="hashrate-amount" value="10" min="1">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="contract-price">Contract Price ($)</label>
-                    <input type="number" id="contract-price" value="500" min="1">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="contract-duration">Contract Duration (Days)</label>
-                    <input type="number" id="contract-duration" value="365" min="30">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="maintenance-fee">Maintenance Fee ($/TH/day)</label>
-                    <input type="number" id="maintenance-fee" value="0.035" step="0.001" min="0">
-                </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <!-- AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
-            
-            <button class="btn btn-block" onclick="calculateCloudMining()">Calculate Profitability</button>
-            
-            <div class="grid" style="margin-top: 1.5rem;">
-                <div class="stats-card">
-                    <h3 class="stats-label">Daily Profit</h3>
-                    <div class="stats-value profit-positive" id="daily-cloud-profit">$2.15</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">Monthly Profit</h3>
-                    <div class="stats-value profit-positive" id="monthly-cloud-profit">$64.50</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">ROI Period</h3>
-                    <div class="stats-value" id="cloud-roi">232 days</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">Total Profit</h3>
-                    <div class="stats-value profit-positive" id="total-cloud-profit">$284.75</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Cloud Mining Providers Comparison</h2>
-                <div>
-                    <a href="cloud-mining-guide.html" class="btn">Cloud Mining Guide</a>
-                    <a href="scam-alerts.html" class="btn btn-warning" style="margin-left: 10px;">Scam Alerts</a>
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Providers Tracked</div>
+                    <div class="stat-value">24</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg. ROI</div>
+                    <div class="stat-value">14 Months</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Minimum Investment</div>
+                    <div class="stat-value">$50</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Trust Score</div>
+                    <div class="stat-value">8.2/10</div>
                 </div>
             </div>
 
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search providers by name or features..." onkeyup="searchProviders()">
-            </div>
-
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="coin-filter">Cryptocurrency</label>
-                    <select id="coin-filter" onchange="filterProviders()">
-                        <option value="all">All Coins</option>
-                        <option value="BTC">Bitcoin (BTC)</option>
-                        <option value="ETH">Ethereum (ETH)</option>
-                        <option value="LTC">Litecoin (LTC)</option>
-                        <option value="DOGE">Dogecoin (DOGE)</option>
-                        <option value="DASH">Dash (DASH)</option>
-                    </select>
+            <!-- Top Cloud Mining Providers -->
+            <section class="providers-section">
+                <h2 class="section-title">Top Cloud Mining Providers</h2>
+                <div class="providers-grid" id="providers-grid">
+                    <!-- Provider cards will be loaded by JavaScript -->
                 </div>
-                
-                <div class="filter-group">
-                    <label for="duration-filter">Contract Duration</label>
-                    <select id="duration-filter" onchange="filterProviders()">
-                        <option value="all">Any Duration</option>
-                        <option value="lifetime">Lifetime</option>
-                        <option value="2year">2 Years</option>
-                        <option value="1year">1 Year</option>
-                        <option value="6month">6 Months</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="trust-filter">Trust Level</label>
-                    <select id="trust-filter" onchange="filterProviders()">
-                        <option value="all">All Providers</option>
-                        <option value="trusted">Trusted Only</option>
-                        <option value="popular">Popular</option>
-                        <option value="new">New Providers</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="sort-by">Sort By</label>
-                    <select id="sort-by" onchange="sortProviders()">
-                        <option value="profit-desc">Profit (High to Low)</option>
-                        <option value="profit-asc">Profit (Low to High)</option>
-                        <option value="fee-asc">Fee (Low to High)</option>
-                        <option value="fee-desc">Fee (High to Low)</option>
-                        <option value="name-asc">Name (A-Z)</option>
-                    </select>
-                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="0987654321"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div style="overflow-x: auto;">
-                <table id="providers-table">
-                    <thead>
-                        <tr>
-                            <th onclick="sortTable(0)">Provider</th>
-                            <th onclick="sortTable(1)">Coin</th>
-                            <th onclick="sortTable(2)">Contract</th>
-                            <th onclick="sortTable(3)">Price</th>
-                            <th onclick="sortTable(4)">Hashrate</th>
-                            <th onclick="sortTable(5)">Duration</th>
-                            <th onclick="sortTable(6)">Maintenance Fee</th>
-                            <th onclick="sortTable(7)">Daily Profit</th>
-                            <th onclick="sortTable(8)">ROI</th>
-                            <th>Features</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="providers-tbody">
-                        <!-- Providers data will be populated by JavaScript -->
-                    </tbody>
-                </table>
+            <!-- Ad Container -->
+            <div class="ad-container ad-vertical" style="float: right; margin-left: 20px;">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1122334455"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div class="pagination" id="pagination">
-                <!-- Pagination will be generated by JavaScript -->
-            </div>
-        </div>
-
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567901"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Cloud Mining Pros & Cons</h2>
-            </div>
-            
-            <div class="grid">
-                <div class="stats-card" style="background: #f0fff4;">
-                    <h3 class="stats-label">✅ Advantages</h3>
-                    <div style="text-align: left; margin-top: 1rem;">
-                        <p><strong>No Hardware Costs</strong> - No need to buy expensive mining equipment</p>
-                        <p><strong>No Electricity Costs</strong> - Maintenance fees cover electricity</p>
-                        <p><strong>No Noise or Heat</strong> - Mining happens in remote data centers</p>
-                        <p><strong>Easy to Start</strong> - Just buy a contract and start mining</p>
-                        <p><strong>No Technical Knowledge</strong> - No setup or maintenance required</p>
+            <!-- Cloud Mining Calculator -->
+            <section class="cloud-calculator-section">
+                <h2 class="section-title">Cloud Mining Calculator</h2>
+                <div class="cloud-calculator">
+                    <div class="calculator-tabs">
+                        <button class="tab-btn active" data-tab="bitcoin">Bitcoin Cloud Mining</button>
+                        <button class="tab-btn" data-tab="ethereum">Ethereum Cloud Mining</button>
+                        <button class="tab-btn" data-tab="litecoin">Litecoin Cloud Mining</button>
+                    </div>
+                    
+                    <div class="calculator-grid">
+                        <div class="input-group">
+                            <label for="hashrate-contract">Hashrate Contract (TH/s)</label>
+                            <input type="number" id="hashrate-contract" placeholder="e.g., 100" value="100">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="contract-duration">Contract Duration (Months)</label>
+                            <select id="contract-duration">
+                                <option value="12">12 Months</option>
+                                <option value="24">24 Months</option>
+                                <option value="36">36 Months</option>
+                                <option value="48">48 Months</option>
+                                <option value="60">60 Months</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="maintenance-fee">Maintenance Fee ($/TH/day)</label>
+                            <input type="number" id="maintenance-fee" placeholder="e.g., 0.05" step="0.01" value="0.05">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="contract-price">Contract Price ($)</label>
+                            <input type="number" id="contract-price" placeholder="e.g., 1500" value="1500">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                            <input type="number" id="electricity-cost" placeholder="e.g., 0.12" step="0.01" value="0.12">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="bitcoin-price">Bitcoin Price ($)</label>
+                            <input type="number" id="bitcoin-price" placeholder="e.g., 45000" value="45000">
+                        </div>
+                    </div>
+                    
+                    <button class="calculate-btn" id="calculate-cloud-profit">Calculate Profitability</button>
+                    
+                    <div class="results-section" id="cloud-results-section">
+                        <h3 style="margin-bottom: 15px; color: var(--dark);">Cloud Mining Profitability</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-label">Daily Revenue</div>
+                                <div class="result-value" id="cloud-daily-revenue">$0.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Daily Profit</div>
+                                <div class="result-value profit-positive" id="cloud-daily-profit">$0.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Monthly Profit</div>
+                                <div class="result-value profit-positive" id="cloud-monthly-profit">$0.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Yearly Profit</div>
+                                <div class="result-value profit-positive" id="cloud-yearly-profit">$0.00</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">ROI Period</div>
+                                <div class="result-value" id="cloud-roi-period">0 Days</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-label">Total Profit</div>
+                                <div class="result-value profit-positive" id="cloud-total-profit">$0.00</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 6px;">
+                            <h4 style="margin-bottom: 10px; color: var(--dark);">Profitability Analysis</h4>
+                            <p style="font-size: 13px; color: var(--gray); line-height: 1.5;">
+                                Based on current market conditions and your contract parameters, this cloud mining investment appears to be 
+                                <strong id="cloud-profitability-status" style="color: var(--success);">profitable</strong>. 
+                                The estimated ROI period is <strong id="cloud-roi-display">0 days</strong>. 
+                                Consider maintenance fees and contract terms carefully before investing.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="stats-card" style="background: #fed7d7;">
-                    <h3 class="stats-label">❌ Disadvantages</h3>
-                    <div style="text-align: left; margin-top: 1rem;">
-                        <p><strong>Scam Risk</strong> - Many fraudulent cloud mining services</p>
-                        <p><strong>Lower Profits</strong> - Fees eat into your mining rewards</p>
-                        <p><strong>No Control</strong> - You don't own the hardware</p>
-                        <p><strong>Contract Risks</strong> - Companies can change terms or disappear</p>
-                        <p><strong>Limited Transparency</strong> - Hard to verify actual mining operations</p>
+            </section>
+
+            <!-- All Cloud Mining Providers Table -->
+            <section class="cloud-table-section">
+                <h2 class="section-title">All Cloud Mining Providers (24 Providers)</h2>
+                <div class="cloud-table-container">
+                    <div class="table-header">
+                        <h3>Cloud Mining Services Comparison</h3>
+                        <div class="table-controls">
+                            <div class="search-box">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="provider-search" placeholder="Search providers...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="cloud-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="name">Provider</th>
+                                    <th data-sort="rating">Rating</th>
+                                    <th data-sort="trust">Trust Score</th>
+                                    <th data-sort="minInvestment">Min. Investment</th>
+                                    <th data-sort="contractLength">Contract Length</th>
+                                    <th data-sort="maintenanceFee">Maintenance Fee</th>
+                                    <th data-sort="dailyProfit">Daily Profit/TH</th>
+                                    <th data-sort="roi">Est. ROI</th>
+                                    <th data-sort="coins">Coins</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cloud-table-body">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Cloud Mining Safety Tips</h2>
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="5566778899"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
-            
-            <div class="grid">
-                <div class="stats-card">
-                    <h3 class="stats-label">🔍 Research</h3>
-                    <div class="stats-value">Check Reviews</div>
-                    <div class="stats-label">Read user reviews and complaints</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">💰 Start Small</h3>
-                    <div class="stats-value">Test First</div>
-                    <div class="stats-label">Begin with small investments</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">⏱️ Check History</h3>
-                    <div class="stats-value">Company Age</div>
-                    <div class="stats-label">Prefer established companies</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">📊 Calculate ROI</h3>
-                    <div class="stats-value">Be Realistic</div>
-                    <div class="stats-label">Use calculators to verify claims</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+            <!-- Cloud Mining Guide -->
+            <section class="cloud-guide">
+                <h2 class="section-title">Cloud Mining Guide</h2>
+                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">⚡ How Cloud Mining Works</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Rent mining power from data centers. No hardware, electricity, or maintenance costs. Start mining immediately.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">💰 Investment Considerations</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Consider contract length, maintenance fees, and provider reputation. Start small and diversify investments.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">🛡️ Security & Trust</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Research provider history, read reviews, and check for transparent fee structures and payout proofs.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">📈 Profitability Factors</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Cryptocurrency prices, network difficulty, maintenance fees, and contract terms affect profitability.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Best Miners Profit</h3>
-                    <p>Comprehensive cloud mining comparison and safety guide for cryptocurrency investors.</p>
+                <div class="footer-column">
+                    <h3>Best Miner Profit</h3>
+                    <p style="color: #b0b0b0; font-size: 13px;">Your trusted source for cloud mining services comparison and profitability analysis.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Cloud Mining</h3>
-                    <ul>
-                        <li><a href="cloud-mining.html">Cloud Mining Providers</a></li>
-                        <li><a href="cloud-mining-guide.html">Cloud Mining Guide</a></li>
-                        <li><a href="scam-alerts.html">Scam Alerts</a></li>
-                        <li><a href="profitability.html">Profitability Calculator</a></li>
+                <div class="footer-column">
+                    <h3>Mining Hardware</h3>
+                    <ul class="footer-links">
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                        <li><a href="gpu-miners.html">GPU Miners</a></li>
+                        <li><a href="profitability.html">Profitability</a></li>
+                        <li><a href="comparison.html">Miner Comparison</a></li>
+                        <li><a href="most-profitable.html">Most Profitable</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Alternative Mining</h3>
-                    <ul>
-                        <li><a href="asic-miners.html">ASIC Mining</a></li>
-                        <li><a href="gpu-miners.html">GPU Mining</a></li>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
                         <li><a href="mining-pools.html">Mining Pools</a></li>
-                        <li><a href="staking.html">Staking</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">Mining News</a></li>
+                        <li><a href="guides.html">Mining Guides</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="about.html">About</a></li>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                &copy; 2023 Best Miners Profit. All rights reserved.
+            <div class="footer-bottom">
+                <p>&copy; 2025 Best Miner Profit. All rights reserved. Cloud mining services comparison platform.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Sample cloud mining providers data
-        const providersData = [
+        // Currency and Language Selectors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Currency dropdown
+            const currencyBtn = document.getElementById('currency-btn');
+            const currencyDropdown = document.getElementById('currency-dropdown');
+            
+            currencyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currencyDropdown.classList.toggle('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Language dropdown
+            const languageBtn = document.getElementById('language-btn');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('active');
+                currencyDropdown.classList.remove('active');
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                currencyDropdown.classList.remove('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Currency selection
+            const currencyItems = document.querySelectorAll('#currency-dropdown .dropdown-item');
+            currencyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const currency = this.getAttribute('data-currency');
+                    currencyBtn.innerHTML = `${currency} <span>▼</span>`;
+                    updateCurrency(currency);
+                });
+            });
+            
+            // Language selection
+            const languageItems = document.querySelectorAll('#language-dropdown .dropdown-item');
+            languageItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const language = this.getAttribute('data-lang');
+                    const languageText = this.textContent;
+                    languageBtn.innerHTML = `${languageText} <span>▼</span>`;
+                });
+            });
+            
+            // Auth buttons
+            document.querySelector('.login-btn').addEventListener('click', function() {
+                alert('Login functionality would be implemented here');
+            });
+            
+            document.querySelector('.register-btn').addEventListener('click', function() {
+                alert('Registration functionality would be implemented here');
+            });
+            
+            // Initialize features
+            initializeCryptoPrices();
+            initializeProvidersGrid();
+            initializeCloudTable();
+            setupTableSorting();
+            setupCloudCalculator();
+            
+            // Search functionality
+            const providerSearch = document.getElementById('provider-search');
+            providerSearch.addEventListener('input', function() {
+                filterCloudTable(this.value);
+            });
+        });
+        
+        // Initialize crypto prices ticker
+        function initializeCryptoPrices() {
+            const cryptoData = [
+                { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
+                { symbol: 'ETH', name: 'Ethereum', price: 2387.67, change: 1.56 },
+                { symbol: 'LTC', name: 'Litecoin', price: 68.92, change: -0.45 },
+                { symbol: 'BCH', name: 'Bitcoin Cash', price: 245.78, change: 0.89 },
+                { symbol: 'DOGE', name: 'Dogecoin', price: 0.0856, change: 3.21 },
+                { symbol: 'DASH', name: 'Dash', price: 32.45, change: -1.23 },
+                { symbol: 'ZEC', name: 'Zcash', price: 27.89, change: 0.67 },
+                { symbol: 'XMR', name: 'Monero', price: 145.32, change: 1.45 }
+            ];
+            
+            const tickerContainer = document.getElementById('crypto-ticker');
+            
+            cryptoData.forEach(crypto => {
+                const tickerItem = document.createElement('div');
+                tickerItem.className = 'ticker-item';
+                
+                const changeClass = crypto.change >= 0 ? 'price-up' : 'price-down';
+                const changeSymbol = crypto.change >= 0 ? '▲' : '▼';
+                
+                tickerItem.innerHTML = `
+                    <span class="crypto-symbol">${crypto.symbol}</span>
+                    <span class="crypto-price">$${crypto.price.toLocaleString()}</span>
+                    <span class="${changeClass}">${changeSymbol} ${Math.abs(crypto.change).toFixed(2)}%</span>
+                `;
+                
+                tickerContainer.appendChild(tickerItem);
+            });
+        }
+        
+        // Cloud mining providers data
+        const cloudProviders = [
             {
-                id: 1,
-                name: "Genesis Mining",
-                badges: ["trusted", "popular"],
-                coin: "BTC",
-                contract: "Bitcoin Mining",
-                price: "$2,500",
-                hashrate: "25 TH/s",
-                duration: "2 Years",
-                maintenanceFee: "$0.028/TH/day",
-                dailyProfit: "$3.42",
-                roi: "731 days",
-                features: ["Largest Provider", "Transparent", "Multiple Coins", "Established 2013"]
+                id: 'genesis-mining',
+                name: 'Genesis Mining',
+                rating: 4.8,
+                trustScore: 9.2,
+                minInvestment: '$250',
+                contractLength: '24 Months',
+                maintenanceFee: '$0.028/TH/day',
+                dailyProfit: '$0.85/TH',
+                roi: '14 Months',
+                coins: ['BTC', 'ETH', 'LTC', 'DASH'],
+                features: {
+                    established: '2013',
+                    payout: 'Daily',
+                    referral: '3% Bonus',
+                    support: '24/7'
+                }
             },
             {
-                id: 2,
-                name: "Hashing24",
-                badges: ["trusted"],
-                coin: "BTC",
-                contract: "Standard Plan",
-                price: "$1,200",
-                hashrate: "12 TH/s",
-                duration: "Lifetime",
-                maintenanceFee: "$0.033/TH/day",
-                dailyProfit: "$1.58",
-                roi: "759 days",
-                features: ["Lifetime Contract", "No Hidden Fees", "Established 2012"]
+                id: 'hashflare',
+                name: 'Hashflare',
+                rating: 4.5,
+                trustScore: 8.7,
+                minInvestment: '$120',
+                contractLength: '12 Months',
+                maintenanceFee: '$0.035/TH/day',
+                dailyProfit: '$0.78/TH',
+                roi: '16 Months',
+                coins: ['BTC', 'ETH', 'ZEC'],
+                features: {
+                    established: '2014',
+                    payout: 'Daily',
+                    referral: '5% Bonus',
+                    support: '24/7'
+                }
             },
             {
-                id: 3,
-                name: "NiceHash",
-                badges: ["popular"],
-                coin: "BTC",
-                contract: "Hash Power",
-                price: "$500",
-                hashrate: "10 TH/s",
-                duration: "Flexible",
-                maintenanceFee: "Included",
-                dailyProfit: "$1.25",
-                roi: "400 days",
-                features: ["Flexible Duration", "Marketplace", "Instant Setup", "Multiple Algorithms"]
+                id: 'nicehash',
+                name: 'NiceHash',
+                rating: 4.6,
+                trustScore: 8.9,
+                minInvestment: '$50',
+                contractLength: 'Flexible',
+                maintenanceFee: 'Included',
+                dailyProfit: '$0.82/TH',
+                roi: '15 Months',
+                coins: ['BTC', 'Multiple'],
+                features: {
+                    established: '2014',
+                    payout: 'Instant',
+                    referral: '2% Bonus',
+                    support: '24/7'
+                }
             },
             {
-                id: 4,
-                name: "IQ Mining",
-                badges: ["new"],
-                coin: "BTC",
-                contract: "Smart Contract",
-                price: "$800",
-                hashrate: "15 TH/s",
-                duration: "3 Years",
-                maintenanceFee: "$0.030/TH/day",
-                dailyProfit: "$1.95",
-                roi: "410 days",
-                features: ["Smart Contracts", "Daily Payouts", "Multiple Plans"]
+                id: 'iq-mining',
+                name: 'IQ Mining',
+                rating: 4.4,
+                trustScore: 8.5,
+                minInvestment: '$100',
+                contractLength: '36 Months',
+                maintenanceFee: '$0.032/TH/day',
+                dailyProfit: '$0.80/TH',
+                roi: '17 Months',
+                coins: ['BTC', 'ETH', 'LTC'],
+                features: {
+                    established: '2016',
+                    payout: 'Daily',
+                    referral: '4% Bonus',
+                    support: '24/7'
+                }
             },
             {
-                id: 5,
-                name: "Ecos",
-                badges: ["trusted"],
-                coin: "BTC",
-                contract: "Standard",
-                price: "$3,000",
-                hashrate: "30 TH/s",
-                duration: "Lifetime",
-                maintenanceFee: "$0.025/TH/day",
-                dailyProfit: "$4.10",
-                roi: "731 days",
-                features: ["Legal Company", "Physical Mining", "Transparent", "Established 2017"]
+                id: 'hashing24',
+                name: 'Hashing24',
+                rating: 4.3,
+                trustScore: 8.4,
+                minInvestment: '$199',
+                contractLength: '24 Months',
+                maintenanceFee: '$0.029/TH/day',
+                dailyProfit: '$0.76/TH',
+                roi: '18 Months',
+                coins: ['BTC'],
+                features: {
+                    established: '2015',
+                    payout: 'Daily',
+                    referral: '3% Bonus',
+                    support: '24/7'
+                }
             },
             {
-                id: 6,
-                name: "BeMine",
-                badges: ["new"],
-                coin: "BTC",
-                contract: "Shared ASIC",
-                price: "$150",
-                hashrate: "1 TH/s",
-                duration: "Lifetime",
-                maintenanceFee: "$0.035/TH/day",
-                dailyProfit: "$0.12",
-                roi: "1250 days",
-                features: ["Shared Mining", "Low Entry", "Russian Based"]
-            },
-            {
-                id: 7,
-                name: "Hashflare",
-                badges: ["risky"],
-                coin: "BTC",
-                contract: "SHA-256",
-                price: "$220",
-                hashrate: "1 TH/s",
-                duration: "1 Year",
-                maintenanceFee: "$0.035/TH/day",
-                dailyProfit: "$0.10",
-                roi: "2200 days",
-                features: ["Instant Activation", "Multiple Coins", "Controversial History"]
-            },
-            {
-                id: 8,
-                name: "CCG Mining",
-                badges: ["trusted"],
-                coin: "ETH",
-                contract: "Ethereum Plan",
-                price: "$1,800",
-                hashrate: "50 MH/s",
-                duration: "2 Years",
-                maintenanceFee: "$0.002/MH/day",
-                dailyProfit: "$2.85",
-                roi: "631 days",
-                features: ["Ethereum Focus", "UK Based", "Transparent"]
+                id: 'ccg-mining',
+                name: 'CCG Mining',
+                rating: 4.2,
+                trustScore: 8.3,
+                minInvestment: '$150',
+                contractLength: '48 Months',
+                maintenanceFee: '$0.030/TH/day',
+                dailyProfit: '$0.79/TH',
+                roi: '19 Months',
+                coins: ['BTC', 'ETH'],
+                features: {
+                    established: '2017',
+                    payout: 'Weekly',
+                    referral: '5% Bonus',
+                    support: '24/7'
+                }
             }
         ];
-
-        let currentPage = 1;
-        const itemsPerPage = 8;
-        let filteredProviders = [...providersData];
-
-        // Mobile menu functionality
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.getElementById('mobile-nav').classList.toggle('active');
-        });
-
-        // Cloud mining calculator
-        function calculateCloudMining() {
-            const hashrate = parseFloat(document.getElementById('hashrate-amount').value);
-            const contractPrice = parseFloat(document.getElementById('contract-price').value);
-            const duration = parseFloat(document.getElementById('contract-duration').value);
-            const maintenanceFee = parseFloat(document.getElementById('maintenance-fee').value);
-
-            // Simple calculation (in real implementation, this would be more complex)
-            const dailyRevenue = (hashrate * 0.00000032 * 45000).toFixed(2);
-            const dailyMaintenance = (hashrate * maintenanceFee).toFixed(2);
-            const dailyProfit = (dailyRevenue - dailyMaintenance).toFixed(2);
-            const monthlyProfit = (dailyProfit * 30).toFixed(2);
-            const roiDays = Math.ceil(contractPrice / dailyProfit);
-            const totalProfit = ((dailyProfit * duration) - contractPrice).toFixed(2);
-
-            document.getElementById('daily-cloud-profit').textContent = '$' + dailyProfit;
-            document.getElementById('monthly-cloud-profit').textContent = '$' + monthlyProfit;
-            document.getElementById('cloud-roi').textContent = roiDays + ' days';
-            document.getElementById('total-cloud-profit').textContent = '$' + totalProfit;
+        
+        // Initialize providers grid
+        function initializeProvidersGrid() {
+            const providersGrid = document.getElementById('providers-grid');
+            
+            cloudProviders.forEach(provider => {
+                const providerCard = document.createElement('div');
+                providerCard.className = 'provider-card';
+                
+                const coinsHtml = provider.coins.map(coin => `<span class="trust-badge">${coin}</span>`).join(' ');
+                const stars = '★'.repeat(Math.floor(provider.rating)) + '☆'.repeat(5 - Math.floor(provider.rating));
+                
+                providerCard.innerHTML = `
+                    <div class="provider-header">
+                        <div class="provider-logo">${provider.name.substring(0, 2)}</div>
+                        <div class="provider-name">${provider.name}</div>
+                        <div class="provider-rating">
+                            <span class="stars">${stars}</span>
+                            <span>${provider.rating}/5</span>
+                        </div>
+                    </div>
+                    <div class="provider-body">
+                        <ul class="provider-features">
+                            <li>
+                                <span class="feature-name">Trust Score</span>
+                                <span class="feature-value">${provider.trustScore}/10</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Minimum Investment</span>
+                                <span class="feature-value">${provider.minInvestment}</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Contract Length</span>
+                                <span class="feature-value">${provider.contractLength}</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Maintenance Fee</span>
+                                <span class="feature-value">${provider.maintenanceFee}</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Daily Profit/TH</span>
+                                <span class="feature-value profit-positive">${provider.dailyProfit}</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Est. ROI</span>
+                                <span class="feature-value">${provider.roi}</span>
+                            </li>
+                            <li>
+                                <span class="feature-name">Supported Coins</span>
+                                <span class="feature-value">${coinsHtml}</span>
+                            </li>
+                        </ul>
+                        <div class="provider-actions">
+                            <button class="action-btn secondary" onclick="viewProviderDetails('${provider.id}')">View Details</button>
+                            <button class="action-btn primary" onclick="visitProvider('${provider.id}')">Visit Site</button>
+                        </div>
+                    </div>
+                `;
+                
+                providersGrid.appendChild(providerCard);
+            });
         }
-
-        // Initialize providers table
-        function initializeProvidersTable() {
-            displayProviders();
-            setupPagination();
-            calculateCloudMining(); // Initialize calculator
-        }
-
-        // Display providers in table
-        function displayProviders() {
-            const tbody = document.getElementById('providers-tbody');
-            tbody.innerHTML = '';
-
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const providersToShow = filteredProviders.slice(startIndex, endIndex);
-
-            providersToShow.forEach(provider => {
+        
+        // Initialize cloud mining table
+        function initializeCloudTable() {
+            const tableBody = document.getElementById('cloud-table-body');
+            tableBody.innerHTML = '';
+            
+            cloudProviders.forEach(provider => {
                 const row = document.createElement('tr');
-                
-                // Create badges HTML
-                let badgesHtml = '';
-                provider.badges.forEach(badge => {
-                    badgesHtml += `<span class="provider-badge ${badge}">${badge.toUpperCase()}</span>`;
-                });
-                
-                // Create features HTML
-                let featuresHtml = '';
-                provider.features.forEach(feature => {
-                    featuresHtml += `<span class="feature-tag">${feature}</span>`;
-                });
+                const coinsHtml = provider.coins.map(coin => `<span class="trust-badge">${coin}</span>`).join(' ');
+                const stars = '★'.repeat(Math.floor(provider.rating));
                 
                 row.innerHTML = `
+                    <td><span class="provider-name-cell">${provider.name}</span></td>
                     <td>
-                        <strong>${provider.name}</strong>
-                        ${badgesHtml}
+                        <span class="rating-badge">${provider.rating}/5</span>
+                        <div style="font-size: 11px; color: var(--warning);">${stars}</div>
                     </td>
-                    <td>${provider.coin}</td>
-                    <td>${provider.contract}</td>
-                    <td>${provider.price}</td>
-                    <td>${provider.hashrate}</td>
-                    <td>${provider.duration}</td>
+                    <td><span class="trust-badge">${provider.trustScore}/10</span></td>
+                    <td>${provider.minInvestment}</td>
+                    <td>${provider.contractLength}</td>
                     <td>${provider.maintenanceFee}</td>
-                    <td class="profit-positive">${provider.dailyProfit}</td>
+                    <td><span class="profit-positive">${provider.dailyProfit}</span></td>
                     <td>${provider.roi}</td>
+                    <td>${coinsHtml}</td>
                     <td>
-                        <div class="contract-features">
-                            ${featuresHtml}
-                        </div>
-                    </td>
-                    <td>
-                        <a href="provider-details.html?id=${provider.id}" class="btn btn-small">Details</a>
+                        <button class="action-btn secondary" style="padding: 6px 12px; font-size: 12px;" onclick="visitProvider('${provider.id}')">Invest</button>
                     </td>
                 `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // Setup pagination
-        function setupPagination() {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            const totalPages = Math.ceil(filteredProviders.length / itemsPerPage);
-
-            // Previous button
-            if (currentPage > 1) {
-                const prevButton = document.createElement('button');
-                prevButton.textContent = '←';
-                prevButton.onclick = () => {
-                    currentPage--;
-                    displayProviders();
-                    setupPagination();
-                };
-                pagination.appendChild(prevButton);
-            }
-
-            // Page numbers
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.textContent = i;
-                pageButton.className = i === currentPage ? 'active' : '';
-                pageButton.onclick = () => {
-                    currentPage = i;
-                    displayProviders();
-                    setupPagination();
-                };
-                pagination.appendChild(pageButton);
-            }
-
-            // Next button
-            if (currentPage < totalPages) {
-                const nextButton = document.createElement('button');
-                nextButton.textContent = '→';
-                nextButton.onclick = () => {
-                    currentPage++;
-                    displayProviders();
-                    setupPagination();
-                };
-                pagination.appendChild(nextButton);
-            }
-        }
-
-        // Search functionality
-        function searchProviders() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            filteredProviders = providersData.filter(provider => 
-                provider.name.toLowerCase().includes(searchTerm) ||
-                provider.coin.toLowerCase().includes(searchTerm) ||
-                provider.features.some(feature => feature.toLowerCase().includes(searchTerm))
-            );
-            currentPage = 1;
-            displayProviders();
-            setupPagination();
-        }
-
-        // Filter functionality
-        function filterProviders() {
-            const coin = document.getElementById('coin-filter').value;
-            const duration = document.getElementById('duration-filter').value;
-            const trust = document.getElementById('trust-filter').value;
-
-            filteredProviders = providersData.filter(provider => {
-                const coinMatch = coin === 'all' || provider.coin === coin;
-                const trustMatch = trust === 'all' || provider.badges.includes(trust);
                 
-                let durationMatch = true;
-                if (duration !== 'all') {
-                    if (duration === 'lifetime') {
-                        durationMatch = provider.duration.toLowerCase().includes('lifetime');
-                    } else if (duration === '2year') {
-                        durationMatch = provider.duration.includes('2 Year');
-                    } else if (duration === '1year') {
-                        durationMatch = provider.duration.includes('1 Year');
-                    } else if (duration === '6month') {
-                        durationMatch = provider.duration.includes('6 Month');
-                    }
-                }
-
-                return coinMatch && durationMatch && trustMatch;
+                // Store data attributes for sorting
+                row.dataset.name = provider.name;
+                row.dataset.rating = provider.rating;
+                row.dataset.trust = provider.trustScore;
+                row.dataset.minInvestment = parseFloat(provider.minInvestment.replace('$', ''));
+                row.dataset.contractLength = parseInt(provider.contractLength);
+                row.dataset.maintenanceFee = parseFloat(provider.maintenanceFee);
+                row.dataset.dailyProfit = parseFloat(provider.dailyProfit.replace('$', ''));
+                row.dataset.roi = parseInt(provider.roi);
+                
+                tableBody.appendChild(row);
             });
-
-            currentPage = 1;
-            displayProviders();
-            setupPagination();
-        }
-
-        // Sort functionality
-        function sortProviders() {
-            const sortBy = document.getElementById('sort-by').value;
             
-            filteredProviders.sort((a, b) => {
-                switch(sortBy) {
-                    case 'profit-desc':
-                        return parseFloat(b.dailyProfit.replace('$', '')) - parseFloat(a.dailyProfit.replace('$', ''));
-                    case 'profit-asc':
-                        return parseFloat(a.dailyProfit.replace('$', '')) - parseFloat(b.dailyProfit.replace('$', ''));
-                    case 'fee-asc':
-                        return parseFloat(a.maintenanceFee) - parseFloat(b.maintenanceFee);
-                    case 'fee-desc':
-                        return parseFloat(b.maintenanceFee) - parseFloat(a.maintenanceFee);
-                    case 'name-asc':
-                        return a.name.localeCompare(b.name);
-                    default:
-                        return 0;
+            // Initialize pagination
+            setupPagination(cloudProviders.length);
+        }
+        
+        // Setup table sorting functionality
+        function setupTableSorting() {
+            const table = document.querySelector('.cloud-table');
+            const headers = table.querySelectorAll('th[data-sort]');
+            let currentSort = { column: null, direction: 'asc' };
+            
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const column = this.dataset.sort;
+                    let direction = 'asc';
+                    
+                    if (currentSort.column === column) {
+                        direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                    }
+                    
+                    // Update UI
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    this.classList.add(`sort-${direction}`);
+                    
+                    // Sort table
+                    sortTable(column, direction);
+                    currentSort = { column, direction };
+                });
+            });
+        }
+        
+        // Sort table by column
+        function sortTable(column, direction) {
+            const tableBody = document.getElementById('cloud-table-body');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                let aValue = a.dataset[column];
+                let bValue = b.dataset[column];
+                
+                if (direction === 'asc') {
+                    return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+                } else {
+                    return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
                 }
             });
-
-            displayProviders();
+            
+            // Clear and re-append sorted rows
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
         }
-
-        // Table sorting
-        function sortTable(columnIndex) {
-            // This would be implemented for individual column sorting
-            alert('Column sorting feature would be implemented here');
+        
+        // Setup cloud mining calculator
+        function setupCloudCalculator() {
+            const calculateBtn = document.getElementById('calculate-cloud-profit');
+            const resultsSection = document.getElementById('cloud-results-section');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            
+            // Tab switching
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Calculate button
+            calculateBtn.addEventListener('click', function() {
+                calculateCloudProfitability();
+                resultsSection.classList.add('active');
+            });
+            
+            // Initialize with a calculation
+            calculateCloudProfitability();
         }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeProvidersTable();
-        });
+        
+        // Calculate cloud mining profitability
+        function calculateCloudProfitability() {
+            const hashrate = parseFloat(document.getElementById('hashrate-contract').value) || 0;
+            const duration = parseInt(document.getElementById('contract-duration').value) || 0;
+            const maintenance = parseFloat(document.getElementById('maintenance-fee').value) || 0;
+            const contractPrice = parseFloat(document.getElementById('contract-price').value) || 0;
+            const electricity = parseFloat(document.getElementById('electricity-cost').value) || 0;
+            const bitcoinPrice = parseFloat(document.getElementById('bitcoin-price').value) || 0;
+            
+            // Simplified cloud mining calculation
+            const dailyRevenue = (hashrate * 0.0004 * bitcoinPrice);
+            const dailyMaintenance = hashrate * maintenance;
+            const dailyProfit = dailyRevenue - dailyMaintenance;
+            const monthlyProfit = dailyProfit * 30;
+            const yearlyProfit = dailyProfit * 365;
+            const totalProfit = dailyProfit * (duration * 30);
+            
+            // ROI calculation
+            const roiDays = dailyProfit > 0 ? Math.ceil(contractPrice / dailyProfit) : 0;
+            
+            // Update results
+            document.getElementById('cloud-daily-revenue').textContent = '$' + dailyRevenue.toFixed(2);
+            document.getElementById('cloud-daily-profit').textContent = '$' + dailyProfit.toFixed(2);
+            document.getElementById('cloud-monthly-profit').textContent = '$' + monthlyProfit.toFixed(2);
+            document.getElementById('cloud-yearly-profit').textContent = '$' + yearlyProfit.toFixed(2);
+            document.getElementById('cloud-total-profit').textContent = '$' + totalProfit.toFixed(2);
+            document.getElementById('cloud-roi-period').textContent = roiDays + ' Days';
+            document.getElementById('cloud-roi-display').textContent = roiDays + ' days';
+            
+            // Update profitability status
+            const profitabilityStatus = document.getElementById('cloud-profitability-status');
+            if (dailyProfit > 0) {
+                profitabilityStatus.textContent = 'profitable';
+                profitabilityStatus.style.color = 'var(--success)';
+            } else {
+                profitabilityStatus.textContent = 'not profitable';
+                profitabilityStatus.style.color = 'var(--danger)';
+            }
+        }
+        
+        // Setup pagination
+        function setupPagination(totalItems) {
+            const itemsPerPage = 10;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            
+            paginationContainer.innerHTML = '';
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn';
+                pageBtn.textContent = i;
+                if (i === 1) pageBtn.classList.add('active');
+                
+                pageBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.page-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                
+                paginationContainer.appendChild(pageBtn);
+            }
+        }
+        
+        // Filter cloud table based on search input
+        function filterCloudTable(searchTerm) {
+            const rows = document.querySelectorAll('#cloud-table-body tr');
+            rows.forEach(row => {
+                const providerName = row.querySelector('.provider-name-cell').textContent.toLowerCase();
+                if (providerName.includes(searchTerm.toLowerCase())) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        // Provider actions
+        function viewProviderDetails(providerId) {
+            alert(`Viewing details for provider: ${providerId}`);
+            // In a real implementation, this would open a detailed provider page
+        }
+        
+        function visitProvider(providerId) {
+            alert(`Redirecting to provider: ${providerId}`);
+            // In a real implementation, this would redirect to the provider's website
+        }
+        
+        // Update currency (placeholder for actual implementation)
+        function updateCurrency(currency) {
+            // In a real implementation, this would update all prices and calculations
+            console.log('Currency changed to:', currency);
+        }
     </script>
 </body>
 </html>
