@@ -3,1114 +3,1623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mining Pools - Best Miners Profit | Bitcoin, Ethereum & Cryptocurrency Mining Pools</title>
-    <meta name="description" content="Compare the best mining pools for Bitcoin, Ethereum, Litecoin and other cryptocurrencies. Find pool fees, payout methods, server locations and profitability data.">
-    <meta name="keywords" content="mining pools, Bitcoin mining pool, Ethereum mining pool, pool comparison, mining pool fees, PPS mining, PPLNS mining, pool profitability, best mining pools">
+    <title>Mining Pools - Best Cryptocurrency Mining Pools | Best Miner Profit</title>
+    <meta name="description" content="Compare the best cryptocurrency mining pools for Bitcoin, Ethereum, and other coins. Find pool fees, payout methods, and server locations.">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+    
     <style>
-        /* Include all the same CSS styles from index.html */
         :root {
-            --primary: #1a365d;
-            --secondary: #2b6cb0;
-            --accent: #e53e3e;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --gray: #718096;
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #f8f9fa;
+            --dark: #202124;
+            --darker: #171717;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+            --success: #34a853;
+            --warning: #f9ab00;
+            --danger: #ea4335;
+            --border: #dadce0;
+            --bg-light: #f5f7fa;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: var(--secondary);
             color: var(--dark);
             line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .header-content {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: #ffd700;
-        }
-        
-        nav.desktop ul {
             display: flex;
-            list-style: none;
-        }
-        
-        nav.desktop ul li {
-            margin-left: 1.5rem;
-            position: relative;
-        }
-        
-        nav.desktop ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-        
-        nav.desktop ul li a:hover {
-            color: #ffd700;
-        }
-        
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: white;
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown-content a {
-            color: var(--dark) !important;
-            padding: 0.75rem 1rem;
-            display: block;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .dropdown-content a:hover {
-            background: var(--light);
-            color: var(--secondary) !important;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-        
-        .mobile-nav {
-            display: none;
-            background: var(--primary);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            box-shadow: var(--shadow);
-        }
-        
-        .mobile-nav.active {
-            display: block;
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            padding: 1rem 0;
-        }
-        
-        .mobile-nav ul li {
-            padding: 0.75rem 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .mobile-nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-            flex-wrap: wrap;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary);
         }
         
-        .filters {
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .logo-slogan {
+            font-size: 12px;
+            color: var(--gray);
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .auth-btn {
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--gray);
+        }
+        
+        .login-btn:hover {
+            background: #f5f5f5;
+        }
+        
+        .register-btn {
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            color: white;
+        }
+        
+        .register-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .currency-selector, .language-selector {
+            position: relative;
+        }
+        
+        .selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .dropdown.active {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        nav {
+            padding: 12px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--gray);
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Crypto Prices Ticker */
+        .crypto-ticker {
+            background: var(--darker);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-container {
+            display: flex;
+            animation: ticker 120s linear infinite;
+        }
+        
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            white-space: nowrap;
+        }
+        
+        .crypto-symbol {
+            font-weight: bold;
+            margin-right: 5px;
+            font-size: 13px;
+        }
+        
+        .crypto-price {
+            margin-right: 8px;
+            font-size: 13px;
+        }
+        
+        .price-up {
+            color: var(--success);
+        }
+        
+        .price-down {
+            color: var(--danger);
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 5px 0;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* Filters Section */
+        .filters-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
         }
         
         .filter-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 10px;
         }
         
         .filter-group label {
-            margin-bottom: 0.5rem;
+            display: block;
+            margin-bottom: 5px;
             font-weight: 500;
-            font-size: 0.9rem;
+            color: var(--gray);
+            font-size: 13px;
         }
         
-        select, input {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
+        .filter-group select, .filter-group input {
             width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 13px;
         }
         
-        .btn {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--secondary);
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.apply {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .filter-btn.apply:hover {
+            background: var(--primary-dark);
+        }
+        
+        .filter-btn.reset:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Pools Table */
+        .pools-table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-light);
+        }
+        
+        .table-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 8px 12px 8px 35px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            width: 300px;
+            font-size: 13px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 13px;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        .pools-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .pools-table th {
+            background-color: #f8f9fa;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            white-space: nowrap;
+        }
+        
+        .pools-table th:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .pools-table th::after {
+            content: '↕';
+            position: absolute;
+            right: 8px;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+        
+        .pools-table th.sort-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+        
+        .pools-table th.sort-desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+        
+        .pools-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        
+        .pools-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .pool-name {
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .pool-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #999;
+            font-weight: bold;
+        }
+        
+        .coin-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e3f2fd;
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .fee-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e8f5e8;
+            color: var(--success);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .payout-method {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #fff3e0;
+            color: var(--warning);
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 500;
+            margin: 1px;
+        }
+        
+        .rating-stars {
+            color: var(--warning);
+            font-size: 12px;
+        }
+        
+        .join-btn {
+            padding: 6px 12px;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
+            font-size: 12px;
+            transition: background 0.3s;
         }
         
-        .btn:hover {
-            background-color: #2c5282;
+        .join-btn:hover {
+            background: var(--primary-dark);
         }
         
-        .btn-block {
-            display: block;
-            width: 100%;
+        /* Popular Pools Grid */
+        .popular-pools {
+            margin-bottom: 30px;
         }
         
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
+        .pools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         
-        .btn-success {
-            background-color: var(--success);
-        }
-        
-        .btn-success:hover {
-            background-color: #2f855a;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-        }
-        
-        th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
-        }
-        
-        th:hover {
-            background-color: #e2e8f0;
-        }
-        
-        tr:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .profit-positive {
-            color: var(--success);
-            font-weight: 600;
-        }
-        
-        .profit-negative {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .ad-container {
-            margin: 2rem 0;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 1rem;
+        .pool-card {
+            background: white;
             border-radius: 8px;
-            min-height: 90px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pool-card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pool-card-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed #ccc;
+            font-weight: bold;
         }
         
-        .ad-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-            text-align: center;
-            margin-top: 0.5rem;
+        .pool-card-body {
+            padding: 15px;
         }
         
-        .grid {
+        .pool-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
-        .stats-card {
+        .pool-stat {
             text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
         }
         
-        .stats-value {
-            font-size: 1.8rem;
+        .pool-stat-value {
             font-weight: 700;
-            margin: 0.5rem 0;
+            font-size: 16px;
+            color: var(--primary);
         }
         
-        .stats-label {
+        .pool-stat-label {
+            font-size: 11px;
             color: var(--gray);
-            font-size: 0.9rem;
         }
         
+        .pool-features {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        
+        .pool-features li {
+            font-size: 12px;
+            color: var(--gray);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .pool-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* Footer */
         footer {
-            background-color: var(--primary);
+            background-color: var(--darker);
             color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
+            padding: 40px 0 15px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 25px;
+            margin-bottom: 30px;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            color: #ffd700;
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: white;
         }
         
-        .footer-section ul {
+        .footer-links {
             list-style: none;
         }
         
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
+        .footer-links li {
+            margin-bottom: 8px;
         }
         
-        .footer-section ul li a {
-            color: #ddd;
-            text-decoration: none;
+        .footer-links a {
+            color: #b0b0b0;
             transition: color 0.3s;
+            font-size: 13px;
         }
         
-        .footer-section ul li a:hover {
-            color: #ffd700;
+        .footer-links a:hover {
+            color: white;
         }
         
-        .copyright {
+        .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
+            font-size: 0.8rem;
         }
         
-        .pool-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
+        /* Ad Container */
+        .ad-container {
+            margin: 25px 0;
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
-        .popular { background: #e53e3e; color: white; }
-        .trusted { background: #3182ce; color: white; }
-        .low-fee { background: #38a169; color: white; }
-        .new { background: #d69e2e; color: white; }
+        .ad-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         
+        .ad-horizontal {
+            width: 100%;
+            min-height: 90px;
+        }
+        
+        .ad-vertical {
+            width: 300px;
+            min-height: 250px;
+        }
+        
+        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 5px;
         }
         
-        .pagination button {
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
-            border: 1px solid #ddd;
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
             background: white;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 4px;
-            min-width: 40px;
+            font-size: 13px;
         }
         
-        .pagination button.active {
-            background: var(--secondary);
+        .page-btn.active {
+            background: var(--primary);
             color: white;
-            border-color: var(--secondary);
+            border-color: var(--primary);
         }
         
-        .pagination button:hover:not(.active) {
-            background: #f1f1f1;
+        .page-btn:hover:not(.active) {
+            background: #f5f5f5;
         }
         
-        .search-box {
-            margin-bottom: 1.5rem;
+        /* Server Locations */
+        .server-locations {
+            font-size: 11px;
+            color: var(--gray);
         }
         
-        .search-box input {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            width: 100%;
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 10px;
+            }
         }
         
-        .info-box {
-            background: #e6fffa;
-            border-left: 4px solid var(--success);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-        }
-        
-        .pool-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .feature-tag {
-            background: #edf2f7;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: var(--dark);
-        }
-        
-        @media (max-width: 768px) {
-            nav.desktop {
-                display: none;
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
             }
             
-            .mobile-menu {
-                display: block;
+            .pools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .card-header {
+            .table-header {
                 flex-direction: column;
+                gap: 12px;
                 align-items: flex-start;
             }
             
-            .filters {
+            .search-box input {
+                width: 100%;
+            }
+            
+            .filter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-links {
+                overflow-x: auto;
+                padding-bottom: 8px;
+                gap: 12px;
+            }
+            
+            .page-header {
+                padding: 20px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .pools-grid {
                 grid-template-columns: 1fr;
             }
             
-            table {
-                display: block;
-                overflow-x: auto;
+            .filter-grid {
+                grid-template-columns: 1fr;
             }
             
-            .grid {
-                grid-template-columns: 1fr 1fr;
+            .ad-vertical {
+                width: 100%;
+                min-height: 200px;
             }
             
-            th, td {
-                padding: 0.5rem;
-                font-size: 0.8rem;
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
             }
             
-            .pool-features {
+            .pool-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .filter-actions {
                 flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
+            <div class="header-top">
                 <div class="logo">
-                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                    Best<span>MinerProfit</span>
+                    <div class="logo-slogan">Mining Pools Comparison</div>
                 </div>
-                <nav class="desktop">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="profitability.html">Calculators</a>
-                            <div class="dropdown-content">
-                                <a href="profitability.html">Profitability Calculator</a>
-                                <a href="comparison.html">Miner Comparison</a>
-                                <a href="roi-calculator.html">ROI Calculator</a>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="asic-miners.html">Miners</a>
-                            <div class="dropdown-content">
-                                <a href="asic-miners.html">ASIC Miners</a>
-                                <a href="gpu-miners.html">GPU Miners</a>
-                                <a href="most-profitable.html">Most Profitable</a>
-                            </div>
-                        </li>
-                        <li><a href="mining-pools.html" style="color: #ffd700;">Pools</a></li>
-                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="mobile-menu" id="mobile-menu">☰</div>
+                <div class="header-controls">
+                    <div class="auth-buttons">
+                        <button class="auth-btn login-btn">Login</button>
+                        <button class="auth-btn register-btn">Register</button>
+                    </div>
+                    <div class="currency-selector">
+                        <button class="selector-btn" id="currency-btn">
+                            USD ($) <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="currency-dropdown">
+                            <div class="dropdown-item" data-currency="USD">USD ($)</div>
+                            <div class="dropdown-item" data-currency="EUR">EUR (€)</div>
+                            <div class="dropdown-item" data-currency="GBP">GBP (£)</div>
+                            <div class="dropdown-item" data-currency="PKR">PKR (₨)</div>
+                            <div class="dropdown-item" data-currency="AED">AED (د.إ)</div>
+                            <div class="dropdown-item" data-currency="CNY">CNY (¥)</div>
+                            <div class="dropdown-item" data-currency="JPY">JPY (¥)</div>
+                            <div class="dropdown-item" data-currency="RUB">RUB (₽)</div>
+                            <div class="dropdown-item" data-currency="INR">INR (₹)</div>
+                        </div>
+                    </div>
+                    <div class="language-selector">
+                        <button class="selector-btn" id="language-btn">
+                            English <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="language-dropdown">
+                            <div class="dropdown-item" data-lang="en">English</div>
+                            <div class="dropdown-item" data-lang="es">Español</div>
+                            <div class="dropdown-item" data-lang="fr">Français</div>
+                            <div class="dropdown-item" data-lang="de">Deutsch</div>
+                            <div class="dropdown-item" data-lang="zh">中文 (Chinese)</div>
+                            <div class="dropdown-item" data-lang="ru">Русский (Russian)</div>
+                            <div class="dropdown-item" data-lang="tr">Türkçe</div>
+                            <div class="dropdown-item" data-lang="ar">العربية</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profitability.html">Calculators</a></li>
-                <li><a href="asic-miners.html">Miners</a></li>
-                <li><a href="mining-pools.html" style="color: #ffd700;">Pools</a></li>
-                <li><a href="cloud-mining.html">Cloud Mining</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="asic-miners.html">ASIC Miners</a></li>
+                    <li><a href="gpu-miners.html">GPU Miners</a></li>
+                    <li><a href="profitability.html">Profitability</a></li>
+                    <li><a href="comparison.html">Comparison</a></li>
+                    <li><a href="mining-pools.html" class="active">Mining Pools</a></li>
+                    <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Mining Pools Directory</h1>
-            <p>Compare the best cryptocurrency mining pools with real-time statistics, fees, and payout information</p>
+    <!-- Crypto Prices Ticker -->
+    <section class="crypto-ticker">
+        <div class="ticker-container" id="crypto-ticker">
+            <!-- Crypto prices will be loaded by JavaScript -->
         </div>
     </section>
 
-    <div class="container">
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567898"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Cryptocurrency Mining Pools</h1>
+            <p>Compare the best mining pools with real-time statistics, fees, and payout methods</p>
         </div>
+    </section>
 
-        <div class="info-box">
-            <h3>💡 What are Mining Pools?</h3>
-            <p>Mining pools allow individual miners to combine their computational power to increase their chances of earning block rewards. When the pool successfully mines a block, the reward is distributed among participants based on their contributed hash rate.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <!-- AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Pools Tracked</div>
+                    <div class="stat-value">58</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Lowest Pool Fee</div>
+                    <div class="stat-value">0%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Most Popular Pool</div>
+                    <div class="stat-value">F2Pool</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Payout Time</div>
+                    <div class="stat-value">24h</div>
+                </div>
+            </div>
+
+            <!-- Popular Pools Grid -->
+            <section class="popular-pools">
+                <h2 class="section-title">Top Mining Pools</h2>
+                <div class="pools-grid" id="popular-pools-grid">
+                    <!-- Popular pools will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="0987654321"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-vertical" style="float: right; margin-left: 20px;">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1122334455"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <h2 class="section-title">Filter Mining Pools</h2>
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="coin-filter">Cryptocurrency</label>
+                        <select id="coin-filter">
+                            <option value="">All Coins</option>
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="LTC">Litecoin (LTC)</option>
+                            <option value="BCH">Bitcoin Cash (BCH)</option>
+                            <option value="DASH">Dash (DASH)</option>
+                            <option value="ZEC">Zcash (ZEC)</option>
+                            <option value="XMR">Monero (XMR)</option>
+                            <option value="ETC">Ethereum Classic (ETC)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="fee-filter">Pool Fee</label>
+                        <select id="fee-filter">
+                            <option value="">Any Fee</option>
+                            <option value="0">0% Fee</option>
+                            <option value="1">1% or Less</option>
+                            <option value="2">2% or Less</option>
+                            <option value="3">3% or Less</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="payout-filter">Payout Method</label>
+                        <select id="payout-filter">
+                            <option value="">All Methods</option>
+                            <option value="PPS">PPS</option>
+                            <option value="PPLNS">PPLNS</option>
+                            <option value="FPPS">FPPS</option>
+                            <option value="SOLO">Solo Mining</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="min-payout-filter">Min Payout</label>
+                        <select id="min-payout-filter">
+                            <option value="">Any Amount</option>
+                            <option value="0.001">0.001 BTC</option>
+                            <option value="0.005">0.005 BTC</option>
+                            <option value="0.01">0.01 BTC</option>
+                            <option value="0.1">0.1 BTC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="filter-btn reset" id="reset-filters">Reset Filters</button>
+                    <button class="filter-btn apply" id="apply-filters">Apply Filters</button>
+                </div>
+            </section>
+
+            <!-- All Pools Table -->
+            <section class="pools-table-section">
+                <h2 class="section-title">All Mining Pools (58 Pools)</h2>
+                <div class="pools-table-container">
+                    <div class="table-header">
+                        <h3>Cryptocurrency Mining Pools Comparison</h3>
+                        <div class="table-controls">
+                            <div class="search-box">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="pool-search" placeholder="Search pools by name...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="pools-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="name">Pool Name</th>
+                                    <th data-sort="coins">Coins</th>
+                                    <th data-sort="fee">Pool Fee</th>
+                                    <th data-sort="minPayout">Min Payout</th>
+                                    <th data-sort="payoutMethod">Payout Method</th>
+                                    <th data-sort="hashrate">Hashrate</th>
+                                    <th data-sort="users">Users</th>
+                                    <th data-sort="rating">Rating</th>
+                                    <th data-sort="locations">Locations</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pools-table-body">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="5566778899"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Payout Methods Info -->
+            <section class="payout-info">
+                <h2 class="section-title">Mining Pool Payout Methods</h2>
+                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">PPS (Pay Per Share)</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Fixed payment for each share submitted. Most stable income but higher fees.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">PPLNS (Pay Per Last N Shares)</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Payment based on last N shares. Better long-term profits, lower fees.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">FPPS (Full Pay Per Share)</h4>
+                            <p style="font-size: 13px; color: var(--gray);">PPS + transaction fees. Best of both worlds, most profitable currently.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Solo Mining</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Mine alone, keep 100% of block reward. High risk, high reward.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Mining Pools Comparison</h2>
-                <div>
-                    <a href="pool-guide.html" class="btn">Pool Guide</a>
-                    <a href="profitability.html" class="btn" style="margin-left: 10px;">Profitability Calculator</a>
-                </div>
-            </div>
-
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search pools by name, coin, or features..." onkeyup="searchPools()">
-            </div>
-
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="coin-filter">Cryptocurrency</label>
-                    <select id="coin-filter" onchange="filterPools()">
-                        <option value="all">All Coins</option>
-                        <option value="BTC">Bitcoin (BTC)</option>
-                        <option value="ETH">Ethereum (ETH)</option>
-                        <option value="LTC">Litecoin (LTC)</option>
-                        <option value="DOGE">Dogecoin (DOGE)</option>
-                        <option value="ZEC">Zcash (ZEC)</option>
-                        <option value="XMR">Monero (XMR)</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="fee-filter">Pool Fee</label>
-                    <select id="fee-filter" onchange="filterPools()">
-                        <option value="all">Any Fee</option>
-                        <option value="0">0% Fee</option>
-                        <option value="1">≤ 1% Fee</option>
-                        <option value="2">≤ 2% Fee</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="payout-filter">Payout Method</label>
-                    <select id="payout-filter" onchange="filterPools()">
-                        <option value="all">All Methods</option>
-                        <option value="PPS">PPS</option>
-                        <option value="PPLNS">PPLNS</option>
-                        <option value="FPPS">FPPS</option>
-                        <option value="SOLO">SOLO</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="sort-by">Sort By</label>
-                    <select id="sort-by" onchange="sortPools()">
-                        <option value="hashrate-desc">Hashrate (High to Low)</option>
-                        <option value="hashrate-asc">Hashrate (Low to High)</option>
-                        <option value="fee-asc">Fee (Low to High)</option>
-                        <option value="fee-desc">Fee (High to Low)</option>
-                        <option value="miners-desc">Miners (High to Low)</option>
-                        <option value="name-asc">Name (A-Z)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div style="overflow-x: auto;">
-                <table id="pools-table">
-                    <thead>
-                        <tr>
-                            <th onclick="sortTable(0)">Pool Name</th>
-                            <th onclick="sortTable(1)">Coin</th>
-                            <th onclick="sortTable(2)">Hashrate</th>
-                            <th onclick="sortTable(3)">Miners</th>
-                            <th onclick="sortTable(4)">Pool Fee</th>
-                            <th onclick="sortTable(5)">Payout Method</th>
-                            <th onclick="sortTable(6)">Minimum Payout</th>
-                            <th onclick="sortTable(7)">Server Locations</th>
-                            <th>Features</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pools-tbody">
-                        <!-- Pools data will be populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="pagination" id="pagination">
-                <!-- Pagination will be generated by JavaScript -->
-            </div>
-        </div>
-
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567899"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Popular Mining Pools by Coin</h2>
-            </div>
-            
-            <div class="grid">
-                <div class="stats-card">
-                    <h3 class="stats-label">Bitcoin Pools</h3>
-                    <div class="stats-value">12</div>
-                    <div class="stats-label">Active Pools</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">Ethereum Pools</h3>
-                    <div class="stats-value">8</div>
-                    <div class="stats-label">Active Pools</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">Litecoin Pools</h3>
-                    <div class="stats-value">6</div>
-                    <div class="stats-label">Active Pools</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">Total Pools</h3>
-                    <div class="stats-value">42</div>
-                    <div class="stats-label">In Database</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Payout Methods Explained</h2>
-            </div>
-            
-            <div class="grid">
-                <div class="stats-card">
-                    <h3 class="stats-label">PPS</h3>
-                    <div class="stats-value">Pay Per Share</div>
-                    <div class="stats-label">Fixed payment per share submitted</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">PPLNS</h3>
-                    <div class="stats-value">Pay Per Last N Shares</div>
-                    <div class="stats-label">Payment based on last N shares</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">FPPS</h3>
-                    <div class="stats-value">Full Pay Per Share</div>
-                    <div class="stats-label">PPS + transaction fees</div>
-                </div>
-                
-                <div class="stats-card">
-                    <h3 class="stats-label">SOLO</h3>
-                    <div class="stats-value">Solo Mining</div>
-                    <div class="stats-label">Keep 100% of block reward</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Best Miners Profit</h3>
-                    <p>Comprehensive mining pool directory with real-time statistics and comparison tools.</p>
+                <div class="footer-column">
+                    <h3>Best Miner Profit</h3>
+                    <p style="color: #b0b0b0; font-size: 13px;">Your trusted source for cryptocurrency mining profitability calculations and pool comparisons.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Pool Resources</h3>
-                    <ul>
-                        <li><a href="mining-pools.html">All Mining Pools</a></li>
-                        <li><a href="bitcoin-pools.html">Bitcoin Pools</a></li>
-                        <li><a href="ethereum-pools.html">Ethereum Pools</a></li>
-                        <li><a href="pool-guide.html">Pool Guide</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li><a href="profitability.html">Profitability Calculator</a></li>
-                        <li><a href="comparison.html">Miner Comparison</a></li>
+                <div class="footer-column">
+                    <h3>Mining Hardware</h3>
+                    <ul class="footer-links">
                         <li><a href="asic-miners.html">ASIC Miners</a></li>
-                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="gpu-miners.html">GPU Miners</a></li>
+                        <li><a href="profitability.html">Profitability</a></li>
+                        <li><a href="comparison.html">Miner Comparison</a></li>
+                        <li><a href="most-profitable.html">Most Profitable</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                        <li><a href="news.html">Mining News</a></li>
+                        <li><a href="guides.html">Mining Guides</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                &copy; 2023 Best Miners Profit. All rights reserved.
+            <div class="footer-bottom">
+                <p>&copy; 2025 Best Miner Profit. All rights reserved. Cryptocurrency mining profitability calculator and pool comparison.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Sample mining pools data
-        const poolsData = [
-            {
-                id: 1,
-                name: "F2Pool",
-                badges: ["popular", "trusted"],
-                coin: "BTC",
-                hashrate: "45.2 EH/s",
-                miners: "85,421",
-                fee: "2.5%",
-                payoutMethod: "PPS",
-                minPayout: "0.005 BTC",
-                servers: "Global",
-                features: ["SSL", "API", "Mobile App", "24/7 Support"]
-            },
-            {
-                id: 2,
-                name: "Poolin",
-                badges: ["popular"],
-                coin: "BTC",
-                hashrate: "38.7 EH/s",
-                miners: "72,156",
-                fee: "2.5%",
-                payoutMethod: "FPPS",
-                minPayout: "0.001 BTC",
-                servers: "Global",
-                features: ["SSL", "API", "Mobile App"]
-            },
-            {
-                id: 3,
-                name: "Antpool",
-                badges: ["trusted"],
-                coin: "BTC",
-                hashrate: "42.1 EH/s",
-                miners: "68,923",
-                fee: "2.0%",
-                payoutMethod: "PPLNS",
-                minPayout: "0.001 BTC",
-                servers: "Global",
-                features: ["SSL", "API", "Mobile App"]
-            },
-            {
-                id: 4,
-                name: "ViaBTC",
-                badges: ["low-fee"],
-                coin: "BTC",
-                hashrate: "15.8 EH/s",
-                miners: "45,672",
-                fee: "1.0%",
-                payoutMethod: "PPS",
-                minPayout: "0.001 BTC",
-                servers: "Global",
-                features: ["SSL", "API", "Multiple Coins"]
-            },
-            {
-                id: 5,
-                name: "Ethermine",
-                badges: ["popular", "trusted"],
-                coin: "ETH",
-                hashrate: "125.4 TH/s",
-                miners: "215,843",
-                fee: "1.0%",
-                payoutMethod: "PPLNS",
-                minPayout: "0.01 ETH",
-                servers: "Global",
-                features: ["SSL", "API", "Mobile App", "24/7 Support"]
-            },
-            {
-                id: 6,
-                name: "2Miners",
-                badges: ["low-fee"],
-                coin: "ETH",
-                hashrate: "28.7 TH/s",
-                miners: "89,456",
-                fee: "1.0%",
-                payoutMethod: "PPLNS",
-                minPayout: "0.005 ETH",
-                servers: "Global",
-                features: ["SSL", "Nano Payouts", "Multiple Coins"]
-            },
-            {
-                id: 7,
-                name: "LitecoinPool",
-                badges: ["trusted"],
-                coin: "LTC",
-                hashrate: "45.7 TH/s",
-                miners: "12,456",
-                fee: "2.0%",
-                payoutMethod: "PPLNS",
-                minPayout: "0.1 LTC",
-                servers: "Global",
-                features: ["SSL", "Merged Mining"]
-            },
-            {
-                id: 8,
-                name: "NiceHash",
-                badges: ["popular"],
-                coin: "BTC",
-                hashrate: "25.3 EH/s",
-                miners: "156,789",
-                fee: "2.0%",
-                payoutMethod: "PPS",
-                minPayout: "0.001 BTC",
-                servers: "Global",
-                features: ["Marketplace", "Rental", "Multiple Algorithms"]
-            },
-            {
-                id: 9,
-                name: "Slush Pool",
-                badges: ["trusted"],
-                coin: "BTC",
-                hashrate: "8.9 EH/s",
-                miners: "23,456",
-                fee: "2.0%",
-                payoutMethod: "Score",
-                minPayout: "0.001 BTC",
-                servers: "Global",
-                features: ["SSL", "API", "First Bitcoin Pool"]
-            },
-            {
-                id: 10,
-                name: "Binance Pool",
-                badges: ["new"],
-                coin: "BTC",
-                hashrate: "18.6 EH/s",
-                miners: "34,567",
-                fee: "2.5%",
-                payoutMethod: "FPPS",
-                minPayout: "0.0001 BTC",
-                servers: "Global",
-                features: ["Exchange Integration", "Zero Withdrawal Fee"]
-            }
-        ];
-
-        let currentPage = 1;
-        const itemsPerPage = 10;
-        let filteredPools = [...poolsData];
-
-        // Mobile menu functionality
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.getElementById('mobile-nav').classList.toggle('active');
+        // Currency and Language Selectors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Currency dropdown
+            const currencyBtn = document.getElementById('currency-btn');
+            const currencyDropdown = document.getElementById('currency-dropdown');
+            
+            currencyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currencyDropdown.classList.toggle('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Language dropdown
+            const languageBtn = document.getElementById('language-btn');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('active');
+                currencyDropdown.classList.remove('active');
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                currencyDropdown.classList.remove('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Currency selection
+            const currencyItems = document.querySelectorAll('#currency-dropdown .dropdown-item');
+            currencyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const currency = this.getAttribute('data-currency');
+                    currencyBtn.innerHTML = `${currency} <span>▼</span>`;
+                    updateCurrency(currency);
+                });
+            });
+            
+            // Language selection
+            const languageItems = document.querySelectorAll('#language-dropdown .dropdown-item');
+            languageItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const language = this.getAttribute('data-lang');
+                    const languageText = this.textContent;
+                    languageBtn.innerHTML = `${languageText} <span>▼</span>`;
+                });
+            });
+            
+            // Auth buttons
+            document.querySelector('.login-btn').addEventListener('click', function() {
+                alert('Login functionality would be implemented here');
+            });
+            
+            document.querySelector('.register-btn').addEventListener('click', function() {
+                alert('Registration functionality would be implemented here');
+            });
+            
+            // Initialize features
+            initializeCryptoPrices();
+            initializePopularPools();
+            initializePoolsTable();
+            setupTableSorting();
+            setupFilters();
+            
+            // Search functionality
+            const poolSearch = document.getElementById('pool-search');
+            poolSearch.addEventListener('input', function() {
+                filterPoolsTable(this.value);
+            });
         });
-
-        // Initialize pools table
-        function initializePoolsTable() {
-            displayPools();
-            setupPagination();
+        
+        // Initialize crypto prices ticker
+        function initializeCryptoPrices() {
+            const cryptoData = [
+                { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
+                { symbol: 'ETH', name: 'Ethereum', price: 2387.67, change: 1.56 },
+                { symbol: 'LTC', name: 'Litecoin', price: 68.92, change: -0.45 },
+                { symbol: 'BCH', name: 'Bitcoin Cash', price: 245.78, change: 0.89 },
+                { symbol: 'DASH', name: 'Dash', price: 32.45, change: -1.23 },
+                { symbol: 'ZEC', name: 'Zcash', price: 27.89, change: 0.67 },
+                { symbol: 'XMR', name: 'Monero', price: 145.32, change: 1.45 },
+                { symbol: 'ETC', name: 'Ethereum Classic', price: 23.67, change: 3.21 }
+            ];
+            
+            const tickerContainer = document.getElementById('crypto-ticker');
+            
+            cryptoData.forEach(crypto => {
+                const tickerItem = document.createElement('div');
+                tickerItem.className = 'ticker-item';
+                
+                const changeClass = crypto.change >= 0 ? 'price-up' : 'price-down';
+                const changeSymbol = crypto.change >= 0 ? '▲' : '▼';
+                
+                tickerItem.innerHTML = `
+                    <span class="crypto-symbol">${crypto.symbol}</span>
+                    <span class="crypto-price">$${crypto.price.toLocaleString()}</span>
+                    <span class="${changeClass}">${changeSymbol} ${Math.abs(crypto.change).toFixed(2)}%</span>
+                `;
+                
+                tickerContainer.appendChild(tickerItem);
+            });
         }
-
-        // Display pools in table
-        function displayPools() {
-            const tbody = document.getElementById('pools-tbody');
-            tbody.innerHTML = '';
-
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const poolsToShow = filteredPools.slice(startIndex, endIndex);
-
-            poolsToShow.forEach(pool => {
+        
+        // Initialize popular pools grid
+        function initializePopularPools() {
+            const popularPools = [
+                { 
+                    name: 'F2Pool', 
+                    coins: ['BTC', 'LTC', 'ZEC', 'DASH'],
+                    fee: '2.5%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '45 EH/s',
+                    users: '850K',
+                    features: ['FPPS Payout', '24/7 Support', 'SSL Security', 'Mobile App']
+                },
+                { 
+                    name: 'Antpool', 
+                    coins: ['BTC', 'LTC', 'ETH', 'ZEC'],
+                    fee: '2%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '38 EH/s',
+                    users: '720K',
+                    features: ['PPS+ Payout', 'Zero Fee', 'DDoS Protection', 'API Access']
+                },
+                { 
+                    name: 'Poolin', 
+                    coins: ['BTC', 'BCH', 'DASH', 'ZEC'],
+                    fee: '2.5%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '32 EH/s',
+                    users: '650K',
+                    features: ['PPLNS/PPS', 'Smart Mining', 'Real-time Stats', 'Multi-algo']
+                },
+                { 
+                    name: 'ViaBTC', 
+                    coins: ['BTC', 'LTC', 'BCH', 'ETC'],
+                    fee: '2%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '28 EH/s',
+                    users: '580K',
+                    features: ['PPS+ Payout', 'Transaction Fee', 'Merge Mining', 'Cloud Mining']
+                },
+                { 
+                    name: 'BTC.com', 
+                    coins: ['BTC', 'ETH', 'LTC', 'DASH'],
+                    fee: '1.5%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '25 EH/s',
+                    users: '520K',
+                    features: ['FPPS Payout', 'Zero Fee', 'Wallet Service', 'Block Explorer']
+                },
+                { 
+                    name: 'Slush Pool', 
+                    coins: ['BTC', 'ZEC'],
+                    fee: '2%',
+                    minPayout: '0.001 BTC',
+                    hashrate: '18 EH/s',
+                    users: '450K',
+                    features: ['Score System', 'First Ever Pool', 'EU Servers', 'Stratum V2']
+                }
+            ];
+            
+            const poolsGrid = document.getElementById('popular-pools-grid');
+            
+            popularPools.forEach(pool => {
+                const poolCard = document.createElement('div');
+                poolCard.className = 'pool-card';
+                
+                const coinsHtml = pool.coins.map(coin => `<span class="coin-badge">${coin}</span>`).join('');
+                const featuresHtml = pool.features.map(feature => `<li>${feature}</li>`).join('');
+                
+                poolCard.innerHTML = `
+                    <div class="pool-card-header">
+                        <div class="pool-card-logo">${pool.name.substring(0, 2)}</div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 16px;">${pool.name}</h3>
+                            <div style="font-size: 12px; opacity: 0.8;">${coinsHtml}</div>
+                        </div>
+                    </div>
+                    <div class="pool-card-body">
+                        <div class="pool-stats">
+                            <div class="pool-stat">
+                                <div class="pool-stat-value">${pool.fee}</div>
+                                <div class="pool-stat-label">Pool Fee</div>
+                            </div>
+                            <div class="pool-stat">
+                                <div class="pool-stat-value">${pool.hashrate}</div>
+                                <div class="pool-stat-label">Hashrate</div>
+                            </div>
+                            <div class="pool-stat">
+                                <div class="pool-stat-value">${pool.minPayout}</div>
+                                <div class="pool-stat-label">Min Payout</div>
+                            </div>
+                            <div class="pool-stat">
+                                <div class="pool-stat-value">${pool.users}</div>
+                                <div class="pool-stat-label">Users</div>
+                            </div>
+                        </div>
+                        <ul class="pool-features">
+                            ${featuresHtml}
+                        </ul>
+                        <button class="join-btn" style="width: 100%;">Join Pool</button>
+                    </div>
+                `;
+                
+                poolsGrid.appendChild(poolCard);
+            });
+        }
+        
+        // Initialize pools table with extensive data
+        function initializePoolsTable() {
+            const pools = [
+                { name: 'F2Pool', coins: ['BTC', 'LTC', 'ZEC', 'DASH'], fee: '2.5%', minPayout: '0.001 BTC', payoutMethod: 'FPPS', hashrate: '45 EH/s', users: '850,000', rating: 4.8, locations: 12 },
+                { name: 'Antpool', coins: ['BTC', 'LTC', 'ETH', 'ZEC'], fee: '2%', minPayout: '0.001 BTC', payoutMethod: 'PPS+', hashrate: '38 EH/s', users: '720,000', rating: 4.7, locations: 8 },
+                { name: 'Poolin', coins: ['BTC', 'BCH', 'DASH', 'ZEC'], fee: '2.5%', minPayout: '0.001 BTC', payoutMethod: 'PPLNS', hashrate: '32 EH/s', users: '650,000', rating: 4.6, locations: 10 },
+                { name: 'ViaBTC', coins: ['BTC', 'LTC', 'BCH', 'ETC'], fee: '2%', minPayout: '0.001 BTC', payoutMethod: 'PPS+', hashrate: '28 EH/s', users: '580,000', rating: 4.5, locations: 6 },
+                { name: 'BTC.com', coins: ['BTC', 'ETH', 'LTC', 'DASH'], fee: '1.5%', minPayout: '0.001 BTC', payoutMethod: 'FPPS', hashrate: '25 EH/s', users: '520,000', rating: 4.4, locations: 5 },
+                { name: 'Slush Pool', coins: ['BTC', 'ZEC'], fee: '2%', minPayout: '0.001 BTC', payoutMethod: 'Score', hashrate: '18 EH/s', users: '450,000', rating: 4.3, locations: 3 },
+                { name: 'Binance Pool', coins: ['BTC', 'ETH', 'BCH'], fee: '2.5%', minPayout: '0.001 BTC', payoutMethod: 'FPPS', hashrate: '22 EH/s', users: '380,000', rating: 4.2, locations: 15 },
+                { name: 'Foundry USA', coins: ['BTC'], fee: '0%', minPayout: '0.001 BTC', payoutMethod: 'PPS', hashrate: '15 EH/s', users: '120,000', rating: 4.1, locations: 2 },
+                { name: 'Luxor', coins: ['BTC'], fee: '2%', minPayout: '0.001 BTC', payoutMethod: 'FPPS', hashrate: '12 EH/s', users: '95,000', rating: 4.0, locations: 4 },
+                { name: 'Braiins Pool', coins: ['BTC'], fee: '2%', minPayout: '0.001 BTC', payoutMethod: 'Score', hashrate: '10 EH/s', users: '85,000', rating: 4.2, locations: 3 },
+                { name: 'Mining Dutch', coins: ['ETH', 'ETC', 'XMR'], fee: '1.5%', minPayout: '0.01 ETH', payoutMethod: 'PPLNS', hashrate: '8 TH/s', users: '75,000', rating: 3.9, locations: 5 },
+                { name: '2Miners', coins: ['ETH', 'ETC', 'RVN'], fee: '1%', minPayout: '0.005 ETH', payoutMethod: 'PPLNS', hashrate: '12 TH/s', users: '150,000', rating: 4.3, locations: 8 },
+                { name: 'Ethermine', coins: ['ETH', 'ETC'], fee: '1%', minPayout: '0.01 ETH', payoutMethod: 'PPLNS', hashrate: '25 TH/s', users: '280,000', rating: 4.5, locations: 6 },
+                { name: 'Flexpool', coins: ['ETH', 'ETC'], fee: '0.5%', minPayout: '0.05 ETH', payoutMethod: 'PPLNS', hashrate: '9 TH/s', users: '65,000', rating: 4.1, locations: 4 },
+                { name: 'Hiveon Pool', coins: ['ETH', 'ETC'], fee: '0%', minPayout: '0.1 ETH', payoutMethod: 'PPS+', hashrate: '15 TH/s', users: '180,000', rating: 4.4, locations: 7 },
+                { name: 'Nanopool', coins: ['ETH', 'ETC', 'XMR'], fee: '1%', minPayout: '0.05 ETH', payoutMethod: 'PPLNS', hashrate: '11 TH/s', users: '140,000', rating: 4.0, locations: 5 },
+                { name: 'Cruxpool', coins: ['RVN', 'ERG', 'CFX'], fee: '1%', minPayout: '10 RVN', payoutMethod: 'PPLNS', hashrate: '2 TH/s', users: '45,000', rating: 3.8, locations: 3 },
+                { name: 'HeroMiners', coins: ['RVN', 'ERG', 'FLUX'], fee: '0.9%', minPayout: '5 RVN', payoutMethod: 'PPLNS', hashrate: '1.5 TH/s', users: '38,000', rating: 3.9, locations: 4 },
+                { name: 'MintPond', coins: ['XMR', 'ETC'], fee: '0.9%', minPayout: '0.1 XMR', payoutMethod: 'PPLNS', hashrate: '800 GH/s', users: '25,000', rating: 3.7, locations: 2 },
+                { name: 'SupportXMR', coins: ['XMR'], fee: '0.6%', minPayout: '0.1 XMR', payoutMethod: 'PPLNS', hashrate: '600 GH/s', users: '18,000', rating: 4.2, locations: 3 }
+            ];
+            
+            const tableBody = document.getElementById('pools-table-body');
+            tableBody.innerHTML = '';
+            
+            pools.forEach(pool => {
                 const row = document.createElement('tr');
-                
-                // Create badges HTML
-                let badgesHtml = '';
-                pool.badges.forEach(badge => {
-                    badgesHtml += `<span class="pool-badge ${badge}">${badge.toUpperCase()}</span>`;
-                });
-                
-                // Create features HTML
-                let featuresHtml = '';
-                pool.features.forEach(feature => {
-                    featuresHtml += `<span class="feature-tag">${feature}</span>`;
-                });
+                const coinsHtml = pool.coins.map(coin => `<span class="coin-badge">${coin}</span>`).join(' ');
+                const payoutMethods = pool.payoutMethod.split(',').map(method => `<span class="payout-method">${method.trim()}</span>`).join('');
+                const stars = '★'.repeat(Math.floor(pool.rating)) + '☆'.repeat(5 - Math.floor(pool.rating));
                 
                 row.innerHTML = `
                     <td>
-                        <strong>${pool.name}</strong>
-                        ${badgesHtml}
-                    </td>
-                    <td>${pool.coin}</td>
-                    <td>${pool.hashrate}</td>
-                    <td>${pool.miners}</td>
-                    <td>${pool.fee}</td>
-                    <td>${pool.payoutMethod}</td>
-                    <td>${pool.minPayout}</td>
-                    <td>${pool.servers}</td>
-                    <td>
-                        <div class="pool-features">
-                            ${featuresHtml}
+                        <div class="pool-name">
+                            <div class="pool-logo">${pool.name.substring(0, 2)}</div>
+                            ${pool.name}
                         </div>
                     </td>
-                    <td>
-                        <a href="pool-details.html?id=${pool.id}" class="btn btn-small">Details</a>
-                    </td>
+                    <td>${coinsHtml}</td>
+                    <td><span class="fee-badge">${pool.fee}</span></td>
+                    <td>${pool.minPayout}</td>
+                    <td>${payoutMethods}</td>
+                    <td>${pool.hashrate}</td>
+                    <td>${pool.users}</td>
+                    <td><span class="rating-stars">${stars}</span> ${pool.rating}</td>
+                    <td><span class="server-locations">${pool.locations} locations</span></td>
+                    <td><button class="join-btn">Join</button></td>
                 `;
-                tbody.appendChild(row);
+                // Store data attributes for sorting and filtering
+                row.dataset.name = pool.name;
+                row.dataset.coins = pool.coins.join(',');
+                row.dataset.fee = parseFloat(pool.fee);
+                row.dataset.minPayout = parseFloat(pool.minPayout);
+                row.dataset.payoutMethod = pool.payoutMethod;
+                row.dataset.hashrate = parseFloat(pool.hashrate);
+                row.dataset.users = parseInt(pool.users.replace(/,/g, ''));
+                row.dataset.rating = pool.rating;
+                row.dataset.locations = pool.locations;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Initialize pagination
+            setupPagination(pools.length);
+        }
+        
+        // Setup table sorting functionality
+        function setupTableSorting() {
+            const table = document.querySelector('.pools-table');
+            const headers = table.querySelectorAll('th[data-sort]');
+            let currentSort = { column: null, direction: 'asc' };
+            
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const column = this.dataset.sort;
+                    let direction = 'asc';
+                    
+                    if (currentSort.column === column) {
+                        direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                    }
+                    
+                    // Update UI
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    this.classList.add(`sort-${direction}`);
+                    
+                    // Sort table
+                    sortTable(column, direction);
+                    currentSort = { column, direction };
+                });
             });
         }
-
-        // Setup pagination
-        function setupPagination() {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            const totalPages = Math.ceil(filteredPools.length / itemsPerPage);
-
-            // Previous button
-            if (currentPage > 1) {
-                const prevButton = document.createElement('button');
-                prevButton.textContent = '←';
-                prevButton.onclick = () => {
-                    currentPage--;
-                    displayPools();
-                    setupPagination();
-                };
-                pagination.appendChild(prevButton);
-            }
-
-            // Page numbers
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.textContent = i;
-                pageButton.className = i === currentPage ? 'active' : '';
-                pageButton.onclick = () => {
-                    currentPage = i;
-                    displayPools();
-                    setupPagination();
-                };
-                pagination.appendChild(pageButton);
-            }
-
-            // Next button
-            if (currentPage < totalPages) {
-                const nextButton = document.createElement('button');
-                nextButton.textContent = '→';
-                nextButton.onclick = () => {
-                    currentPage++;
-                    displayPools();
-                    setupPagination();
-                };
-                pagination.appendChild(nextButton);
-            }
+        
+        // Sort table by column
+        function sortTable(column, direction) {
+            const tableBody = document.getElementById('pools-table-body');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                let aValue = a.dataset[column];
+                let bValue = b.dataset[column];
+                
+                // Handle numeric values
+                if (['fee', 'minPayout', 'hashrate', 'users', 'rating', 'locations'].includes(column)) {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (direction === 'asc') {
+                    return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+                } else {
+                    return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+                }
+            });
+            
+            // Clear and re-append sorted rows
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
         }
-
-        // Search functionality
-        function searchPools() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            filteredPools = poolsData.filter(pool => 
-                pool.name.toLowerCase().includes(searchTerm) ||
-                pool.coin.toLowerCase().includes(searchTerm) ||
-                pool.features.some(feature => feature.toLowerCase().includes(searchTerm))
-            );
-            currentPage = 1;
-            displayPools();
-            setupPagination();
+        
+        // Setup filters
+        function setupFilters() {
+            const applyBtn = document.getElementById('apply-filters');
+            const resetBtn = document.getElementById('reset-filters');
+            
+            applyBtn.addEventListener('click', applyFilters);
+            resetBtn.addEventListener('click', resetFilters);
         }
-
-        // Filter functionality
-        function filterPools() {
+        
+        // Apply filters
+        function applyFilters() {
             const coin = document.getElementById('coin-filter').value;
             const fee = document.getElementById('fee-filter').value;
-            const payout = document.getElementById('payout-filter').value;
-
-            filteredPools = poolsData.filter(pool => {
-                const coinMatch = coin === 'all' || pool.coin === coin;
-                const payoutMatch = payout === 'all' || pool.payoutMethod === payout;
-                
-                let feeMatch = true;
-                if (fee !== 'all') {
-                    const poolFee = parseFloat(pool.fee);
-                    const maxFee = parseFloat(fee);
-                    feeMatch = poolFee <= maxFee;
-                }
-
-                return coinMatch && feeMatch && payoutMatch;
-            });
-
-            currentPage = 1;
-            displayPools();
-            setupPagination();
-        }
-
-        // Sort functionality
-        function sortPools() {
-            const sortBy = document.getElementById('sort-by').value;
+            const payoutMethod = document.getElementById('payout-filter').value;
+            const minPayout = document.getElementById('min-payout-filter').value;
             
-            filteredPools.sort((a, b) => {
-                switch(sortBy) {
-                    case 'hashrate-desc':
-                        return parseFloat(b.hashrate) - parseFloat(a.hashrate);
-                    case 'hashrate-asc':
-                        return parseFloat(a.hashrate) - parseFloat(b.hashrate);
-                    case 'fee-asc':
-                        return parseFloat(a.fee) - parseFloat(b.fee);
-                    case 'fee-desc':
-                        return parseFloat(b.fee) - parseFloat(a.fee);
-                    case 'miners-desc':
-                        return parseInt(b.miners.replace(/,/g, '')) - parseInt(a.miners.replace(/,/g, ''));
-                    case 'name-asc':
-                        return a.name.localeCompare(b.name);
-                    default:
-                        return 0;
+            const rows = document.querySelectorAll('#pools-table-body tr');
+            
+            rows.forEach(row => {
+                let showRow = true;
+                
+                // Coin filter
+                if (coin && !row.dataset.coins.includes(coin)) {
+                    showRow = false;
+                }
+                
+                // Fee filter
+                if (fee && parseFloat(row.dataset.fee) > parseFloat(fee)) {
+                    showRow = false;
+                }
+                
+                // Payout method filter
+                if (payoutMethod && !row.dataset.payoutMethod.includes(payoutMethod)) {
+                    showRow = false;
+                }
+                
+                // Min payout filter
+                if (minPayout && parseFloat(row.dataset.minPayout) > parseFloat(minPayout)) {
+                    showRow = false;
+                }
+                
+                row.style.display = showRow ? '' : 'none';
+            });
+        }
+        
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('coin-filter').value = '';
+            document.getElementById('fee-filter').value = '';
+            document.getElementById('payout-filter').value = '';
+            document.getElementById('min-payout-filter').value = '';
+            
+            const rows = document.querySelectorAll('#pools-table-body tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+        
+        // Setup pagination
+        function setupPagination(totalItems) {
+            const itemsPerPage = 10;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            
+            paginationContainer.innerHTML = '';
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn';
+                pageBtn.textContent = i;
+                if (i === 1) pageBtn.classList.add('active');
+                
+                pageBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.page-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // In a real implementation, you would load the page data here
+                });
+                
+                paginationContainer.appendChild(pageBtn);
+            }
+        }
+        
+        // Filter pools table based on search input
+        function filterPoolsTable(searchTerm) {
+            const rows = document.querySelectorAll('#pools-table-body tr');
+            rows.forEach(row => {
+                const poolName = row.querySelector('.pool-name').textContent.toLowerCase();
+                if (poolName.includes(searchTerm.toLowerCase())) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
             });
-
-            displayPools();
         }
-
-        // Table sorting
-        function sortTable(columnIndex) {
-            // This would be implemented for individual column sorting
-            alert('Column sorting feature would be implemented here');
+        
+        // Update currency (placeholder for actual implementation)
+        function updateCurrency(currency) {
+            // In a real implementation, this would update all prices and calculations
+            console.log('Currency changed to:', currency);
         }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initializePoolsTable();
-        });
     </script>
 </body>
 </html>
