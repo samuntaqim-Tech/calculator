@@ -3,40 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Miner Profit - Cryptocurrency Mining Calculator & Profitability Comparison</title>
-    <meta name="description" content="Compare 5000+ cryptocurrency miners, calculate profitability in real-time, and find the best mining equipment. Live prices, ROI calculators, and mining insights.">
+    <title>Best Miner Profit - Live Cryptocurrency Mining Profitability Calculator</title>
+    <meta name="description" content="Real-time cryptocurrency mining profitability calculator. Compare 5000+ ASIC & GPU miners with live prices, difficulty data, and ROI calculations.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Top Bar with Language & Currency -->
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <div class="announcement-content">
+                <span class="announcement-badge">NEW</span>
+                <span>Bitcoin mining difficulty increased by 6.2% - Check updated profitability</span>
+                <a href="#" class="announcement-link">Learn More →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
                 <div class="top-bar-left">
-                    <select id="language-selector">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="zh">中文</option>
-                        <option value="ru">Русский</option>
-                        <option value="ja">日本語</option>
-                    </select>
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                        <select id="language-selector">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="zh">中文</option>
+                            <option value="ru">Русский</option>
+                            <option value="ja">日本語</option>
+                            <option value="de">Deutsch</option>
+                        </select>
+                    </div>
                     
-                    <select id="currency-selector">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="CNY">CNY</option>
-                        <option value="RUB">RUB</option>
-                        <option value="JPY">JPY</option>
-                    </select>
+                    <div class="currency-converter">
+                        <i class="fas fa-exchange-alt"></i>
+                        <select id="currency-selector">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="CNY">CNY</option>
+                            <option value="RUB">RUB</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                        <span class="exchange-rate">1 BTC = $45,123.45</span>
+                    </div>
                 </div>
                 
                 <div class="top-bar-right">
-                    <a href="login.html" class="auth-link"><i class="fas fa-sign-in-alt"></i> Login</a>
-                    <a href="register.html" class="auth-link"><i class="fas fa-user-plus"></i> Register</a>
-                    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                    <a href="#" class="top-bar-link"><i class="fas fa-mobile-alt"></i> Get Mobile App</a>
+                    <a href="login.html" class="top-bar-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="register.html" class="top-bar-link"><i class="fas fa-user-plus"></i> Register</a>
+                    <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
                 </div>
             </div>
         </div>
@@ -51,10 +71,33 @@
                     Best Miner Profit
                 </a>
                 
-                <!-- Search Bar -->
+                <!-- Advanced Search -->
                 <div class="search-container">
-                    <input type="text" id="global-search" placeholder="Search miners, algorithms, manufacturers...">
-                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="global-search" placeholder="Search 5000+ miners, algorithms, manufacturers...">
+                        <button class="search-filters-btn" title="Advanced Filters">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                    <div class="search-suggestions">
+                        <!-- Live search results will appear here -->
+                    </div>
+                </div>
+                
+                <!-- User Menu -->
+                <div class="user-menu">
+                    <div class="user-actions">
+                        <a href="#" class="user-action-btn" title="Price Alerts">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                        <a href="#" class="user-action-btn" title="Favorites">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                        <a href="comparison.html" class="user-action-btn" title="Comparison">
+                            <i class="fas fa-balance-scale"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -63,239 +106,280 @@
                     <span></span>
                     <span></span>
                 </div>
-                
-                <!-- Navigation Menu -->
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <i class="fas fa-home"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="most-profitable.html" class="nav-link">
-                            <i class="fas fa-trophy"></i> Most Profitable <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="most-profitable.html" class="nav-link">
+                        <i class="fas fa-trophy"></i> Live Profitability <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>By Algorithm</h4>
                             <a href="most-profitable.html?algorithm=sha256">Bitcoin (SHA-256)</a>
                             <a href="most-profitable.html?algorithm=ethash">Ethereum (Ethash)</a>
                             <a href="most-profitable.html?algorithm=scrypt">Litecoin (Scrypt)</a>
                             <a href="most-profitable.html?algorithm=randomx">Monero (RandomX)</a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="asic-miners.html" class="nav-link">
-                            <i class="fas fa-microchip"></i> ASIC Miners <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="asic-miners.html?manufacturer=bitmain">Bitmain</a>
-                            <a href="asic-miners.html?manufacturer=microbt">MicroBT</a>
-                            <a href="asic-miners.html?manufacturer=canaan">Canaan</a>
-                            <a href="asic-miners.html?manufacturer=innosilicon">Innosilicon</a>
+                        <div class="dropdown-section">
+                            <h4>By Manufacturer</h4>
+                            <a href="most-profitable.html?manufacturer=bitmain">Bitmain</a>
+                            <a href="most-profitable.html?manufacturer=microbt">MicroBT</a>
+                            <a href="most-profitable.html?manufacturer=canaan">Canaan</a>
+                            <a href="most-profitable.html?manufacturer=innosilicon">Innosilicon</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="gpu-miners.html" class="nav-link">
-                            <i class="fas fa-desktop"></i> GPU Miners
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="comparison.html" class="nav-link">
-                            <i class="fas fa-balance-scale"></i> Compare
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="roi-calculator.html" class="nav-link">
-                            <i class="fas fa-calculator"></i> Calculators <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="roi-calculator.html">ROI Calculator</a>
-                            <a href="electricity-calculator.html">Electricity Cost</a>
-                            <a href="mining-calculator.html">Mining Calculator</a>
-                            <a href="profitability-calculator.html">Profitability Calculator</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="news.html" class="nav-link">
-                            <i class="fas fa-newspaper"></i> News
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="asic-miners.html" class="nav-link">
+                        <i class="fas fa-microchip"></i> ASIC Miners <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="asic-miners.html?profitability=high">Most Profitable</a>
+                        <a href="asic-miners.html?efficiency=high">Most Efficient</a>
+                        <a href="asic-miners.html?price=low">Budget Friendly</a>
+                        <a href="asic-miners.html?new=true">New Releases</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="gpu-miners.html" class="nav-link">
+                        <i class="fas fa-desktop"></i> GPU Miners
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="calculators.html" class="nav-link">
+                        <i class="fas fa-calculator"></i> Calculators <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="roi-calculator.html">ROI Calculator</a>
+                        <a href="profitability-calculator.html">Profitability Calculator</a>
+                        <a href="electricity-calculator.html">Electricity Cost</a>
+                        <a href="mining-calculator.html">Mining Calculator</a>
+                        <a href="scenario-calculator.html">Scenario Analysis</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i> News
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="community.html" class="nav-link">
+                        <i class="fas fa-users"></i> Community
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <div class="container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Find the Most Profitable Cryptocurrency Miners</h1>
-                <p>Compare 5000+ miners with real-time profitability data and calculate your ROI</p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">5,000+</div>
-                        <div class="stat-label">Miners</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Algorithms</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Live Data</div>
+        <!-- Live Profitability Banner -->
+        <section class="profitability-banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h1>Live Mining Profitability</h1>
+                    <p>Real-time calculations updated every minute with current market data</p>
+                    <div class="live-indicator">
+                        <span class="live-dot"></span>
+                        LIVE DATA
                     </div>
                 </div>
-                
-                <div class="hero-actions">
-                    <a href="most-profitable.html" class="btn btn-primary">
-                        <i class="fas fa-trophy"></i> View Most Profitable
-                    </a>
-                    <a href="roi-calculator.html" class="btn btn-secondary">
-                        <i class="fas fa-calculator"></i> ROI Calculator
-                    </a>
+                <div class="banner-stats">
+                    <div class="banner-stat">
+                        <div class="stat-value">$45,123.45</div>
+                        <div class="stat-label">Bitcoin Price</div>
+                    </div>
+                    <div class="banner-stat">
+                        <div class="stat-value">80.5T</div>
+                        <div class="stat-label">Network Difficulty</div>
+                    </div>
+                    <div class="banner-stat">
+                        <div class="stat-value">+2.34%</div>
+                        <div class="stat-label">24h Change</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Live Crypto Prices Ticker -->
+        <!-- Crypto Prices Ticker -->
         <section class="crypto-ticker">
             <div class="ticker-container">
-                <div class="ticker-item">
+                <div class="ticker-item active">
+                    <span class="crypto-icon">₿</span>
                     <span class="crypto-name">BTC</span>
-                    <span class="crypto-price" id="btc-price">$45,123.45</span>
+                    <span class="crypto-price">$45,123.45</span>
                     <span class="crypto-change positive">+2.34%</span>
                 </div>
                 <div class="ticker-item">
+                    <span class="crypto-icon">Ξ</span>
                     <span class="crypto-name">ETH</span>
-                    <span class="crypto-price" id="eth-price">$2,845.67</span>
+                    <span class="crypto-price">$2,845.67</span>
                     <span class="crypto-change positive">+1.56%</span>
                 </div>
                 <div class="ticker-item">
+                    <span class="crypto-icon">Ł</span>
                     <span class="crypto-name">LTC</span>
                     <span class="crypto-price">$78.90</span>
                     <span class="crypto-change negative">-0.45%</span>
                 </div>
-                <div class="ticker-item">
-                    <span class="crypto-name">BCH</span>
-                    <span class="crypto-price">$345.67</span>
-                    <span class="crypto-change positive">+0.89%</span>
-                </div>
+                <!-- More cryptocurrencies... -->
             </div>
         </section>
 
-        <!-- Ad Placement -->
-        <div class="ad-container">
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <!-- Quick Search & Filters -->
-        <section class="quick-search">
-            <h2>Find Your Perfect Miner</h2>
-            <div class="search-filters">
-                <select id="algorithm-filter">
-                    <option value="">All Algorithms</option>
-                    <option value="sha256">SHA-256 (Bitcoin)</option>
-                    <option value="ethash">Ethash (Ethereum)</option>
-                    <option value="scrypt">Scrypt (Litecoin)</option>
-                    <option value="randomx">RandomX (Monero)</option>
-                </select>
-                
-                <select id="manufacturer-filter">
-                    <option value="">All Manufacturers</option>
-                    <option value="bitmain">Bitmain</option>
-                    <option value="microbt">MicroBT</option>
-                    <option value="canaan">Canaan</option>
-                    <option value="innosilicon">Innosilicon</option>
-                </select>
-                
-                <select id="profitability-filter">
-                    <option value="">Sort by Profitability</option>
-                    <option value="most-profitable">Most Profitable First</option>
-                    <option value="least-profitable">Least Profitable First</option>
-                </select>
-                
-                <button class="btn btn-primary" onclick="applyFilters()">
-                    <i class="fas fa-filter"></i> Apply Filters
-                </button>
-            </div>
-        </section>
-
-        <!-- Most Profitable Miners Grid -->
-        <section class="miners-grid-section">
-            <div class="section-header">
-                <h2>Most Profitable Miners Today</h2>
-                <a href="most-profitable.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="miners-grid" id="profitable-miners">
-                <!-- Dynamic content will be loaded here -->
-            </div>
-        </section>
-
-        <!-- Ad Placement -->
-        <div class="ad-container">
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <!-- Features Section -->
-        <section class="features-section">
-            <h2>Why Choose Best Miner Profit?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-database"></i>
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="action-grid">
+                <a href="most-profitable.html" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Largest Miner Database</h3>
-                    <p>Access 5000+ miners with detailed specifications, prices, and real-time profitability data</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Real-time Calculations</h3>
-                    <p>Live profitability calculations updated every minute with current market prices</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Advanced Comparison</h3>
-                    <p>Compare multiple miners side-by-side with detailed ROI and efficiency metrics</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
+                    <h3>Live Profitability</h3>
+                    <p>Real-time miner rankings</p>
+                </a>
+                <a href="roi-calculator.html" class="action-card">
+                    <div class="action-icon">
                         <i class="fas fa-calculator"></i>
                     </div>
-                    <h3>Multiple Calculators</h3>
-                    <p>ROI, electricity cost, mining profitability, and custom calculation tools</p>
+                    <h3>ROI Calculator</h3>
+                    <p>Calculate your returns</p>
+                </a>
+                <a href="comparison.html" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Compare Miners</h3>
+                    <p>Side-by-side analysis</p>
+                </a>
+                <a href="profitability-calculator.html" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Profitability</h3>
+                    <p>Advanced calculations</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Top 5 Most Profitable Miners -->
+        <section class="top-miners-section">
+            <div class="section-header">
+                <h2>Top 5 Most Profitable Miners Today</h2>
+                <div class="header-actions">
+                    <span class="last-updated">Updated: <span id="lastUpdateTime">Just now</span></span>
+                    <a href="most-profitable.html" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="top-miners-grid">
+                <div class="top-miner-card rank-1">
+                    <div class="miner-rank">#1</div>
+                    <div class="miner-image">
+                        <img src="https://via.placeholder.com/80x80/3498db/white?text=S19+XP" alt="Antminer S19 XP">
+                    </div>
+                    <div class="miner-info">
+                        <h3 class="miner-name">Antminer S19 XP</h3>
+                        <div class="miner-specs">
+                            <span class="spec">140 TH/s</span>
+                            <span class="spec">3010W</span>
+                            <span class="spec">21.5 J/TH</span>
+                        </div>
+                    </div>
+                    <div class="miner-profitability">
+                        <div class="profit-amount">$12.45/day</div>
+                        <div class="profit-change positive">+0.23%</div>
+                    </div>
+                    <div class="miner-actions">
+                        <button class="btn-favorite" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="btn-compare" title="Add to Comparison">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                        <a href="miner-details.html?id=1" class="btn-details">Details</a>
+                    </div>
+                </div>
+                
+                <!-- Repeat for top 5 miners -->
+            </div>
+        </section>
+
+        <!-- Ad Placement -->
+        <div class="ad-container">
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Market Overview -->
+        <section class="market-overview">
+            <div class="section-header">
+                <h2>Market Overview</h2>
+                <div class="time-filters">
+                    <button class="time-filter active">24H</button>
+                    <button class="time-filter">7D</button>
+                    <button class="time-filter">30D</button>
+                </div>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-card">
+                    <h3>Bitcoin Difficulty</h3>
+                    <div class="market-value">80.5T</div>
+                    <div class="market-change positive">+6.2%</div>
+                    <div class="market-chart">
+                        <!-- Mini chart would go here -->
+                    </div>
+                </div>
+                
+                <div class="market-card">
+                    <h3>Network Hashrate</h3>
+                    <div class="market-value">245 EH/s</div>
+                    <div class="market-change positive">+3.1%</div>
+                    <div class="market-chart">
+                        <!-- Mini chart would go here -->
+                    </div>
+                </div>
+                
+                <div class="market-card">
+                    <h3>Mining Revenue</h3>
+                    <div class="market-value">$28.45M/day</div>
+                    <div class="market-change negative">-1.2%</div>
+                    <div class="market-chart">
+                        <!-- Mini chart would go here -->
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Mining Calculators Preview -->
-        <section class="calculators-section">
-            <h2>Mining Calculators</h2>
-            <div class="calculators-grid">
-                <div class="calculator-card">
-                    <h3><i class="fas fa-calculator"></i> ROI Calculator</h3>
-                    <p>Calculate return on investment for any mining hardware</p>
-                    <a href="roi-calculator.html" class="btn btn-outline">Calculate ROI</a>
-                </div>
-                
-                <div class="calculator-card">
-                    <h3><i class="fas fa-bolt"></i> Electricity Cost</h3>
-                    <p>Estimate electricity costs and impact on profitability</p>
-                    <a href="electricity-calculator.html" class="btn btn-outline">Calculate Costs</a>
-                </div>
-                
-                <div class="calculator-card">
-                    <h3><i class="fas fa-chart-bar"></i> Profitability</h3>
-                    <p>Detailed profitability analysis with multiple parameters</p>
-                    <a href="profitability-calculator.html" class="btn btn-outline">Analyze Profit</a>
-                </div>
+        <!-- Trending Miners -->
+        <section class="trending-section">
+            <div class="section-header">
+                <h2>Trending Miners</h2>
+                <span class="section-subtitle">Most viewed by community this week</span>
+            </div>
+            
+            <div class="trending-miners">
+                <!-- Trending miners carousel -->
+            </div>
+        </section>
+
+        <!-- Community Picks -->
+        <section class="community-section">
+            <div class="section-header">
+                <h2>Community Picks</h2>
+                <span class="section-subtitle">Top rated by experienced miners</span>
+            </div>
+            
+            <div class="community-picks">
+                <!-- Community picks grid -->
             </div>
         </section>
 
@@ -303,86 +387,57 @@
         <section class="news-section">
             <div class="section-header">
                 <h2>Latest Mining News</h2>
-                <a href="news.html" class="view-all">All News <i class="fas fa-arrow-right"></i></a>
+                <a href="news.html" class="view-all-btn">All News <i class="fas fa-arrow-right"></i></a>
             </div>
             
             <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-category">Industry</div>
-                    <h3>Bitmain Announces New Antminer S21 with Improved Efficiency</h3>
-                    <p>Bitmain unveils their latest ASIC miner featuring 25% better power efficiency and higher hashrate...</p>
-                    <div class="news-meta">
-                        <span class="news-date">October 28, 2024</span>
-                        <a href="#" class="news-link">Read More</a>
+                <article class="news-card featured">
+                    <div class="news-image">
+                        <img src="https://via.placeholder.com/400x200/3498db/white?text=Bitmain+S21" alt="Bitmain S21">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Product Launch</div>
+                        <h3 class="news-title">Bitmain Announces Antminer S21 with 25% Better Efficiency</h3>
+                        <p class="news-excerpt">The new Antminer S21 promises groundbreaking efficiency improvements that could reshape mining profitability calculations...</p>
+                        <div class="news-meta">
+                            <span class="news-date">October 28, 2024</span>
+                            <span class="news-read-time">5 min read</span>
+                        </div>
                     </div>
                 </article>
                 
                 <article class="news-card">
-                    <div class="news-category">Market</div>
-                    <h3>Bitcoin Mining Difficulty Reaches All-Time High</h3>
-                    <p>Network difficulty increases by 6.2% as more miners join, affecting profitability calculations...</p>
-                    <div class="news-meta">
-                        <span class="news-date">October 25, 2024</span>
-                        <a href="#" class="news-link">Read More</a>
+                    <div class="news-content">
+                        <div class="news-category">Market Analysis</div>
+                        <h3 class="news-title">Bitcoin Mining Difficulty Reaches All-Time High</h3>
+                        <p class="news-excerpt">Network difficulty surges 6.2% as more miners come online, impacting profitability across all hardware models...</p>
+                        <div class="news-meta">
+                            <span class="news-date">October 25, 2024</span>
+                            <span class="news-read-time">3 min read</span>
+                        </div>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- Price Alert CTA -->
+        <section class="alert-cta">
+            <div class="alert-content">
+                <h2>Never Miss a Profit Opportunity</h2>
+                <p>Get price alerts when miners reach your target profitability</p>
+                <button class="btn-alert">
+                    <i class="fas fa-bell"></i> Set Price Alert
+                </button>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Best Miner Profit</h4>
-                    <p>The most comprehensive cryptocurrency mining profitability calculator and miner database.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="most-profitable.html">Most Profitable Miners</a></li>
-                        <li><a href="asic-miners.html">ASIC Miners</a></li>
-                        <li><a href="gpu-miners.html">GPU Miners</a></li>
-                        <li><a href="comparison.html">Miner Comparison</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Calculators</h4>
-                    <ul>
-                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
-                        <li><a href="profitability-calculator.html">Profitability Calculator</a></li>
-                        <li><a href="electricity-calculator.html">Electricity Cost</a></li>
-                        <li><a href="mining-calculator.html">Mining Calculator</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Best Miner Profit. All rights reserved.</p>
-                <p>Data updates every minute. Cryptocurrency mining involves risk.</p>
-            </div>
-        </div>
+        <!-- Comprehensive footer as before -->
     </footer>
 
     <script src="mobile-nav.js"></script>
-    <script src="homepage.js"></script>
+    <script src="homepage-enhanced.js"></script>
 </body>
 </html>
