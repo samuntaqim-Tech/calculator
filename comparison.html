@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miner Comparison Tool - Best Miners Profit | Compare ASIC Miners Side by Side</title>
-    <meta name="description" content="Compare ASIC miners side by side. Analyze profitability, power consumption, hash rates, and ROI for Bitcoin, Litecoin, and cryptocurrency mining hardware.">
-    <meta name="keywords" content="ASIC miner comparison, compare mining hardware, miner comparison tool, Bitcoin miner comparison, mining equipment comparison, profitability comparison">
+    <title>Mining Hardware Comparison | ASIC vs GPU Miners | Best Miner Profit</title>
+    <meta name="description" content="Compare cryptocurrency mining hardware side-by-side. ASIC miners vs GPU mining rigs with detailed specifications and profitability analysis.">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+    
     <style>
-        /* Include all the same CSS styles from index.html */
         :root {
-            --primary: #1a365d;
-            --secondary: #2b6cb0;
-            --accent: #e53e3e;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --gray: #718096;
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #f8f9fa;
+            --dark: #202124;
+            --darker: #171717;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+            --success: #34a853;
+            --warning: #f9ab00;
+            --danger: #ea4335;
+            --border: #dadce0;
+            --bg-light: #f5f7fa;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: var(--secondary);
             color: var(--dark);
             line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
         }
         
         .container {
@@ -40,982 +51,1467 @@
             padding: 0 15px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .header-content {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: #ffd700;
-        }
-        
-        nav.desktop ul {
             display: flex;
-            list-style: none;
-        }
-        
-        nav.desktop ul li {
-            margin-left: 1.5rem;
-            position: relative;
-        }
-        
-        nav.desktop ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-        
-        nav.desktop ul li a:hover {
-            color: #ffd700;
-        }
-        
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: white;
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown-content a {
-            color: var(--dark) !important;
-            padding: 0.75rem 1rem;
-            display: block;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .dropdown-content a:hover {
-            background: var(--light);
-            color: var(--secondary) !important;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-        
-        .mobile-nav {
-            display: none;
-            background: var(--primary);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            box-shadow: var(--shadow);
-        }
-        
-        .mobile-nav.active {
-            display: block;
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            padding: 1rem 0;
-        }
-        
-        .mobile-nav ul li {
-            padding: 0.75rem 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .mobile-nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(43, 108, 176, 0.9));
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-            flex-wrap: wrap;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary);
         }
         
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .logo span {
+            color: var(--dark);
         }
         
-        .filter-group {
+        .logo-slogan {
+            font-size: 12px;
+            color: var(--gray);
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        
+        .header-controls {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
         
-        .filter-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
         }
         
-        select, input {
-            padding: 0.75rem;
-            border: 1px solid #ddd;
+        .auth-btn {
+            padding: 6px 15px;
             border-radius: 4px;
-            font-size: 1rem;
-            width: 100%;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .btn {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--secondary);
+        .login-btn {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--gray);
+        }
+        
+        .login-btn:hover {
+            background: #f5f5f5;
+        }
+        
+        .register-btn {
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            color: white;
+        }
+        
+        .register-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .currency-selector, .language-selector {
+            position: relative;
+        }
+        
+        .selector-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .dropdown.active {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        nav {
+            padding: 12px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--gray);
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Crypto Prices Ticker */
+        .crypto-ticker {
+            background: var(--darker);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-container {
+            display: flex;
+            animation: ticker 120s linear infinite;
+        }
+        
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            white-space: nowrap;
+        }
+        
+        .crypto-symbol {
+            font-weight: bold;
+            margin-right: 5px;
+            font-size: 13px;
+        }
+        
+        .crypto-price {
+            margin-right: 8px;
+            font-size: 13px;
+        }
+        
+        .price-up {
+            color: var(--success);
+        }
+        
+        .price-down {
+            color: var(--danger);
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Comparison Tools */
+        .comparison-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tool-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .tool-btn {
+            padding: 10px 20px;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background-color: #2c5282;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .btn-danger {
-            background-color: var(--accent);
-        }
-        
-        .btn-danger:hover {
-            background-color: #c53030;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-        }
-        
-        th {
-            background-color: #f8f9fa;
             font-weight: 600;
-            color: var(--primary);
+            transition: background 0.3s;
         }
         
-        tr:hover {
-            background-color: #f8f9fa;
+        .tool-btn:hover {
+            background: var(--primary-dark);
         }
         
-        .profit-positive {
+        /* Comparison Interface */
+        .comparison-interface {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .comparison-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .add-miner-btn {
+            padding: 8px 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .add-miner-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .clear-all-btn {
+            padding: 8px 15px;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .clear-all-btn:hover {
+            background: #d32f2f;
+        }
+        
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .spec-header {
+            background: var(--bg-light);
+            padding: 15px;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .miner-column {
+            border-right: 1px solid var(--border);
+        }
+        
+        .miner-column:last-child {
+            border-right: none;
+        }
+        
+        .miner-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .miner-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .miner-type {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .spec-row {
+            display: contents;
+        }
+        
+        .spec-label {
+            background: var(--bg-light);
+            padding: 12px 15px;
+            font-weight: 500;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+        
+        .spec-value {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+        
+        .spec-value.highlight {
+            background: #e8f5e8;
             color: var(--success);
             font-weight: 600;
         }
         
-        .profit-negative {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .ad-container {
-            margin: 2rem 0;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #ccc;
-        }
-        
-        .ad-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .stats-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .stats-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0.5rem 0;
-        }
-        
-        .stats-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        footer {
-            background-color: var(--primary);
+        .remove-miner {
+            background: var(--danger);
             color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-left: 10px;
         }
         
-        .footer-content {
+        /* Quick Comparison */
+        .quick-comparison {
+            margin-bottom: 30px;
+        }
+        
+        .comparison-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            color: #ffd700;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section ul li a:hover {
-            color: #ffd700;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-            font-size: 0.9rem;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .comparison-card {
             background: white;
             border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            border: 2px solid transparent;
-            transition: border-color 0.3s;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
         
-        .comparison-card:hover {
-            border-color: var(--secondary);
+        .comparison-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
         
-        .comparison-card.best {
-            border-color: var(--success);
-            background: linear-gradient(135deg, #f0fff4 0%, white 100%);
+        .vs-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--warning);
+            color: white;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
-        .miner-header {
+        .miner-comparison {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
         }
         
-        .miner-name {
-            font-size: 1.2rem;
+        .miner-comp-name {
             font-weight: 600;
             color: var(--primary);
         }
         
-        .miner-manufacturer {
-            background: var(--secondary);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        
-        .miner-specs {
-            margin-bottom: 1rem;
-        }
-        
-        .spec-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        
-        .spec-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .spec-value {
+        .miner-comp-value {
             font-weight: 600;
         }
         
-        .best-badge {
-            background: var(--success);
+        .winner {
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker);
             color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
+            padding: 40px 0 15px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #b0b0b0;
+            transition: color 0.3s;
+            font-size: 13px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            color: #b0b0b0;
             font-size: 0.8rem;
-            margin-left: 0.5rem;
         }
         
-        .comparison-controls {
+        /* Ad Container */
+        .ad-container {
+            margin: 25px 0;
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            min-height: 90px;
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
-        @media (max-width: 768px) {
-            nav.desktop {
-                display: none;
+        .ad-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-horizontal {
+            width: 100%;
+            min-height: 90px;
+        }
+        
+        .ad-vertical {
+            width: 300px;
+            min-height: 250px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 10px;
             }
             
-            .mobile-menu {
-                display: block;
+            .comparison-grid {
+                grid-template-columns: 150px repeat(auto-fit, minmax(250px, 1fr));
             }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .filters {
-                grid-template-columns: 1fr;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr 1fr;
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
             }
             
             .comparison-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .comparison-controls {
+            .spec-header {
+                display: none;
+            }
+            
+            .miner-column {
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            
+            .spec-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 15px;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .spec-label {
+                background: none;
+                flex: 1;
+            }
+            
+            .spec-value {
+                flex: 1;
+                text-align: right;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
                 flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-links {
+                overflow-x: auto;
+                padding-bottom: 8px;
+                gap: 12px;
+            }
+            
+            .page-header {
+                padding: 20px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .comparison-tools {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .ad-vertical {
+                width: 100%;
+                min-height: 200px;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .comparison-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .spec-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .spec-value {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
+            <div class="header-top">
                 <div class="logo">
-                    <a href="index.html" style="color: white; text-decoration: none;">⚡ Best Miners Profit</a>
+                    Best<span>MinerProfit</span>
+                    <div class="logo-slogan">Hardware Comparison</div>
                 </div>
-                <nav class="desktop">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="profitability.html">Calculators</a>
-                            <div class="dropdown-content">
-                                <a href="profitability.html">Profitability Calculator</a>
-                                <a href="comparison.html" style="color: #ffd700;">Miner Comparison</a>
-                                <a href="roi-calculator.html">ROI Calculator</a>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a href="asic-miners.html">Miners</a>
-                            <div class="dropdown-content">
-                                <a href="asic-miners.html">ASIC Miners</a>
-                                <a href="gpu-miners.html">GPU Miners</a>
-                                <a href="most-profitable.html">Most Profitable</a>
-                            </div>
-                        </li>
-                        <li><a href="mining-pools.html">Pools</a></li>
-                        <li><a href="cloud-mining.html">Cloud Mining</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="mobile-menu" id="mobile-menu">☰</div>
+                <div class="header-controls">
+                    <div class="auth-buttons">
+                        <button class="auth-btn login-btn">Login</button>
+                        <button class="auth-btn register-btn">Register</button>
+                    </div>
+                    <div class="currency-selector">
+                        <button class="selector-btn" id="currency-btn">
+                            USD ($) <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="currency-dropdown">
+                            <div class="dropdown-item" data-currency="USD">USD ($)</div>
+                            <div class="dropdown-item" data-currency="EUR">EUR (€)</div>
+                            <div class="dropdown-item" data-currency="GBP">GBP (£)</div>
+                            <div class="dropdown-item" data-currency="PKR">PKR (₨)</div>
+                            <div class="dropdown-item" data-currency="AED">AED (د.إ)</div>
+                            <div class="dropdown-item" data-currency="CNY">CNY (¥)</div>
+                            <div class="dropdown-item" data-currency="JPY">JPY (¥)</div>
+                            <div class="dropdown-item" data-currency="RUB">RUB (₽)</div>
+                            <div class="dropdown-item" data-currency="INR">INR (₹)</div>
+                        </div>
+                    </div>
+                    <div class="language-selector">
+                        <button class="selector-btn" id="language-btn">
+                            English <span>▼</span>
+                        </button>
+                        <div class="dropdown" id="language-dropdown">
+                            <div class="dropdown-item" data-lang="en">English</div>
+                            <div class="dropdown-item" data-lang="es">Español</div>
+                            <div class="dropdown-item" data-lang="fr">Français</div>
+                            <div class="dropdown-item" data-lang="de">Deutsch</div>
+                            <div class="dropdown-item" data-lang="zh">中文 (Chinese)</div>
+                            <div class="dropdown-item" data-lang="ru">Русский (Russian)</div>
+                            <div class="dropdown-item" data-lang="tr">Türkçe</div>
+                            <div class="dropdown-item" data-lang="ar">العربية</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profitability.html">Calculators</a></li>
-                <li><a href="asic-miners.html">Miners</a></li>
-                <li><a href="mining-pools.html">Pools</a></li>
-                <li><a href="cloud-mining.html">Cloud Mining</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="asic-miners.html">ASIC Miners</a></li>
+                    <li><a href="gpu-miners.html">GPU Miners</a></li>
+                    <li><a href="profitability.html">Profitability</a></li>
+                    <li><a href="comparison.html" class="active">Comparison</a></li>
+                    <li><a href="mining-pools.html">Mining Pools</a></li>
+                    <li><a href="cloud-mining.html">Cloud Mining</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Miner Comparison Tool</h1>
-            <p>Compare ASIC miners side by side to find the most profitable mining hardware for your needs</p>
+    <!-- Crypto Prices Ticker -->
+    <section class="crypto-ticker">
+        <div class="ticker-container" id="crypto-ticker">
+            <!-- Crypto prices will be loaded by JavaScript -->
         </div>
     </section>
 
-    <div class="container">
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567896"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Mining Hardware Comparison</h1>
+            <p>Compare ASIC miners, GPU rigs, and mining hardware side-by-side with detailed specifications</p>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Compare Mining Hardware</h2>
-                <div>
-                    <a href="asic-miners.html" class="btn">View All Miners</a>
-                    <a href="profitability.html" class="btn" style="margin-left: 10px;">Profitability Calculator</a>
-                </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <!-- AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div class="comparison-controls">
-                <div class="filter-group" style="flex: 1;">
-                    <label for="miner1-select">Select Miner 1</label>
-                    <select id="miner1-select">
-                        <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
-                        <option value="whatsminer-m30s">MicroBT Whatsminer M30S++</option>
-                        <option value="antminer-l7">Bitmain Antminer L7</option>
-                        <option value="antminer-z15">Bitmain Antminer Z15</option>
-                    </select>
+            <!-- Comparison Tools -->
+            <section class="comparison-tools-section">
+                <h2 class="section-title">Comparison Tools</h2>
+                <div class="comparison-tools">
+                    <div class="tool-card">
+                        <div class="tool-icon">⚡</div>
+                        <h3 class="tool-title">ASIC vs ASIC</h3>
+                        <p class="tool-desc">Compare different ASIC miners to find the most efficient and profitable hardware for your needs.</p>
+                        <button class="tool-btn" onclick="loadASICComparison()">Compare ASICs</button>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🎮</div>
+                        <h3 class="tool-title">GPU vs GPU</h3>
+                        <p class="tool-desc">Compare graphics cards and GPU mining rigs for different cryptocurrencies and algorithms.</p>
+                        <button class="tool-btn" onclick="loadGPUComparison()">Compare GPUs</button>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🔀</div>
+                        <h3 class="tool-title">ASIC vs GPU</h3>
+                        <p class="tool-desc">Compare ASIC miners with GPU rigs to decide which mining approach suits you best.</p>
+                        <button class="tool-btn" onclick="loadMixedComparison()">Mixed Comparison</button>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">💰</div>
+                        <h3 class="tool-title">ROI Comparison</h3>
+                        <p class="tool-desc">Compare return on investment for different mining hardware with current market conditions.</p>
+                        <button class="tool-btn" onclick="loadROIComparison()">Compare ROI</button>
+                    </div>
                 </div>
-                
-                <div class="filter-group" style="flex: 1;">
-                    <label for="miner2-select">Select Miner 2</label>
-                    <select id="miner2-select">
-                        <option value="whatsminer-m30s">MicroBT Whatsminer M30S++</option>
-                        <option value="antminer-s19-pro">Bitmain Antminer S19 Pro</option>
-                        <option value="antminer-s19">Bitmain Antminer S19</option>
-                        <option value="avalon-1246">Canaan Avalon 1246</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group" style="flex: 1;">
-                    <label for="miner3-select">Select Miner 3</label>
-                    <select id="miner3-select">
-                        <option value="antminer-l7">Bitmain Antminer L7</option>
-                        <option value="antminer-k7">Bitmain Antminer K7</option>
-                        <option value="antminer-z15">Bitmain Antminer Z15</option>
-                        <option value="none">None</option>
-                    </select>
-                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="0987654321"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="electricity-cost">Electricity Cost ($/kWh)</label>
-                    <input type="number" id="electricity-cost" value="0.10" step="0.01" min="0">
+            <!-- Quick Comparison -->
+            <section class="quick-comparison">
+                <h2 class="section-title">Popular Comparisons</h2>
+                <div class="comparison-cards">
+                    <div class="comparison-card">
+                        <div class="comparison-card-title">Bitcoin Mining</div>
+                        <div class="vs-badge">ASIC vs ASIC</div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Antminer S19 XP</span>
+                            <span class="miner-comp-value winner">140 TH/s</span>
+                        </div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Whatsminer M50</span>
+                            <span class="miner-comp-value">118 TH/s</span>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; color: var(--gray);">
+                            Winner: <strong class="winner">Antminer S19 XP</strong> for highest hashrate
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card-title">GPU Mining</div>
+                        <div class="vs-badge">NVIDIA vs AMD</div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">RTX 4090</span>
+                            <span class="miner-comp-value winner">120 MH/s</span>
+                        </div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">RX 7900 XTX</span>
+                            <span class="miner-comp-value">65 MH/s</span>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; color: var(--gray);">
+                            Winner: <strong class="winner">RTX 4090</strong> for performance
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card-title">Efficiency</div>
+                        <div class="vs-badge">J/TH Comparison</div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Antminer S19 XP</span>
+                            <span class="miner-comp-value winner">21.5 J/TH</span>
+                        </div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Antminer S19 Pro</span>
+                            <span class="miner-comp-value">29.5 J/TH</span>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; color: var(--gray);">
+                            Winner: <strong class="winner">S19 XP</strong> for efficiency
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card-title">ROI Period</div>
+                        <div class="vs-badge">Days to Break-even</div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Antminer L7</span>
+                            <span class="miner-comp-value winner">441 Days</span>
+                        </div>
+                        <div class="miner-comparison">
+                            <span class="miner-comp-name">Goldshell KD6</span>
+                            <span class="miner-comp-value">448 Days</span>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; color: var(--gray);">
+                            Winner: <strong class="winner">Antminer L7</strong> for faster ROI
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="filter-group">
-                    <label for="bitcoin-price">Bitcoin Price ($)</label>
-                    <input type="number" id="bitcoin-price" value="45000" step="100" min="0">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="pool-fee">Pool Fee (%)</label>
-                    <input type="number" id="pool-fee" value="1" step="0.1" min="0">
-                </div>
-                
-                <div class="filter-group">
-                    <button class="btn btn-block" onclick="compareMiners()" style="margin-top: 1.7rem;">Compare Miners</button>
-                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-vertical" style="float: right; margin-left: 20px;">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="1122334455"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div class="comparison-grid" id="comparison-results">
-                <!-- Comparison results will be populated here -->
+            <!-- Advanced Comparison -->
+            <section class="advanced-comparison">
+                <h2 class="section-title">Advanced Hardware Comparison</h2>
+                <div class="comparison-interface">
+                    <div class="comparison-header">
+                        <h3 style="margin: 0; color: var(--dark);">Side-by-Side Miner Comparison</h3>
+                        <div class="comparison-controls">
+                            <button class="add-miner-btn" onclick="openMinerSelector()">+ Add Miner</button>
+                            <button class="clear-all-btn" onclick="clearAllMiners()">Clear All</button>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-grid" id="comparison-grid">
+                        <!-- Comparison grid will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container ad-horizontal">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="5566778899"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
+
+            <!-- Comparison Tips -->
+            <section class="comparison-tips">
+                <h2 class="section-title">Comparison Guidelines</h2>
+                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">⚡ Hashrate vs Efficiency</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Higher hashrate doesn't always mean better. Consider energy efficiency (J/TH) for long-term profitability.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">💰 Initial Investment</h4>
+                            <p style="font-size: 13px; color: var(--gray);">ASIC miners have higher upfront costs but better performance. GPUs offer more flexibility.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">🌡️ Noise & Cooling</h4>
+                            <p style="font-size: 13px; color: var(--gray);">Consider operating environment. ASICs are loud and require proper cooling and ventilation.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">🔄 Resale Value</h4>
+                            <p style="font-size: 13px; color: var(--gray);">GPUs generally have better resale value as they can be used for gaming and other purposes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="ad-container">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="1234567897"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Comparison Summary</h2>
-            </div>
-            
-            <div style="overflow-x: auto;">
-                <table id="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Specification</th>
-                            <th id="miner1-header">Miner 1</th>
-                            <th id="miner2-header">Miner 2</th>
-                            <th id="miner3-header">Miner 3</th>
-                            <th>Best Value</th>
-                        </tr>
-                    </thead>
-                    <tbody id="comparison-tbody">
-                        <!-- Comparison data will be populated here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Best Miners Profit</h3>
-                    <p>Compare ASIC miners side by side to make informed mining investment decisions.</p>
+                <div class="footer-column">
+                    <h3>Best Miner Profit</h3>
+                    <p style="color: #b0b0b0; font-size: 13px;">Your trusted source for cryptocurrency mining hardware comparisons and profitability analysis.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Tools</h3>
-                    <ul>
+                <div class="footer-column">
+                    <h3>Mining Hardware</h3>
+                    <ul class="footer-links">
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                        <li><a href="gpu-miners.html">GPU Miners</a></li>
+                        <li><a href="profitability.html">Profitability</a></li>
                         <li><a href="comparison.html">Miner Comparison</a></li>
-                        <li><a href="profitability.html">Profitability Calculator</a></li>
-                        <li><a href="asic-miners.html">ASIC Miners Directory</a></li>
-                        <li><a href="roi-calculator.html">ROI Calculator</a></li>
+                        <li><a href="most-profitable.html">Most Profitable</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
+                <div class="footer-column">
                     <h3>Resources</h3>
-                    <ul>
+                    <ul class="footer-links">
                         <li><a href="mining-pools.html">Mining Pools</a></li>
                         <li><a href="cloud-mining.html">Cloud Mining</a></li>
                         <li><a href="news.html">Mining News</a></li>
                         <li><a href="guides.html">Mining Guides</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="about.html">About</a></li>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                &copy; 2023 Best Miners Profit. All rights reserved.
+            <div class="footer-bottom">
+                <p>&copy; 2025 Best Miner Profit. All rights reserved. Cryptocurrency mining hardware comparison tools.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Miner Selector Modal -->
+    <div id="miner-selector" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 25px; border-radius: 8px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+            <h3 style="margin-bottom: 20px; color: var(--dark);">Select Miners to Compare</h3>
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="miner-search-modal" placeholder="Search miners..." style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px;">
+            </div>
+            <div id="miner-list" style="max-height: 400px; overflow-y: auto;">
+                <!-- Miner list will be populated by JavaScript -->
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end;">
+                <button onclick="closeMinerSelector()" style="padding: 8px 15px; border: 1px solid var(--border); background: white; border-radius: 4px; cursor: pointer;">Cancel</button>
+                <button onclick="addSelectedMiners()" style="padding: 8px 15px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">Add Selected</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Sample miners data
-        const minersComparisonData = {
-            'antminer-s19-pro': {
+        // Currency and Language Selectors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Currency dropdown
+            const currencyBtn = document.getElementById('currency-btn');
+            const currencyDropdown = document.getElementById('currency-dropdown');
+            
+            currencyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currencyDropdown.classList.toggle('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Language dropdown
+            const languageBtn = document.getElementById('language-btn');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('active');
+                currencyDropdown.classList.remove('active');
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                currencyDropdown.classList.remove('active');
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Currency selection
+            const currencyItems = document.querySelectorAll('#currency-dropdown .dropdown-item');
+            currencyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const currency = this.getAttribute('data-currency');
+                    currencyBtn.innerHTML = `${currency} <span>▼</span>`;
+                    updateCurrency(currency);
+                });
+            });
+            
+            // Language selection
+            const languageItems = document.querySelectorAll('#language-dropdown .dropdown-item');
+            languageItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const language = this.getAttribute('data-lang');
+                    const languageText = this.textContent;
+                    languageBtn.innerHTML = `${languageText} <span>▼</span>`;
+                });
+            });
+            
+            // Auth buttons
+            document.querySelector('.login-btn').addEventListener('click', function() {
+                alert('Login functionality would be implemented here');
+            });
+            
+            document.querySelector('.register-btn').addEventListener('click', function() {
+                alert('Registration functionality would be implemented here');
+            });
+            
+            // Initialize features
+            initializeCryptoPrices();
+            initializeComparisonGrid();
+            initializeMinerSelector();
+            
+            // Search functionality for modal
+            const minerSearchModal = document.getElementById('miner-search-modal');
+            minerSearchModal.addEventListener('input', function() {
+                filterMinerList(this.value);
+            });
+        });
+        
+        // Initialize crypto prices ticker
+        function initializeCryptoPrices() {
+            const cryptoData = [
+                { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
+                { symbol: 'ETH', name: 'Ethereum', price: 2387.67, change: 1.56 },
+                { symbol: 'LTC', name: 'Litecoin', price: 68.92, change: -0.45 },
+                { symbol: 'BCH', name: 'Bitcoin Cash', price: 245.78, change: 0.89 },
+                { symbol: 'DOGE', name: 'Dogecoin', price: 0.0856, change: 3.21 },
+                { symbol: 'DASH', name: 'Dash', price: 32.45, change: -1.23 },
+                { symbol: 'ZEC', name: 'Zcash', price: 27.89, change: 0.67 },
+                { symbol: 'XMR', name: 'Monero', price: 145.32, change: 1.45 }
+            ];
+            
+            const tickerContainer = document.getElementById('crypto-ticker');
+            
+            cryptoData.forEach(crypto => {
+                const tickerItem = document.createElement('div');
+                tickerItem.className = 'ticker-item';
+                
+                const changeClass = crypto.change >= 0 ? 'price-up' : 'price-down';
+                const changeSymbol = crypto.change >= 0 ? '▲' : '▼';
+                
+                tickerItem.innerHTML = `
+                    <span class="crypto-symbol">${crypto.symbol}</span>
+                    <span class="crypto-price">$${crypto.price.toLocaleString()}</span>
+                    <span class="${changeClass}">${changeSymbol} ${Math.abs(crypto.change).toFixed(2)}%</span>
+                `;
+                
+                tickerContainer.appendChild(tickerItem);
+            });
+        }
+        
+        // Comparison data
+        const comparisonMiners = [
+            {
+                id: 's19-xp',
+                name: 'Antminer S19 XP',
+                type: 'ASIC',
+                algorithm: 'SHA-256',
+                hashrate: '140 TH/s',
+                power: '3010W',
+                efficiency: '21.5 J/TH',
+                noise: '75 dB',
+                price: '$6,200',
+                dailyProfit: '$15.23',
+                roi: '407 Days',
+                release: '2022'
+            },
+            {
+                id: 's19-pro',
                 name: 'Antminer S19 Pro',
-                manufacturer: 'Bitmain',
+                type: 'ASIC',
                 algorithm: 'SHA-256',
                 hashrate: '110 TH/s',
                 power: '3250W',
-                noise: '75dB',
-                price: '$4,500',
-                dailyRevenue: '$35.42',
-                dailyProfit: '$28.15',
-                roi: '160 days',
-                efficiency: '29.5 J/TH'
+                efficiency: '29.5 J/TH',
+                noise: '75 dB',
+                price: '$5,500',
+                dailyProfit: '$12.45',
+                roi: '442 Days',
+                release: '2020'
             },
-            'whatsminer-m30s': {
-                name: 'Whatsminer M30S++',
-                manufacturer: 'MicroBT',
+            {
+                id: 'whatsminer-m50',
+                name: 'Whatsminer M50',
+                type: 'ASIC',
                 algorithm: 'SHA-256',
-                hashrate: '112 TH/s',
-                power: '3472W',
-                noise: '75dB',
-                price: '$4,200',
-                dailyRevenue: '$36.10',
-                dailyProfit: '$27.85',
-                roi: '151 days',
-                efficiency: '31.0 J/TH'
+                hashrate: '118 TH/s',
+                power: '3300W',
+                efficiency: '28.0 J/TH',
+                noise: '75 dB',
+                price: '$5,900',
+                dailyProfit: '$13.25',
+                roi: '445 Days',
+                release: '2022'
             },
-            'antminer-s19': {
-                name: 'Antminer S19',
-                manufacturer: 'Bitmain',
-                algorithm: 'SHA-256',
-                hashrate: '95 TH/s',
-                power: '3250W',
-                noise: '75dB',
-                price: '$3,800',
-                dailyRevenue: '$30.58',
-                dailyProfit: '$23.31',
-                roi: '163 days',
-                efficiency: '34.2 J/TH'
-            },
-            'antminer-l7': {
+            {
+                id: 'antminer-l7',
                 name: 'Antminer L7',
-                manufacturer: 'Bitmain',
+                type: 'ASIC',
                 algorithm: 'Scrypt',
                 hashrate: '9.5 GH/s',
                 power: '3425W',
-                noise: '75dB',
+                efficiency: '360 J/MH',
+                noise: '75 dB',
                 price: '$12,500',
-                dailyRevenue: '$42.15',
-                dailyProfit: '$34.88',
-                roi: '358 days',
-                efficiency: '360 J/MH'
+                dailyProfit: '$28.34',
+                roi: '441 Days',
+                release: '2021'
             },
-            'antminer-z15': {
-                name: 'Antminer Z15',
-                manufacturer: 'Bitmain',
-                algorithm: 'Equihash',
-                hashrate: '420 kSol/s',
-                power: '1510W',
-                noise: '70dB',
-                price: '$2,800',
-                dailyRevenue: '$12.45',
-                dailyProfit: '$9.80',
-                roi: '286 days',
-                efficiency: '3.6 J/kSol'
+            {
+                id: 'goldshell-kd6',
+                name: 'Goldshell KD6',
+                type: 'ASIC',
+                algorithm: 'Kadena',
+                hashrate: '29.2 TH/s',
+                power: '2630W',
+                efficiency: '90 J/TH',
+                noise: '75 dB',
+                price: '$18,000',
+                dailyProfit: '$40.15',
+                roi: '448 Days',
+                release: '2022'
             },
-            'antminer-k7': {
-                name: 'Antminer K7',
-                manufacturer: 'Bitmain',
-                algorithm: 'RandomX',
-                hashrate: '63 GH/s',
-                power: '3300W',
-                noise: '75dB',
-                price: '$14,000',
-                dailyRevenue: '$52.30',
-                dailyProfit: '$42.15',
-                roi: '332 days',
-                efficiency: '52.4 J/MH'
+            {
+                id: 'rtx-4090',
+                name: 'NVIDIA RTX 4090',
+                type: 'GPU',
+                algorithm: 'Ethash/KawPow',
+                hashrate: '120 MH/s',
+                power: '450W',
+                efficiency: '3.75 J/MH',
+                noise: '40 dB',
+                price: '$1,599',
+                dailyProfit: '$2.45',
+                roi: '652 Days',
+                release: '2022'
             },
-            'avalon-1246': {
-                name: 'Avalon 1246',
-                manufacturer: 'Canaan',
-                algorithm: 'SHA-256',
-                hashrate: '90 TH/s',
-                power: '3420W',
-                noise: '75dB',
-                price: '$3,500',
-                dailyRevenue: '$28.95',
-                dailyProfit: '$21.45',
-                roi: '163 days',
-                efficiency: '38.0 J/TH'
+            {
+                id: 'rx-7900-xtx',
+                name: 'AMD RX 7900 XTX',
+                type: 'GPU',
+                algorithm: 'Ethash/Autolykos',
+                hashrate: '65 MH/s',
+                power: '355W',
+                efficiency: '5.46 J/MH',
+                noise: '42 dB',
+                price: '$999',
+                dailyProfit: '$1.67',
+                roi: '598 Days',
+                release: '2022'
+            },
+            {
+                id: 'rtx-4080',
+                name: 'NVIDIA RTX 4080',
+                type: 'GPU',
+                algorithm: 'KawPow/Octopus',
+                hashrate: '85 MH/s',
+                power: '320W',
+                efficiency: '3.76 J/MH',
+                noise: '38 dB',
+                price: '$1,199',
+                dailyProfit: '$1.89',
+                roi: '634 Days',
+                release: '2022'
             }
-        };
-
-        // Mobile menu functionality
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.getElementById('mobile-nav').classList.toggle('active');
-        });
-
-        // Compare miners function
-        function compareMiners() {
-            const miner1Id = document.getElementById('miner1-select').value;
-            const miner2Id = document.getElementById('miner2-select').value;
-            const miner3Id = document.getElementById('miner3-select').value;
-            const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
-            const bitcoinPrice = parseFloat(document.getElementById('bitcoin-price').value);
-
-            const selectedMiners = [];
-            if (miner1Id !== 'none') selectedMiners.push(miner1Id);
-            if (miner2Id !== 'none') selectedMiners.push(miner2Id);
-            if (miner3Id !== 'none' && miner3Id !== 'none') selectedMiners.push(miner3Id);
-
-            displayComparisonCards(selectedMiners);
-            displayComparisonTable(selectedMiners);
+        ];
+        
+        let selectedMiners = [];
+        
+        // Initialize comparison grid
+        function initializeComparisonGrid() {
+            // Start with two popular miners for demonstration
+            selectedMiners = [comparisonMiners[0], comparisonMiners[1]];
+            updateComparisonGrid();
         }
-
-        // Display comparison cards
-        function displayComparisonCards(minerIds) {
-            const resultsContainer = document.getElementById('comparison-results');
-            resultsContainer.innerHTML = '';
-
-            // Find the miner with highest daily profit
-            let maxProfit = 0;
-            let bestMinerId = '';
-            minerIds.forEach(id => {
-                const profit = parseFloat(minersComparisonData[id].dailyProfit.replace('$', ''));
-                if (profit > maxProfit) {
-                    maxProfit = profit;
-                    bestMinerId = id;
-                }
-            });
-
-            minerIds.forEach(id => {
-                const miner = minersComparisonData[id];
-                const isBest = id === bestMinerId;
-                
-                const card = document.createElement('div');
-                card.className = `comparison-card ${isBest ? 'best' : ''}`;
-                
-                card.innerHTML = `
-                    <div class="miner-header">
-                        <div class="miner-name">${miner.name} ${isBest ? '<span class="best-badge">BEST</span>' : ''}</div>
-                        <div class="miner-manufacturer">${miner.manufacturer}</div>
-                    </div>
-                    <div class="miner-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Algorithm</span>
-                            <span class="spec-value">${miner.algorithm}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Hashrate</span>
-                            <span class="spec-value">${miner.hashrate}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Power Consumption</span>
-                            <span class="spec-value">${miner.power}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Efficiency</span>
-                            <span class="spec-value">${miner.efficiency}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Noise Level</span>
-                            <span class="spec-value">${miner.noise}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Price</span>
-                            <span class="spec-value">${miner.price}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Daily Revenue</span>
-                            <span class="spec-value profit-positive">${miner.dailyRevenue}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Daily Profit</span>
-                            <span class="spec-value profit-positive">${miner.dailyProfit}</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">ROI Period</span>
-                            <span class="spec-value">${miner.roi}</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="miner-details.html" class="btn btn-block btn-small">View Details</a>
-                    </div>
-                `;
-                
-                resultsContainer.appendChild(card);
-            });
-        }
-
-        // Display comparison table
-        function displayComparisonTable(minerIds) {
-            const tbody = document.getElementById('comparison-tbody');
-            const headers = document.querySelectorAll('#miner1-header, #miner2-header, #miner3-header');
+        
+        // Update comparison grid with selected miners
+        function updateComparisonGrid() {
+            const grid = document.getElementById('comparison-grid');
+            grid.innerHTML = '';
             
-            tbody.innerHTML = '';
-
-            // Update headers
-            headers.forEach((header, index) => {
-                if (index < minerIds.length) {
-                    header.textContent = minersComparisonData[minerIds[index]].name;
-                } else {
-                    header.textContent = 'N/A';
-                }
-            });
-
-            // Specification rows
+            // Create specification headers
             const specs = [
-                { label: 'Manufacturer', key: 'manufacturer', format: (v) => v },
-                { label: 'Algorithm', key: 'algorithm', format: (v) => v },
-                { label: 'Hashrate', key: 'hashrate', format: (v) => v },
-                { label: 'Power Consumption', key: 'power', format: (v) => v },
-                { label: 'Efficiency', key: 'efficiency', format: (v) => v },
-                { label: 'Noise Level', key: 'noise', format: (v) => v },
-                { label: 'Price', key: 'price', format: (v) => v },
-                { label: 'Daily Revenue', key: 'dailyRevenue', format: (v) => `<span class="profit-positive">${v}</span>` },
-                { label: 'Daily Profit', key: 'dailyProfit', format: (v) => `<span class="profit-positive">${v}</span>` },
-                { label: 'ROI Period', key: 'roi', format: (v) => v }
+                'Algorithm', 'Hashrate', 'Power Consumption', 'Energy Efficiency',
+                'Noise Level', 'Price', 'Daily Profit', 'ROI Period', 'Release Date'
             ];
-
+            
+            // Add specification headers
             specs.forEach(spec => {
-                const row = document.createElement('tr');
-                let rowContent = `<td><strong>${spec.label}</strong></td>`;
+                const specHeader = document.createElement('div');
+                specHeader.className = 'spec-header';
+                specHeader.textContent = spec;
+                grid.appendChild(specHeader);
+            });
+            
+            // Add miner columns
+            selectedMiners.forEach((miner, index) => {
+                const minerColumn = document.createElement('div');
+                minerColumn.className = 'miner-column';
+                minerColumn.id = `miner-${miner.id}`;
                 
-                minerIds.forEach(id => {
-                    const miner = minersComparisonData[id];
-                    rowContent += `<td>${spec.format(miner[spec.key])}</td>`;
+                // Miner header
+                const minerHeader = document.createElement('div');
+                minerHeader.className = 'miner-header';
+                minerHeader.innerHTML = `
+                    <div class="miner-name">${miner.name}</div>
+                    <div class="miner-type">${miner.type}</div>
+                    <button class="remove-miner" onclick="removeMiner('${miner.id}')">Remove</button>
+                `;
+                minerColumn.appendChild(minerHeader);
+                
+                // Miner specifications
+                const minerSpecs = [
+                    miner.algorithm,
+                    miner.hashrate,
+                    miner.power,
+                    miner.efficiency,
+                    miner.noise,
+                    miner.price,
+                    miner.dailyProfit,
+                    miner.roi,
+                    miner.release
+                ];
+                
+                minerSpecs.forEach((spec, specIndex) => {
+                    const specValue = document.createElement('div');
+                    specValue.className = 'spec-value';
+                    
+                    // Highlight best values (simplified logic)
+                    if (specIndex === 1 && isBestHashrate(spec, specIndex)) {
+                        specValue.classList.add('highlight');
+                    } else if (specIndex === 3 && isBestEfficiency(spec, specIndex)) {
+                        specValue.classList.add('highlight');
+                    } else if (specIndex === 6 && isBestProfit(spec, specIndex)) {
+                        specValue.classList.add('highlight');
+                    }
+                    
+                    specValue.textContent = spec;
+                    minerColumn.appendChild(specValue);
                 });
                 
-                // Fill empty columns if less than 3 miners
-                for (let i = minerIds.length; i < 3; i++) {
-                    rowContent += '<td>-</td>';
-                }
-                
-                // Best value column
-                if (['hashrate', 'dailyRevenue', 'dailyProfit'].includes(spec.key)) {
-                    // Find best value for this spec
-                    let bestValue = 0;
-                    let bestMinerIndex = -1;
-                    
-                    minerIds.forEach((id, index) => {
-                        const value = parseFloat(minersComparisonData[id][spec.key].replace(/[^\d.]/g, ''));
-                        if (value > bestValue) {
-                            bestValue = value;
-                            bestMinerIndex = index;
-                        }
-                    });
-                    
-                    if (bestMinerIndex !== -1) {
-                        rowContent += `<td><strong>${minersComparisonData[minerIds[bestMinerIndex]].name}</strong></td>`;
-                    } else {
-                        rowContent += '<td>-</td>';
-                    }
-                } else if (['power', 'efficiency', 'roi'].includes(spec.key)) {
-                    // Find best value (lowest is better)
-                    let bestValue = Infinity;
-                    let bestMinerIndex = -1;
-                    
-                    minerIds.forEach((id, index) => {
-                        const value = parseFloat(minersComparisonData[id][spec.key].replace(/[^\d.]/g, ''));
-                        if (value < bestValue) {
-                            bestValue = value;
-                            bestMinerIndex = index;
-                        }
-                    });
-                    
-                    if (bestMinerIndex !== -1) {
-                        rowContent += `<td><strong>${minersComparisonData[minerIds[bestMinerIndex]].name}</strong></td>`;
-                    } else {
-                        rowContent += '<td>-</td>';
-                    }
-                } else {
-                    rowContent += '<td>-</td>';
-                }
-                
-                row.innerHTML = rowContent;
-                tbody.appendChild(row);
+                grid.appendChild(minerColumn);
             });
         }
-
-        // Initialize comparison on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            compareMiners();
-        });
+        
+        // Helper functions for highlighting best values
+        function isBestHashrate(value, index) {
+            const hashrates = selectedMiners.map(miner => parseFloat(miner.hashrate));
+            return parseFloat(value) === Math.max(...hashrates);
+        }
+        
+        function isBestEfficiency(value, index) {
+            const efficiencies = selectedMiners.map(miner => parseFloat(miner.efficiency));
+            return parseFloat(value) === Math.min(...efficiencies);
+        }
+        
+        function isBestProfit(value, index) {
+            const profits = selectedMiners.map(miner => parseFloat(miner.dailyProfit.replace('$', '')));
+            return parseFloat(value.replace('$', '')) === Math.max(...profits);
+        }
+        
+        // Initialize miner selector modal
+        function initializeMinerSelector() {
+            const minerList = document.getElementById('miner-list');
+            minerList.innerHTML = '';
+            
+            comparisonMiners.forEach(miner => {
+                const minerItem = document.createElement('div');
+                minerItem.style.padding = '10px';
+                minerItem.style.borderBottom = '1px solid var(--border)';
+                minerItem.style.display = 'flex';
+                minerItem.style.justifyContent = 'space-between';
+                minerItem.style.alignItems = 'center';
+                
+                minerItem.innerHTML = `
+                    <div>
+                        <div style="font-weight: 600;">${miner.name}</div>
+                        <div style="font-size: 12px; color: var(--gray);">${miner.type} • ${miner.algorithm} • ${miner.hashrate}</div>
+                    </div>
+                    <input type="checkbox" class="miner-checkbox" value="${miner.id}" ${selectedMiners.some(m => m.id === miner.id) ? 'checked' : ''}>
+                `;
+                
+                minerList.appendChild(minerItem);
+            });
+        }
+        
+        // Open miner selector modal
+        function openMinerSelector() {
+            document.getElementById('miner-selector').style.display = 'flex';
+            initializeMinerSelector();
+        }
+        
+        // Close miner selector modal
+        function closeMinerSelector() {
+            document.getElementById('miner-selector').style.display = 'none';
+        }
+        
+        // Add selected miners from modal
+        function addSelectedMiners() {
+            const checkboxes = document.querySelectorAll('.miner-checkbox:checked');
+            selectedMiners = [];
+            
+            checkboxes.forEach(checkbox => {
+                const miner = comparisonMiners.find(m => m.id === checkbox.value);
+                if (miner) {
+                    selectedMiners.push(miner);
+                }
+            });
+            
+            // Limit to 4 miners for better display
+            if (selectedMiners.length > 4) {
+                selectedMiners = selectedMiners.slice(0, 4);
+                alert('Maximum 4 miners can be compared at once.');
+            }
+            
+            updateComparisonGrid();
+            closeMinerSelector();
+        }
+        
+        // Remove a miner from comparison
+        function removeMiner(minerId) {
+            selectedMiners = selectedMiners.filter(miner => miner.id !== minerId);
+            if (selectedMiners.length === 0) {
+                selectedMiners = [comparisonMiners[0]];
+            }
+            updateComparisonGrid();
+        }
+        
+        // Clear all miners
+        function clearAllMiners() {
+            selectedMiners = [];
+            updateComparisonGrid();
+        }
+        
+        // Filter miner list in modal
+        function filterMinerList(searchTerm) {
+            const minerItems = document.querySelectorAll('#miner-list > div');
+            const searchLower = searchTerm.toLowerCase();
+            
+            minerItems.forEach(item => {
+                const minerName = item.querySelector('div > div:first-child').textContent.toLowerCase();
+                if (minerName.includes(searchLower)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Predefined comparison types
+        function loadASICComparison() {
+            selectedMiners = comparisonMiners.filter(miner => miner.type === 'ASIC').slice(0, 3);
+            updateComparisonGrid();
+        }
+        
+        function loadGPUComparison() {
+            selectedMiners = comparisonMiners.filter(miner => miner.type === 'GPU').slice(0, 3);
+            updateComparisonGrid();
+        }
+        
+        function loadMixedComparison() {
+            selectedMiners = [
+                comparisonMiners[0], // S19 XP
+                comparisonMiners[5], // RTX 4090
+                comparisonMiners[4]  // Goldshell KD6
+            ];
+            updateComparisonGrid();
+        }
+        
+        function loadROIComparison() {
+            selectedMiners = comparisonMiners.slice(0, 4);
+            updateComparisonGrid();
+        }
+        
+        // Update currency (placeholder for actual implementation)
+        function updateCurrency(currency) {
+            // In a real implementation, this would update all prices and calculations
+            console.log('Currency changed to:', currency);
+        }
     </script>
 </body>
 </html>
