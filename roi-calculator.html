@@ -3,458 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Calculator - Best Miners Profit</title>
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612~8216006757" crossorigin="anonymous"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-app-pub-4103650365925612~8216006757",
-            enable_page_level_ads: true
-        });
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1565C0;
-            --secondary: #0D47A1;
-            --accent: #FF6D00;
-            --success: #4CAF50;
-            --danger: #f44336;
-            --warning: #FF9800;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* AdSense Styles */
-        .adsense-container {
-            width: 100%;
-            background: #f8f9fa;
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #e9ecef;
-        }
-
-        .ad-label {
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 100%;
-            margin: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        button {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .calculate-btn {
-            background: var(--primary);
-            color: white;
-        }
-
-        .calculate-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .reset-btn {
-            background: var(--danger);
-            color: white;
-        }
-
-        .reset-btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-        }
-
-        .result {
-            margin-top: 30px;
-            padding: 20px;
-            background: var(--light);
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-            display: none;
-        }
-
-        .result.show {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        .result h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .result-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .result-label {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .result-value {
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .roi-positive {
-            color: var(--success);
-        }
-
-        .roi-negative {
-            color: var(--danger);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            button {
-                padding: 12px;
-                font-size: 14px;
-            }
-        }
-
-        /* Navigation */
-        .nav-back {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .nav-back a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-back a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>ROI Calculator - Best Miner Profit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="mobile-nav.js"></script>
 </head>
 <body>
-    <!-- AdSense Top Banner -->
-    <div class="adsense-container">
-        <div class="ad-label">Advertisement</div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-app-pub-4103650365925612~8216006757"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-coins"></i>
+                Best Miner Profit
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="most-profitable.html" class="nav-link">
+                        <i class="fas fa-trophy"></i> Most Profitable
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="asic-miners.html" class="nav-link">
+                        <i class="fas fa-microchip"></i> ASIC Miners
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="gpu-miners.html" class="nav-link">
+                        <i class="fas fa-desktop"></i> GPU Miners
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comparison.html" class="nav-link">
+                        <i class="fas fa-balance-scale"></i> Compare
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="roi-calculator.html" class="nav-link active">
+                        <i class="fas fa-calculator"></i> Calculator
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profitability.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i> Profitability
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="mining-pools.html" class="nav-link">
+                        <i class="fas fa-network-wired"></i> Pools
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i> News
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
     <div class="container">
-        <h1><i class="fas fa-calculator"></i> ROI Calculator</h1>
-        
-        <div class="input-group">
-            <label for="initialInvestment">Initial Investment ($)</label>
-            <input type="number" id="initialInvestment" placeholder="Enter initial investment" min="0">
-        </div>
-        
-        <div class="input-group">
-            <label for="finalValue">Final Value ($)</label>
-            <input type="number" id="finalValue" placeholder="Enter final value" min="0">
-        </div>
-        
-        <div class="input-group">
-            <label for="timePeriod">Time Period (years)</label>
-            <input type="number" id="timePeriod" placeholder="Enter time period" min="0" step="0.1">
-        </div>
-        
-        <div class="button-group">
-            <button class="calculate-btn" onclick="calculateROI()">
-                <i class="fas fa-calculator"></i> Calculate ROI
-            </button>
-            <button class="reset-btn" onclick="resetCalculator()">
-                <i class="fas fa-redo"></i> Reset
-            </button>
-        </div>
-        
-        <div id="result" class="result">
-            <h3>ROI Results</h3>
-            <div class="result-item">
-                <span class="result-label">Total Return:</span>
-                <span id="totalReturn" class="result-value">$0.00</span>
+        <!-- REPLACE your existing calculator form with this code -->
+        <section class="calculator-section" style="
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        ">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #2c3e50;">
+                <i class="fas fa-calculator"></i> Advanced Profitability Calculator
+            </h2>
+            
+            <div class="calculator-grid" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin-bottom: 25px;
+            ">
+                <!-- Left Column - Basic Parameters -->
+                <div class="input-group">
+                    <h3 style="color: #3498db; margin-bottom: 15px;">Mining Parameters</h3>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-microchip"></i> Hashrate (TH/s)
+                        </label>
+                        <input type="number" id="hashrate" value="100" step="1" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-bolt"></i> Power Consumption (W)
+                        </label>
+                        <input type="number" id="power" value="3000" step="100" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-money-bill-wave"></i> Hardware Cost ($)
+                        </label>
+                        <input type="number" id="hardware-cost" value="4000" step="100" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                </div>
+                
+                <!-- Right Column - Cost Parameters -->
+                <div class="input-group">
+                    <h3 style="color: #3498db; margin-bottom: 15px;">Cost Parameters</h3>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-bolt"></i> Electricity Cost ($/kWh)
+                        </label>
+                        <input type="number" id="electricity-cost" value="0.12" step="0.01" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-users"></i> Pool Fees (%)
+                        </label>
+                        <input type="number" id="pool-fee" value="1" step="0.1" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                    
+                    <div class="calculator-input" style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                            <i class="fas fa-network-wired"></i> Network Difficulty
+                        </label>
+                        <input type="number" id="network-difficulty" value="80000000" step="1000000" style="
+                            width: 100%;
+                            padding: 10px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        ">
+                    </div>
+                </div>
             </div>
-            <div class="result-item">
-                <span class="result-label">ROI Percentage:</span>
-                <span id="roiPercentage" class="result-value">0%</span>
+            
+            <!-- Calculate Button -->
+            <div style="text-align: center; margin: 25px 0;">
+                <button id="calculate-btn" style="
+                    background: linear-gradient(135deg, #2ecc71, #27ae60);
+                    color: white;
+                    padding: 15px 40px;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                " onmouseover="this.style.transform='scale(1.05)'" 
+                onmouseout="this.style.transform='scale(1)'">
+                    <i class="fas fa-calculator"></i> Calculate Profitability
+                </button>
             </div>
-            <div class="result-item">
-                <span class="result-label">Annual ROI:</span>
-                <span id="annualROI" class="result-value">0%</span>
+            
+            <!-- Results Section -->
+            <div id="results-section" style="
+                display: none;
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 10px;
+                border-left: 5px solid #3498db;
+            ">
+                <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">
+                    <i class="fas fa-chart-bar"></i> Profitability Results
+                </h3>
+                
+                <div class="results-grid" style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 15px;
+                    text-align: center;
+                ">
+                    <div class="result-item" style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 0.9rem; color: #7f8c8d;">Daily Revenue</div>
+                        <div id="daily-revenue" style="font-size: 1.5rem; font-weight: bold; color: #27ae60;">$0.00</div>
+                    </div>
+                    
+                    <div class="result-item" style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 0.9rem; color: #7f8c8d;">Daily Profit</div>
+                        <div id="daily-profit" style="font-size: 1.5rem; font-weight: bold; color: #2ecc71;">$0.00</div>
+                    </div>
+                    
+                    <div class="result-item" style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 0.9rem; color: #7f8c8d;">Electricity Cost</div>
+                        <div id="electricity-cost-result" style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">$0.00</div>
+                    </div>
+                    
+                    <div class="result-item" style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 0.9rem; color: #7f8c8d;">ROI Period</div>
+                        <div id="roi-days" style="font-size: 1.5rem; font-weight: bold; color: #3498db;">0 days</div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Breakdown -->
+                <div style="margin-top: 25px; text-align: center;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Monthly Breakdown</h4>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <div style="padding: 15px; background: white; border-radius: 8px; min-width: 150px;">
+                            <div style="font-size: 0.9rem; color: #7f8c8d;">Monthly Profit</div>
+                            <div id="monthly-profit" style="font-size: 1.3rem; font-weight: bold; color: #2ecc71;">$0.00</div>
+                        </div>
+                        <div style="padding: 15px; background: white; border-radius: 8px; min-width: 150px;">
+                            <div style="font-size: 0.9rem; color: #7f8c8d;">Yearly Profit</div>
+                            <div id="yearly-profit" style="font-size: 1.3rem; font-weight: bold; color: #27ae60;">$0.00</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="result-item">
-                <span class="result-label">Profit/Loss:</span>
-                <span id="profitLoss" class="result-value">$0.00</span>
-            </div>
-        </div>
+        </section>
 
-        <!-- AdSense Bottom Banner -->
-        <div class="adsense-container">
-            <div class="ad-label">Advertisement</div>
+        <!-- Ad Placement -->
+        <div class="ad-container" style="text-align: center; margin: 30px 0;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-app-pub-4103650365925612~8216006757"
-                 data-ad-slot="0987654321"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="nav-back">
-            <a href="asic-miners.html">
-                <i class="fas fa-arrow-left"></i> Back to ASIC Miners
-            </a>
+                 data-ad-client="ca-pub-1234567890123456"
+                 data-ad-slot="9988776655"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </div>
 
-    <script>
-        // Your AdSense ID
-        const ADSENSE_ID = 'ca-app-pub-4103650365925612~8216006757';
-
-        // Initialize AdSense
-        function initializeAdSense() {
-            console.log('AdSense initialized for ROI Calculator');
-            
-            // Refresh ads after calculation
-            setTimeout(() => {
-                if (window.adsbygoogle) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            }, 2000);
-        }
-
-        function calculateROI() {
-            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
-            const finalValue = parseFloat(document.getElementById('finalValue').value);
-            const timePeriod = parseFloat(document.getElementById('timePeriod').value);
-            
-            // Validate inputs
-            if (isNaN(initialInvestment) || isNaN(finalValue) || isNaN(timePeriod)) {
-                alert('Please enter valid numbers in all fields');
-                return;
-            }
-            
-            if (initialInvestment <= 0 || timePeriod <= 0) {
-                alert('Initial investment and time period must be greater than 0');
-                return;
-            }
-            
-            // Calculate ROI
-            const profit = finalValue - initialInvestment;
-            const roiPercentage = ((profit / initialInvestment) * 100);
-            const annualROI = timePeriod > 0 ? (roiPercentage / timePeriod) : 0;
-            
-            // Display results
-            document.getElementById('totalReturn').textContent = `$${finalValue.toFixed(2)}`;
-            document.getElementById('profitLoss').textContent = `$${profit.toFixed(2)}`;
-            document.getElementById('roiPercentage').textContent = `${roiPercentage.toFixed(2)}%`;
-            document.getElementById('annualROI').textContent = `${annualROI.toFixed(2)}%`;
-            
-            // Color code for positive/negative ROI
-            const roiElement = document.getElementById('roiPercentage');
-            const profitElement = document.getElementById('profitLoss');
-            
-            if (roiPercentage >= 0) {
-                roiElement.className = 'result-value roi-positive';
-                profitElement.className = 'result-value roi-positive';
-            } else {
-                roiElement.className = 'result-value roi-negative';
-                profitElement.className = 'result-value roi-negative';
-            }
-            
-            // Show result section
-            document.getElementById('result').classList.add('show');
-
-            // Track ad engagement after calculation
-            trackAdEngagement();
-        }
-        
-        function resetCalculator() {
-            // Clear all inputs
-            document.getElementById('initialInvestment').value = '';
-            document.getElementById('finalValue').value = '';
-            document.getElementById('timePeriod').value = '';
-            
-            // Hide results
-            document.getElementById('result').classList.remove('show');
-        }
-        
-        // Add keyboard support
-        document.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                calculateROI();
-            }
-        });
-        
-        // Input validation for numbers only
-        document.querySelectorAll('input[type="number"]').forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.value < 0) {
-                    this.value = '';
-                }
-            });
-        });
-
-        // Track ad engagement
-        function trackAdEngagement() {
-            // Simulate ad view tracking
-            console.log('ROI calculated - potential ad engagement');
-            
-            // Refresh ads after user interaction
-            setTimeout(() => {
-                if (window.adsbygoogle) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            }, 1000);
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeAdSense();
-            
-            // Auto-refresh ads every 2 minutes
-            setInterval(() => {
-                if (window.adsbygoogle) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            }, 120000);
-        });
-
-        // Error handling for AdSense
-        window.addEventListener('error', function(e) {
-            if (e.message.includes('adsbygoogle')) {
-                console.log('AdSense loading issue detected');
-                // You can implement fallback ads here
-            }
-        });
-    </script>
-    <!-- Add these new input fields to your existing calculator -->
-<div class="calculator-input">
-    <label>Electricity Cost ($/kWh):</label>
-    <input type="number" id="electricity-cost" value="0.12" step="0.01">
-</div>
-<div class="calculator-input">
-    <label>Pool Fees (%):</label>
-    <input type="number" id="pool-fee" value="1" step="0.1">
-</div>
-<div class="calculator-input">
-    <label>Hardware Cost ($):</label>
-    <input type="number" id="hardware-cost" value="4000">
-</div>
-    <!-- Add to index.html, calculator pages, etc. -->
-<div class="ad-container">
-    <div id="header-ad"></div>
-</div>
+    <script src="advanced-calculator.js"></script>
 </body>
 </html>
