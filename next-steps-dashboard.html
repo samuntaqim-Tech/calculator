@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Miner Profit - Next Steps Dashboard</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -18,14 +17,26 @@
             --accent: #9b59b6;
         }
         
-        .dashboard-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        .dashboard-header {
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
             padding: 30px 0;
@@ -35,7 +46,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .dashboard-logo {
+        .logo {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
@@ -45,11 +56,11 @@
             gap: 10px;
         }
         
-        .dashboard-logo i {
+        .logo i {
             color: var(--accent);
         }
         
-        .dashboard-subtitle {
+        .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 10px;
@@ -64,14 +75,14 @@
             font-size: 0.9rem;
         }
         
-        .dashboard-grid {
+        .dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
         
-        .dashboard-card {
+        .card {
             background: white;
             border-radius: 10px;
             padding: 20px;
@@ -79,12 +90,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .dashboard-card:hover {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         
-        .dashboard-card h2 {
+        .card h2 {
             color: var(--primary);
             margin-bottom: 15px;
             padding-bottom: 10px;
@@ -94,7 +105,7 @@
             gap: 10px;
         }
         
-        .dashboard-card h2 i {
+        .card h2 i {
             color: var(--accent);
         }
         
@@ -117,14 +128,14 @@
             transition: width 0.5s ease;
         }
         
-        .progress-status {
+        .status {
             display: flex;
             justify-content: space-between;
             font-size: 0.9rem;
             color: var(--dark);
         }
         
-        .dashboard-btn {
+        .btn {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
@@ -139,7 +150,7 @@
             margin-right: 10px;
         }
         
-        .dashboard-btn:hover {
+        .btn:hover {
             background-color: var(--primary);
         }
         
@@ -285,7 +296,7 @@
             color: var(--warning);
         }
         
-        .dashboard-footer {
+        footer {
             text-align: center;
             margin-top: 40px;
             padding: 20px;
@@ -331,15 +342,15 @@
         }
         
         @media (max-width: 768px) {
-            .dashboard-grid {
+            .dashboard {
                 grid-template-columns: 1fr;
             }
             
-            .dashboard-logo {
+            .logo {
                 font-size: 2rem;
             }
             
-            .dashboard-btn {
+            .btn {
                 display: block;
                 width: 100%;
                 margin-right: 0;
@@ -353,21 +364,21 @@
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
-        <div class="dashboard-header">
-            <div class="dashboard-logo">
+    <div class="container">
+        <header>
+            <div class="logo">
                 <i class="fas fa-coins"></i>
                 Best Miner Profit
             </div>
-            <p class="dashboard-subtitle">Next Steps Implementation Dashboard</p>
+            <p class="subtitle">Next Steps Implementation Dashboard</p>
             <div class="competitor-info">
                 <i class="fas fa-users"></i> Competitor: ASIC Miner Value (asicminervalue.com)
             </div>
-        </div>
+        </header>
         
-        <div class="dashboard-grid">
+        <div class="dashboard">
             <!-- Testing Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-vial"></i> 1. Test the Pages</h2>
                 <p>Ensure all navigation works between pages</p>
                 
@@ -375,7 +386,7 @@
                     <div class="progress-bar">
                         <div class="progress" style="width: 75%"></div>
                     </div>
-                    <div class="progress-status">
+                    <div class="status">
                         <span>Progress</span>
                         <span>75%</span>
                     </div>
@@ -400,13 +411,13 @@
                     </li>
                 </ul>
                 
-                <a href="https://samuntaqim-tech.github.io/calculator/" class="dashboard-btn" target="_blank">
+                <a href="https://samuntaqim-tech.github.io/calculator/" class="btn" target="_blank">
                     <i class="fas fa-external-link-alt"></i> Test Website
                 </a>
             </div>
             
             <!-- AdSense Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-ad"></i> 2. Verify AdSense</h2>
                 <p>Check that ads are displaying properly</p>
                 
@@ -418,7 +429,7 @@
                     <div class="progress-bar">
                         <div class="progress" style="width: 60%"></div>
                     </div>
-                    <div class="progress-status">
+                    <div class="status">
                         <span>Progress</span>
                         <span>60%</span>
                     </div>
@@ -431,16 +442,16 @@
                     </div>
                 </div>
                 
-                <a href="#" class="dashboard-btn btn-success">
+                <a href="#" class="btn btn-success">
                     <i class="fas fa-check-circle"></i> Check Ad Performance
                 </a>
-                <a href="#" class="dashboard-btn">
+                <a href="#" class="btn">
                     <i class="fas fa-cog"></i> Ad Placement Settings
                 </a>
             </div>
             
             <!-- Missing Pages Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-file-alt"></i> 3. Add Missing Pages</h2>
                 <p>Create additional pages like most-profitable.html</p>
                 
@@ -448,7 +459,7 @@
                     <div class="progress-bar">
                         <div class="progress" style="width: 40%"></div>
                     </div>
-                    <div class="progress-status">
+                    <div class="status">
                         <span>Progress</span>
                         <span>40%</span>
                     </div>
@@ -477,7 +488,7 @@
                     </li>
                 </ul>
                 
-                <a href="#" class="dashboard-btn">
+                <a href="#" class="btn">
                     <i class="fas fa-plus"></i> Create New Page
                 </a>
                 
@@ -502,7 +513,7 @@
             </div>
             
             <!-- API Integration Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-code"></i> 4. API Integration</h2>
                 <p>For real crypto price data (would require backend)</p>
                 
@@ -510,7 +521,7 @@
                     <div class="progress-bar">
                         <div class="progress" style="width: 25%"></div>
                     </div>
-                    <div class="progress-status">
+                    <div class="status">
                         <span>Progress</span>
                         <span>25%</span>
                     </div>
@@ -537,16 +548,16 @@
                     </div>
                 </div>
                 
-                <a href="#" class="dashboard-btn">
+                <a href="#" class="btn">
                     <i class="fas fa-plug"></i> Connect APIs
                 </a>
-                <a href="#" class="dashboard-btn btn-warning">
+                <a href="#" class="btn btn-warning">
                     <i class="fas fa-server"></i> Backend Setup
                 </a>
             </div>
             
             <!-- Content Updates Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-sync-alt"></i> 5. Content Updates</h2>
                 <p>Keep miner data and prices current</p>
                 
@@ -554,7 +565,7 @@
                     <div class="progress-bar">
                         <div class="progress" style="width: 50%"></div>
                     </div>
-                    <div class="progress-status">
+                    <div class="status">
                         <span>Progress</span>
                         <span>50%</span>
                     </div>
@@ -579,16 +590,16 @@
                     </li>
                 </ul>
                 
-                <a href="#" class="dashboard-btn">
+                <a href="#" class="btn">
                     <i class="fas fa-edit"></i> Update Content
                 </a>
-                <a href="#" class="dashboard-btn btn-success">
+                <a href="#" class="btn btn-success">
                     <i class="fas fa-download"></i> Import Latest Data
                 </a>
             </div>
             
             <!-- Competitor Comparison Card -->
-            <div class="dashboard-card">
+            <div class="card">
                 <h2><i class="fas fa-trophy"></i> Competitor Comparison</h2>
                 <p>How we compare to ASIC Miner Value</p>
                 
@@ -629,19 +640,19 @@
                     </tbody>
                 </table>
                 
-                <a href="https://www.asicminervalue.com/" class="dashboard-btn" target="_blank">
+                <a href="https://www.asicminervalue.com/" class="btn" target="_blank">
                     <i class="fas fa-external-link-alt"></i> Visit Competitor
                 </a>
-                <a href="https://github.com/samuntaqim-Tech/calculator" class="dashboard-btn" target="_blank">
+                <a href="https://github.com/samuntaqim-Tech/calculator" class="btn" target="_blank">
                     <i class="fab fa-github"></i> View GitHub Repo
                 </a>
             </div>
         </div>
         
-        <div class="dashboard-footer">
+        <footer>
             <p>Best Miner Profit - Crypto Mining Calculator Dashboard</p>
             <p>Next Steps Implementation | Working to match and exceed competitor features</p>
-        </div>
+        </footer>
     </div>
 
     <script>
@@ -684,7 +695,7 @@
             });
             
             // Button click handlers for demonstration
-            document.querySelectorAll('.dashboard-btn').forEach(button => {
+            document.querySelectorAll('.btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     if (this.getAttribute('href') === '#') {
                         e.preventDefault();
@@ -696,7 +707,7 @@
 
         function updateAllProgressBars() {
             // Update progress for each card based on completed tasks
-            document.querySelectorAll('.dashboard-card').forEach(card => {
+            document.querySelectorAll('.card').forEach(card => {
                 const taskList = card.querySelector('.task-list');
                 if (taskList) {
                     const totalTasks = taskList.querySelectorAll('.task-item').length;
@@ -704,7 +715,7 @@
                     const progressPercentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
                     
                     const progressBar = card.querySelector('.progress');
-                    const progressText = card.querySelector('.progress-status span:last-child');
+                    const progressText = card.querySelector('.status span:last-child');
                     
                     if (progressBar && progressText) {
                         progressBar.style.width = `${progressPercentage}%`;
@@ -805,11 +816,11 @@
         function exportProgressReport() {
             // This function would generate a report of current progress
             const progressData = {
-                'Page Testing': document.querySelector('.dashboard-card:nth-child(1) .progress').style.width,
-                'AdSense Verification': document.querySelector('.dashboard-card:nth-child(2) .progress').style.width,
-                'Missing Pages': document.querySelector('.dashboard-card:nth-child(3) .progress').style.width,
-                'API Integration': document.querySelector('.dashboard-card:nth-child(4) .progress').style.width,
-                'Content Updates': document.querySelector('.dashboard-card:nth-child(5) .progress').style.width,
+                'Page Testing': document.querySelector('.card:nth-child(1) .progress').style.width,
+                'AdSense Verification': document.querySelector('.card:nth-child(2) .progress').style.width,
+                'Missing Pages': document.querySelector('.card:nth-child(3) .progress').style.width,
+                'API Integration': document.querySelector('.card:nth-child(4) .progress').style.width,
+                'Content Updates': document.querySelector('.card:nth-child(5) .progress').style.width,
                 'timestamp': new Date().toISOString()
             };
             
