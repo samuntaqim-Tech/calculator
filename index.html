@@ -107,6 +107,8 @@
             min-width: 150px;
             z-index: 100;
             display: none;
+            max-height: 300px;
+            overflow-y: auto;
         }
         
         .dropdown.active {
@@ -117,6 +119,9 @@
             padding: 10px 15px;
             cursor: pointer;
             border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .dropdown-item:hover {
@@ -157,6 +162,49 @@
             width: 100%;
             height: 3px;
             background-color: var(--primary);
+        }
+        
+        /* Crypto Prices Ticker */
+        .crypto-ticker {
+            background: var(--darker);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-container {
+            display: flex;
+            animation: ticker 60s linear infinite;
+        }
+        
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            white-space: nowrap;
+        }
+        
+        .crypto-symbol {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .crypto-price {
+            margin-right: 15px;
+        }
+        
+        .price-up {
+            color: var(--success);
+        }
+        
+        .price-down {
+            color: var(--danger);
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         
         /* Hero Section */
@@ -355,6 +403,30 @@
             font-weight: 600;
             color: var(--gray);
             border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        
+        .miners-table th:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .miners-table th::after {
+            content: '↕';
+            position: absolute;
+            right: 10px;
+            opacity: 0.3;
+        }
+        
+        .miners-table th.sort-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+        
+        .miners-table th.sort-desc::after {
+            content: '↓';
+            opacity: 1;
         }
         
         .miners-table td {
@@ -426,6 +498,42 @@
             font-size: 0.9rem;
         }
         
+        /* Ad Container */
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .nav-links {
@@ -470,22 +578,14 @@
             .calculator-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        /* Ad Container */
-        .ad-container {
-            margin: 30px 0;
-            text-align: center;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .ad-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-bottom: 5px;
+            
+            .ad-container {
+                min-height: 200px;
+            }
+            
+            .ad-placeholder {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -498,7 +598,7 @@
                 <div class="header-controls">
                     <div class="currency-selector">
                         <button class="selector-btn" id="currency-btn">
-                            USD <span>▼</span>
+                            USD ($) <span>▼</span>
                         </button>
                         <div class="dropdown" id="currency-dropdown">
                             <div class="dropdown-item" data-currency="USD">USD ($)</div>
@@ -508,6 +608,9 @@
                             <div class="dropdown-item" data-currency="AED">AED (د.إ)</div>
                             <div class="dropdown-item" data-currency="CNY">CNY (¥)</div>
                             <div class="dropdown-item" data-currency="JPY">JPY (¥)</div>
+                            <div class="dropdown-item" data-currency="RUB">RUB (₽)</div>
+                            <div class="dropdown-item" data-currency="INR">INR (₹)</div>
+                            <div class="dropdown-item" data-currency="CAD">CAD (C$)</div>
                         </div>
                     </div>
                     <div class="language-selector">
@@ -519,9 +622,12 @@
                             <div class="dropdown-item" data-lang="es">Español</div>
                             <div class="dropdown-item" data-lang="fr">Français</div>
                             <div class="dropdown-item" data-lang="de">Deutsch</div>
-                            <div class="dropdown-item" data-lang="zh">中文</div>
-                            <div class="dropdown-item" data-lang="ru">Русский</div>
+                            <div class="dropdown-item" data-lang="zh">中文 (Chinese)</div>
+                            <div class="dropdown-item" data-lang="ru">Русский (Russian)</div>
                             <div class="dropdown-item" data-lang="tr">Türkçe</div>
+                            <div class="dropdown-item" data-lang="ar">العربية</div>
+                            <div class="dropdown-item" data-lang="ja">日本語</div>
+                            <div class="dropdown-item" data-lang="ko">한국어</div>
                         </div>
                     </div>
                 </div>
@@ -542,6 +648,13 @@
         </div>
     </header>
 
+    <!-- Crypto Prices Ticker -->
+    <section class="crypto-ticker">
+        <div class="ticker-container" id="crypto-ticker">
+            <!-- Crypto prices will be loaded by JavaScript -->
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -557,6 +670,7 @@
             <div class="ad-container">
                 <div class="ad-label">Advertisement</div>
                 <!-- AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
                 <ins class="adsbygoogle"
                     style="display:block"
                     data-ad-client="ca-pub-4103650365925612"
@@ -583,10 +697,12 @@
                                 <option value="antminer-s17">Antminer S17 (56 TH/s)</option>
                                 <option value="antminer-t19">Antminer T19 (84 TH/s)</option>
                                 <option value="whatsminer-m30s">Whatsminer M30S (86 TH/s)</option>
+                                <option value="antminer-l7">Antminer L7 (9.5 GH/s)</option>
+                                <option value="goldshell-kd6">Goldshell KD6 (29.2 TH/s)</option>
                             </select>
                         </div>
                         <div class="calc-input-group">
-                            <label for="hashrate">Hashrate (TH/s)</label>
+                            <label for="hashrate">Hashrate</label>
                             <input type="number" id="hashrate" placeholder="e.g., 100" value="100">
                         </div>
                         <div class="calc-input-group">
@@ -594,7 +710,7 @@
                             <input type="number" id="power" placeholder="e.g., 3250" value="3250">
                         </div>
                         <div class="calc-input-group">
-                            <label for="electricity">Electricity Cost</label>
+                            <label for="electricity">Electricity Cost ($/kWh)</label>
                             <input type="number" id="electricity" placeholder="e.g., 0.12" step="0.01" value="0.12">
                         </div>
                         <div class="calc-input-group">
@@ -613,15 +729,15 @@
                         <div class="result-grid">
                             <div class="result-item">
                                 <div class="result-label">Daily Revenue</div>
-                                <div class="result-value" id="daily-revenue">$0.00</div>
+                                <div class="result-value" id="daily-revenue">$0.0000</div>
                             </div>
                             <div class="result-item">
                                 <div class="result-label">Daily Profit</div>
-                                <div class="result-value" id="daily-profit">$0.00</div>
+                                <div class="result-value" id="daily-profit">$0.0000</div>
                             </div>
                             <div class="result-item">
                                 <div class="result-label">Monthly Profit</div>
-                                <div class="result-value" id="monthly-profit">$0.00</div>
+                                <div class="result-value" id="monthly-profit">$0.0000</div>
                             </div>
                             <div class="result-item">
                                 <div class="result-label">ROI Period</div>
@@ -631,6 +747,21 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Ad Container -->
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4103650365925612"
+                    data-ad-slot="0987654321"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
 
             <!-- Popular Miners Section -->
             <section class="miners-section">
@@ -649,14 +780,14 @@
                         <table class="miners-table">
                             <thead>
                                 <tr>
-                                    <th>Miner</th>
-                                    <th>Algorithm</th>
-                                    <th>Hashrate</th>
-                                    <th>Power</th>
-                                    <th>Noise</th>
-                                    <th>Price</th>
-                                    <th>Daily Profit</th>
-                                    <th>ROI</th>
+                                    <th data-sort="name">Miner</th>
+                                    <th data-sort="algorithm">Algorithm</th>
+                                    <th data-sort="hashrate">Hashrate</th>
+                                    <th data-sort="power">Power</th>
+                                    <th data-sort="noise">Noise</th>
+                                    <th data-sort="price">Price</th>
+                                    <th data-sort="profit">Daily Profit</th>
+                                    <th data-sort="roi">ROI</th>
                                 </tr>
                             </thead>
                             <tbody id="miners-table-body">
@@ -670,11 +801,11 @@
             <!-- Ad Container -->
             <div class="ad-container">
                 <div class="ad-label">Advertisement</div>
-                <!-- AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
                 <ins class="adsbygoogle"
                     style="display:block"
                     data-ad-client="ca-pub-4103650365925612"
-                    data-ad-slot="0987654321"
+                    data-ad-slot="1122334455"
                     data-ad-format="auto"
                     data-full-width-responsive="true"></ins>
                 <script>
@@ -733,26 +864,26 @@
             const currencyBtn = document.getElementById('currency-btn');
             const currencyDropdown = document.getElementById('currency-dropdown');
             
-            currencyBtn.addEventListener('click', function() {
+            currencyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
                 currencyDropdown.classList.toggle('active');
+                languageDropdown.classList.remove('active');
             });
             
             // Language dropdown
             const languageBtn = document.getElementById('language-btn');
             const languageDropdown = document.getElementById('language-dropdown');
             
-            languageBtn.addEventListener('click', function() {
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
                 languageDropdown.classList.toggle('active');
+                currencyDropdown.classList.remove('active');
             });
             
             // Close dropdowns when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!currencyBtn.contains(event.target) && !currencyDropdown.contains(event.target)) {
-                    currencyDropdown.classList.remove('active');
-                }
-                if (!languageBtn.contains(event.target) && !languageDropdown.contains(event.target)) {
-                    languageDropdown.classList.remove('active');
-                }
+            document.addEventListener('click', function() {
+                currencyDropdown.classList.remove('active');
+                languageDropdown.classList.remove('active');
             });
             
             // Currency selection
@@ -761,7 +892,6 @@
                 item.addEventListener('click', function() {
                     const currency = this.getAttribute('data-currency');
                     currencyBtn.innerHTML = `${currency} <span>▼</span>`;
-                    currencyDropdown.classList.remove('active');
                     updateCurrency(currency);
                 });
             });
@@ -773,7 +903,6 @@
                     const language = this.getAttribute('data-lang');
                     const languageText = this.textContent;
                     languageBtn.innerHTML = `${languageText} <span>▼</span>`;
-                    languageDropdown.classList.remove('active');
                     // In a real implementation, you would change the language here
                 });
             });
@@ -796,8 +925,10 @@
                 }
             });
             
-            // Initialize miners table
+            // Initialize features
+            initializeCryptoPrices();
             initializeMinersTable();
+            setupTableSorting();
             
             // Search functionality
             const minerSearch = document.getElementById('miner-search');
@@ -809,6 +940,38 @@
             calculateProfitability();
         });
         
+        // Initialize crypto prices ticker
+        function initializeCryptoPrices() {
+            const cryptoData = [
+                { symbol: 'BTC', name: 'Bitcoin', price: 45231.45, change: 2.34 },
+                { symbol: 'ETH', name: 'Ethereum', price: 2387.67, change: 1.56 },
+                { symbol: 'LTC', name: 'Litecoin', price: 68.92, change: -0.45 },
+                { symbol: 'BCH', name: 'Bitcoin Cash', price: 245.78, change: 0.89 },
+                { symbol: 'DOGE', name: 'Dogecoin', price: 0.0856, change: 3.21 },
+                { symbol: 'DASH', name: 'Dash', price: 32.45, change: -1.23 },
+                { symbol: 'ZEC', name: 'Zcash', price: 27.89, change: 0.67 },
+                { symbol: 'XMR', name: 'Monero', price: 145.32, change: 1.45 }
+            ];
+            
+            const tickerContainer = document.getElementById('crypto-ticker');
+            
+            cryptoData.forEach(crypto => {
+                const tickerItem = document.createElement('div');
+                tickerItem.className = 'ticker-item';
+                
+                const changeClass = crypto.change >= 0 ? 'price-up' : 'price-down';
+                const changeSymbol = crypto.change >= 0 ? '▲' : '▼';
+                
+                tickerItem.innerHTML = `
+                    <span class="crypto-symbol">${crypto.symbol}</span>
+                    <span class="crypto-price">$${crypto.price.toLocaleString()}</span>
+                    <span class="${changeClass}">${changeSymbol} ${Math.abs(crypto.change).toFixed(2)}%</span>
+                `;
+                
+                tickerContainer.appendChild(tickerItem);
+            });
+        }
+        
         // Update calculator based on selected miner
         function updateCalculatorFromMiner(minerId) {
             const miners = {
@@ -817,7 +980,9 @@
                 'whatsminer-m50': { hashrate: 118, power: 3300 },
                 'antminer-s17': { hashrate: 56, power: 2400 },
                 'antminer-t19': { hashrate: 84, power: 3150 },
-                'whatsminer-m30s': { hashrate: 86, power: 3268 }
+                'whatsminer-m30s': { hashrate: 86, power: 3268 },
+                'antminer-l7': { hashrate: 9.5, power: 3420 },
+                'goldshell-kd6': { hashrate: 29.2, power: 2630 }
             };
             
             const miner = miners[minerId];
@@ -856,12 +1021,14 @@
         // Initialize miners table with sample data
         function initializeMinersTable() {
             const miners = [
-                { name: 'Antminer S19 Pro', algorithm: 'SHA-256', hashrate: '110 TH/s', power: '3250W', noise: '75 dB', price: '$5,500', profit: '$12.45', roi: '442 Days' },
-                { name: 'Antminer S19j Pro', algorithm: 'SHA-256', hashrate: '100 TH/s', power: '3050W', noise: '75 dB', price: '$4,800', profit: '$10.82', roi: '444 Days' },
-                { name: 'Whatsminer M50', algorithm: 'SHA-256', hashrate: '118 TH/s', power: '3300W', noise: '75 dB', price: '$5,900', profit: '$13.25', roi: '445 Days' },
-                { name: 'Antminer S17', algorithm: 'SHA-256', hashrate: '56 TH/s', power: '2400W', noise: '76 dB', price: '$2,200', profit: '$5.12', roi: '430 Days' },
-                { name: 'Antminer T19', algorithm: 'SHA-256', hashrate: '84 TH/s', power: '3150W', noise: '75 dB', price: '$3,800', profit: '$8.74', roi: '435 Days' },
-                { name: 'Whatsminer M30S', algorithm: 'SHA-256', hashrate: '86 TH/s', power: '3268W', noise: '75 dB', price: '$3,900', profit: '$9.01', roi: '433 Days' }
+                { name: 'Antminer S19 Pro', algorithm: 'SHA-256', hashrate: '110 TH/s', power: '3250W', noise: '75 dB', price: '$5,500', profit: 12.45, roi: 442 },
+                { name: 'Antminer S19j Pro', algorithm: 'SHA-256', hashrate: '100 TH/s', power: '3050W', noise: '75 dB', price: '$4,800', profit: 10.82, roi: 444 },
+                { name: 'Whatsminer M50', algorithm: 'SHA-256', hashrate: '118 TH/s', power: '3300W', noise: '75 dB', price: '$5,900', profit: 13.25, roi: 445 },
+                { name: 'Antminer S17', algorithm: 'SHA-256', hashrate: '56 TH/s', power: '2400W', noise: '76 dB', price: '$2,200', profit: 5.12, roi: 430 },
+                { name: 'Antminer T19', algorithm: 'SHA-256', hashrate: '84 TH/s', power: '3150W', noise: '75 dB', price: '$3,800', profit: 8.74, roi: 435 },
+                { name: 'Whatsminer M30S', algorithm: 'SHA-256', hashrate: '86 TH/s', power: '3268W', noise: '75 dB', price: '$3,900', profit: 9.01, roi: 433 },
+                { name: 'Antminer L7', algorithm: 'Scrypt', hashrate: '9.5 GH/s', power: '3420W', noise: '75 dB', price: '$12,500', profit: 28.34, roi: 441 },
+                { name: 'Goldshell KD6', algorithm: 'Kadena', hashrate: '29.2 TH/s', power: '2630W', noise: '75 dB', price: '$18,000', profit: 40.15, roi: 448 }
             ];
             
             const tableBody = document.getElementById('miners-table-body');
@@ -876,11 +1043,74 @@
                     <td>${miner.power}</td>
                     <td>${miner.noise}</td>
                     <td>${miner.price}</td>
-                    <td><span class="profit-positive">${miner.profit}</span></td>
-                    <td>${miner.roi}</td>
+                    <td><span class="profit-positive">$${miner.profit.toFixed(4)}</span></td>
+                    <td>${miner.roi} Days</td>
                 `;
+                // Store data attributes for sorting
+                row.dataset.name = miner.name;
+                row.dataset.algorithm = miner.algorithm;
+                row.dataset.hashrate = parseFloat(miner.hashrate);
+                row.dataset.power = parseFloat(miner.power);
+                row.dataset.noise = parseFloat(miner.noise);
+                row.dataset.price = parseFloat(miner.price.replace(/[$,]/g, ''));
+                row.dataset.profit = miner.profit;
+                row.dataset.roi = miner.roi;
+                
                 tableBody.appendChild(row);
             });
+        }
+        
+        // Setup table sorting functionality
+        function setupTableSorting() {
+            const table = document.querySelector('.miners-table');
+            const headers = table.querySelectorAll('th[data-sort]');
+            let currentSort = { column: null, direction: 'asc' };
+            
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const column = this.dataset.sort;
+                    let direction = 'asc';
+                    
+                    if (currentSort.column === column) {
+                        direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                    }
+                    
+                    // Update UI
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    this.classList.add(`sort-${direction}`);
+                    
+                    // Sort table
+                    sortTable(column, direction);
+                    currentSort = { column, direction };
+                });
+            });
+        }
+        
+        // Sort table by column
+        function sortTable(column, direction) {
+            const tableBody = document.getElementById('miners-table-body');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                let aValue = a.dataset[column];
+                let bValue = b.dataset[column];
+                
+                // Handle numeric values
+                if (['hashrate', 'power', 'noise', 'price', 'profit', 'roi'].includes(column)) {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (direction === 'asc') {
+                    return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+                } else {
+                    return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+                }
+            });
+            
+            // Clear and re-append sorted rows
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
         }
         
         // Filter miners table based on search input
