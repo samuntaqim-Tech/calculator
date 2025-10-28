@@ -1703,3 +1703,324 @@ body {
 .result-card:nth-child(4) { animation-delay: 0.4s; }
 .result-card:nth-child(5) { animation-delay: 0.5s; }
 .result-card:nth-child(6) { animation-delay: 0.6s; }
+/* GPU Miners Page Specific Styles */
+
+/* Quick Stats */
+.quick-stats {
+    margin: 2rem 0;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* GPU Card Specific Styles */
+.gpu-card {
+    position: relative;
+}
+
+.gpu-card .manufacturer.nvidia {
+    background: #76b900;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.gpu-card .manufacturer.amd {
+    background: #ed1c24;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Comparison Section */
+.comparison-section {
+    margin: 3rem 0;
+}
+
+.comparison-section h2 {
+    text-align: center;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.comparison-card:hover {
+    transform: translateY(-3px);
+}
+
+.comparison-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.comparison-gpus {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gpu-comparison-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.gpu-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.gpu-hashrate,
+.gpu-efficiency,
+.gpu-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Manufacturer Logos with Brand Colors */
+.manufacturer-logo.nvidia {
+    background: linear-gradient(135deg, #76b900, #5a8c00);
+    color: white;
+}
+
+.manufacturer-logo.amd {
+    background: linear-gradient(135deg, #ed1c24, #b3151b);
+    color: white;
+}
+
+.manufacturer-logo.asus {
+    background: linear-gradient(135deg, #000000, #333333);
+    color: white;
+}
+
+.manufacturer-logo.msi {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: white;
+}
+
+.manufacturer-logo.gigabyte {
+    background: linear-gradient(135deg, #1e3a8a, #152c6b);
+    color: white;
+}
+
+.manufacturer-logo.asrock {
+    background: linear-gradient(135deg, #00a0e9, #0088cc);
+    color: white;
+}
+
+/* Algorithm Badges */
+.algorithm-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin: 2px;
+}
+
+.algorithm-badge.ethash {
+    background: #627eea;
+    color: white;
+}
+
+.algorithm-badge.kawpow {
+    background: #384182;
+    color: white;
+}
+
+.algorithm-badge.autolykos {
+    background: #00b894;
+    color: white;
+}
+
+.algorithm-badge.zhash {
+    background: #f9a825;
+    color: white;
+}
+
+/* GPU Memory Indicators */
+.memory-indicator {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+}
+
+/* Efficiency Rating */
+.efficiency-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.efficiency-stars {
+    color: #f39c12;
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .stat-card,
+.dark-theme .comparison-card {
+    background: var(--card-background);
+    border-color: var(--border-color);
+}
+
+.dark-theme .gpu-comparison-item {
+    background: #2d2d2d;
+    border-color: var(--border-color);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .stat-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .comparison-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .gpu-comparison-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Animation for stats */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card {
+    animation: countUp 0.6s ease-out;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hover effects for manufacturer logos */
+.manufacturer-logo {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.manufacturer-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
