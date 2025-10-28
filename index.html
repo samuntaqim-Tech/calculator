@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Miner Profit - Live Cryptocurrency Mining Profitability Calculator</title>
-    <meta name="description" content="Real-time cryptocurrency mining profitability calculator. Compare 5000+ ASIC & GPU miners with live prices, difficulty data, and ROI calculations.">
+    <title>Best Miner Profit - Cryptocurrency Mining Calculator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
@@ -108,7 +107,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- Navigation Menu -->
     <nav class="main-nav">
@@ -121,7 +120,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a href="most-profitable.html" class="nav-link">
-                        <i class="fas fa-trophy"></i> Live Profitability <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-trophy"></i> Most Profitable <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu">
                         <div class="dropdown-section">
@@ -183,261 +182,314 @@
     </nav>
 
     <div class="container">
-        <!-- Live Profitability Banner -->
-        <section class="profitability-banner">
-            <div class="banner-content">
-                <div class="banner-text">
-                    <h1>Live Mining Profitability</h1>
-                    <p>Real-time calculations updated every minute with current market data</p>
-                    <div class="live-indicator">
-                        <span class="live-dot"></span>
-                        LIVE DATA
-                    </div>
-                </div>
-                <div class="banner-stats">
-                    <div class="banner-stat">
-                        <div class="stat-value">$45,123.45</div>
-                        <div class="stat-label">Bitcoin Price</div>
-                    </div>
-                    <div class="banner-stat">
-                        <div class="stat-value">80.5T</div>
-                        <div class="stat-label">Network Difficulty</div>
-                    </div>
-                    <div class="banner-stat">
-                        <div class="stat-value">+2.34%</div>
-                        <div class="stat-label">24h Change</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Crypto Prices Ticker -->
-        <section class="crypto-ticker">
-            <div class="ticker-container">
-                <div class="ticker-item active">
-                    <span class="crypto-icon">₿</span>
-                    <span class="crypto-name">BTC</span>
-                    <span class="crypto-price">$45,123.45</span>
-                    <span class="crypto-change positive">+2.34%</span>
-                </div>
-                <div class="ticker-item">
-                    <span class="crypto-icon">Ξ</span>
-                    <span class="crypto-name">ETH</span>
-                    <span class="crypto-price">$2,845.67</span>
-                    <span class="crypto-change positive">+1.56%</span>
-                </div>
-                <div class="ticker-item">
-                    <span class="crypto-icon">Ł</span>
-                    <span class="crypto-name">LTC</span>
-                    <span class="crypto-price">$78.90</span>
-                    <span class="crypto-change negative">-0.45%</span>
-                </div>
-                <!-- More cryptocurrencies... -->
-            </div>
-        </section>
-
-        <!-- Quick Actions -->
-        <section class="quick-actions">
-            <div class="action-grid">
-                <a href="most-profitable.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Live Profitability</h3>
-                    <p>Real-time miner rankings</p>
+        <!-- Hero Section -->
+        <section class="hero-section" style="
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        ">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">
+                <i class="fas fa-coins"></i> Best Miner Profit
+            </h1>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
+                Find the Most Profitable Cryptocurrency Miners & Calculate Your ROI
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="most-profitable.html" style="
+                    background: #3498db;
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 25px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                ">
+                    <i class="fas fa-trophy"></i> View Most Profitable
                 </a>
-                <a href="roi-calculator.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>ROI Calculator</h3>
-                    <p>Calculate your returns</p>
-                </a>
-                <a href="comparison.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Compare Miners</h3>
-                    <p>Side-by-side analysis</p>
-                </a>
-                <a href="profitability-calculator.html" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Profitability</h3>
-                    <p>Advanced calculations</p>
+                <a href="roi-calculator.html" style="
+                    background: #2ecc71;
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 25px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                ">
+                    <i class="fas fa-calculator"></i> ROI Calculator
                 </a>
             </div>
         </section>
 
-        <!-- Top 5 Most Profitable Miners -->
-        <section class="top-miners-section">
-            <div class="section-header">
-                <h2>Top 5 Most Profitable Miners Today</h2>
-                <div class="header-actions">
-                    <span class="last-updated">Updated: <span id="lastUpdateTime">Just now</span></span>
-                    <a href="most-profitable.html" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+        <!-- Live Prices Section -->
+        <section class="live-prices-section" style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        ">
+            <h2 style="margin-bottom: 20px; font-size: 1.5rem;">
+                <i class="fas fa-chart-line"></i> Live Crypto Prices
+            </h2>
+            
+            <div class="price-ticker" style="
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                flex-wrap: wrap;
+                margin-bottom: 15px;
+            ">
+                <div class="crypto-price" style="font-size: 1.2rem;">
+                    <strong>Bitcoin:</strong> 
+                    <span id="btc-price" style="color: #f2a900; font-weight: bold; margin-left: 10px;">$45,123.45</span>
+                </div>
+                
+                <div class="crypto-price" style="font-size: 1.2rem;">
+                    <strong>Ethereum:</strong> 
+                    <span id="eth-price" style="color: #8c8c8c; font-weight: bold; margin-left: 10px;">$2,845.67</span>
                 </div>
             </div>
             
-            <div class="top-miners-grid">
-                <div class="top-miner-card rank-1">
-                    <div class="miner-rank">#1</div>
-                    <div class="miner-image">
-                        <img src="https://via.placeholder.com/80x80/3498db/white?text=S19+XP" alt="Antminer S19 XP">
-                    </div>
-                    <div class="miner-info">
-                        <h3 class="miner-name">Antminer S19 XP</h3>
-                        <div class="miner-specs">
-                            <span class="spec">140 TH/s</span>
-                            <span class="spec">3010W</span>
-                            <span class="spec">21.5 J/TH</span>
-                        </div>
-                    </div>
-                    <div class="miner-profitability">
-                        <div class="profit-amount">$12.45/day</div>
-                        <div class="profit-change positive">+0.23%</div>
-                    </div>
-                    <div class="miner-actions">
-                        <button class="btn-favorite" title="Add to Favorites">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button class="btn-compare" title="Add to Comparison">
-                            <i class="fas fa-balance-scale"></i>
-                        </button>
-                        <a href="miner-details.html?id=1" class="btn-details">Details</a>
-                    </div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">
+                Prices update every 30 seconds
+            </div>
+        </section>
+
+        <!-- Quick Calculator Section -->
+        <section class="calculator-preview" style="
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        ">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #2c3e50;">
+                <i class="fas fa-calculator"></i> Quick Profit Calculator
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">Hashrate (TH/s)</label>
+                    <input type="number" id="quick-hashrate" value="100" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 5px;">
                 </div>
-                
-                <!-- Repeat for top 5 miners -->
+                <div>
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">Power (W)</label>
+                    <input type="number" id="quick-power" value="3000" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 5px;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">Electricity ($/kWh)</label>
+                    <input type="number" id="quick-electricity" value="0.12" step="0.01" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 5px;">
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button onclick="calculateQuickProfit()" style="
+                    background: #3498db;
+                    color: white;
+                    padding: 12px 30px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">
+                    <i class="fas fa-bolt"></i> Calculate Profit
+                </button>
+            </div>
+            
+            <div id="quick-results" style="
+                display: none;
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <h4 style="color: #2c3e50; margin-bottom: 15px;">Estimated Daily Profit</h4>
+                <div id="quick-profit-amount" style="font-size: 1.8rem; font-weight: bold; color: #2ecc71;">$0.00</div>
+                <a href="roi-calculator.html" style="
+                    color: #3498db;
+                    text-decoration: none;
+                    margin-top: 10px;
+                    display: inline-block;
+                ">
+                    <i class="fas fa-calculator"></i> Use Advanced Calculator
+                </a>
             </div>
         </section>
 
         <!-- Ad Placement -->
-        <div class="ad-container">
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <div class="ad-container" style="text-align: center; margin: 30px 0;">
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
-        <!-- Market Overview -->
-        <section class="market-overview">
-            <div class="section-header">
-                <h2>Market Overview</h2>
-                <div class="time-filters">
-                    <button class="time-filter active">24H</button>
-                    <button class="time-filter">7D</button>
-                    <button class="time-filter">30D</button>
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #2c3e50;">
+                <i class="fas fa-star"></i> Why Choose Best Miner Profit?
+            </h2>
+            
+            <div class="responsive-grid">
+                <div class="mobile-card" style="text-align: center;">
+                    <div style="background: #3498db; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Comprehensive Database</h3>
+                    <p style="color: #7f8c8d;">Detailed specifications and profitability data for hundreds of miners</p>
+                </div>
+                
+                <div class="mobile-card" style="text-align: center;">
+                    <div style="background: #2ecc71; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real-time Data</h3>
+                    <p style="color: #7f8c8d;">Live cryptocurrency prices and up-to-date profitability calculations</p>
+                </div>
+                
+                <div class="mobile-card" style="text-align: center;">
+                    <div style="background: #9b59b6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem;">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Comparison Tools</h3>
+                    <p style="color: #7f8c8d;">Compare miners side-by-side to make informed investment decisions</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Popular Miners Preview -->
+        <section class="miners-preview" style="margin: 50px 0;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">
+                <i class="fas fa-fire"></i> Popular Miners
+            </h2>
             
-            <div class="market-grid">
-                <div class="market-card">
-                    <h3>Bitcoin Difficulty</h3>
-                    <div class="market-value">80.5T</div>
-                    <div class="market-change positive">+6.2%</div>
-                    <div class="market-chart">
-                        <!-- Mini chart would go here -->
+            <div class="responsive-grid">
+                <div class="mobile-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='miner-details.html?id=1'">
+                    <div style="background: #3498db; color: white; padding: 30px; border-radius: 8px; margin-bottom: 15px;">
+                        <i class="fas fa-microchip" style="font-size: 2rem;"></i>
+                    </div>
+                    <h3>Antminer S19 XP</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 10px;">140 TH/s | 3010W</p>
+                    <div style="background: #2ecc71; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; display: inline-block;">
+                        $12.45/day
                     </div>
                 </div>
                 
-                <div class="market-card">
-                    <h3>Network Hashrate</h3>
-                    <div class="market-value">245 EH/s</div>
-                    <div class="market-change positive">+3.1%</div>
-                    <div class="market-chart">
-                        <!-- Mini chart would go here -->
+                <div class="mobile-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='miner-details.html?id=2'">
+                    <div style="background: #e74c3c; color: white; padding: 30px; border-radius: 8px; margin-bottom: 15px;">
+                        <i class="fas fa-microchip" style="font-size: 2rem;"></i>
+                    </div>
+                    <h3>Whatsminer M50</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 10px;">118 TH/s | 3276W</p>
+                    <div style="background: #2ecc71; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; display: inline-block;">
+                        $9.80/day
                     </div>
                 </div>
                 
-                <div class="market-card">
-                    <h3>Mining Revenue</h3>
-                    <div class="market-value">$28.45M/day</div>
-                    <div class="market-change negative">-1.2%</div>
-                    <div class="market-chart">
-                        <!-- Mini chart would go here -->
+                <div class="mobile-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='miner-details.html?id=4'">
+                    <div style="background: #9b59b6; color: white; padding: 30px; border-radius: 8px; margin-bottom: 15px;">
+                        <i class="fas fa-microchip" style="font-size: 2rem;"></i>
+                    </div>
+                    <h3>Antminer S19j Pro</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 10px;">104 TH/s | 3068W</p>
+                    <div style="background: #2ecc71; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; display: inline-block;">
+                        $8.90/day
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Trending Miners -->
-        <section class="trending-section">
-            <div class="section-header">
-                <h2>Trending Miners</h2>
-                <span class="section-subtitle">Most viewed by community this week</span>
-            </div>
             
-            <div class="trending-miners">
-                <!-- Trending miners carousel -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="most-profitable.html" style="
+                    background: #3498db;
+                    color: white;
+                    padding: 12px 30px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                ">
+                    <i class="fas fa-trophy"></i> View All Profitable Miners
+                </a>
             </div>
         </section>
 
-        <!-- Community Picks -->
-        <section class="community-section">
-            <div class="section-header">
-                <h2>Community Picks</h2>
-                <span class="section-subtitle">Top rated by experienced miners</span>
-            </div>
-            
-            <div class="community-picks">
-                <!-- Community picks grid -->
-            </div>
-        </section>
-
-        <!-- Latest News -->
-        <section class="news-section">
-            <div class="section-header">
-                <h2>Latest Mining News</h2>
-                <a href="news.html" class="view-all-btn">All News <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="news-grid">
-                <article class="news-card featured">
-                    <div class="news-image">
-                        <img src="https://via.placeholder.com/400x200/3498db/white?text=Bitmain+S21" alt="Bitmain S21">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Product Launch</div>
-                        <h3 class="news-title">Bitmain Announces Antminer S21 with 25% Better Efficiency</h3>
-                        <p class="news-excerpt">The new Antminer S21 promises groundbreaking efficiency improvements that could reshape mining profitability calculations...</p>
-                        <div class="news-meta">
-                            <span class="news-date">October 28, 2024</span>
-                            <span class="news-read-time">5 min read</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <div class="news-content">
-                        <div class="news-category">Market Analysis</div>
-                        <h3 class="news-title">Bitcoin Mining Difficulty Reaches All-Time High</h3>
-                        <p class="news-excerpt">Network difficulty surges 6.2% as more miners come online, impacting profitability across all hardware models...</p>
-                        <div class="news-meta">
-                            <span class="news-date">October 25, 2024</span>
-                            <span class="news-read-time">3 min read</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Price Alert CTA -->
-        <section class="alert-cta">
-            <div class="alert-content">
-                <h2>Never Miss a Profit Opportunity</h2>
-                <p>Get price alerts when miners reach your target profitability</p>
-                <button class="btn-alert">
-                    <i class="fas fa-bell"></i> Set Price Alert
-                </button>
-            </div>
-        </section>
+        <!-- Ad Placement -->
+        <div class="ad-container" style="text-align: center; margin: 40px 0;">
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <!-- Comprehensive footer as before -->
+    <footer style="
+        background: #2c3e50;
+        color: white;
+        padding: 40px 20px;
+        margin-top: 50px;
+    ">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px;">
+                <div>
+                    <h4>Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="most-profitable.html" style="color: #bdc3c7; text-decoration: none;">Most Profitable</a>
+                        <a href="asic-miners.html" style="color: #bdc3c7; text-decoration: none;">ASIC Miners</a>
+                        <a href="roi-calculator.html" style="color: #bdc3c7; text-decoration: none;">ROI Calculator</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Tools</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="comparison.html" style="color: #bdc3c7; text-decoration: none;">Miner Comparison</a>
+                        <a href="profitability.html" style="color: #bdc3c7; text-decoration: none;">Profitability</a>
+                        <a href="mining-pools.html" style="color: #bdc3c7; text-decoration: none;">Mining Pools</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #34495e; padding-top: 20px;">
+                <p>&copy; 2024 Best Miner Profit. All rights reserved.</p>
+                <p style="color: #bdc3c7; font-size: 0.9rem; margin-top: 10px;">
+                    Compare cryptocurrency miners and calculate profitability
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script src="mobile-nav.js"></script>
-    <script src="homepage-enhanced.js"></script>
+    <script src="top-bar.js"></script>
+    <script>
+        // Quick profit calculator
+        function calculateQuickProfit() {
+            const hashrate = parseFloat(document.getElementById('quick-hashrate').value) || 0;
+            const power = parseFloat(document.getElementById('quick-power').value) || 0;
+            const electricityCost = parseFloat(document.getElementById('quick-electricity').value) || 0;
+            
+            // Simple profit calculation
+            const dailyElectricityCost = (power * 24 * electricityCost) / 1000;
+            const dailyRevenue = hashrate * 0.10; // Simplified calculation
+            const dailyProfit = dailyRevenue - dailyElectricityCost;
+            
+            document.getElementById('quick-profit-amount').textContent = '$' + dailyProfit.toFixed(2);
+            document.getElementById('quick-results').style.display = 'block';
+        }
+
+        // Initialize quick calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate initial quick profit
+            setTimeout(calculateQuickProfit, 1000);
+        });
+    </script>
 </body>
 </html>
