@@ -1214,3 +1214,170 @@ body {
 .mb-3 { margin-bottom: 1.5rem; }
 .hidden { display: none; }
 .visible { display: block; }
+/* Additional Styles for ASIC Miners Page */
+
+/* Manufacturers Section */
+.manufacturers-section {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.manufacturers-section h2 {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.manufacturers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: center;
+}
+
+.manufacturer-logo {
+    padding: 1rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.manufacturer-logo:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Stock Status Badges */
+.miner-card .popular-badge[style*="background: #e74c3c"] {
+    background: #e74c3c !important;
+    top: -8px;
+    left: -8px;
+    right: auto;
+}
+
+/* Button Disabled State */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn:disabled:hover {
+    background: var(--accent-color);
+    transform: none !important;
+}
+
+/* Mobile Menu Improvements */
+@media (max-width: 768px) {
+    .manufacturers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .miner-actions {
+        flex-direction: column;
+    }
+    
+    .miner-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #27ae60;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    font-weight: 600;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* Enhanced Card Hover Effects */
+.miner-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.miner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.miner-card:hover::before {
+    left: 100%;
+}
+
+/* Price Highlight */
+.price {
+    position: relative;
+    display: inline-block;
+}
+
+.price::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+/* Algorithm Color Coding */
+.spec-value {
+    position: relative;
+}
+
+.spec-value[data-algorithm="SHA-256"] {
+    color: #f39c12;
+    font-weight: 700;
+}
+
+.spec-value[data-algorithm="Scrypt"] {
+    color: #3498db;
+    font-weight: 700;
+}
+
+.spec-value[data-algorithm="Ethash"] {
+    color: #8e44ad;
+    font-weight: 700;
+}
+
+.spec-value[data-algorithm="X11"] {
+    color: #e74c3c;
+    font-weight: 700;
+}
