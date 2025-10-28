@@ -1381,3 +1381,325 @@ body {
     color: #e74c3c;
     font-weight: 700;
 }
+/* Calculator Section Styles */
+.calculator-section {
+    margin: 2rem 0;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.calculator-inputs {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
+}
+
+.calculator-inputs h2 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.calculator-select,
+.input-group input {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.calculator-select:focus,
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+}
+
+.input-with-unit {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-with-unit input {
+    flex: 1;
+}
+
+.unit-select,
+.unit {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--secondary-color);
+    font-size: 0.9rem;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Results Section */
+.calculator-results {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
+}
+
+.calculator-results h2 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.result-card {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+}
+
+.result-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Detailed Breakdown */
+.detailed-breakdown {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.detailed-breakdown h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.breakdown-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breakdown-item:last-child {
+    border-bottom: none;
+}
+
+.breakdown-item.total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    padding-top: 1rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Profit Chart */
+.profit-chart {
+    margin-top: 2rem;
+}
+
+.profit-chart h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.chart-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 300px;
+}
+
+/* Popular Miners Section */
+.popular-miners {
+    margin: 3rem 0;
+}
+
+.popular-miners h2 {
+    text-align: center;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .calculator-inputs,
+.dark-theme .calculator-results,
+.dark-theme .result-card,
+.dark-theme .detailed-breakdown,
+.dark-theme .chart-container {
+    background: var(--card-background);
+    border-color: var(--border-color);
+}
+
+.dark-theme .calculator-select,
+.dark-theme .input-group input,
+.dark-theme .unit-select,
+.dark-theme .unit {
+    background: #2d2d2d;
+    border-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator-inputs,
+    .calculator-results {
+        padding: 1.5rem;
+    }
+    
+    .result-card {
+        padding: 1rem;
+    }
+    
+    .result-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .result-value {
+        font-size: 1.1rem;
+    }
+    
+    .chart-container {
+        height: 250px;
+        padding: 1rem;
+    }
+}
+
+/* Animation for results */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card {
+    animation: slideInUp 0.5s ease-out;
+}
+
+.result-card:nth-child(1) { animation-delay: 0.1s; }
+.result-card:nth-child(2) { animation-delay: 0.2s; }
+.result-card:nth-child(3) { animation-delay: 0.3s; }
+.result-card:nth-child(4) { animation-delay: 0.4s; }
+.result-card:nth-child(5) { animation-delay: 0.5s; }
+.result-card:nth-child(6) { animation-delay: 0.6s; }
