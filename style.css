@@ -610,3 +610,373 @@ footer {
         font-size: 1.1rem;
     }
 }
+/* Coins Table Styles */
+.coins-table-section {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.coins-table-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.table-note {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.coins-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.coins-table th {
+    background: #34495e;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border: none;
+}
+
+.coins-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    color: #2c3e50;
+}
+
+.coins-table tr:hover {
+    background: #f8f9fa;
+}
+
+.coins-table .profit {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Coins Grid Styles */
+.coins-grid-section {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.coins-grid-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.coins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.coin-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.coin-card:hover {
+    border-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.coin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.coin-header h3 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.coin-algorithm {
+    background: #3498db;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.coin-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.coin-change {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.coin-stats {
+    margin-bottom: 1rem;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.stat-value {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.coin-profitability {
+    border-top: 2px solid #3498db;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.profit-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.profit-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Profitability Page Styles */
+.profitability-overview {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profitability-overview h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.profitability-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.profitability-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+}
+
+.profitability-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.profitability-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.profitability-table-section {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profitability-table-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.profitability-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.profitability-table th {
+    background: #34495e;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border: none;
+}
+
+.profitability-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    color: #2c3e50;
+}
+
+.profitability-table tr:hover {
+    background: #f8f9fa;
+}
+
+.profitability-table .profit {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Profitability Charts */
+.profitability-charts {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profitability-charts h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.chart-container {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.chart-container h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.chart-placeholder {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.algorithm-bar, .roi-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.algorithm-name, .roi-name {
+    min-width: 100px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.bar-container, .roi-bar-container {
+    flex: 1;
+    background: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30px;
+}
+
+.bar, .roi-bar {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.roi-bar {
+    background: linear-gradient(90deg, #27ae60, #219a52);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coins-table,
+    .profitability-table {
+        font-size: 0.9rem;
+    }
+    
+    .coins-table th,
+    .coins-table td,
+    .profitability-table th,
+    .profitability-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .coins-grid,
+    .profitability-cards,
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .coin-card,
+    .profitability-card {
+        padding: 1rem;
+    }
+    
+    .chart-placeholder {
+        padding: 1rem;
+    }
+    
+    .algorithm-bar,
+    .roi-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .bar-container,
+    .roi-bar-container {
+        width: 100%;
+    }
+}
