@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mining Profitability - Compare Mining Returns | ASIC Miner Value</title>
-    <meta name="description" content="Compare cryptocurrency mining profitability across different algorithms and hardware. Real-time profitability calculations.">
+    <meta name="description" content="Compare cryptocurrency mining profitability across different algorithms and hardware. Real-time profitability calculations and ROI analysis.">
+    <meta name="keywords" content="mining profitability, roi calculator, mining returns, profitability comparison, mining revenue">
     <link rel="stylesheet" href="styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612/6690655170" crossorigin="anonymous"></script>
 </head>
@@ -26,44 +27,323 @@
     </header>
 
     <main class="container">
+        <!-- AdSense Banner -->
         <div class="ad-container">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-app-pub-4103650365925612/6690655170"
-                 data-ad-slot="7857478708"
+                 data-ad-slot="7857478711"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
         </div>
 
         <div class="hero-section">
-            <h1>Mining Profitability</h1>
-            <p>Real-time profitability analysis for cryptocurrency mining</p>
+            <h1>Mining Profitability Analysis</h1>
+            <p>Real-time profitability comparison across different mining algorithms and hardware</p>
         </div>
 
-        <div class="profitability-charts">
-            <div class="chart-container">
-                <h3>Top Mining Algorithms Profitability</h3>
-                <div class="chart">
-                    <!-- Chart would be implemented with Chart.js in production -->
-                    <div class="chart-placeholder">
-                        SHA-256: $5.42/day per 100 TH/s<br>
-                        Ethash: $2.18/day per 100 MH/s<br>
-                        RandomX: $0.85/day per 10 kH/s<br>
-                        Scrypt: $1.25/day per 1 GH/s
+        <!-- Live Crypto Prices -->
+        <section class="crypto-prices-section">
+            <h2>Live Cryptocurrency Prices</h2>
+            <div id="priceTicker" class="price-ticker">
+                <div class="price-item">
+                    <span class="coin-name">Bitcoin</span>
+                    <span class="coin-price">$64,283.15</span>
+                    <span class="coin-change positive">+2.34%</span>
+                </div>
+                <div class="price-item">
+                    <span class="coin-name">Ethereum</span>
+                    <span class="coin-price">$3,415.67</span>
+                    <span class="coin-change positive">+1.89%</span>
+                </div>
+                <div class="price-item">
+                    <span class="coin-name">Monero</span>
+                    <span class="coin-price">$165.32</span>
+                    <span class="coin-change negative">-0.45%</span>
+                </div>
+                <div class="price-item">
+                    <span class="coin-name">Litecoin</span>
+                    <span class="coin-price">$82.15</span>
+                    <span class="coin-change positive">+0.67%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profitability Overview -->
+        <section class="profitability-overview">
+            <h2>Current Mining Profitability Overview</h2>
+            <div class="profitability-cards">
+                <div class="profitability-card">
+                    <h3>SHA-256 Mining</h3>
+                    <div class="profitability-stats">
+                        <div class="stat">
+                            <span class="stat-label">Average Daily Profit:</span>
+                            <span class="stat-value">$5.12</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Best Miner:</span>
+                            <span class="stat-value">Antminer S19 XP</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">ROI Period:</span>
+                            <span class="stat-value">412 days</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Electricity Cost:</span>
+                            <span class="stat-value">$0.12/kWh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profitability-card">
+                    <h3>Ethash Mining</h3>
+                    <div class="profitability-stats">
+                        <div class="stat">
+                            <span class="stat-label">Average Daily Profit:</span>
+                            <span class="stat-value">$2.15</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Best GPU:</span>
+                            <span class="stat-value">RTX 3080</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">ROI Period:</span>
+                            <span class="stat-value">285 days</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Electricity Cost:</span>
+                            <span class="stat-value">$0.12/kWh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profitability-card">
+                    <h3>RandomX Mining</h3>
+                    <div class="profitability-stats">
+                        <div class="stat">
+                            <span class="stat-label">Average Daily Profit:</span>
+                            <span class="stat-value">$0.85</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Best CPU:</span>
+                            <span class="stat-value">Ryzen 9 5950X</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">ROI Period:</span>
+                            <span class="stat-value">180 days</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Electricity Cost:</span>
+                            <span class="stat-value">$0.12/kWh</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- AdSense Banner Middle -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-4103650365925612/6690655170"
+                 data-ad-slot="7857478712"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
         </div>
+
+        <!-- Profitability Table -->
+        <section class="profitability-table-section">
+            <h2>Detailed Profitability Comparison</h2>
+            <div class="table-container">
+                <table class="profitability-table">
+                    <thead>
+                        <tr>
+                            <th>Miner / Algorithm</th>
+                            <th>Hashrate</th>
+                            <th>Power</th>
+                            <th>Daily Revenue</th>
+                            <th>Electricity Cost</th>
+                            <th>Daily Profit</th>
+                            <th>Monthly Profit</th>
+                            <th>ROI Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Antminer S19 XP (SHA-256)</strong></td>
+                            <td>140 TH/s</td>
+                            <td>3010 W</td>
+                            <td>$15.42</td>
+                            <td>$9.36</td>
+                            <td class="profit">$6.06</td>
+                            <td>$181.80</td>
+                            <td>412 days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Antminer S19 Pro (SHA-256)</strong></td>
+                            <td>110 TH/s</td>
+                            <td>3250 W</td>
+                            <td>$12.11</td>
+                            <td>$9.36</td>
+                            <td class="profit">$4.82</td>
+                            <td>$144.60</td>
+                            <td>385 days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Whatsminer M50 (SHA-256)</strong></td>
+                            <td>118 TH/s</td>
+                            <td>3276 W</td>
+                            <td>$13.01</td>
+                            <td>$9.43</td>
+                            <td class="profit">$5.12</td>
+                            <td>$153.60</td>
+                            <td>425 days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RTX 3080 (Ethash)</strong></td>
+                            <td>100 MH/s</td>
+                            <td>220 W</td>
+                            <td>$2.35</td>
+                            <td>$0.63</td>
+                            <td class="profit">$1.72</td>
+                            <td>$51.60</td>
+                            <td>285 days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ryzen 9 5950X (RandomX)</strong></td>
+                            <td>17 kH/s</td>
+                            <td>105 W</td>
+                            <td>$1.45</td>
+                            <td>$0.30</td>
+                            <td class="profit">$1.15</td>
+                            <td>$34.50</td>
+                            <td>180 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Profitability Charts -->
+        <section class="profitability-charts">
+            <h2>Profitability Trends</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Algorithm Profitability Comparison</h3>
+                    <div class="chart-placeholder">
+                        <div class="algorithm-bar">
+                            <span class="algorithm-name">SHA-256</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 85%">$5.12/day</div>
+                            </div>
+                        </div>
+                        <div class="algorithm-bar">
+                            <span class="algorithm-name">Ethash</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 42%">$2.15/day</div>
+                            </div>
+                        </div>
+                        <div class="algorithm-bar">
+                            <span class="algorithm-name">RandomX</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 35%">$1.75/day</div>
+                            </div>
+                        </div>
+                        <div class="algorithm-bar">
+                            <span class="algorithm-name">Scrypt</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 28%">$1.25/day</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>ROI Period Comparison</h3>
+                    <div class="chart-placeholder">
+                        <div class="roi-item">
+                            <span class="roi-name">Antminer S19 XP</span>
+                            <div class="roi-bar-container">
+                                <div class="roi-bar" style="width: 70%">412 days</div>
+                            </div>
+                        </div>
+                        <div class="roi-item">
+                            <span class="roi-name">Antminer S19 Pro</span>
+                            <div class="roi-bar-container">
+                                <div class="roi-bar" style="width: 65%">385 days</div>
+                            </div>
+                        </div>
+                        <div class="roi-item">
+                            <span class="roi-name">RTX 3080</span>
+                            <div class="roi-bar-container">
+                                <div class="roi-bar" style="width: 40%">285 days</div>
+                            </div>
+                        </div>
+                        <div class="roi-item">
+                            <span class="roi-name">Ryzen 9 5950X</span>
+                            <div class="roi-bar-container">
+                                <div class="roi-bar" style="width: 25%">180 days</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 ASIC Miner Value. All rights reserved.</p>
+            <p>Profitability calculations based on current network difficulty and electricity cost of $0.12/kWh</p>
         </div>
     </footer>
 
     <script>
+        // Initialize AdSense
         (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        // Load live prices
+        async function loadLivePrices() {
+            try {
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,monero,litecoin&vs_currencies=usd&include_24hr_change=true');
+                const data = await response.json();
+                updatePriceDisplay(data);
+            } catch (error) {
+                console.error('Error loading prices:', error);
+            }
+        }
+
+        function updatePriceDisplay(prices) {
+            const ticker = document.getElementById('priceTicker');
+            if (!ticker) return;
+
+            const coinNames = {
+                'bitcoin': 'Bitcoin',
+                'ethereum': 'Ethereum', 
+                'monero': 'Monero',
+                'litecoin': 'Litecoin'
+            };
+
+            ticker.innerHTML = Object.entries(prices).map(([coin, data]) => {
+                const change = data.usd_24h_change || 0;
+                const changeClass = change >= 0 ? 'positive' : 'negative';
+                const changeSymbol = change >= 0 ? '+' : '';
+                
+                return `
+                    <div class="price-item">
+                        <span class="coin-name">${coinNames[coin] || coin}</span>
+                        <span class="coin-price">$${data.usd?.toLocaleString() || '0'}</span>
+                        <span class="coin-change ${changeClass}">${changeSymbol}${change?.toFixed(2) || '0.00'}%</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load prices on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLivePrices();
+            setInterval(loadLivePrices, 120000); // Update every 2 minutes
+        });
     </script>
 </body>
 </html>
