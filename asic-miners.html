@@ -3,175 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC Miners - Compare 150+ Mining Rigs Prices & Profitability | Best Miners Profit</title>
-    <meta name="description" content="Compare 150+ ASIC miners prices, profitability, hashrate, power consumption. Real-time Bitcoin, Ethereum, Litecoin mining hardware data with daily profit calculations.">
-    <meta name="keywords" content="ASIC miners, Bitcoin mining, mining hardware, cryptocurrency miners, mining profitability, ASIC prices, Bitcoin miners, mining rigs">
+    <title>ASIC Miners - Compare 150+ Mining Rigs | Best Miners Profit</title>
+    <meta name="description" content="Compare 150+ ASIC miners prices, profitability, hashrate, and specifications. Real-time Bitcoin, Litecoin, Dash mining hardware data.">
     
-    <!-- Google AdSense -->
+    <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-left">
-                    <div class="language-selector">
-                        <i class="fas fa-globe"></i>
-                        <select id="languageSelect">
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                            <option value="zh">中文</option>
-                            <option value="ru">Русский</option>
-                        </select>
-                    </div>
-                    <div class="currency-converter">
-                        <i class="fas fa-dollar-sign"></i>
-                        <select id="currencySelector">
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="GBP">GBP</option>
-                            <option value="PKR">PKR</option>
-                            <option value="AED">AED</option>
-                            <option value="CNY">CNY</option>
-                            <option value="JPY">JPY</option>
-                        </select>
-                        <span class="exchange-rate" id="exchangeRate">1 USD = 278.5 PKR</span>
-                    </div>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>🏆 Best Miners Profit</h1>
                 </div>
-                <div class="top-bar-right">
-                    <a href="#" class="auth-link"><i class="fas fa-user"></i> Sign In</a>
-                    <a href="#" class="auth-link"><i class="fas fa-user-plus"></i> Register</a>
-                    <button id="theme-toggle" class="theme-btn">
-                        <i class="fas fa-moon"></i>
-                    </button>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="asic-miners.html" class="active">ASIC Miners</a>
+                    <a href="gpu-miners.html">GPU Miners</a>
+                    <a href="profitability.html">Profitability</a>
+                    <a href="comparison.html">Comparison</a>
+                    <a href="mining-pools.html">Mining Pools</a>
+                    <select id="currencySelector">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="PKR">PKR</option>
+                        <option value="AED">AED</option>
+                    </select>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <h1>Best <span>Miners</span> Profit</h1>
-                </a>
-
-                <div class="search-container">
-                    <div class="search-wrapper">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="global-search" placeholder="Search miners, algorithms, manufacturers...">
-                        <button class="search-filters-btn">
-                            <i class="fas fa-sliders-h"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="asic-miners.html" class="nav-link active"><i class="fas fa-microchip"></i> ASIC Miners</a>
-                        <div class="dropdown-menu">
-                            <a href="asic-miners.html?algorithm=sha-256">SHA-256 Miners</a>
-                            <a href="asic-miners.html?algorithm=scrypt">Scrypt Miners</a>
-                            <a href="asic-miners.html?algorithm=ethash">Ethash Miners</a>
-                            <a href="asic-miners.html?algorithm=x11">X11 Miners</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="gpu-miners.html" class="nav-link"><i class="fas fa-desktop"></i> GPU Miners</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="profitability.html" class="nav-link"><i class="fas fa-calculator"></i> Calculators</a>
-                        <div class="dropdown-menu">
-                            <a href="profitability.html">Profitability Calculator</a>
-                            <a href="roi-calculator.html">ROI Calculator</a>
-                            <a href="electricity-calculator.html">Electricity Cost</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="comparison.html" class="nav-link"><i class="fas fa-exchange-alt"></i> Compare</a></li>
-                    <li class="nav-item"><a href="mining-pools.html" class="nav-link"><i class="fas fa-server"></i> Pools</a></li>
-                    <li class="nav-item"><a href="news.html" class="nav-link"><i class="fas fa-newspaper"></i> News</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main class="container">
-        <!-- Page Header -->
         <div class="page-header">
             <h1>ASIC Miners Comparison</h1>
-            <p>Compare prices, profitability, and specifications of 150+ ASIC miners from top manufacturers</p>
+            <p>Compare prices, profitability, and specifications of 150+ ASIC miners</p>
         </div>
 
-        <!-- AdSense Top Banner -->
-        <div class="ad-container ad-banner">
+        <!-- AdSense -->
+        <div class="ad-container">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4103650365925612"
-                 data-ad-slot="6690655170"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4103650365925612" data-ad-slot="6690655170" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- Quick Search Filters -->
-        <div class="quick-search">
-            <h2>Quick Miner Search</h2>
-            <div class="search-filters">
-                <div class="filter-group">
-                    <label>Algorithm</label>
-                    <select id="quickAlgorithm">
-                        <option value="">All Algorithms</option>
-                        <option value="SHA-256">SHA-256 (Bitcoin)</option>
-                        <option value="Scrypt">Scrypt (Litecoin)</option>
-                        <option value="Ethash">Ethash (Ethereum)</option>
-                        <option value="X11">X11 (Dash)</option>
-                        <option value="Blake2B">Blake2B</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Manufacturer</label>
-                    <select id="quickManufacturer">
-                        <option value="">All Manufacturers</option>
-                        <option value="Bitmain">Bitmain</option>
-                        <option value="MicroBT">MicroBT</option>
-                        <option value="Canaan">Canaan</option>
-                        <option value="Innosilicon">Innosilicon</option>
-                        <option value="iBeLink">iBeLink</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Price Range</label>
-                    <select id="quickPrice">
-                        <option value="">Any Price</option>
-                        <option value="0-1000">Under $1,000</option>
-                        <option value="1000-3000">$1,000 - $3,000</option>
-                        <option value="3000-5000">$3,000 - $5,000</option>
-                        <option value="5000-10000">$5,000 - $10,000</option>
-                        <option value="10000-999999">Over $10,000</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <button class="btn btn-primary" id="applyQuickSearch">
-                        <i class="fas fa-search"></i> Search Miners
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Advanced Filters Section -->
+        <!-- Filters -->
         <div class="filters-section">
             <div class="filter-group">
                 <label>Algorithm:</label>
@@ -181,9 +60,6 @@
                     <option value="Scrypt">Scrypt (Litecoin)</option>
                     <option value="Ethash">Ethash (Ethereum)</option>
                     <option value="X11">X11 (Dash)</option>
-                    <option value="Blake2B">Blake2B (Siacoin)</option>
-                    <option value="Kadena">Kadena</option>
-                    <option value="Handshake">Handshake</option>
                 </select>
             </div>
             
@@ -195,9 +71,6 @@
                     <option value="MicroBT">MicroBT</option>
                     <option value="Canaan">Canaan</option>
                     <option value="Innosilicon">Innosilicon</option>
-                    <option value="iBeLink">iBeLink</option>
-                    <option value="Goldshell">Goldshell</option>
-                    <option value="Whatsminer">Whatsminer</option>
                 </select>
             </div>
 
@@ -208,151 +81,24 @@
                     <option value="0-1000">Under $1,000</option>
                     <option value="1000-3000">$1,000 - $3,000</option>
                     <option value="3000-5000">$3,000 - $5,000</option>
-                    <option value="5000-10000">$5,000 - $10,000</option>
-                    <option value="10000-20000">$10,000 - $20,000</option>
-                    <option value="20000-999999">Over $20,000</option>
+                    <option value="5000-999999">Over $5,000</option>
                 </select>
             </div>
 
-            <div class="filter-group">
-                <label>Hashrate:</label>
-                <select id="hashrateFilter">
-                    <option value="">All Hashrates</option>
-                    <option value="0-50">Under 50 TH/s</option>
-                    <option value="50-100">50-100 TH/s</option>
-                    <option value="100-200">100-200 TH/s</option>
-                    <option value="200-500">200-500 TH/s</option>
-                    <option value="500-9999">Over 500 TH/s</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label>Efficiency:</label>
-                <select id="efficiencyFilter">
-                    <option value="">Any Efficiency</option>
-                    <option value="0-20">Under 20 J/TH</option>
-                    <option value="20-30">20-30 J/TH</option>
-                    <option value="30-40">30-40 J/TH</option>
-                    <option value="40-999">Over 40 J/TH</option>
-                </select>
-            </div>
-
-            <button id="resetFilters" class="btn btn-secondary">
-                <i class="fas fa-redo"></i> Reset Filters
-            </button>
-        </div>
-
-        <!-- Sort and Results Info -->
-        <div class="sort-section">
-            <span>Sort by:</span>
-            <select id="sortBy">
-                <option value="profitability">Profitability</option>
-                <option value="price">Price</option>
-                <option value="hashrate">Hashrate</option>
-                <option value="efficiency">Efficiency</option>
-                <option value="roi">ROI Days</option>
-                <option value="name">Name</option>
-            </select>
-            <select id="sortOrder">
-                <option value="desc">Descending</option>
-                <option value="asc">Ascending</option>
-            </select>
-            <span class="results-count" id="resultsCount">Loading miners...</span>
+            <button id="resetFilters" class="btn btn-secondary">Reset Filters</button>
         </div>
 
         <!-- Miners Grid -->
         <div class="miners-container">
             <div class="miners-grid" id="minersGrid">
-                <!-- Miners will be loaded here dynamically -->
+                <!-- Dynamic content -->
             </div>
         </div>
 
         <!-- Pagination -->
-        <div class="pagination" id="pagination">
-            <!-- Pagination will be loaded here -->
-        </div>
-
-        <!-- AdSense Bottom Banner -->
-        <div class="ad-container ad-banner">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4103650365925612"
-                 data-ad-slot="6690655170"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!-- Manufacturers Section -->
-        <section class="manufacturers-section">
-            <h2>Trusted by Top Manufacturers</h2>
-            <div class="manufacturers-grid">
-                <div class="manufacturer-logo">Bitmain</div>
-                <div class="manufacturer-logo">MicroBT</div>
-                <div class="manufacturer-logo">Canaan</div>
-                <div class="manufacturer-logo">Innosilicon</div>
-                <div class="manufacturer-logo">iBeLink</div>
-                <div class="manufacturer-logo">Goldshell</div>
-            </div>
-        </section>
+        <div class="pagination" id="pagination"></div>
     </main>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Best Miners Profit</h4>
-                    <p>Your trusted source for cryptocurrency mining hardware comparisons, profitability calculations, and market insights since 2024.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="asic-miners.html">ASIC Miners</a></li>
-                        <li><a href="gpu-miners.html">GPU Miners</a></li>
-                        <li><a href="profitability.html">Profitability Calculator</a></li>
-                        <li><a href="comparison.html">Miner Comparison</a></li>
-                        <li><a href="mining-pools.html">Mining Pools</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Manufacturers</h4>
-                    <ul>
-                        <li><a href="#">Bitmain</a></li>
-                        <li><a href="#">MicroBT</a></li>
-                        <li><a href="#">Canaan</a></li>
-                        <li><a href="#">Innosilicon</a></li>
-                        <li><a href="#">iBeLink</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Best Miners Profit. All rights reserved.</p>
-                <p>Cryptocurrency mining hardware comparison platform</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="crypto-api.js"></script>
     <script src="asic-miners.js"></script>
 </body>
 </html>
