@@ -3,556 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compare Miners - Best Miner Profit</title>
+    <title>Compare Mining Hardware Side by Side | Best Miners Profit</title>
+    <meta name="description" content="Compare ASIC and GPU miners side by side. Real-time profitability comparison, specifications, and ROI analysis for cryptocurrency mining hardware.">
+    <meta name="keywords" content="miner comparison, compare ASIC miners, GPU comparison, mining hardware compare, profitability comparison">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .comparison-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .comparison-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .comparison-controls {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        .selected-miners {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .miner-pill {
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .remove-miner {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .comparison-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        .comparison-table th {
-            background: #3498db;
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-        .comparison-table td {
-            padding: 15px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        .comparison-table tr:hover {
-            background: #f8f9fa;
-        }
-        .winner-badge {
-            background: #2ecc71;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .miner-image-compare {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7f8c8d;
-        }
-        .empty-state i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: #bdc3c7;
-        }
-        @media (max-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="comparison-container">
-        <!-- Header -->
-        <div class="comparison-header">
-            <h1><i class="fas fa-balance-scale"></i> Miner Comparison Tool</h1>
-            <p>Compare miners side-by-side to find the best investment</p>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                        <select id="languageSelect">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="zh">中文</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                    <div class="currency-converter">
+                        <i class="fas fa-dollar-sign"></i>
+                        <select id="currencySelector">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="PKR">PKR</option>
+                            <option value="AED">AED</option>
+                            <option value="CNY">CNY</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                        <span class="exchange-rate" id="exchangeRate">1 USD = 278.5 PKR</span>
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="auth-link"><i class="fas fa-user"></i> Sign In</a>
+                    <a href="#" class="auth-link"><i class="fas fa-user-plus"></i> Register</a>
+                    <button id="theme-toggle" class="theme-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <h1>Best <span>Miners</span> Profit</h1>
+                </a>
+
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="global-search" placeholder="Search miners to compare...">
+                        <button class="search-filters-btn">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="asic-miners.html" class="nav-link"><i class="fas fa-microchip"></i> ASIC Miners</a></li>
+                    <li class="nav-item"><a href="gpu-miners.html" class="nav-link"><i class="fas fa-desktop"></i> GPU Miners</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="profitability.html" class="nav-link"><i class="fas fa-calculator"></i> Calculators</a>
+                        <div class="dropdown-menu">
+                            <a href="profitability.html">Profitability Calculator</a>
+                            <a href="roi-calculator.html">ROI Calculator</a>
+                            <a href="electricity-calculator.html">Electricity Cost</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="comparison.html" class="nav-link active"><i class="fas fa-exchange-alt"></i> Compare</a></li>
+                    <li class="nav-item"><a href="mining-pools.html" class="nav-link"><i class="fas fa-server"></i> Pools</a></li>
+                    <li class="nav-item"><a href="news.html" class="nav-link"><i class="fas fa-newspaper"></i> News</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Mining Hardware Comparison</h1>
+            <p>Compare ASIC and GPU miners side by side to find the most profitable mining hardware for your needs</p>
         </div>
 
-        <!-- Ad Placement -->
-        <div class="ad-container" style="text-align: center; margin: 20px 0;">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
-            <!-- Comparison Header Ad -->
+        <!-- AdSense Top Banner -->
+        <div class="ad-container ad-banner">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-1234567890123456"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="6690655170"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <!-- Comparison Controls -->
-        <div class="comparison-controls">
-            <h3><i class="fas fa-sliders-h"></i> Comparison Controls</h3>
-            
+        <section class="comparison-controls">
+            <div class="controls-header">
+                <h2><i class="fas fa-balance-scale"></i> Compare Miners</h2>
+                <div class="controls-actions">
+                    <button id="clearAll" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                    <button id="addMiner" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Miner
+                    </button>
+                </div>
+            </div>
+
             <!-- Selected Miners -->
-            <div class="selected-miners" id="selected-miners">
-                <!-- Dynamic content -->
+            <div class="selected-miners" id="selectedMiners">
+                <div class="empty-state">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>No Miners Selected</h3>
+                    <p>Add miners from ASIC or GPU pages to start comparing</p>
+                    <div class="empty-actions">
+                        <a href="asic-miners.html" class="btn btn-primary">
+                            <i class="fas fa-microchip"></i> Browse ASIC Miners
+                        </a>
+                        <a href="gpu-miners.html" class="btn btn-primary">
+                            <i class="fas fa-desktop"></i> Browse GPU Miners
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Action Buttons -->
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <button onclick="addRandomMiner()" style="
-                    background: #3498db;
-                    color: white;
-                    border: none;
-                    padding: 12px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                ">
-                    <i class="fas fa-random"></i> Add Random Miner
-                </button>
-                
-                <button onclick="clearComparison()" style="
-                    background: #e74c3c;
-                    color: white;
-                    border: none;
-                    padding: 12px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                ">
-                    <i class="fas fa-trash"></i> Clear All
-                </button>
-                
-                <a href="asic-miners.html" style="
-                    background: #2ecc71;
-                    color: white;
-                    padding: 12px 20px;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                ">
-                    <i class="fas fa-plus"></i> Browse More Miners
-                </a>
+            <!-- Quick Add Popular Miners -->
+            <div class="quick-add-section">
+                <h3>Quick Add Popular Miners</h3>
+                <div class="quick-add-grid" id="quickAddGrid">
+                    <!-- Popular miners will be loaded here -->
+                </div>
             </div>
+        </section>
 
-            <!-- Instructions -->
-            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                <p><strong>How to use:</strong> Click "Add to Comparison" on any miner detail page, or use the buttons above to add miners to compare.</p>
-            </div>
-        </div>
-
-        <!-- Comparison Content -->
-        <div id="comparison-content">
-            <!-- Empty State -->
-            <div id="empty-state" class="empty-state">
-                <i class="fas fa-balance-scale"></i>
-                <h2>No Miners to Compare</h2>
-                <p>Add miners to comparison to see side-by-side analysis</p>
-                <button onclick="addRandomMiner()" style="
-                    background: #3498db;
-                    color: white;
-                    border: none;
-                    padding: 12px 25px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    margin-top: 15px;
-                ">
-                    <i class="fas fa-random"></i> Add Sample Miners
-                </button>
-            </div>
-
-            <!-- Comparison Grid -->
-            <div id="comparison-grid" class="comparison-grid" style="display: none;">
-                <!-- Dynamic comparison cards -->
+        <!-- Comparison Results -->
+        <section class="comparison-results" id="comparisonResults" style="display: none;">
+            <div class="results-header">
+                <h2><i class="fas fa-chart-bar"></i> Comparison Results</h2>
+                <div class="results-actions">
+                    <button id="exportResults" class="btn btn-outline">
+                        <i class="fas fa-download"></i> Export CSV
+                    </button>
+                    <button id="shareComparison" class="btn btn-outline">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
             </div>
 
             <!-- Comparison Table -->
-            <div id="comparison-table-container" style="display: none;">
-                <h3 style="margin-bottom: 20px; color: #2c3e50;">
-                    <i class="fas fa-table"></i> Detailed Comparison
-                </h3>
-                <table class="comparison-table" id="comparison-table">
+            <div class="comparison-table-container">
+                <table class="comparison-table" id="comparisonTable">
                     <thead>
                         <tr>
-                            <th>Specification</th>
-                            <!-- Dynamic miner headers -->
+                            <th class="spec-header">Specification</th>
+                            <!-- Miner headers will be added here dynamically -->
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dynamic comparison rows -->
+                        <!-- Rows will be populated dynamically -->
                     </tbody>
                 </table>
             </div>
 
-            <!-- Profitability Comparison -->
-            <div id="profitability-comparison" style="display: none;">
-                <h3 style="margin-bottom: 20px; color: #2c3e50;">
-                    <i class="fas fa-chart-bar"></i> Profitability Analysis
-                </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-                    <!-- Dynamic profitability cards -->
+            <!-- Charts Section -->
+            <div class="comparison-charts">
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <h3>Profitability Comparison</h3>
+                        <canvas id="profitabilityChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Efficiency Comparison</h3>
+                        <canvas id="efficiencyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <h3>ROI Period Comparison</h3>
+                        <canvas id="roiChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Price vs Performance</h3>
+                        <canvas id="pricePerformanceChart"></canvas>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Ad Placement -->
-        <div class="ad-container" style="text-align: center; margin: 30px 0;">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
-            <!-- Comparison Footer Ad -->
+            <!-- Winner Analysis -->
+            <div class="winner-analysis">
+                <h3><i class="fas fa-trophy"></i> Winner Analysis</h3>
+                <div class="winner-cards" id="winnerCards">
+                    <!-- Winner analysis will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Miners -->
+        <section class="recommended-miners">
+            <h2>Recommended For You</h2>
+            <div class="recommended-grid" id="recommendedGrid">
+                <!-- Recommended miners will be loaded here -->
+            </div>
+        </section>
+
+        <!-- AdSense Bottom Banner -->
+        <div class="ad-container ad-banner">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-1234567890123456"
-                 data-ad-slot="0987654321"
-                 data-ad-format="auto"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                 data-ad-client="ca-pub-4103650365925612"
+                 data-ad-slot="6690655170"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-    </div>
+    </main>
 
-    <script src="miner-database.js"></script>
-    <script>
-        class MinerComparison {
-            constructor() {
-                this.selectedMiners = [];
-                this.init();
-            }
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Best Miners Profit</h4>
+                    <p>Your trusted source for cryptocurrency mining hardware comparisons, profitability calculations, and market insights since 2024.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="asic-miners.html">ASIC Miners</a></li>
+                        <li><a href="gpu-miners.html">GPU Miners</a></li>
+                        <li><a href="profitability.html">Profitability Calculator</a></li>
+                        <li><a href="comparison.html">Miner Comparison</a></li>
+                        <li><a href="mining-pools.html">Mining Pools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Comparison Tools</h4>
+                    <ul>
+                        <li><a href="comparison.html">ASIC vs GPU</a></li>
+                        <li><a href="comparison.html?type=asic">ASIC Miners</a></li>
+                        <li><a href="comparison.html?type=gpu">GPU Miners</a></li>
+                        <li><a href="comparison.html?algorithm=sha-256">SHA-256 Miners</a></li>
+                        <li><a href="comparison.html?algorithm=ethash">Ethash Miners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Best Miners Profit. All rights reserved.</p>
+                <p>Cryptocurrency mining hardware comparison platform</p>
+            </div>
+        </div>
+    </footer>
 
-            init() {
-                this.loadFromStorage();
-                this.render();
-            }
-
-            loadFromStorage() {
-                const stored = localStorage.getItem('minerComparison');
-                if (stored) {
-                    this.selectedMiners = JSON.parse(stored);
-                }
-            }
-
-            saveToStorage() {
-                localStorage.setItem('minerComparison', JSON.stringify(this.selectedMiners));
-            }
-
-            addMiner(miner) {
-                if (!this.selectedMiners.find(m => m.id === miner.id)) {
-                    this.selectedMiners.push(miner);
-                    this.saveToStorage();
-                    this.render();
-                    return true;
-                }
-                return false;
-            }
-
-            removeMiner(minerId) {
-                this.selectedMiners = this.selectedMiners.filter(m => m.id !== minerId);
-                this.saveToStorage();
-                this.render();
-            }
-
-            clearAll() {
-                this.selectedMiners = [];
-                this.saveToStorage();
-                this.render();
-            }
-
-            render() {
-                this.renderSelectedMiners();
-                this.renderComparison();
-            }
-
-            renderSelectedMiners() {
-                const container = document.getElementById('selected-miners');
-                container.innerHTML = '';
-
-                this.selectedMiners.forEach(miner => {
-                    const pill = document.createElement('div');
-                    pill.className = 'miner-pill';
-                    pill.innerHTML = `
-                        ${miner.name}
-                        <button class="remove-miner" onclick="comparisonTool.removeMiner(${miner.id})">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    `;
-                    container.appendChild(pill);
-                });
-            }
-
-            renderComparison() {
-                const hasMiners = this.selectedMiners.length > 0;
-                
-                // Show/hide empty state
-                document.getElementById('empty-state').style.display = hasMiners ? 'none' : 'block';
-                document.getElementById('comparison-grid').style.display = hasMiners ? 'grid' : 'none';
-                document.getElementById('comparison-table-container').style.display = hasMiners ? 'block' : 'none';
-                document.getElementById('profitability-comparison').style.display = hasMiners ? 'block' : 'none';
-
-                if (hasMiners) {
-                    this.renderComparisonGrid();
-                    this.renderComparisonTable();
-                    this.renderProfitabilityComparison();
-                }
-            }
-
-            renderComparisonGrid() {
-                const grid = document.getElementById('comparison-grid');
-                grid.innerHTML = '';
-
-                this.selectedMiners.forEach(miner => {
-                    const card = document.createElement('div');
-                    card.className = 'comparison-card';
-                    
-                    // Find if this miner is best in any category
-                    const isBestProfit = this.isBestInCategory('profit', miner.id);
-                    const isBestROI = this.isBestInCategory('roi', miner.id);
-                    const isBestEfficiency = this.isBestInCategory('efficiency', miner.id);
-
-                    card.innerHTML = `
-                        <img src="${miner.image}" alt="${miner.name}" class="miner-image-compare">
-                        <h3>${miner.name}</h3>
-                        <p style="color: #7f8c8d; margin-bottom: 15px;">${miner.manufacturer}</p>
-                        
-                        <div style="text-align: left; margin: 15px 0;">
-                            <p><strong>Hashrate:</strong> ${miner.hashrate}</p>
-                            <p><strong>Power:</strong> ${miner.power}</p>
-                            <p><strong>Daily Profit:</strong> $${miner.profit}</p>
-                            <p><strong>ROI:</strong> ${miner.roi} days</p>
-                        </div>
-
-                        ${isBestProfit ? '<div class="winner-badge">Best Profit</div>' : ''}
-                        ${isBestROI ? '<div class="winner-badge">Best ROI</div>' : ''}
-                        ${isBestEfficiency ? '<div class="winner-badge">Most Efficient</div>' : ''}
-
-                        <button onclick="comparisonTool.removeMiner(${miner.id})" style="
-                            background: #e74c3c;
-                            color: white;
-                            border: none;
-                            padding: 8px 15px;
-                            border-radius: 5px;
-                            cursor: pointer;
-                            margin-top: 15px;
-                            width: 100%;
-                        ">
-                            <i class="fas fa-times"></i> Remove
-                        </button>
-                    `;
-                    
-                    grid.appendChild(card);
-                });
-            }
-
-            renderComparisonTable() {
-                const table = document.getElementById('comparison-table');
-                const tbody = table.querySelector('tbody');
-                const thead = table.querySelector('thead tr');
-                
-                // Clear existing content
-                thead.innerHTML = '<th>Specification</th>';
-                tbody.innerHTML = '';
-
-                // Add miner headers
-                this.selectedMiners.forEach(miner => {
-                    const th = document.createElement('th');
-                    th.textContent = miner.name;
-                    thead.appendChild(th);
-                });
-
-                // Define comparison rows
-                const comparisonRows = [
-                    { label: 'Manufacturer', key: 'manufacturer' },
-                    { label: 'Algorithm', key: 'algorithm' },
-                    { label: 'Hashrate', key: 'hashrate' },
-                    { label: 'Power Consumption', key: 'power' },
-                    { label: 'Noise Level', key: 'noise' },
-                    { label: 'Price', key: 'price', format: (val) => `$${val}` },
-                    { label: 'Daily Profit', key: 'profit', format: (val) => `$${val}` },
-                    { label: 'ROI Period', key: 'roi', format: (val) => `${val} days` },
-                    { label: 'Release Year', key: 'release' }
-                ];
-
-                // Add comparison rows
-                comparisonRows.forEach(row => {
-                    const tr = document.createElement('tr');
-                    const tdLabel = document.createElement('td');
-                    tdLabel.textContent = row.label;
-                    tdLabel.style.fontWeight = 'bold';
-                    tr.appendChild(tdLabel);
-
-                    this.selectedMiners.forEach(miner => {
-                        const td = document.createElement('td');
-                        let value = miner[row.key];
-                        if (row.format) {
-                            value = row.format(value);
-                        }
-                        td.textContent = value;
-                        
-                        // Highlight best values
-                        if (row.key === 'profit' && this.isBestInCategory('profit', miner.id)) {
-                            td.innerHTML += ' <span class="winner-badge">Best</span>';
-                        } else if (row.key === 'roi' && this.isBestInCategory('roi', miner.id)) {
-                            td.innerHTML += ' <span class="winner-badge">Best</span>';
-                        }
-                        
-                        tr.appendChild(td);
-                    });
-
-                    tbody.appendChild(tr);
-                });
-            }
-
-            renderProfitabilityComparison() {
-                const container = document.getElementById('profitability-comparison');
-                const grid = container.querySelector('div');
-                grid.innerHTML = '';
-
-                const metrics = [
-                    { label: 'Most Profitable', key: 'profit', best: 'highest' },
-                    { label: 'Fastest ROI', key: 'roi', best: 'lowest' },
-                    { label: 'Best Efficiency', key: 'efficiency', best: 'highest' }
-                ];
-
-                metrics.forEach(metric => {
-                    const bestMiner = this.getBestMiner(metric.key, metric.best);
-                    if (bestMiner) {
-                        const card = document.createElement('div');
-                        card.style.background = 'white';
-                        card.style.padding = '20px';
-                        card.style.borderRadius = '10px';
-                        card.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                        card.style.textAlign = 'center';
-
-                        let value = bestMiner[metric.key];
-                        if (metric.key === 'efficiency') {
-                            value = (parseInt(bestMiner.power) / parseInt(bestMiner.hashrate)).toFixed(2) + ' W/TH';
-                        } else if (metric.key === 'profit') {
-                            value = `$${value}/day`;
-                        } else if (metric.key === 'roi') {
-                            value = `${value} days`;
-                        }
-
-                        card.innerHTML = `
-                            <h4 style="color: #2c3e50; margin-bottom: 10px;">${metric.label}</h4>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #2ecc71; margin-bottom: 10px;">
-                                ${bestMiner.name}
-                            </div>
-                            <div style="color: #7f8c8d;">${value}</div>
-                        `;
-
-                        grid.appendChild(card);
-                    }
-                });
-            }
-
-            isBestInCategory(category, minerId) {
-                const miner = this.selectedMiners.find(m => m.id === minerId);
-                if (!miner) return false;
-
-                if (category === 'profit') {
-                    return miner.profit === Math.max(...this.selectedMiners.map(m => m.profit));
-                } else if (category === 'roi') {
-                    return miner.roi === Math.min(...this.selectedMiners.map(m => m.roi));
-                } else if (category === 'efficiency') {
-                    const efficiency = parseInt(miner.power) / parseInt(miner.hashrate);
-                    const efficiencies = this.selectedMiners.map(m => parseInt(m.power) / parseInt(m.hashrate));
-                    return efficiency === Math.min(...efficiencies);
-                }
-                return false;
-            }
-
-            getBestMiner(category, type) {
-                if (this.selectedMiners.length === 0) return null;
-
-                if (category === 'profit') {
-                    return this.selectedMiners.reduce((best, current) => 
-                        current.profit > best.profit ? current : best
-                    );
-                } else if (category === 'roi') {
-                    return this.selectedMiners.reduce((best, current) => 
-                        current.roi < best.roi ? current : best
-                    );
-                } else if (category === 'efficiency') {
-                    return this.selectedMiners.reduce((best, current) => {
-                        const currentEff = parseInt(current.power) / parseInt(current.hashrate);
-                        const bestEff = parseInt(best.power) / parseInt(best.hashrate);
-                        return currentEff < bestEff ? current : best;
-                    });
-                }
-                return null;
-            }
-        }
-
-        // Global comparison tool instance
-        const comparisonTool = new MinerComparison();
-
-        // Utility functions
-        function addRandomMiner() {
-            const miners = getAllMiners();
-            const randomMiner = miners[Math.floor(Math.random() * miners.length)];
-            comparisonTool.addMiner(randomMiner);
-        }
-
-        function clearComparison() {
-            if (confirm('Are you sure you want to clear all miners from comparison?')) {
-                comparisonTool.clearAll();
-            }
-        }
-
-        // Load comparison when page opens
-        document.addEventListener('DOMContentLoaded', function() {
-            comparisonTool.render();
-        });
-    </script>
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="crypto-api.js"></script>
+    <script src="comparison.js"></script>
 </body>
 </html>
