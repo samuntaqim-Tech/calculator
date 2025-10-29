@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Miners Profit - Cryptocurrency Mining Hardware Prices & Profitability Calculator</title>
-    <meta name="description" content="Best Miners Profit - Compare 150+ ASIC miners, GPU miners, cloud mining profitability. Real-time cryptocurrency mining calculator with prices in USD, EUR, PKR, AED.">
-    <meta name="keywords" content="Best Miners Profit, ASIC miner, Bitcoin mining, Ethereum mining, cryptocurrency mining, mining profitability, cloud mining, mining calculator, GPU mining">
-    <meta name="author" content="Best Miners Profit">
+    <title>Best Miners Profit - Cryptocurrency Mining Profitability Calculator</title>
+    <meta name="description" content="Compare ASIC miners, GPU miners, cloud mining profitability. Real-time cryptocurrency mining calculator with prices in USD, EUR, PKR, AED.">
     
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4103650365925612" crossorigin="anonymous"></script>
@@ -14,28 +12,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Navigation -->
     <header>
         <nav class="navbar">
-            <div class="nav-brand">
-                <h1>🏆 Best Miners Profit</h1>
-            </div>
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="asic-miners.html">ASIC Miners</a>
-                <a href="gpu-miners.html">GPU Miners</a>
-                <a href="profitability.html">Profitability</a>
-                <a href="comparison.html">Comparison</a>
-                <a href="mining-pools.html">Mining Pools</a>
-                <a href="cloud-mining.html">Cloud Mining</a>
-                <a href="news.html">News</a>
-                <select id="currencySelector">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="PKR">PKR</option>
-                    <option value="AED">AED</option>
-                </select>
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>🏆 Best Miners Profit</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="asic-miners.html">ASIC Miners</a>
+                    <a href="gpu-miners.html">GPU Miners</a>
+                    <a href="profitability.html">Profitability</a>
+                    <a href="comparison.html">Comparison</a>
+                    <a href="mining-pools.html">Mining Pools</a>
+                    <select id="currencySelector">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="PKR">PKR</option>
+                        <option value="AED">AED</option>
+                    </select>
+                </div>
             </div>
         </nav>
     </header>
@@ -53,107 +51,73 @@
                         <div class="ticker-item">
                             <span class="crypto-name">BTC:</span>
                             <span class="crypto-price" id="btcPrice">$43,250</span>
+                            <span class="crypto-change positive">+2.5%</span>
                         </div>
                         <div class="ticker-item">
                             <span class="crypto-name">ETH:</span>
                             <span class="crypto-price" id="ethPrice">$2,340</span>
+                            <span class="crypto-change positive">+1.8%</span>
                         </div>
-                        <!-- REPLACE THIS ENTIRE SECTION -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Maximize Your Crypto Mining Profits</h1>
-            <p>Real-time prices for 150+ ASIC & GPU miners with accurate profitability calculations</p>
-            
-            <!-- ADD LIVE CRYPTO TICKER HERE -->
-            <div class="crypto-ticker">
-                <div class="ticker-container">
-                    <div class="ticker-item">
-                        <span class="crypto-name">BTC:</span>
-                        <span class="crypto-price" id="btcPrice">$43,250</span>
-                        <span class="crypto-change positive">+2.5%</span>
-                    </div>
-                    <div class="ticker-item">
-                        <span class="crypto-name">ETH:</span>
-                        <span class="crypto-price" id="ethPrice">$2,340</span>
-                        <span class="crypto-change positive">+1.8%</span>
-                    </div>
-                    <div class="ticker-item">
-                        <span class="crypto-name">LTC:</span>
-                        <span class="crypto-price" id="ltcPrice">$72.50</span>
-                        <span class="crypto-change negative">-0.5%</span>
+                        <div class="ticker-item">
+                            <span class="crypto-name">LTC:</span>
+                            <span class="crypto-price" id="ltcPrice">$72.50</span>
+                            <span class="crypto-change negative">-0.5%</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- ADD AFTER HERO SECTION -->
-<section class="quick-calculator-section">
-    <div class="container">
-        <h2>Quick Profitability Check</h2>
-        <div class="calculator-form">
-            <div class="form-group">
-                <label>Select Miner:</label>
-                <select id="quickMinerSelect">
-                    <option value="">Choose a miner...</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Electricity Cost ($/kWh):</label>
-                <input type="number" id="quickElectricity" value="0.12" step="0.01">
-            </div>
-            <button class="btn btn-primary" onclick="calculateQuickProfit()">Calculate</button>
-            <div class="quick-result" id="quickResult"></div>
-        </div>
-    </div>
-</section>
-            <!-- ADD FEATURED MINERS SECTION -->
-<section class="featured-miners">
-    <div class="container">
-        <h2>🔥 Trending Miners</h2>
-        <div class="miners-grid" id="featuredMinersGrid">
-            <!-- Dynamic content will load here -->
-        </div>
-    </div>
-</section>
-            
-            <div class="hero-buttons">
-                <a href="asic-miners.html" class="btn btn-primary">View ASIC Miners</a>
-                <a href="profitability.html" class="btn btn-secondary">Profitability Calculator</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Featured Miners -->
-    <section class="featured-miners">
-        <div class="container">
-            <h2>🔥 Trending Miners</h2>
-            <div class="miners-grid" id="featuredMiners">
-                <!-- Dynamic content will be loaded here -->
+                
+                <div class="hero-buttons">
+                    <a href="asic-miners.html" class="btn btn-primary">View ASIC Miners</a>
+                    <a href="profitability.html" class="btn btn-secondary">Profitability Calculator</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Quick Calculator -->
-    <section class="quick-calculator">
+    <section class="quick-calculator-section">
         <div class="container">
-            <h2>⚡ Quick Profitability Check</h2>
+            <h2>Quick Profitability Check</h2>
             <div class="calculator-form">
                 <div class="form-group">
                     <label>Select Miner:</label>
-                    <select id="minerSelect">
+                    <select id="quickMinerSelect">
                         <option value="">Choose a miner...</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Electricity Cost ($/kWh):</label>
-                    <input type="number" id="electricityCost" value="0.12" step="0.01">
+                    <input type="number" id="quickElectricity" value="0.12" step="0.01">
                 </div>
-                <div class="result" id="quickResult">
-                    Select a miner to see profitability
-                </div>
+                <button class="btn btn-primary" onclick="calculateQuickProfit()">Calculate Profit</button>
+                <div class="quick-result" id="quickResult" style="display: none;"></div>
             </div>
         </div>
     </section>
+
+    <!-- Featured Miners -->
+    <section class="featured-miners">
+        <div class="container">
+            <h2>🔥 Trending Miners</h2>
+            <div class="miners-grid" id="featuredMinersGrid">
+                <!-- Miners will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Container -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4103650365925612"
+             data-ad-slot="6690655170"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -162,7 +126,6 @@
         </div>
     </footer>
 
-    <script src="crypto-api.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
