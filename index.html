@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIC Miner Value - Cryptocurrency Mining Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .navbar { background: #2c3e50; padding: 1rem; color: white; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .calculator { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #3498db; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+        .results { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .price-ticker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+        .price-item { background: white; padding: 15px; border-radius: 5px; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>ASIC Miner Value</h1>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="calculator">
+            <h2>Mining Profitability Calculator</h2>
+            
+            <div class="form-group">
+                <label>Cryptocurrency:</label>
+                <select id="coinSelect">
+                    <option value="bitcoin">Bitcoin (BTC)</option>
+                    <option value="ethereum">Ethereum (ETH)</option>
+                    <option value="monero">Monero (XMR)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Hashrate (TH/s):</label>
+                <input type="number" id="hashrate" value="100">
+            </div>
+
+            <div class="form-group">
+                <label>Power Consumption (W):</label>
+                <input type="number" id="power" value="3250">
+            </div>
+
+            <div class="form-group">
+                <label>Electricity Cost ($/kWh):</label>
+                <input type="number" id="electricityCost" value="0.12" step="0.01">
+            </div>
+
+            <button onclick="calculateProfit()">Calculate Profitability</button>
+
+            <div class="results">
+                <h3>Results</h3>
+                <div>Daily Revenue: <span id="dailyRevenue">$0.00</span></div>
+                <div>Daily Profit: <span id="dailyProfit">$0.00</span></div>
+                <div>Monthly Profit: <span id="monthlyProfit">$0.00</span></div>
+            </div>
+        </div>
+
+        <div class="price-ticker">
+            <div class="price-item">
+                <div>Bitcoin</div>
+                <div id="btcPrice">$64,283</div>
+            </div>
+            <div class="price-item">
+                <div>Ethereum</div>
+                <div id="ethPrice">$3,415</div>
+            </div>
+            <div class="price-item">
+                <div>Monero</div>
+                <div id="xmrPrice">$165</div>
+            </div>
+            <div class="price-item">
+                <div>Litecoin</div>
+                <div id="ltcPrice">$82</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateProfit() {
+            const hashrate = document.getElementById('hashrate').value;
+            const power = document.getElementById('power').value;
+            const electricityCost = document.getElementById('electricityCost').value;
+            
+            // Simple calculation
+            const dailyRevenue = (hashrate * 0.15).toFixed(2);
+            const dailyCost = ((power * 24 * electricityCost) / 1000).toFixed(2);
+            const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
+            const monthlyProfit = (dailyProfit * 30).toFixed(2);
+            
+            document.getElementById('dailyRevenue').textContent = '$' + dailyRevenue;
+            document.getElementById('dailyProfit').textContent = '$' + dailyProfit;
+            document.getElementById('monthlyProfit').textContent = '$' + monthlyProfit;
+        }
+
+        // Load initial prices
+        calculateProfit();
+    </script>
+</body>
+</html>
