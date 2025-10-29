@@ -85,6 +85,35 @@
                     </div>
                 </div>
             </div>
+            <!-- ADD AFTER HERO SECTION -->
+<section class="quick-calculator-section">
+    <div class="container">
+        <h2>Quick Profitability Check</h2>
+        <div class="calculator-form">
+            <div class="form-group">
+                <label>Select Miner:</label>
+                <select id="quickMinerSelect">
+                    <option value="">Choose a miner...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Electricity Cost ($/kWh):</label>
+                <input type="number" id="quickElectricity" value="0.12" step="0.01">
+            </div>
+            <button class="btn btn-primary" onclick="calculateQuickProfit()">Calculate</button>
+            <div class="quick-result" id="quickResult"></div>
+        </div>
+    </div>
+</section>
+            <!-- ADD FEATURED MINERS SECTION -->
+<section class="featured-miners">
+    <div class="container">
+        <h2>🔥 Trending Miners</h2>
+        <div class="miners-grid" id="featuredMinersGrid">
+            <!-- Dynamic content will load here -->
+        </div>
+    </div>
+</section>
             
             <div class="hero-buttons">
                 <a href="asic-miners.html" class="btn btn-primary">View ASIC Miners</a>
