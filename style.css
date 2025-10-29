@@ -479,3 +479,134 @@ footer {
     color: #7f8c8d;
     font-weight: 600;
 }
+/* Miners Table Styles */
+.miners-table-section {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.miners-table-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.miners-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.miners-table th {
+    background: #34495e;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border: none;
+}
+
+.miners-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    color: #2c3e50;
+}
+
+.miners-table tr:hover {
+    background: #f8f9fa;
+}
+
+.miners-table .profit {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Miner Card Styles */
+.miner-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.miner-card:hover {
+    border-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.miner-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.miner-specs {
+    margin-bottom: 1rem;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.spec-label {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.spec-value {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.miner-profitability {
+    border-top: 2px solid #3498db;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.daily-profit {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 0.5rem;
+}
+
+.roi-period {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design for Miners Page */
+@media (max-width: 768px) {
+    .miners-table {
+        font-size: 0.9rem;
+    }
+    
+    .miners-table th,
+    .miners-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .miner-card {
+        padding: 1rem;
+    }
+    
+    .miner-card h4 {
+        font-size: 1.1rem;
+    }
+}
