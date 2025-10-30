@@ -3,33 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptocurrencies - ASIC Miner Value</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .navbar { background: #2c3e50; padding: 1rem; color: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .coin-card { background: white; padding: 20px; margin: 10px 0; border-radius: 5px; }
-    </style>
+    <title>Cryptocurrencies - Mineable Coins | ASIC Miner Value</title>
+    <meta name="description" content="List of all mineable cryptocurrencies with current prices, algorithms, and mining information.">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612/6690655170" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1>ASIC Miner Value - Coins</h1>
-        </div>
-    </nav>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">ASIC Miner Value</a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Profitability Calculator</a>
+                    <a href="miners.html" class="nav-link">ASIC Miners</a>
+                    <a href="coins.html" class="nav-link active">Cryptocurrencies</a>
+                    <a href="profitability.html" class="nav-link">Profitability Table</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="coin-card">
-            <h3>Bitcoin (BTC)</h3>
-            <p>Price: $64,283</p>
-            <p>Algorithm: SHA-256</p>
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h1 class="hero-title">Mineable Cryptocurrencies</h1>
+                <p class="hero-subtitle">All cryptocurrencies that can be mined with ASIC miners</p>
+            </div>
+
+            <div class="miners-section">
+                <table class="profitability-table">
+                    <thead>
+                        <tr>
+                            <th>Coin</th>
+                            <th>Algorithm</th>
+                            <th>Price</th>
+                            <th>Market Cap</th>
+                            <th>Network Hashrate</th>
+                            <th>Block Reward</th>
+                            <th>Mining Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bitcoin (BTC)</strong></td>
+                            <td>SHA-256</td>
+                            <td>$67,245</td>
+                            <td>$1.32T</td>
+                            <td>218 EH/s</td>
+                            <td>6.25 BTC</td>
+                            <td>27.55T</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bitcoin Cash (BCH)</strong></td>
+                            <td>SHA-256</td>
+                            <td>$412</td>
+                            <td>$8.1B</td>
+                            <td>2.8 EH/s</td>
+                            <td>6.25 BCH</td>
+                            <td>425G</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Litecoin (LTC)</strong></td>
+                            <td>Scrypt</td>
+                            <td>$84</td>
+                            <td>$6.2B</td>
+                            <td>525 TH/s</td>
+                            <td>12.5 LTC</td>
+                            <td>25.84M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dogecoin (DOGE)</strong></td>
+                            <td>Scrypt</td>
+                            <td>$0.15</td>
+                            <td>$21.5B</td>
+                            <td>650 TH/s</td>
+                            <td>10,000 DOGE</td>
+                            <td>12.45M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="coin-card">
-            <h3>Ethereum (ETH)</h3>
-            <p>Price: $3,415</p>
-            <p>Algorithm: Ethash</p>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ASIC Miner Value. All rights reserved.</p>
         </div>
-    </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
