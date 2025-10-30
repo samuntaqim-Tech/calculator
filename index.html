@@ -3,106 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC Miner Value - Cryptocurrency Mining Calculator</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .navbar { background: #2c3e50; padding: 1rem; color: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .calculator { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
-        .form-group { margin: 15px 0; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-        button { background: #3498db; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
-        .results { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .price-ticker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-        .price-item { background: white; padding: 15px; border-radius: 5px; text-align: center; }
-    </style>
+    <title>ASIC Miner Value - Cryptocurrency Mining Profitability Calculator</title>
+    <meta name="description" content="Live ASIC miner value, profitability calculator, and comparison. Find the most profitable Bitcoin miners with real-time data.">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612/6690655170" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">ASIC Miner Value</a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link active">Profitability Calculator</a>
+                    <a href="miners.html" class="nav-link">ASIC Miners</a>
+                    <a href="coins.html" class="nav-link">Cryptocurrencies</a>
+                    <a href="profitability.html" class="nav-link">Profitability Table</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
         <div class="container">
-            <h1>Best ASIC Miner Profit</h1>
+            <!-- Ad Banner -->
+            <div class="ad-banner">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-app-pub-4103650365925612/6690655170"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="hero">
+                <h1 class="hero-title">ASIC Miner Profitability Calculator</h1>
+                <p class="hero-subtitle">Calculate your mining profits in real-time</p>
+            </div>
+
+            <!-- Live Prices -->
+            <div class="prices-section">
+                <h2 class="section-title">Live Cryptocurrency Prices</h2>
+                <div class="prices-grid">
+                    <div class="price-card">
+                        <div class="coin-name">Bitcoin (BTC)</div>
+                        <div class="coin-price">$67,245.32</div>
+                        <div class="coin-change positive">+1.24%</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="coin-name">Ethereum (ETH)</div>
+                        <div class="coin-price">$3,512.67</div>
+                        <div class="coin-change positive">+0.89%</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="coin-name">Litecoin (LTC)</div>
+                        <div class="coin-price">$84.15</div>
+                        <div class="coin-change negative">-0.32%</div>
+                    </div>
+                    <div class="price-card">
+                        <div class="coin-name">Bitcoin Cash (BCH)</div>
+                        <div class="coin-price">$412.38</div>
+                        <div class="coin-change positive">+2.15%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculator -->
+            <div class="calculator-section">
+                <div class="calculator-grid">
+                    <div class="calculator-form">
+                        <h3 class="form-title">Mining Calculator</h3>
+                        
+                        <div class="form-group">
+                            <label for="minerSelect" class="form-label">Select ASIC Miner</label>
+                            <select id="minerSelect" class="form-select">
+                                <option value="">Choose a miner...</option>
+                                <option value="s19xp">Bitmain Antminer S19 XP (140TH) - $6,500</option>
+                                <option value="s19pro">Bitmain Antminer S19 Pro (110TH) - $3,200</option>
+                                <option value="s19jpro">Bitmain Antminer S19j Pro (104TH) - $2,800</option>
+                                <option value="whatsm50">Whatsminer M50 (118TH) - $3,800</option>
+                                <option value="s19">Bitmain Antminer S19 (95TH) - $2,500</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hashrate" class="form-label">Hashrate (TH/s)</label>
+                            <input type="number" id="hashrate" class="form-input" value="110" placeholder="Enter hashrate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="power" class="form-label">Power Consumption (W)</label>
+                            <input type="number" id="power" class="form-input" value="3250" placeholder="Enter power consumption">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="electricity" class="form-label">Electricity Cost ($/kWh)</label>
+                            <input type="number" id="electricity" class="form-input" value="0.12" step="0.01">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="poolfee" class="form-label">Pool Fee (%)</label>
+                            <input type="number" id="poolfee" class="form-input" value="1" step="0.1">
+                        </div>
+
+                        <button id="calculateBtn" class="calculate-btn">Calculate Profitability</button>
+                    </div>
+
+                    <div class="results-section">
+                        <h3 class="results-title">Profitability Results</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-label">Daily Revenue</span>
+                                <span class="result-value" id="dailyRevenue">$12.45</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Electricity Cost</span>
+                                <span class="result-value" id="dailyCost">$9.36</span>
+                            </div>
+                            <div class="result-item highlight">
+                                <span class="result-label">Daily Profit</span>
+                                <span class="result-value" id="dailyProfit">$3.09</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monthly Profit</span>
+                                <span class="result-value" id="monthlyProfit">$92.70</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Yearly Profit</span>
+                                <span class="result-value" id="yearlyProfit">$1,128.45</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">ROI Period</span>
+                                <span class="result-value" id="roiPeriod">346 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Miners -->
+            <div class="miners-section">
+                <h2 class="section-title">Most Profitable ASIC Miners</h2>
+                <div class="miners-table">
+                    <table class="profitability-table">
+                        <thead>
+                            <tr>
+                                <th>Miner</th>
+                                <th>Hashrate</th>
+                                <th>Power</th>
+                                <th>Noise</th>
+                                <th>Efficiency</th>
+                                <th>Profit 24h</th>
+                                <th>ROI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19 XP</strong></td>
+                                <td>140 TH/s</td>
+                                <td>3010 W</td>
+                                <td>75 dB</td>
+                                <td>21.5 J/TH</td>
+                                <td class="profit">$6.06</td>
+                                <td>412 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19 Pro</strong></td>
+                                <td>110 TH/s</td>
+                                <td>3250 W</td>
+                                <td>75 dB</td>
+                                <td>29.5 J/TH</td>
+                                <td class="profit">$4.82</td>
+                                <td>385 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Whatsminer M50</strong></td>
+                                <td>118 TH/s</td>
+                                <td>3276 W</td>
+                                <td>76 dB</td>
+                                <td>27.8 J/TH</td>
+                                <td class="profit">$5.12</td>
+                                <td>425 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19j Pro</strong></td>
+                                <td>104 TH/s</td>
+                                <td>3068 W</td>
+                                <td>75 dB</td>
+                                <td>29.5 J/TH</td>
+                                <td class="profit">$4.45</td>
+                                <td>398 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </nav>
+    </main>
 
-    <div class="container">
-        <div class="calculator">
-            <h2>Mining Profitability Calculator</h2>
-            
-            <div class="form-group">
-                <label>Cryptocurrency:</label>
-                <select id="coinSelect">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="monero">Monero (XMR)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Hashrate (TH/s):</label>
-                <input type="number" id="hashrate" value="100">
-            </div>
-
-            <div class="form-group">
-                <label>Power Consumption (W):</label>
-                <input type="number" id="power" value="3250">
-            </div>
-
-            <div class="form-group">
-                <label>Electricity Cost ($/kWh):</label>
-                <input type="number" id="electricityCost" value="0.12" step="0.01">
-            </div>
-
-            <button onclick="calculateProfit()">Calculate Profitability</button>
-
-            <div class="results">
-                <h3>Results</h3>
-                <div>Daily Revenue: <span id="dailyRevenue">$0.00</span></div>
-                <div>Daily Profit: <span id="dailyProfit">$0.00</span></div>
-                <div>Monthly Profit: <span id="monthlyProfit">$0.00</span></div>
-            </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ASIC Miner Value. All rights reserved.</p>
+            <p>Data is updated in real-time from various cryptocurrency exchanges.</p>
         </div>
+    </footer>
 
-        <div class="price-ticker">
-            <div class="price-item">
-                <div>Bitcoin</div>
-                <div id="btcPrice">$64,283</div>
-            </div>
-            <div class="price-item">
-                <div>Ethereum</div>
-                <div id="ethPrice">$3,415</div>
-            </div>
-            <div class="price-item">
-                <div>Monero</div>
-                <div id="xmrPrice">$165</div>
-            </div>
-            <div class="price-item">
-                <div>Litecoin</div>
-                <div id="ltcPrice">$82</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function calculateProfit() {
-            const hashrate = document.getElementById('hashrate').value;
-            const power = document.getElementById('power').value;
-            const electricityCost = document.getElementById('electricityCost').value;
-            
-            // Simple calculation
-            const dailyRevenue = (hashrate * 0.15).toFixed(2);
-            const dailyCost = ((power * 24 * electricityCost) / 1000).toFixed(2);
-            const dailyProfit = (dailyRevenue - dailyCost).toFixed(2);
-            const monthlyProfit = (dailyProfit * 30).toFixed(2);
-            
-            document.getElementById('dailyRevenue').textContent = '$' + dailyRevenue;
-            document.getElementById('dailyProfit').textContent = '$' + dailyProfit;
-            document.getElementById('monthlyProfit').textContent = '$' + monthlyProfit;
-        }
-
-        // Load initial prices
-        calculateProfit();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
