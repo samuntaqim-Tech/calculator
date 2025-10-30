@@ -3,35 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASIC Miners - ASIC Miner Value</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .navbar { background: #2c3e50; padding: 1rem; color: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .miner-card { background: white; padding: 20px; margin: 10px 0; border-radius: 5px; }
-    </style>
+    <title>ASIC Miners - Compare Mining Hardware | ASIC Miner Value</title>
+    <meta name="description" content="Compare all ASIC miners profitability, specifications, and prices. Bitmain Antminer, Whatsminer, and other mining hardware.">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4103650365925612/6690655170" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1>ASIC Miner Value - Miners</h1>
-        </div>
-    </nav>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">ASIC Miner Value</a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Profitability Calculator</a>
+                    <a href="miners.html" class="nav-link active">ASIC Miners</a>
+                    <a href="coins.html" class="nav-link">Cryptocurrencies</a>
+                    <a href="profitability.html" class="nav-link">Profitability Table</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="miner-card">
-            <h3>Antminer S19 XP</h3>
-            <p>Hashrate: 140 TH/s</p>
-            <p>Power: 3010W</p>
-            <p>Profit: $6.06/day</p>
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h1 class="hero-title">ASIC Miners Comparison</h1>
+                <p class="hero-subtitle">Compare all mining hardware specifications and profitability</p>
+            </div>
+
+            <div class="miners-section">
+                <div class="miners-table">
+                    <table class="profitability-table">
+                        <thead>
+                            <tr>
+                                <th>Miner Model</th>
+                                <th>Algorithm</th>
+                                <th>Hashrate</th>
+                                <th>Power</th>
+                                <th>Efficiency</th>
+                                <th>Noise</th>
+                                <th>Price</th>
+                                <th>Profit 24h</th>
+                                <th>ROI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19 XP</strong></td>
+                                <td>SHA-256</td>
+                                <td>140 TH/s</td>
+                                <td>3010 W</td>
+                                <td>21.5 J/TH</td>
+                                <td>75 dB</td>
+                                <td>$6,500</td>
+                                <td class="profit">$6.06</td>
+                                <td>412 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19 Pro</strong></td>
+                                <td>SHA-256</td>
+                                <td>110 TH/s</td>
+                                <td>3250 W</td>
+                                <td>29.5 J/TH</td>
+                                <td>75 dB</td>
+                                <td>$3,200</td>
+                                <td class="profit">$4.82</td>
+                                <td>385 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Whatsminer M50</strong></td>
+                                <td>SHA-256</td>
+                                <td>118 TH/s</td>
+                                <td>3276 W</td>
+                                <td>27.8 J/TH</td>
+                                <td>76 dB</td>
+                                <td>$3,800</td>
+                                <td class="profit">$5.12</td>
+                                <td>425 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19j Pro</strong></td>
+                                <td>SHA-256</td>
+                                <td>104 TH/s</td>
+                                <td>3068 W</td>
+                                <td>29.5 J/TH</td>
+                                <td>75 dB</td>
+                                <td>$2,800</td>
+                                <td class="profit">$4.45</td>
+                                <td>398 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bitmain Antminer S19</strong></td>
+                                <td>SHA-256</td>
+                                <td>95 TH/s</td>
+                                <td>3250 W</td>
+                                <td>34.2 J/TH</td>
+                                <td>75 dB</td>
+                                <td>$2,500</td>
+                                <td class="profit">$3.89</td>
+                                <td>455 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="miner-card">
-            <h3>Antminer S19 Pro</h3>
-            <p>Hashrate: 110 TH/s</p>
-            <p>Power: 3250W</p>
-            <p>Profit: $4.82/day</p>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ASIC Miner Value. All rights reserved.</p>
         </div>
-    </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
